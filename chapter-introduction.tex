@@ -2,11 +2,46 @@
 \chapter{Introduction}
 %======================================================================
 
-Problem statement, background, challenges, proposed solution...
+%Problem statement, background, challenges, proposed solution...
+
+Document retrieval traditionally relies on term-matching techniques such as BM25 to judge the relevance of documents in creating a ranking in response to a query.
+Unfortunately, the set of techniques based on this approach neglects to exploit rich semantic information embedded in these documents.
+For this reason, with the advent of neural networks, researchers have been actively pursuing ways to extract and use such semantic information in information retrieval.
+In this setup, a list of candidate documents are retrieved using a standard term-matching technique, which is then re-ranked with a custom neural model.
+
+However, despite active effort in this field of research, some researchers have recently voiced concern as to whether neural networks have truly contributed to progress in the field of information retrieval.
+\myworries{Yang et al. (2019) and other examples...}
+
+%\myworries
 
 \section{Contributions}
 
+The main contributions of this thesis can be summarized as follows:\\
+
+\begin{itemize}
+\item
+We present two innovations to successfully apply BERT to \textit{ad hoc} document retrieval with large improvements:\
+integrating sentence-level evidence to address the fact that BERT cannot process long spans posed by newswire documents, and exploiting cross-domain models of relevance for collections without sentence- or passage-level annotations.
+\item
+We explore through various error analysis experiments on the effects of cross-domain relevance transfer with BERT as well as the contributions of BM25 and sentence scores to the final document ranking.
+\item 
+With the proposed model, we establish state-of-the-art effectiveness on three standard TREC newswire collections at the time of writing.\
+\myworries{neural or otherwise}
+\item
+something about demo, TREC DL...
+
+\end{itemize}
+
 \section{Thesis Organization}
+
+The remainder of this thesis is organized in the following order:\
+\myworries{add link to actual chapters}
+Chapter 2 reviews related work in neural document retrieval, particularly applications of BERT to document retrieval.
+Chapter 3 motivates the approach with some background information on the task, and introduces the datasets used for both training and evaluation as well as metrics.
+Chapter 4 proposes an end-to-end pipeline for document retrieval with BERT by elaborating on the design decisions and challenges.
+\myworries{What about TREC DL? MS MARCO?}
+Chapter 5 describes the experimental setup, and presents the results on three newswire collections -- Robust04, Core17 and Core18.
+Chapter 6 concludes the thesis by summarizing the contributions and discussing future work.
 
 %In the beginning, there was $\pi$:
 %

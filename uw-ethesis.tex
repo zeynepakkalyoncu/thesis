@@ -115,7 +115,7 @@
     pdffitwindow=false,     % window fit to page when opened
     pdfstartview={FitH},    % fits the width of the page to the window
 %    pdftitle={uWaterloo\ LaTeX\ Thesis\ Template},    % title: CHANGE THIS TEXT!
-%    pdfauthor={Author},    % author: CHANGE THIS TEXT! and uncomment this line
+    pdfauthor={Zeynep Akkalyoncu Yilmaz},    % author: CHANGE THIS TEXT! and uncomment this line
 %    pdfsubject={Subject},  % subject: CHANGE THIS TEXT! and uncomment this line
 %    pdfkeywords={keyword1} {key2} {key3}, % list of keywords, and uncomment this line if desired
     pdfnewwindow=true,      % links in new window
@@ -215,6 +215,9 @@ description={Random vector: a location in n-dimensional Cartesian space, where e
  
 \makeglossaries
 
+%%% 
+\newcommand\myworries[1]{\textcolor{red}{#1}}
+
 %======================================================================
 %   L O G I C A L    D O C U M E N T
 % The logical document contains the main content of your thesis.
@@ -240,7 +243,11 @@ description={Random vector: a location in n-dimensional Cartesian space, where e
 % Tip 4: Putting each sentence on a new line is a way to simplify later editing.
 %----------------------------------------------------------------------
 \input{chapter-introduction.tex}
-\input{chapter-observations.tex}
+\input{chapter-related-work.tex}
+\input{chapter-relevance-transfer.tex}
+\input{chapter-experimental-results.tex}
+\input{chapter-conclusion.tex}
+
 
 %----------------------------------------------------------------------
 % END MATERIAL
@@ -280,7 +287,7 @@ description={Random vector: a location in n-dimensional Cartesian space, where e
 \chapter*{APPENDICES}
 \addcontentsline{toc}{chapter}{APPENDICES}
 % Appendices are just more chapters, with different labeling.
-\input{appendix-matlab_plots.tex}
+%\input{appendix-matlab_plots.tex}
 
 %----------------------------------------------------------------------
 \end{document} % end of logical document
