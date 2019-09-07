@@ -2,17 +2,57 @@
 \chapter{Introduction}
 %======================================================================
 
-%Problem statement, background, challenges, proposed solution...
+Document retrieval refers to the task of generating a ranking of typically unstructured text documents from a potentially large corpus $ D $ in response to a user query $ Q $.
+The query representation is matched against a previously produced inverted index of the collection to determine candidate documents and compute a similarity score for each document.
+The retrieved documents are returned in order of relevance based on some retrieval metric such as average precision (AP).
 
-Document retrieval traditionally relies on term-matching techniques such as BM25 to judge the relevance of documents in creating a ranking in response to a query.
-Unfortunately, the set of techniques based on this approach neglects to exploit rich semantic information embedded in these documents.
-For this reason, with the advent of neural networks, researchers have been actively pursuing ways to extract and use such semantic information in information retrieval.
-In this setup, a list of candidate documents are retrieved using a standard term-matching technique, which is then re-ranked with a custom neural model.
+Document retrieval systems traditionally rely on term-matching techniques, such as BM25, to judge the relevance of documents in a corpus.
+More specifically, these techniques favor documents that share the most common terms with the query.
+As a result, document retrieval systems may fail to detect documents that do not contain the exact query terms, but are nonetheless directly relevant.
+For example, ...
+\myworries{Add figure?}
 
-However, despite active effort in this field of research, some researchers have recently voiced concern as to whether neural networks have truly contributed to progress in the field of information retrieval.
-\myworries{Yang et al. (2019) and other examples...}
+The classic approach to document retrieval clearly neglects to exploit rich semantic information embedded in the document texts.
+This shortcoming has been the subject of NLP researchers for some time now:\
+\myworries{Examples...}
 
-%\myworries
+With the advent of deep learning, numerous neural models that extract semantic matching signals to aid in document retrieval have also been proposed to by-pass the need to manually engineer natural language features.
+These neural models are usually involved in multi-stage architectures where a list of candidate documents are retrieved with a standard bag-of-words term-matching technique as described above.
+The documents in this list are then rescored and reranked by the neural model.
+\myworries{Some notable examples include...}
+
+Despite growing interest in neural networks, some researchers have recently voiced concern as to whether their use has truly contributed to progress in the field of information retrieval \myworries{citation}, at least in the absence of large amounts of behavioral log data only available to search companies.
+...
+\myworries{Take stuff from their neural hype paper}
+
+One recent innovation that has changed the tide in NLP research has been massively pre-trained language models with its most popular example today being Bidirectional Encoder Representation Transformers (BERT) \cite{devlin2018bert}.
+BERT has achieved state-of-the-art results across a wide range of NLP tasks from question answering to machine translation.
+While BERT has enjoyed widespread adoption across the NLP community, its application in information retrieval research has been limited in comparison.
+\myworries{Why?}
+
+
+This thesis presents a novel way to successfully apply BERT to yield large improvements in ``ad hoc'' document retrieval on newswire articles.
+Applying BERT to document retrieval on newswire collections requires solving two fundamental challenges.
+First, relevance judgements are provided only at the document level in most collections.
+That is, given a query, we only know what documents are relevant, not which specific spans within the documents are.
+...
+Second, most newswire documents exceed the length that BERT was designed to handle.
+
+To address these challenges, we propose aggregating sentence-level evidence to rank documents instead of relying solely on document-level relevance judgements.
+We overcome the lack of sentence level judgements by leveraging sentence- or passage-level judgements available in document collections in other domains to fine-tune BERT models.
+Surprisingly, we demonstrate that models of relevance can be successfully transferred across domains.
+
+\myworries{Reproducibility}
+It is important to note that the representational power of neural networks come at the cost of challenges in interpretability.
+For this reason, ...
+
+\myworries{Integration challenges}
+This system also highlights the need to bridge the worlds of natural language processing and information retrieval from a software engineering perspective in order to benefit from both.
+On one hand, most deep learning toolkits today, including TensorFlow and PyTorch, are written in Python with a C++ backend.
+On the other hand, the open-source search library that facilitates document retrieval in our system as well as many others, Lucene, is implemented in Java, and hence runs on the Java Virtual Machine (JVM).
+Therefore, the integration between Python and the JVM presents a technical challenge to be addressed.
+
+\myworries{TREC DL?}
 
 \section{Contributions}
 
@@ -28,7 +68,9 @@ We explore through various error analysis experiments on the effects of cross-do
 With the proposed model, we establish state-of-the-art effectiveness on three standard TREC newswire collections at the time of writing.\
 \myworries{neural or otherwise}
 \item
-something about demo, TREC DL...
+We release an end-to-end pipeline that applies BERT to document retrieval over large document collections via integration with the open-source Anserini information retrieval toolkit.
+We elaborate on the technical challenges in the integration of NLP and IR capabilities, along with the design rationale behind our approach to tightly-coupled integration between Python to support neural networks and the Java Virtual Machine to support document retrieval using the open-source Lucene search library.
+\myworries{something about demo, TREC DL...}
 
 \end{itemize}
 
