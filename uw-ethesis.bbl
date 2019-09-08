@@ -1,4 +1,12 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{Cormack:2009:RRF:1571941.1572114}
+Gordon~V. Cormack, Charles L~A Clarke, and Stefan Buettcher.
+\newblock Reciprocal rank fusion outperforms condorcet and individual rank
+  learning methods.
+\newblock In {\em Proceedings of the 32Nd International ACM SIGIR Conference on
+  Research and Development in Information Retrieval}, SIGIR '09, pages
+  758--759, New York, NY, USA, 2009. ACM.
 
 \bibitem{deerwester1990indexing}
 Scott Deerwester, Susan~T Dumais, George~W Furnas, Thomas~K Landauer, and
@@ -21,6 +29,40 @@ Jiafeng Guo, Yixing Fan, Qingyao Ai, and W~Bruce Croft.
 \newblock A deep relevance matching model for ad-hoc retrieval.
 \newblock In {\em Proceedings of the 25th ACM International on Conference on
   Information and Knowledge Management}, pages 55--64. ACM, 2016.
+
+\bibitem{mikolov2013distributed}
+Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg~S Corrado, and Jeff Dean.
+\newblock Distributed representations of words and phrases and their
+  compositionality.
+\newblock In {\em Advances in neural information processing systems}, pages
+  3111--3119, 2013.
+
+\bibitem{nogueira2019passage}
+Rodrigo Nogueira and Kyunghyun Cho.
+\newblock Passage re-ranking with {BERT}.
+\newblock {\em arXiv:1901.04085}, 2019.
+
+\bibitem{pennington2014glove}
+Jeffrey Pennington, Richard Socher, and Christopher Manning.
+\newblock Glove: Global vectors for word representation.
+\newblock In {\em Proceedings of the 2014 conference on empirical methods in
+  natural language processing (EMNLP)}, pages 1532--1543, 2014.
+
+\bibitem{peters2018deep}
+Matthew~E Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark,
+  Kenton Lee, and Luke Zettlemoyer.
+\newblock Deep contextualized word representations.
+\newblock {\em arXiv preprint arXiv:1802.05365}, 2018.
+
+\bibitem{radford2019language}
+Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, and Ilya
+  Sutskever.
+\newblock Language models are unsupervised multitask learners.
+
+\bibitem{yang2019simple}
+Wei Yang, Haotian Zhang, and Jimmy Lin.
+\newblock Simple applications of bert for ad hoc document retrieval.
+\newblock {\em arXiv preprint arXiv:1903.10972}, 2019.
 
 \bibitem{zhao2010term}
 Le~Zhao and Jamie Callan.

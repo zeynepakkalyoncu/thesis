@@ -38,7 +38,7 @@
 
         \vspace*{2.0cm}
 
-        Waterloo, Ontario, Canada, 2018 \\
+        Waterloo, Ontario, Canada, 2019 \\
 
         \vspace*{1.0cm}
 
@@ -56,51 +56,51 @@
  
 % E X A M I N I N G   C O M M I T T E E (Required for Ph.D. theses only)
 % Remove or comment out the lines below to remove this page
-\begin{center}\textbf{Examining Committee Membership}\end{center}
-  \noindent
-The following served on the Examining Committee for this thesis. The decision of the Examining Committee is by majority vote.
-  \bigskip
-  
-  \noindent
-\begin{tabbing}
-Internal-External Member: \=  \kill % using longest text to define tab length
-External Examiner: \>  Bruce Bruce \\ 
-\> Professor, Dept. of Philosophy of Zoology, University of Wallamaloo \\
-\end{tabbing} 
-  \bigskip
-  
-  \noindent
-\begin{tabbing}
-Internal-External Member: \=  \kill % using longest text to define tab length
-Supervisor(s): \> Doris Johnson \\
-\> Professor, Dept. of Zoology, University of Waterloo \\
-\> Andrea Anaconda \\
-\> Professor Emeritus, Dept. of Zoology, University of Waterloo \\
-\end{tabbing}
-  \bigskip
-  
-  \noindent
-  \begin{tabbing}
-Internal-External Member: \=  \kill % using longest text to define tab length
-Internal Member: \> Pamela Python \\
-\> Professor, Dept. of Zoology, University of Waterloo \\
-\end{tabbing}
-  \bigskip
-  
-  \noindent
-\begin{tabbing}
-Internal-External Member: \=  \kill % using longest text to define tab length
-Internal-External Member: \> Deepa Thotta \\
-\> Professor, Dept. of Philosophy, University of Waterloo \\
-\end{tabbing}
-  \bigskip
-  
-  \noindent
-\begin{tabbing}
-Internal-External Member: \=  \kill % using longest text to define tab length
-Other Member(s): \> Leeping Fang \\
-\> Professor, Dept. of Fine Art, University of Waterloo \\
-\end{tabbing}
+%\begin{center}\textbf{Examining Committee Membership}\end{center}
+%  \noindent
+%The following served on the Examining Committee for this thesis. The decision of the Examining Committee is by majority vote.
+%  \bigskip
+%  
+%  \noindent
+%\begin{tabbing}
+%Internal-External Member: \=  \kill % using longest text to define tab length
+%External Examiner: \>  Bruce Bruce \\ 
+%\> Professor, Dept. of Philosophy of Zoology, University of Wallamaloo \\
+%\end{tabbing} 
+%  \bigskip
+%  
+%  \noindent
+%\begin{tabbing}
+%Internal-External Member: \=  \kill % using longest text to define tab length
+%Supervisor(s): \> Doris Johnson \\
+%\> Professor, Dept. of Zoology, University of Waterloo \\
+%\> Andrea Anaconda \\
+%\> Professor Emeritus, Dept. of Zoology, University of Waterloo \\
+%\end{tabbing}
+%  \bigskip
+%  
+%  \noindent
+%  \begin{tabbing}
+%Internal-External Member: \=  \kill % using longest text to define tab length
+%Internal Member: \> Pamela Python \\
+%\> Professor, Dept. of Zoology, University of Waterloo \\
+%\end{tabbing}
+%  \bigskip
+%  
+%  \noindent
+%\begin{tabbing}
+%Internal-External Member: \=  \kill % using longest text to define tab length
+%Internal-External Member: \> Deepa Thotta \\
+%\> Professor, Dept. of Philosophy, University of Waterloo \\
+%\end{tabbing}
+%  \bigskip
+%  
+%  \noindent
+%\begin{tabbing}
+%Internal-External Member: \=  \kill % using longest text to define tab length
+%Other Member(s): \> Leeping Fang \\
+%\> Professor, Dept. of Fine Art, University of Waterloo \\
+%\end{tabbing}
 
 \cleardoublepage
 
@@ -108,13 +108,13 @@ Other Member(s): \> Leeping Fang \\
 % -------------------------------
   % The following is a sample Delaration Page as provided by the GSO
   % December 13th, 2006.  It is designed for an electronic thesis.
-  \noindent
-I hereby declare that I am the sole author of this thesis. This is a true copy of the thesis, including any required final revisions, as accepted by my examiners.
-
-  \bigskip
-  
-  \noindent
-I understand that my thesis may be made electronically available to the public.
+%  \noindent
+%I hereby declare that I am the sole author of this thesis. This is a true copy of the thesis, including any required final revisions, as accepted by my examiners.
+%
+%  \bigskip
+%  
+%  \noindent
+%I understand that my thesis may be made electronically available to the public.
 
 \cleardoublepage
 
@@ -123,34 +123,34 @@ I understand that my thesis may be made electronically available to the public.
 
 \begin{center}\textbf{Abstract}\end{center}
 Standard bag-of-words term-matching techniques in document retrieval fail to exploit rich semantic information embedded in the document texts.
-We propose adapting BERT as a neural reranker for document retrieval with large improvements on news articles.
-We are faced with two fundamental challenges:\
+One promising recent trend in facilitating context-aware semantic matching has been the development of massively pretrained language models, culminating in BERT as its most popular example today.
+In this work, we propose adapting BERT as a neural reranker for document retrieval with large improvements on news articles.
+Two fundamental issues arise in applying BERT to ``ad hoc'' document retrieval on newswire collections:\
 relevance judgements in existing test collections are provided only at the document level, and documents often exceed the length that BERT was designed to handle.
 To overcome these challenges, we compute and aggregate sentence-level relevance scores to rank documents.
-We solve the problem of lack of appropriate relevance judgements by leveraging sentence-level and passage-level relevance judgements available in collections from other domains to capture cross-domain
-notions of relevance, and can be directly used
-for ranking news articles.
-By leveraging semantic cues learned across various domains, we propose a model that achieves state-of-the-art results across three standard newswire collections.
+We solve the problem of lack of appropriate relevance judgements by leveraging sentence-level and passage-level relevance judgements available in collections from other domains to capture cross-domain notions of relevance.
+We demonstrate that models of relevance can be transferred across domains.
+By leveraging semantic cues learned across various domains, we propose a model that achieves state-of-the-art results across three standard TREC newswire collections.
 We explore the effects of cross-domain relevance transfer, and trade-offs between using document and sentence scores for document ranking.
-We also present an end-to-end document retrieval system that incorporates the open-source Anserini information retrieval toolkit, discussing the technical challenges involved in the integration of NLP and IR capabilities.
+We also present an end-to-end document retrieval system that incorporates the open-source Anserini information retrieval toolkit, discussing the related technical challenges and design decisions.
 
 \cleardoublepage
 
 % A C K N O W L E D G E M E N T S
 % -------------------------------
 
-\begin{center}\textbf{Acknowledgements}\end{center}
-
-I would like to thank all the little people who made this thesis possible.
-\cleardoublepage
+%\begin{center}\textbf{Acknowledgements}\end{center}
+%
+%I would like to thank all the little people who made this thesis possible.
+%\cleardoublepage
 
 % D E D I C A T I O N
 % -------------------
 
-\begin{center}\textbf{Dedication}\end{center}
-
-This is dedicated to the one I love.
-\cleardoublepage
+%\begin{center}\textbf{Dedication}\end{center}
+%
+%This is dedicated to the one I love.
+%\cleardoublepage
 
 % T A B L E   O F   C O N T E N T S
 % ---------------------------------
