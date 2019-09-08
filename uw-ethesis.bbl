@@ -1,5 +1,12 @@
 \begin{thebibliography}{1}
 
+\bibitem{deerwester1990indexing}
+Scott Deerwester, Susan~T Dumais, George~W Furnas, Thomas~K Landauer, and
+  Richard Harshman.
+\newblock Indexing by latent semantic analysis.
+\newblock {\em Journal of the American society for information science},
+  41(6):391--407, 1990.
+
 \bibitem{devlin2018bert}
 Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
 \newblock {BERT}:\ {P}re-training of deep bidirectional transformers for
@@ -9,19 +16,16 @@ Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
   Technologies, Volume 1 (Long and Short Papers)}, pages 4171--4186,
   Minneapolis, Minnesota, June 2019.
 
-\bibitem{goossens.book}
-Michel Goossens, Frank Mittelbach, and Alexander Samarin.
-\newblock {\em The \LaTeX\ Companion}.
-\newblock Addison-Wesley, Reading, Massachusetts, 1994.
+\bibitem{guo2016deep}
+Jiafeng Guo, Yixing Fan, Qingyao Ai, and W~Bruce Croft.
+\newblock A deep relevance matching model for ad-hoc retrieval.
+\newblock In {\em Proceedings of the 25th ACM International on Conference on
+  Information and Knowledge Management}, pages 55--64. ACM, 2016.
 
-\bibitem{knuth.book}
-Donald Knuth.
-\newblock {\em The \TeX book}.
-\newblock Addison-Wesley, Reading, Massachusetts, 1986.
-
-\bibitem{lamport.book}
-Leslie Lamport.
-\newblock {\em \LaTeX\ --- A Document Preparation System}.
-\newblock Addison-Wesley, Reading, Massachusetts, second edition, 1994.
+\bibitem{zhao2010term}
+Le~Zhao and Jamie Callan.
+\newblock Term necessity prediction.
+\newblock In {\em Proceedings of the 19th ACM international conference on
+  Information and knowledge management}, pages 259--268. ACM, 2010.
 
 \end{thebibliography}

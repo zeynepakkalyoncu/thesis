@@ -122,8 +122,17 @@ I understand that my thesis may be made electronically available to the public.
 % ---------------
 
 \begin{center}\textbf{Abstract}\end{center}
-
-...
+Standard bag-of-words term-matching techniques in document retrieval fail to exploit rich semantic information embedded in the document texts.
+We propose adapting BERT as a neural reranker for document retrieval with large improvements on news articles.
+We are faced with two fundamental challenges:\
+relevance judgements in existing test collections are provided only at the document level, and documents often exceed the length that BERT was designed to handle.
+To overcome these challenges, we compute and aggregate sentence-level relevance scores to rank documents.
+We solve the problem of lack of appropriate relevance judgements by leveraging sentence-level and passage-level relevance judgements available in collections from other domains to capture cross-domain
+notions of relevance, and can be directly used
+for ranking news articles.
+By leveraging semantic cues learned across various domains, we propose a model that achieves state-of-the-art results across three standard newswire collections.
+We explore the effects of cross-domain relevance transfer, and trade-offs between using document and sentence scores for document ranking.
+We also present an end-to-end document retrieval system that incorporates the open-source Anserini information retrieval toolkit, discussing the technical challenges involved in the integration of NLP and IR capabilities.
 
 \cleardoublepage
 
