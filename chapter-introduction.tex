@@ -1,6 +1,7 @@
 %======================================================================
 \chapter{Introduction}
 %======================================================================
+\label{intro}
 
 Document retrieval refers to the task of generating a ranking of documents from a large corpus $ D $ in response to a query $ Q $.
 In a typical document retrieval pipeline, an inverted index is constructed in advance from the collection, which often comprises unstructured text documents, for fast access during retrieval.
@@ -73,50 +74,23 @@ The main contributions of this thesis can be summarized as follows:\\
 \item
 We present two innovations to successfully apply BERT to \textit{ad hoc} document retrieval with large improvements:\
 integrating sentence-level evidence to address the fact that BERT cannot process long spans posed by newswire documents, and exploiting cross-domain models of relevance for collections without sentence- or passage-level annotations.
-\item
-We explore through various error analysis experiments the effects of cross-domain relevance transfer with BERT as well as the contributions of BM25 and sentence scores to the final document ranking.
-\item 
 With the proposed model, we establish state-of-the-art effectiveness on three standard TREC newswire collections at the time of writing.
 Our results on Robust04 exceed the previous highest known score of 0.3686 \cite{Cormack:2009:RRF:1571941.1572114} with a non-neural method based on ensembles, which has stood unchallenged for ten years.
 \item
-We release an end-to-end pipeline that applies BERT to document retrieval over large document collections via integration with the open-source Anserini information retrieval toolkit.
+We explore through various error analysis experiments the effects of cross-domain relevance transfer with BERT as well as the contributions of BM25 and sentence scores to the final document ranking.
+\myworries{Elaborate more?}
+\item
+We release an end-to-end pipeline, Birch\footnote{https://github.com/castorini/birch}, that applies BERT to document retrieval over large document collections via integration with the open-source Anserini information retrieval toolkit.
+An accompanying Docker image is also included to ensure that anyone can easily deploy and test our system.
 We elaborate on the technical challenges in the integration of NLP and IR capabilities, and the rationale behind design decisions.
 \end{itemize}
 
 \section{Thesis Organization}
 
 \myworries{Add link to actual chapters}
-
 The remainder of this thesis is organized in the following order:\
 Chapter 2 reviews related work in neural document retrieval and transfer learning, particularly applications of BERT to document retrieval.
 Chapter 3 motivates the approach with some background information on the task, and introduces the datasets used for both training and evaluation as well as metrics.
 Chapter 4 proposes an end-to-end pipeline for document retrieval with BERT by elaborating on the design decisions and challenges.
 Chapter 5 describes the experimental setup, and presents the results on three newswire collections -- Robust04, Core17 and Core18.
 Chapter 6 concludes the thesis by summarizing the contributions and discussing future work.
-
-%In the beginning, there was $\pi$:
-%
-%\begin{equation}
-%   e^{\pi i} + 1 = 0  \label{eqn_pi}
-%\end{equation}
-%A \gls{computer} could compute $\pi$ all day long. In fact, subsets of digits of $\pi$'s decimal approximation would make a good source for psuedo-random vectors, \gls{rvec} . 
-%
-%%----------------------------------------------------------------------
-%\section{State of the Art}
-%%----------------------------------------------------------------------
-%
-%See equation \ref{eqn_pi} on page \pageref{eqn_pi}.\footnote{A famous equation.}
-%
-%\section{Some Meaningless Stuff}
-%
-%The credo of the \gls{aaaaz} was, for several years, several paragraphs of gibberish, until the \gls{dingledorf} responsible for the \gls{aaaaz} Web site realized his mistake:
-%
-%"Velit dolor illum facilisis zzril ipsum, augue odio, accumsan ea augue molestie lobortis zzril laoreet ex ad, adipiscing nulla. Veniam dolore, vel te in dolor te, feugait dolore ex vel erat duis nostrud diam commodo ad eu in consequat esse in ut wisi. Consectetuer dolore feugiat wisi eum dignissim tincidunt vel, nostrud, at vulputate eum euismod, diam minim eros consequat lorem aliquam et ad. Feugait illum sit suscipit ut, tation in dolore euismod et iusto nulla amet wisi odio quis nisl feugiat adipiscing luptatum minim nisl, quis, erat, dolore. Elit quis sit dolor veniam blandit ullamcorper ex, vero nonummy, duis exerci delenit ullamcorper at feugiat ullamcorper, ullamcorper elit vulputate iusto esse luptatum duis autem. Nulla nulla qui, te praesent et at nisl ut in consequat blandit vel augue ut.
-%
-%Illum suscipit delenit commodo augue exerci magna veniam hendrerit dignissim duis ut feugait amet dolor dolor suscipit iriure veniam. Vel quis enim vulputate nulla facilisis volutpat vel in, suscipit facilisis dolore ut veniam, duis facilisi wisi nulla aliquip vero praesent nibh molestie consectetuer nulla. Wisi nibh exerci hendrerit consequat, nostrud lobortis ut praesent dignissim tincidunt enim eum accumsan. Lorem, nonummy duis iriure autem feugait praesent, duis, accumsan tation enim facilisi qui te dolore magna velit, iusto esse eu, zzril. Feugiat enim zzril, te vel illum, lobortis ut tation, elit luptatum ipsum, aliquam dolor sed. Ex consectetuer aliquip in, tation delenit dignissim accumsan consequat, vero, et ad eu velit ut duis ea ea odio.
-%
-%Vero qui, te praesent et at nisl ut in consequat blandit vel augue ut dolor illum facilisis zzril ipsum. Exerci odio, accumsan ea augue molestie lobortis zzril laoreet ex ad, adipiscing nulla, et dolore, vel te in dolor te, feugait dolore ex vel erat duis. Ut diam commodo ad eu in consequat esse in ut wisi aliquip dolore feugiat wisi eum dignissim tincidunt vel, nostrud. Ut vulputate eum euismod, diam minim eros consequat lorem aliquam et ad luptatum illum sit suscipit ut, tation in dolore euismod et iusto nulla. Iusto wisi odio quis nisl feugiat adipiscing luptatum minim. Illum, quis, erat, dolore qui quis sit dolor veniam blandit ullamcorper ex, vero nonummy, duis exerci delenit ullamcorper at feugiat. Et, ullamcorper elit vulputate iusto esse luptatum duis autem esse nulla qui.
-%
-%Praesent dolore et, delenit, laoreet dolore sed eros hendrerit consequat lobortis. Dolor nulla suscipit delenit commodo augue exerci magna veniam hendrerit dignissim duis ut feugait amet. Ad dolor suscipit iriure veniam blandit quis enim vulputate nulla facilisis volutpat vel in. Erat facilisis dolore ut veniam, duis facilisi wisi nulla aliquip vero praesent nibh molestie consectetuer nulla, iriure nibh exerci hendrerit. Vel, nostrud lobortis ut praesent dignissim tincidunt enim eum accumsan ea, nonummy duis. Ad autem feugait praesent, duis, accumsan tation enim facilisi qui te dolore magna velit, iusto esse eu, zzril vel enim zzril, te. Nisl illum, lobortis ut tation, elit luptatum ipsum, aliquam dolor sed minim consectetuer aliquip.
-%
-%Tation exerci delenit ullamcorper at feugiat ullamcorper, ullamcorper elit vulputate iusto esse luptatum duis autem esse nulla qui. Volutpat praesent et at nisl ut in consequat blandit vel augue ut dolor illum facilisis zzril ipsum, augue odio, accumsan ea augue molestie lobortis zzril laoreet. Ex duis, te velit illum odio, nisl qui consequat aliquip qui blandit hendrerit. Ea dolor nonummy ullamcorper nulla lorem tation laoreet in ea, ullamcorper vel consequat zzril delenit quis dignissim, vulputate tincidunt ut."

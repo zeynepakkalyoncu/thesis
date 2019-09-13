@@ -30,6 +30,11 @@ Jiafeng Guo, Yixing Fan, Qingyao Ai, and W~Bruce Croft.
 \newblock In {\em Proceedings of the 25th ACM International on Conference on
   Information and Knowledge Management}, pages 55--64. ACM, 2016.
 
+\bibitem{manning2010introduction}
+Christopher Manning, Prabhakar Raghavan, and Hinrich Sch{\"u}tze.
+\newblock Introduction to information retrieval.
+\newblock {\em Natural Language Engineering}, 16(1):100--103, 2010.
+
 \bibitem{mikolov2013distributed}
 Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg~S Corrado, and Jeff Dean.
 \newblock Distributed representations of words and phrases and their
@@ -58,6 +63,14 @@ Matthew~E Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark,
 Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, and Ilya
   Sutskever.
 \newblock Language models are unsupervised multitask learners.
+
+\bibitem{Yang_etal_SIGIR2019}
+Wei Yang, Kuang Lu, Peilin Yang, and Jimmy Lin.
+\newblock Critically examining the ``neural hype'':\ {Weak} baselines and the
+  additivity of effectiveness gains from neural ranking models.
+\newblock In {\em Proceedings of the 42nd Annual International ACM SIGIR
+  Conference on Research and Development in Information Retrieval (SIGIR
+  2019)}, pages 1129--1132, Paris, France, 2019.
 
 \bibitem{yang2019simple}
 Wei Yang, Haotian Zhang, and Jimmy Lin.
