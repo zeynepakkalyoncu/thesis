@@ -1,5 +1,6 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces An example of a query-text pair from the TREC Robust04 collection where a relevant piece of text does not contain direct query matches.}}{1}{figure.1.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces .l.}}{6}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces BERT Sentence Pair Classification Model.}}{8}{figure.2.2}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces BERT Sentence Pair Classification Model.}}{6}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces \cite {guo2017drmm}}}{8}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces ...}}{10}{figure.2.3}

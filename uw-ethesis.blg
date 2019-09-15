@@ -3,48 +3,49 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: uw-ethesis.aux
 The style file: plain.bst
 Database file #1: uw-ethesis.bib
-Warning--I didn't find a database entry for "Lin_SIGIRForum2018"
+Warning--can't use both volume and number fields in lin2019neural
 Warning--empty journal in radford2019language
 Warning--empty year in radford2019language
-You've used 13 entries,
+Warning--empty journal in sculley2018winner
+You've used 27 entries,
             2118 wiz_defined-function locations,
-            578 strings with 7105 characters,
-and the built_in function-call counts, 5744 in all, are:
-= -- 576
-> -- 294
-< -- 7
-+ -- 116
-- -- 102
-* -- 399
-:= -- 899
-add.period$ -- 41
-call.type$ -- 13
-change.case$ -- 90
+            642 strings with 9685 characters,
+and the built_in function-call counts, 11412 in all, are:
+= -- 1142
+> -- 605
+< -- 14
++ -- 240
+- -- 210
+* -- 789
+:= -- 1816
+add.period$ -- 89
+call.type$ -- 27
+change.case$ -- 186
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 229
-empty$ -- 413
-format.name$ -- 102
-if$ -- 1240
+cite$ -- 31
+duplicate$ -- 448
+empty$ -- 808
+format.name$ -- 210
+if$ -- 2449
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 13
-newline$ -- 67
-num.names$ -- 26
-pop$ -- 108
+int.to.str$ -- 27
+missing$ -- 27
+newline$ -- 137
+num.names$ -- 54
+pop$ -- 212
 preamble$ -- 1
-purify$ -- 77
+purify$ -- 159
 quote$ -- 0
-skip$ -- 182
+skip$ -- 353
 stack$ -- 0
-substring$ -- 364
-swap$ -- 85
-text.length$ -- 7
+substring$ -- 662
+swap$ -- 160
+text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 52
-warning$ -- 2
-while$ -- 51
-width$ -- 15
-write$ -- 145
-(There were 3 warnings)
+type$ -- 108
+warning$ -- 4
+while$ -- 99
+width$ -- 29
+write$ -- 302
+(There were 4 warnings)

@@ -8,6 +8,13 @@ Gordon~V. Cormack, Charles L~A Clarke, and Stefan Buettcher.
   Research and Development in Information Retrieval}, SIGIR '09, pages
   758--759, New York, NY, USA, 2009. ACM.
 
+\bibitem{dai2018convolutional}
+Zhuyun Dai, Chenyan Xiong, Jamie Callan, and Zhiyuan Liu.
+\newblock Convolutional neural networks for soft-matching n-grams in ad-hoc
+  search.
+\newblock In {\em Proceedings of the eleventh ACM international conference on
+  web search and data mining}, pages 126--134. ACM, 2018.
+
 \bibitem{deerwester1990indexing}
 Scott Deerwester, Susan~T Dumais, George~W Furnas, Thomas~K Landauer, and
   Richard Harshman.
@@ -30,6 +37,33 @@ Jiafeng Guo, Yixing Fan, Qingyao Ai, and W~Bruce Croft.
 \newblock In {\em Proceedings of the 25th ACM International on Conference on
   Information and Knowledge Management}, pages 55--64. ACM, 2016.
 
+\bibitem{guo2017drmm}
+Jiafeng Guo, Yixing Fan, Qingyao Ai, and W.~Bruce Croft.
+\newblock A deep relevance matching model for ad-hoc retrieval.
+\newblock {\em CoRR}, abs/1711.08611, 2017.
+
+\bibitem{huang2013learning}
+Po-Sen Huang, Xiaodong He, Jianfeng Gao, Li~Deng, Alex Acero, and Larry Heck.
+\newblock Learning deep structured semantic models for web search using
+  clickthrough data.
+\newblock In {\em Proceedings of the 22nd ACM international conference on
+  Information \& Knowledge Management}, pages 2333--2338. ACM, 2013.
+
+\bibitem{lin2019neural}
+Jimmy Lin.
+\newblock The neural hype and comparisons against weak baselines.
+\newblock In {\em ACM SIGIR Forum}, volume~52, pages 40--51. ACM, 2019.
+
+\bibitem{lipton2018troubling}
+Zachary~C Lipton and Jacob Steinhardt.
+\newblock Troubling trends in machine learning scholarship.
+\newblock {\em arXiv preprint arXiv:1807.03341}, 2018.
+
+\bibitem{macavaney2019cedr}
+Sean MacAvaney, Andrew Yates, Arman Cohan, and Nazli Goharian.
+\newblock {CEDR:} contextualized embeddings for document ranking.
+\newblock {\em CoRR}, abs/1904.07094, 2019.
+
 \bibitem{manning2010introduction}
 Christopher Manning, Prabhakar Raghavan, and Hinrich Sch{\"u}tze.
 \newblock Introduction to information retrieval.
@@ -42,10 +76,21 @@ Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg~S Corrado, and Jeff Dean.
 \newblock In {\em Advances in neural information processing systems}, pages
   3111--3119, 2013.
 
+\bibitem{mitra2017neural}
+Bhaskar Mitra and Nick Craswell.
+\newblock Neural models for information retrieval.
+\newblock {\em arXiv preprint arXiv:1705.01509}, 2017.
+
 \bibitem{nogueira2019passage}
 Rodrigo Nogueira and Kyunghyun Cho.
 \newblock Passage re-ranking with {BERT}.
 \newblock {\em arXiv:1901.04085}, 2019.
+
+\bibitem{padigela2019bert}
+Harshith Padigela, Hamed Zamani, and W.~Bruce Croft.
+\newblock Investigating the successes and failures of {BERT} for passage
+  re-ranking.
+\newblock {\em CoRR}, abs/1905.01758, 2019.
 
 \bibitem{pennington2014glove}
 Jeffrey Pennington, Richard Socher, and Christopher Manning.
@@ -64,6 +109,29 @@ Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, and Ilya
   Sutskever.
 \newblock Language models are unsupervised multitask learners.
 
+\bibitem{sculley2018winner}
+D~Sculley, Jasper Snoek, Alex Wiltschko, and Ali Rahimi.
+\newblock Winner's curse? on pace, progress, and empirical rigor.
+\newblock 2018.
+
+\bibitem{shen2014learning}
+Yelong Shen, Xiaodong He, Jianfeng Gao, Li~Deng, and Gr{\'e}goire Mesnil.
+\newblock Learning semantic representations using convolutional neural networks
+  for web search.
+\newblock In {\em Proceedings of the 23rd International Conference on World
+  Wide Web}, pages 373--374. ACM, 2014.
+
+\bibitem{xiong2017knrm}
+Chenyan Xiong, Zhuyun Dai, Jamie Callan, Zhiyuan Liu, and Russell Power.
+\newblock End-to-end neural ad-hoc ranking with kernel pooling.
+\newblock {\em CoRR}, abs/1706.06613, 2017.
+
+\bibitem{Yang:2018:ARR:3289400.3239571}
+Peilin Yang, Hui Fang, and Jimmy Lin.
+\newblock Anserini: Reproducible ranking baselines using lucene.
+\newblock {\em J. Data and Information Quality}, 10(4):16:1--16:20, October
+  2018.
+
 \bibitem{Yang_etal_SIGIR2019}
 Wei Yang, Kuang Lu, Peilin Yang, and Jimmy Lin.
 \newblock Critically examining the ``neural hype'':\ {Weak} baselines and the
@@ -76,6 +144,21 @@ Wei Yang, Kuang Lu, Peilin Yang, and Jimmy Lin.
 Wei Yang, Haotian Zhang, and Jimmy Lin.
 \newblock Simple applications of bert for ad hoc document retrieval.
 \newblock {\em arXiv preprint arXiv:1903.10972}, 2019.
+
+\bibitem{zamani2018neural}
+Hamed Zamani, Mostafa Dehghani, W~Bruce Croft, Erik Learned-Miller, and Jaap
+  Kamps.
+\newblock From neural re-ranking to neural ranking: Learning a sparse
+  representation for inverted indexing.
+\newblock In {\em Proceedings of the 27th ACM International Conference on
+  Information and Knowledge Management}, pages 497--506. ACM, 2018.
+
+\bibitem{zhang2018effective}
+Haotian Zhang, Mustafa Abualsaud, Nimesh Ghelani, Mark~D Smucker, Gordon~V
+  Cormack, and Maura~R Grossman.
+\newblock Effective user interaction for high-recall retrieval: Less is more.
+\newblock In {\em Proceedings of the 27th ACM International Conference on
+  Information and Knowledge Management}, pages 187--196. ACM, 2018.
 
 \bibitem{zhao2010term}
 Le~Zhao and Jamie Callan.
