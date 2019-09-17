@@ -1,3 +1,154 @@
 %======================================================================
 \chapter{Cross-Domain Relevance Transfer with BERT}
 %======================================================================
+
+\section{Datasets}
+
+\myworries{Add statistics and examples}
+
+\myworries{Elaborate on splits}
+
+\myworries{Add motivation, gist of each dataset}
+
+\myworries{Add length distribution}
+
+\subsection{Fine-Tuning}
+
+As discussed in Section \ref{intro}, applying BERT to document retrieval requires leveraging passage- or sentence-level relevance judgements fortuitously available in large text collections.
+Since no such newswire collection currently exists, we train the BERT relevance classifier on three out-of-domain collections.
+
+\subsubsection{TREC Microblog (MB)}
+
+TREC Microblog datasets draw from the Microblog Tracks at TREC from 2011 to 2014, with topics (i.e., queries) and relevance judgments over tweets.
+We use the data prepared by Rao et al. \cite{rao2019tweet}.
+We extract the queries, tweets and relevance judgements from the dataset, excluding metadata such as query time and URLs of the tweets.
+Relevance judgements in Microblog are in fact reported in a three-point scale where (``irrelevant'', ``relevant'' and ``highly relevant''); however, for the purposes of this work we treat both degrees of relevance as equal.
+We tokenize both query and tweets...
+
+\begin{figure}[b!]
+	\begin{framed}
+		\centering
+    		\textbf{Query:} bbc world service staff cuts \\
+    		\textbf{Text:} irish times : bbc world service confirms cuts : the bbc world service will shed around 650 jobs or more \\
+    		\textbf{Relevance:} 1 (``relevant'')
+	\end{framed}
+\label{mb-example}
+ \caption{An example of... MB}
+\end{figure}
+
+We \myworries{sample} 25\% of the data for the validation set, and use the rest for fine-tuning BERT.
+\myworries{What else?}
+
+\begin{table}[t]
+\vspace{0.2cm}
+\centering
+\begin{tabular}{llll}
+\toprule
+\textbf{Type} \mbox{\hspace{0.5cm}} & \textbf{Training Set} \mbox{\hspace{1.0cm}} & \textbf{Validation Set} \mbox{\hspace{1.0cm}} & \textbf{Total} \mbox{\hspace{1.0cm}} \\
+\toprule
+Number of queries & 166 & 59 & 225 \\
+Number  of tweets & asd & asd & asd \\
+Percentage of relevant tweets  & asd      & asd & asd   \\
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\caption{...}% at the $p<0.01$ level.}
+\label{tab:mb-stats}
+\vspace{-0.6cm}
+\end{table}
+
+\myworries{Add total}
+
+\subsubsection{MicroSoft MAchine Reading Comprehension (MS MARCO)}
+
+MS MARCO \cite{nguyen2016msmarco} features user queries sampled from Bing’s search logs and passages extracted from web documents.
+The dataset is composed of tuples of a query with relevant and non-relevant passages.
+Each query is associated with sparse relevance judgments by human editors.
+In other words, some queries may have no relevant passage.
+Because the dataset was initially built from top 10 passages from the Bing search engine and then annotated, some relevant passages might not have been retrieved with BM25.
+On average, however, each query is associated with one relevant passage.
+
+The models in Section \myworries{ref} were trained on less than 2\% of the total training set due to the size of the dataset and time required to train on it even on TPUs.
+According to Nogueira et al. \cite{nogueira2019passage}, training for up to 12.5\% of the total data does not improve MRR@10 on the validation set.
+
+\begin{table}[b]
+\vspace{0.2cm}
+\centering
+\begin{tabular}{llll}
+\toprule
+\textbf{Type} \mbox{\hspace{0.5cm}} & \textbf{Training Set} \mbox{\hspace{1.0cm}} & \textbf{Validation Set} \mbox{\hspace{1.0cm}} & \textbf{Total} \mbox{\hspace{1.0cm}} \\
+\toprule
+Number of queries & 12.8M & asd & asd \\
+Number  of ? & asd & asd & asd \\
+Percentage of relevant passages  & asd      & asd & asd   \\
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\caption{...}% at the $p<0.01$ level.}
+\label{tab:marco-stats}
+\vspace{-0.6cm}
+\end{table}
+
+\myworries{TODO}
+\begin{figure}[b!]
+	\begin{framed}
+		\centering
+    		\textbf{Query:} bbc world service staff cuts \\
+    		\textbf{Text:} irish times : bbc world service confirms cuts : the bbc world service will shed around 650 jobs or more \\
+    		\textbf{Relevance:} 1 (``relevant'')
+	\end{framed}
+\label{marco-example}
+ \caption{An example of... MS MARCO}
+\end{figure}
+
+\subsubsection{TREC Complex Answer Retrieval (CAR)}
+
+TREC CAR \cite{dietz2017trec} uses queries and paragraphs extracted from English Wikipedia: each query is formed by concatenating an article title and a section heading, and passages in that section are considered relevant.
+This makes CAR, essentially, a synthetic dataset.
+...
+
+\begin{table}[b]
+\vspace{0.2cm}
+\centering
+\begin{tabular}{llll}
+\toprule
+\textbf{Type} \mbox{\hspace{0.5cm}} & \textbf{Training Set} \mbox{\hspace{1.0cm}} & \textbf{Validation Set} \mbox{\hspace{1.0cm}} & \textbf{Total} \mbox{\hspace{1.0cm}} \\
+\toprule
+Number of queries & 12.8M & asd & asd \\
+Number  of ? & asd & asd & asd \\
+Percentage of relevant passages  & asd      & asd & asd   \\
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\caption{...}% at the $p<0.01$ level.}
+\label{tab:car-stats}
+\vspace{-0.6cm}
+\end{table}
+
+\myworries{TODO}
+\begin{figure}[b!]
+	\begin{framed}
+		\centering
+    		\textbf{Query:} bbc world service staff cuts \\
+    		\textbf{Text:} irish times : bbc world service confirms cuts : the bbc world service will shed around 650 jobs or more \\
+    		\textbf{Relevance:} 1 (``relevant'')
+	\end{framed}
+\label{car-example}
+ \caption{An example of... CAR}
+\end{figure}
+
+\subsection{Evaluation}
+
+We conduct end-to-end document ranking experiments on three TREC newswire collections:\
+the Robust Track from 2004 (Robust04) and the Common Core Tracks from 2017 and 2018 (Core17 and Core18).
+
+\subsubsection{Robust04}
+
+Robust04 comprises 250 topics, with relevance judgments on a collection of 500K documents (TREC Disks 4 and 5 except the Congressional Record).
+We apply five-fold cross-validation \cite{} on...
+
+\subsubsection{Core17 \& Core18}
+ 
+Core17 and Core18 have only 50 topics each; the former uses 1.8M articles from the New York Times Annotated Corpus while the latter uses around 600K articles from the TREC Washington Post Corpus.
+\myworries{Motivation for this dataset?}
+Similar to Robust04, we split the 50 topics into ...

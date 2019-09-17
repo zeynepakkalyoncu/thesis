@@ -1,5 +1,13 @@
 \begin{thebibliography}{10}
 
+\bibitem{nguyen2016msmarco}
+Payal Bajaj, Daniel Campos, Nick Craswell, Li~Deng, Jianfeng Gao, Xiaodong Liu,
+  Rangan Majumder, Andrew McNamara, Bhaskar Mitra, Tri Nguyen, Mir Rosenberg,
+  Xia Song, Alina Stoica, Saurabh Tiwary, and Tong Wang.
+\newblock {MS} {MARCO}: {A} human generated {MAchine} {Reading} {COmprehension}
+  dataset.
+\newblock {\em arXiv:1611.09268v3}, 2018.
+
 \bibitem{Cormack:2009:RRF:1571941.1572114}
 Gordon~V. Cormack, Charles L~A Clarke, and Stefan Buettcher.
 \newblock Reciprocal rank fusion outperforms condorcet and individual rank
@@ -30,6 +38,12 @@ Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
   Chapter of the Association for Computational Linguistics:\ Human Language
   Technologies, Volume 1 (Long and Short Papers)}, pages 4171--4186,
   Minneapolis, Minnesota, June 2019.
+
+\bibitem{dietz2017trec}
+Laura Dietz, Manisha Verma, Filip Radlinski, and Nick Craswell.
+\newblock {TREC} {Complex} {Answer} {Retrieval} overview.
+\newblock In {\em Proceedings of the Twenty-Sixth Text REtrieval Conference
+  (TREC 2017)}, Gaithersburg, Maryland, 2017.
 
 \bibitem{guo2016deep}
 Jiafeng Guo, Yixing Fan, Qingyao Ai, and W~Bruce Croft.
@@ -86,6 +100,12 @@ Rodrigo Nogueira and Kyunghyun Cho.
 \newblock Passage re-ranking with {BERT}.
 \newblock {\em arXiv:1901.04085}, 2019.
 
+\bibitem{Padigela:1905.01758:2019}
+Harshith Padigela, Hamed Zamani, and W.~Bruce Croft.
+\newblock Investigating the successes and failures of {BERT} for passage
+  re-ranking.
+\newblock {\em arXiv:1905.01758}, 2019.
+
 \bibitem{padigela2019bert}
 Harshith Padigela, Hamed Zamani, and W.~Bruce Croft.
 \newblock Investigating the successes and failures of {BERT} for passage
@@ -104,10 +124,26 @@ Matthew~E Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark,
 \newblock Deep contextualized word representations.
 \newblock {\em arXiv preprint arXiv:1802.05365}, 2018.
 
+\bibitem{Qiao:1904.07531:2019}
+Yifan Qiao, Chenyan Xiong, Zhenghao Liu, and Zhiyuan Liu.
+\newblock Understanding the behaviors of {BERT} in ranking.
+\newblock {\em arXiv:1904.07531}, 2019.
+
 \bibitem{radford2019language}
 Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, and Ilya
   Sutskever.
 \newblock Language models are unsupervised multitask learners.
+
+\bibitem{rajpurkar2016squad}
+Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, and Percy Liang.
+\newblock Squad: 100,000+ questions for machine comprehension of text.
+\newblock {\em arXiv preprint arXiv:1606.05250}, 2016.
+
+\bibitem{rao2019tweet}
+Jinfeng Rao, Wei Yang, Yuhao Zhang, Ferhan T{\"{u}}re, and Jimmy Lin.
+\newblock Multi-perspective relevance matching with hierarchical convnets for
+  social media search.
+\newblock {\em CoRR}, abs/1805.08159, 2018.
 
 \bibitem{sculley2018winner}
 D~Sculley, Jasper Snoek, Alex Wiltschko, and Ali Rahimi.
@@ -120,6 +156,36 @@ Yelong Shen, Xiaodong He, Jianfeng Gao, Li~Deng, and Gr{\'e}goire Mesnil.
   for web search.
 \newblock In {\em Proceedings of the 23rd International Conference on World
   Wide Web}, pages 373--374. ACM, 2014.
+
+\bibitem{socher2013recursive}
+Richard Socher, Alex Perelygin, Jean Wu, Jason Chuang, Christopher~D Manning,
+  Andrew Ng, and Christopher Potts.
+\newblock Recursive deep models for semantic compositionality over a sentiment
+  treebank.
+\newblock In {\em Proceedings of the 2013 conference on empirical methods in
+  natural language processing}, pages 1631--1642, 2013.
+
+\bibitem{turian2010word}
+Joseph Turian, Lev Ratinov, and Yoshua Bengio.
+\newblock Word representations: a simple and general method for semi-supervised
+  learning.
+\newblock In {\em Proceedings of the 48th annual meeting of the association for
+  computational linguistics}, pages 384--394. Association for Computational
+  Linguistics, 2010.
+
+\bibitem{vaswani2017attention}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N Gomez, {\L}ukasz Kaiser, and Illia Polosukhin.
+\newblock Attention is all you need.
+\newblock In {\em Advances in neural information processing systems}, pages
+  5998--6008, 2017.
+
+\bibitem{wang2018glue}
+Alex Wang, Amanpreet Singh, Julian Michael, Felix Hill, Omer Levy, and Samuel~R
+  Bowman.
+\newblock Glue: A multi-task benchmark and analysis platform for natural
+  language understanding.
+\newblock {\em arXiv preprint arXiv:1804.07461}, 2018.
 
 \bibitem{xiong2017knrm}
 Chenyan Xiong, Zhuyun Dai, Jamie Callan, Zhiyuan Liu, and Russell Power.
@@ -139,6 +205,12 @@ Wei Yang, Kuang Lu, Peilin Yang, and Jimmy Lin.
 \newblock In {\em Proceedings of the 42nd Annual International ACM SIGIR
   Conference on Research and Development in Information Retrieval (SIGIR
   2019)}, pages 1129--1132, Paris, France, 2019.
+
+\bibitem{yang2019end}
+Wei Yang, Yuqing Xie, Aileen Lin, Xingyu Li, Luchen Tan, Kun Xiong, Ming Li,
+  and Jimmy Lin.
+\newblock End-to-end open-domain question answering with bertserini.
+\newblock {\em arXiv preprint arXiv:1902.01718}, 2019.
 
 \bibitem{yang2019simple}
 Wei Yang, Haotian Zhang, and Jimmy Lin.

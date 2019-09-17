@@ -1,6 +1,10 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces An example of a query-text pair from the TREC Robust04 collection where a relevant piece of text does not contain direct query matches.}}{1}{figure.1.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces BERT Sentence Pair Classification Model.}}{6}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces \cite {guo2017drmm}}}{8}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces ...}}{10}{figure.2.3}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces BERT Models.}}{7}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces \cite {guo2017drmm}}}{10}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces ...}}{13}{figure.2.3}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces An example of... MB}}{18}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces An example of... MS MARCO}}{19}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces An example of... CAR}}{19}{figure.3.3}
