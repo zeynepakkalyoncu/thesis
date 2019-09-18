@@ -1,5 +1,16 @@
 \begin{thebibliography}{10}
 
+\bibitem{allan2017trec}
+James Allan, Donna Harman, Evangelos Kanoulas, Dan Li, and Christophe
+  Van~Gysel.
+\newblock Trec 2017 common core track overview.
+
+\bibitem{core2018trec}
+James Allan, Donna Harman, Evangelos Kanoulas, and Ellen Voorhees.
+\newblock {TREC} 2018 {Common} {Core} {Track} overview.
+\newblock In {\em Proceedings of the Twenty-Seventh Text REtrieval Conference
+  (TREC 2018)}, Gaithersburg, Maryland, 2018.
+
 \bibitem{ando2005framework}
 Rie~Kubota Ando and Tong Zhang.
 \newblock A framework for learning predictive structures from multiple tasks
@@ -18,6 +29,11 @@ Payal Bajaj, Daniel Campos, Nick Craswell, Li~Deng, Jianfeng Gao, Xiaodong Liu,
 Yonatan Belinkov, Nadir Durrani, Fahim Dalvi, Hassan Sajjad, and James Glass.
 \newblock What do neural machine translation models learn about morphology?
 \newblock {\em arXiv preprint arXiv:1704.03471}, 2017.
+
+\bibitem{blei2003latent}
+David~M Blei, Andrew~Y Ng, and Michael~I Jordan.
+\newblock Latent dirichlet allocation.
+\newblock {\em Journal of machine Learning research}, 3(Jan):993--1022, 2003.
 
 \bibitem{blitzer2006domain}
 John Blitzer, Ryan McDonald, and Fernando Pereira.
@@ -93,6 +109,11 @@ Jiafeng Guo, Yixing Fan, Qingyao Ai, and W~Bruce Croft.
 Jiafeng Guo, Yixing Fan, Qingyao Ai, and W.~Bruce Croft.
 \newblock A deep relevance matching model for ad-hoc retrieval.
 \newblock {\em CoRR}, abs/1711.08611, 2017.
+
+\bibitem{Gysel:2018:NVS:3211967.3196826}
+Christophe~Van Gysel, Maarten de~Rijke, and Evangelos Kanoulas.
+\newblock Neural vector spaces for unsupervised information retrieval.
+\newblock {\em ACM Trans. Inf. Syst.}, 36(4):38:1--38:25, June 2018.
 
 \bibitem{huang2013learning}
 Po-Sen Huang, Xiaodong He, Jianfeng Gao, Li~Deng, Alex Acero, and Larry Heck.

@@ -3,51 +3,53 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: uw-ethesis.aux
 The style file: plain.bst
 Database file #1: uw-ethesis.bib
+Warning--empty booktitle in allan2017trec
+Warning--empty year in allan2017trec
 Warning--can't use both volume and number fields in lin2019neural
 Warning--empty journal in radford2018improving
 Warning--empty year in radford2018improving
 Warning--empty journal in radford2019language
 Warning--empty year in radford2019language
 Warning--empty journal in sculley2018winner
-You've used 54 entries,
+You've used 58 entries,
             2118 wiz_defined-function locations,
-            779 strings with 15662 characters,
-and the built_in function-call counts, 22695 in all, are:
-= -- 2216
-> -- 1324
+            799 strings with 16368 characters,
+and the built_in function-call counts, 24151 in all, are:
+= -- 2350
+> -- 1411
 < -- 24
-+ -- 525
-- -- 466
-* -- 1606
-:= -- 3685
-add.period$ -- 174
-call.type$ -- 54
-change.case$ -- 394
++ -- 559
+- -- 496
+* -- 1725
+:= -- 3930
+add.period$ -- 185
+call.type$ -- 58
+change.case$ -- 421
 chr.to.int$ -- 0
-cite$ -- 60
-duplicate$ -- 855
-empty$ -- 1547
-format.name$ -- 466
-if$ -- 4792
+cite$ -- 66
+duplicate$ -- 904
+empty$ -- 1657
+format.name$ -- 496
+if$ -- 5085
 int.to.chr$ -- 0
-int.to.str$ -- 54
-missing$ -- 54
-newline$ -- 271
-num.names$ -- 108
-pop$ -- 444
+int.to.str$ -- 58
+missing$ -- 58
+newline$ -- 290
+num.names$ -- 116
+pop$ -- 478
 preamble$ -- 1
-purify$ -- 340
+purify$ -- 363
 quote$ -- 0
-skip$ -- 666
+skip$ -- 691
 stack$ -- 0
-substring$ -- 1200
-swap$ -- 286
+substring$ -- 1282
+swap$ -- 290
 text.length$ -- 24
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 216
-warning$ -- 6
-while$ -- 189
-width$ -- 56
-write$ -- 592
-(There were 6 warnings)
+type$ -- 232
+warning$ -- 8
+while$ -- 201
+width$ -- 60
+write$ -- 632
+(There were 8 warnings)
