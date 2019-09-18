@@ -69,6 +69,14 @@ Laura Dietz, Manisha Verma, Filip Radlinski, and Nick Craswell.
 \newblock In {\em Proceedings of the Twenty-Sixth Text REtrieval Conference
   (TREC 2017)}, Gaithersburg, Maryland, 2017.
 
+\bibitem{ganguly2015word}
+Debasis Ganguly, Dwaipayan Roy, Mandar Mitra, and Gareth~JF Jones.
+\newblock Word embedding based generalized language model for information
+  retrieval.
+\newblock In {\em Proceedings of the 38th international ACM SIGIR conference on
+  research and development in information retrieval}, pages 795--798. ACM,
+  2015.
+
 \bibitem{DBLP:journals/corr/abs-1803-11138}
 Kristina Gulordava, Piotr Bojanowski, Edouard Grave, Tal Linzen, and Marco
   Baroni.
@@ -149,6 +157,14 @@ Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg~S Corrado, and Jeff Dean.
 Bhaskar Mitra and Nick Craswell.
 \newblock Neural models for information retrieval.
 \newblock {\em arXiv preprint arXiv:1705.01509}, 2017.
+
+\bibitem{mitra2017learning}
+Bhaskar Mitra, Fernando Diaz, and Nick Craswell.
+\newblock Learning to match using local and distributed representations of text
+  for web search.
+\newblock In {\em Proceedings of the 26th International Conference on World
+  Wide Web}, pages 1291--1299. International World Wide Web Conferences
+  Steering Committee, 2017.
 
 \bibitem{nogueira2019passage}
 Rodrigo Nogueira and Kyunghyun Cho.
@@ -239,6 +255,11 @@ Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
 \newblock In {\em Advances in neural information processing systems}, pages
   5998--6008, 2017.
 
+\bibitem{Voorhees_TREC2004_robust}
+Ellen~M. Voorhees.
+\newblock Overview of the {TREC} 2004 {Robust} {Track}.
+\newblock In {\em TREC 2004}, pages 52--69, 2004.
+
 \bibitem{wang2018glue}
 Alex Wang, Amanpreet Singh, Julian Michael, Felix Hill, Omer Levy, and Samuel~R
   Bowman.
@@ -282,6 +303,11 @@ Wei Yang, Yuqing Xie, Aileen Lin, Xingyu Li, Luchen Tan, Kun Xiong, Ming Li,
 Wei Yang, Haotian Zhang, and Jimmy Lin.
 \newblock Simple applications of bert for ad hoc document retrieval.
 \newblock {\em arXiv preprint arXiv:1903.10972}, 2019.
+
+\bibitem{DBLP:journals/corr/ZamaniC17}
+Hamed Zamani and W.~Bruce Croft.
+\newblock Relevance-based word embedding.
+\newblock {\em CoRR}, abs/1705.03556, 2017.
 
 \bibitem{zamani2018neural}
 Hamed Zamani, Mostafa Dehghani, W~Bruce Croft, Erik Learned-Miller, and Jaap

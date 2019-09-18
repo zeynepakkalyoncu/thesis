@@ -10,8 +10,9 @@
 \BOOKMARK [1][-]{section.2.2}{Document Retrieval}{chapter.2}% 10
 \BOOKMARK [2][-]{subsection.2.2.1}{Non-neural Document Retrieval}{section.2.2}% 11
 \BOOKMARK [2][-]{subsection.2.2.2}{Neural Document Retrieval}{section.2.2}% 12
-\BOOKMARK [1][-]{section.2.3}{Evaluation Metrics}{chapter.2}% 13
-\BOOKMARK [2][-]{subsection.2.3.1}{Mean Average Precision \(MAP\)}{section.2.3}% 14
-\BOOKMARK [2][-]{subsection.2.3.2}{Precision at k \(P@k\)}{section.2.3}% 15
-\BOOKMARK [2][-]{subsection.2.3.3}{Normalized Discounted Cumulative Gain \(NDCG@20\)}{section.2.3}% 16
-\BOOKMARK [0][-]{section*.11}{References}{}% 17
+\BOOKMARK [2][-]{subsection.2.2.3}{Comparison of Non-neural and Neural Methods}{section.2.2}% 13
+\BOOKMARK [1][-]{section.2.3}{Evaluation Metrics}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.3.1}{Mean Average Precision \(MAP\)}{section.2.3}% 15
+\BOOKMARK [2][-]{subsection.2.3.2}{Precision at k \(P@k\)}{section.2.3}% 16
+\BOOKMARK [2][-]{subsection.2.3.3}{Normalized Discounted Cumulative Gain \(NDCG@k\)}{section.2.3}% 17
+\BOOKMARK [0][-]{section*.11}{References}{}% 18
