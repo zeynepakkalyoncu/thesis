@@ -4,48 +4,50 @@ The top-level auxiliary file: uw-ethesis.aux
 The style file: plain.bst
 Database file #1: uw-ethesis.bib
 Warning--can't use both volume and number fields in lin2019neural
+Warning--empty journal in radford2018improving
+Warning--empty year in radford2018improving
 Warning--empty journal in radford2019language
 Warning--empty year in radford2019language
 Warning--empty journal in sculley2018winner
-You've used 38 entries,
+You've used 50 entries,
             2118 wiz_defined-function locations,
-            690 strings with 12113 characters,
-and the built_in function-call counts, 16209 in all, are:
-= -- 1576
-> -- 973
-< -- 17
-+ -- 385
-- -- 344
-* -- 1156
-:= -- 2641
-add.period$ -- 123
-call.type$ -- 38
-change.case$ -- 286
+            756 strings with 14834 characters,
+and the built_in function-call counts, 21013 in all, are:
+= -- 2038
+> -- 1263
+< -- 21
++ -- 501
+- -- 446
+* -- 1509
+:= -- 3438
+add.period$ -- 160
+call.type$ -- 50
+change.case$ -- 372
 chr.to.int$ -- 0
-cite$ -- 42
-duplicate$ -- 605
-empty$ -- 1082
-format.name$ -- 344
-if$ -- 3414
+cite$ -- 56
+duplicate$ -- 776
+empty$ -- 1407
+format.name$ -- 446
+if$ -- 4407
 int.to.chr$ -- 0
-int.to.str$ -- 38
-missing$ -- 38
-newline$ -- 192
-num.names$ -- 76
-pop$ -- 323
+int.to.str$ -- 50
+missing$ -- 50
+newline$ -- 251
+num.names$ -- 100
+pop$ -- 415
 preamble$ -- 1
-purify$ -- 248
+purify$ -- 322
 quote$ -- 0
-skip$ -- 472
+skip$ -- 601
 stack$ -- 0
-substring$ -- 829
-swap$ -- 205
-text.length$ -- 17
+substring$ -- 1084
+swap$ -- 252
+text.length$ -- 21
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 152
-warning$ -- 4
-while$ -- 130
-width$ -- 40
-write$ -- 418
-(There were 4 warnings)
+type$ -- 200
+warning$ -- 6
+while$ -- 172
+width$ -- 52
+write$ -- 546
+(There were 6 warnings)

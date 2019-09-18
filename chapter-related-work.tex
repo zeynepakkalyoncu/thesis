@@ -2,49 +2,67 @@
 \chapter{Background and Related Work}
 %======================================================================
 
-\section{Unsupervised Language Pretraining}
+%\section{Natural Language Processing?}
 
-\subsection{Word Representations}
+%\subsection{Word Representations}
+%
+%Word representations are an integral building block of natural language processing applications.
+%%The underlying problem concerns how to convert arbitrary alphanumeric representations into a format that can be represented on and processed by computers.
+%The simplest approach to represent words may be to first pre-process them, e.g: with lemmatization, and then to map them to unique word IDs, thereby retrieving words with a dictionary lookup.
+%However, this approach introduces a misleading notion of ordering among the words as indicated by their IDs, which does not work well with deep neural models.
+%This shortcoming can be overcome with a one-hot encoding scheme where a word is represented as a vocabulary-sized vector with only the index corresponding to the word ID is set to 1 and the rest to 0.
+%On the other hand, this approach comes at the cost of a large space requirement given the potentially massive sparse vectors required to represent words.
+%More importantly, neither approach captures an intrinsic notion of similarity between different words; all words are orthogonal to each other in the one-hot encoding representation space.
+%Intuitively, words are treated as discrete independent entities, as in exact matching methods in information retrieval, without considering their interaction with other words in the vocabulary, especially in their context.
+%
+%Given that the particular choice of word representations has a significance influence on the overall performance of an NLP task, learning word representations has been an active research effort in NLP for decades, spanning both non-neural \cite{ando2005framework, blitzer2006domain} and neural \cite{mikolov2013distributed, pennington2014glove} methods.
+%This paradigm represents words as low-dimensional continuous feature vectors, called word embeddings, that embody hidden semantic or syntactic dependencies.
+%Word embeddings can be learned from scratch for a specific corpus or pretrained over large corpora and reused, leading to significant improvements over the former \cite{turian2010word}.
+%Some of the most popular pretrained English word embeddings include word2vec \cite{mikolov2013distributed} trained on  Google News, GloVe \cite{pennington2014glove} on Common Crawl, Wikipedia and Twitter, and fastText \cite{bojanowski2017enriching} on English webcrawl and Wikipedia.
+%In order to leverage the context of each word, word2vec represents each word as 300-dimensional vectors based on neighbouring words in a given window with a skip-gram model.
+%GloVe instead exploits the co-occurrence of words across the entire corpus rather than individual context windows to build 25 to 300-dimensional word embeddings.
+%fastText takes a slightly different approach with skip-gram models than word2vec by representing each word as a bag-of-characters n-grams.
+%These word embeddings enable semantic matching across multiple levels in neural networks, including the neural document retrieval methods introduced in Section \ref{neural-retrieval}
 
-Word representations are an integral building block of natural language processing applications with a significant influence on their performance.
-The underlying problem concerns how to convert arbitrary alphanumeric representations into a format that can be represented on and processed by computers.
-The simplest approach to attack this problem may be to pre-process words, e.g: with lemmatization, and to map them to unique word IDs, thereby retrieving words with a dictionary lookup.
-This approach especially does not fare well with deep learning models because it introduces a misleading notion of ordering among the words as indicated by their IDs.
-This shortcoming can be overcome with a one-hot encoding scheme where a word is represented as a vocabulary-sized vector with only the index corresponding to the word ID is set to 1 and the rest to 0.
-This massive sparse vector representation comes at the cost of a large space requirement.
+\section{Pretrained Language Models}
+\label{lm}
 
-More importantly, neither approach captures an intrinsic notion of similarity between different words given the orthogonal representation space.
-Intuitively, words are treated as independent entities, as in exact matching in information retrieval, therefore failing to leverage the context.
-For this reason, learning word representations automatically has been an active research effort in NLP for decades, spanning both non-neural \myworries{cite} and neural \myworries{cite} methods.
-This paradigm frames words as continuous feature vectors that embody hidden semantic or syntactic dependencies.
-In order to incorporate context, word2vec \cite{mikolov2013distributed} represents each word based on neighbouring words in a given window with a skip-gram model.
-GloVe \cite{pennington2014glove} instead exploits the co-occurrence of words rather than individual context windows.
-These feature vectors can be learned from scratch for a specific corpus or pretrained over large corpora and reused, leading to significant improvements over the former \cite{turian2010word}.
-For example, popular pretrained word2vec vectors are trained on Google News, and GloVe on Common Crawl, Wikipeda and Twitter.
-Such word embeddings enable many of the neural information retrieval methods discussed in Section \myworries{X}.
+Natural language processing tasks have traditionally been addressed with supervised learning on task-specific datasets.
+Due to the relatively small size of such datasets, training deep neural networks in this manner introduces the risk of overfitting on the training data and lack of generalization across different datasets.
+With the increasing availability of large corpora, pretrained deep language models have been rapidly gaining traction among NLP researchers, rendering the previous common practice mostly \myworries{obsolete?}.
+Language model pretraining has proven extremely effective on many natural language processing tasks ranging from machine translation to reading comprehension.
+\myworries{Conditional probabilities for LM, equation}
+The underlying assumption in applying pretrained language models to downstream NLP tasks is that language modeling inherently captures many facets of language such as resolving long-term dependencies \cite{DBLP:journals/corr/LinzenDG16}, hierarchical patterns \cite{DBLP:journals/corr/abs-1803-11138}.
+%In general, these models work by LSTM-based or transformer-based language models on large corpora
+In general, pretrained language models can be applied to downstream tasks in one of two ways: ``feature-based'' and ``fine-tuning''.
 
-\myworries{BERT tokenization!}
+\subsection{Feature-based Approaches}
 
-\myworries{Used in models discussed in Section...}
+The feature-based approach, such as ELMo \cite{peters2018deep}, employs deep pretrained representations learned with language modeling as additional features in task-specific architectures.
+This approach has the advantage of being easily incorporated into existing models with significant improvements in performance.
+%\myworries{Advantages?}
+ELMo \cite{peters2018deep} extends the traditional word embeddings introduced in \myworries{Section X} to learn context-sensitive features with a deep language model.
+Therefore, instead of taking the final layer of a deep BiLSTM (Bidirectional Long Short-Term Memory) as a word embedding, ELMo embeddings are learned as a function of ``all'' the internal states of a deep BiLSTM language model.
+\myworries{Describe BiLSTM?}
+This approach is motivated by a thread of work in NLP that suggests that the higher levels capture context \cite{melamud2016context2vec} and meaning while the lower levels learns syntactic features well \cite{belinkov2017neural}.
+While traditional pretrained word embeddings like GloVe \cite{pennington2014glove} cannot differentiate between homonyms, ELMo generates different embeddings for them based on their context.
+The embeddings are constructed as a shallow concatenation of independently trained left-to-right and right-to-left models.
+Peters at al. \cite{peters2018deep} show that integrating these deep contextualized embeddings learned with ELMo into task-specific architectures significantly improves over the original performance in six NLP tasks, including question answering on SQuAD \cite{rajpurkar2016squad} and sentiment analysis on the Stanford Sentiment Treebank (SST-5) \cite{socher2013recursive}.
 
-\subsection{Pretrained Language Models}
+\subsection{Fine-tuning Approaches}
 
-With the increasing availability of large corpora, pretrained deep language models have been rapidly gaining traction among NLP researchers.
-Recent work in NLP has demonstrated that language model pretraining proves extremely effective for many natural language processing tasks ranging from machine translation to reading comprehension.
-In general, these models work by LSTM-based or transformer-based language models on large corpora, and then are applied to downstream NLP tasks in one of two ways.
-
-Feature-based approach, such as ELMo \cite{peters2018deep}, employs deep pretrained representations learned with language modeling as additional features in task-specific architectures.
-This approach has the advantage of being easily incorporated into existing models to significantly improve performance.
-\myworries{Advantages?}
-ELMo \cite{peters2018deep} extends the traditional word embeddings introduced in Section \myworries{X} to learn context-sensitive features with a deep language model.
-These deep contextualized word representations are learned by \myworries{X} the internal states of a deep bidirectional language model trained on a large corpus \myworries{What corpus?}
-Peters at al. \cite{peters2018deep} show that integrating the embeddings learned with ELMo into task-specific architectures significantly improves over the state of the art at the time in six NLP tasks, including question answering on SQuAD \cite{rajpurkar2016squad} and sentiment analysis on the Stanford Sentiment Treebank (SST-5) \cite{socher2013recursive}.
-
-The more popular fine-tuning approach, such as the GPT-2 \cite{radford2019language}, is inspired by the recent trend in transfer learning.
+The more popular fine-tuning approach is inspired by the recent trend in transfer learning.
 These models are first pretrained with respect to a language modeling objective, and then applied to downstream NLP tasks by ``freezing'' their last layer, and ``fine-tuning'' on external data for the specific task with minimal task-specific parameters.
-Not only does this approach introduce only a few task-specific parameters to optimize, but it also greatly boosts the performance of many NLP tasks given the rich semantic expressiveness introduced by the pretrained language model.
-Radford et al. \cite{radford2019language} claim that language models inherently capture many NLP tasks without explicit supervision.
-They propose Generative Pretrained Transformers (GPT) to perform zero-shot task transfer on multiple sentence-level tasks from the GLUE benchmark \cite{wang2018glue} with impressive results.
+Despite its simplicity, this approach has been shown to greatly boosts the performance of many NLP tasks \myworries{Examples?}.
+%Not only does this approach introduce only a few task-specific parameters to optimize, but it also greatly boosts the performance of many NLP tasks given the rich semantic expressiveness introduced by the pretrained language model.
+
+Radford et al. \cite{radford2019language} claim that this phenomenon occurs because language models inherently capture many NLP tasks without explicit supervision.
+\myworries{GPT to GPT2}
+Therefore, they propose Generative Pretrained Transformers (GPT-2) to perform zero-shot task transfer on multiple sentence-level tasks from the GLUE benchmark \cite{wang2018glue} with impressive results.
+\myworries{Difference from ELMo?}
+\myworries{Explain transformers? Separate section at the beginning?}
+At the core of GPT-2 lies a multi-layer left-to-right transformer \cite{vaswani2017attention} decoder, with each layer consisting of a multi-head self-attention mechanism and fully connected feed-forward network \cite{radford2018improving}.
+The large capacity of the transformer is exploited by pretraining it on Google BookCorpus dataset \cite{zhu2015aligning} where long contiguous spans of text allow the transformer to condition on long-range information.
 
 \begin{figure}[b!]
 \centering
@@ -53,61 +71,68 @@ They propose Generative Pretrained Transformers (GPT) to perform zero-shot task 
 \label{fig:bert}
 \end{figure}
 
-One of the latest and most sophisticated pretrained deep language models is undoubtedly the Bidirectional Encoder Representations from Transformers (BERT), which has already enjoyed widespread popularity across the NLP community.~\cite{devlin2018bert}
-Unlike previous language models, such as OpenAI's GPT~\cite{radford2019language}, BERT produces deep bidirectional representations by conditioning on both left and right context in all layers by employing a new pretraining objective called ``masked language model'' (MLM).
-Conceptually, MLM randomly masks some of the tokens from the input with the goal of predicting the original token based only on its left and right context.
+Bidirectional Encoder Representations from Transformers (BERT)~\cite{devlin2018bert} has introduced a novel way to pretrain bidirectional language models, and has since enjoyed widespread popularity across the NLP community.
+Standard language models, such as in OpenAI's GPT-2~\cite{radford2019language}, could not be conditioned on bidirectional context as this would cause the model to apply self-attention on the current token in a multi-layered context.
+BERT enables bidirectional language modeling by conditioning on both left and right context in all layers by employing a new pretraining objective called ``masked language model'' (MLM).
+Conceptually, MLM randomly masks some of the input tokens, i.e: 15\% of tokens in each sequence, at random with the goal of predicting the masked tokens based only on their left and right context.
+The final hidden vectors corresponding to the masked tokens are then fed into a softmax layer over the vocabulary as in a standard language model.
 This objective allows the representation to fuse both left and right context, which is crucial for token-level tasks such as question answering according to the authors.
-
+Ablation studies confirm that the bidirectional nature of BERT is the single most important factor in its performance.
 \myworries{Comparison image?}
 
 In additional to the novel language modeling approach, Devlin et al. \cite{devlin2018bert} also propose a ``next sentence prediction'' task for applications that require an understanding of the relationship between two sentences, such as question answering or language language inference.
+Essentially, this trains a binary classifier to determine whether or not one sentence follows another sentence.
 \myworries{Details? May even add example in the paper?}
 Figure \ref{fig:bert} visualizes the input and output for fine-tuning BERT for a ``sentence pair classification'' model.
 
 The underlying model architecture of BERT is a multi-layer bidirectional transformer \cite{vaswani2017attention}.
+\myworries{What about small?}
 The larger BERT model has 24 layers each with 1024 hidden nodes, and 16 self-attention heads in total.
-As expected, optimizing this objective requires a very complex model:\ for example, the larger BERT model requires around 340 million parameters be optimized.
-In fact, training this model end-to-end takes four days to complete even on 16 high-end tensor processing units (TPUs)~\cite{devlin2018bert}.
+%As expected, optimizing this objective requires a very complex model:\ for example, the larger BERT model requires around 340 million parameters be optimized.
+%In fact, training this model end-to-end takes four days to complete even on 16 high-end tensor processing units (TPUs)~\cite{devlin2018bert}.
 %Fortunately, it is possible to benefit from these models by simply fine-tuning on task-specific data.
+BERT is pretrained on the union of Google BookCorpus \cite{zhu2015aligning} (800M words) and English Wikipedia (2,500M words).
+\myworries{More details?}
+
 The input representation for BERT is formed by concatenating the token with segment and position embeddings.
-The words are represented with WordPiece embeddings \cite{} with a vocabulary of 30,000 tokens.
-Positional embeddings are learned for a length up to 512, which is the maximum input size allowed.
-The input to BERT may contain a single sentence or a sentence pair separated by the meta-token $[SEP]$, i.e: separator.
-Each sequence is prepended with $[CLS]$, corresponding to the ``class'' meta-token, whose final hidden state can be used for classification tasks.
+The words are represented with WordPiece embeddings \cite{wu2016google} with a vocabulary of 30,000 tokens.
+Originally proposed for segmentation problem in Japanese and Korean, the WordPiece model is used to divide words into small sub-word units in order to handle rare or out-of-vocabulary words more effectively.
+The input to BERT may contain a single sentence or a sentence pair separated by the meta-token \texttt{[SEP]}, i.e: separator.
+Each sequence is prepended with \texttt{[CLS]}, corresponding to the ``class'' meta-token, whose final hidden state can be used for classification tasks.
+Positional embeddings are learned -- not hard-coded -- for up to 512, which is the maximum input size allowed by BERT.
 
 To fine-tune BERT for classification tasks, a single-layer neural network is added to the end of this network with the class label as the input, and label probabilities are computed with softmax.
 The parameters of this layer and BERT are fine-tuned jointly to maximize the log-probability of the correct label.
-BERT has been applied to a broad range of NLP tasks from ... with impressive results.
-\myworries{Examples}
-Most relevant to the task of document retrieval, these include BERTserini by Yang et al. \cite{yang2019end} which integrated BERT with Anserini for question answering over Wikipedia by fine-tuning BERT on SQuAD, and Nogueira et al. \cite{nogueira2019passage} who adopted BERT for passage reranking over MS MARCO.
+For span-level and token-level prediction tasks, the final step needs to be modified to account for multiple tokens.
+
+BERT has been applied to a broad range of NLP tasks from sentence classification to sequence labeling with impressive results.
+\myworries{Examples?}
+Most relevant to the task of document retrieval, applications of BERT include BERTserini by Yang et al. \cite{yang2019end} which integrated BERT with Anserini for question answering over Wikipedia by fine-tuning BERT on SQuAD, and Nogueira et al. \cite{nogueira2019passage} who adopted BERT for passage reranking over MS MARCO.
 
 \section{Document Retrieval}
 
-\subsection{Unsupervised Document Retrieval}
+\subsection{Non-neural Document Retrieval}
 
-\myworries{Exact matching}
-
-\subsubsection{Okapi BM25}
-
-\myworries{Binary and its extension to BM25... shortcomings semantic}
-
-Okapi BM25 (commonly dubbed BM25) is a bag-of-words ranking function that was developed to accommodate documents of variable lengths.
+Traditional exact-matching techniques in document retrieval have evolved from the simple Boolean model to probabilistic models such as the Binary Independence Model.
+While these methods performed reasonably well for text of consistent length, they have fallen short with the development of modern text collections with wildly variable lengths.
+\myworries{What about others? Like QL?}
+Okapi BM25 (commonly dubbed BM25) is a bag-of-words ranking function that was developed to address this problem by taking into account term frequency and document frequency while estimating the relevance of a document for a given query without introducing too many additional parameters \cite{jones2000probabilistic}.
 BM25 ranks documents based on the occurrence of query terms in each document, paying more attention to the rarer terms in the query.
-The goal of this approach is to take into account term frequency and document frequency while estimating the relevance of a document for a given query without introducing too many additional parameters. (Sparck)
-To achieve this goal, BM25 implementations define two parameters for term frequency saturation and field-length normalization, respectively.
-\myworries{Tuned for most common datasets?}
+BM25 implementations define two parameters for term frequency saturation and field-length normalization, respectively.
 
-\subsubsection{RM3}
-
+In addition to a term weighting scheme, query expansion using pseudo relevance feedback has also been found to improve retrieval effectiveness on the ``ad hoc'' document retrieval task.
+Unlike manual relevance feedback, pseudo relevance feedback allows for automatic local analysis without extended interaction with the user.
 RM3 is a pseudo-relevance feedback mechanism where the original query is expanded by adding terms found in the contents of relevant BM25 documents.
-\myworries{Why is it effective, why does it improve performance, how common is it}
+Specifically, an initial set of relevant documents are retrieved with a method like BM25, and the query is expanded based on the common terms in the top $ k $ candidate documents.
+While this approach partly relieves the problem of synonymy, it still relies on exact matching of query terms.
+One obvious danger of this approach is that retrieval may be incorrectly biased certain terms that occur frequently in the most relevant documents, but are not directly relevant to the query itself.
 
 \myworries{Previous approaches and results on these datasets}
 \myworries{Cormack et al and other stuff}
+\myworries{Ensembles like RRF?}
 
 \subsection{Neural Document Retrieval}
-
-\myworries{Rephrase to highlight semantic matching}
+\label{neural-retrieval}
 
 \begin{figure}[t!]
 \centering
@@ -116,22 +141,23 @@ RM3 is a pseudo-relevance feedback mechanism where the original query is expande
 \label{fig:deep_matching}
 \end{figure}
 
-\myworries{concerns}
+Neural models have been instrumental in implementing semantic matching in document retrieval.
+\myworries{Better transition}
 Neural models developed to address the deep matching problem can be divided into two broad categories based on their underlying architecture: representation-based and interaction-based.
+\myworries{Rephrase to highlight semantic matching}
 
 \subsubsection{Representation-based Models}
 
-Representation-based approaches first construct the representation from the input vectors for each text, e.g: documents, with a deep neural network, and then perform matching between the representations.
+Representation-based approaches first construct the representation from the input vectors for the query and document with a deep neural network, and then perform matching between the representations.
 Earlier work on neural information retrieval focused on representation-based approaches, such as DSSM \cite{huang2013learning} and C-DSSM \cite{shen2014learning}.
-DSSM (short for Deep Structured Semantic Models) \cite{huang2013learning} extended previously dominant latent semantic models to deep semantic matching for web search by projecting query and documents into a common low-dimensional space.
-In order to accommodate a large vocabulary required by the task, the text sequences were mapped into character-level trigrams with a word hashing layer before computing a similarity matrix through dot product and softmax layers.
-While shown effective on a private? datasset comprised of log files of a commercial search engine, DSSM was criticized by Guo et al. \cite{guo2017drmm} for requiring too much training data.
+DSSM (short for Deep Structured Semantic Models) \cite{huang2013learning} extends previously dominant latent semantic models \myworries{cite} to deep semantic matching for web search by projecting query and documents into a common low-dimensional space.
+In order to accommodate a large vocabulary required by the task, the text sequences are mapped into character-level trigrams with a word hashing layer before computing a similarity matrix through dot product and softmax layers.
+While shown effective on a private datasset comprised of log files of a commercial search engine, DSSM was criticized by Guo et al. \cite{guo2017drmm} for requiring too much training data to be effective.
 Moreover, DSSM cannot match synonyms because it is based on the specific composition of words.
-C-DSSM \cite{shen2014learning} extended DSSM by introducing a convolutional layer to devise semantic vectors for search queries and Web document.
+C-DSSM \cite{shen2014learning} extends DSSM by introducing a convolutional layer to devise semantic vectors for search queries and Web document.
 By performing a max pooling operation to extract local contextual information at the n-gram level, a global vector representation is formed from the local features.
-They demonstrated that both local and global contextual features were necessary for semantic matching for Web search.
+Shen et al. \cite{shen2014learning} demonstrate that both local and global contextual features are necessary for semantic matching for Web search.
 While C-DSSM improves over DSSM by exploiting the context of each trigram, it still suffers from the same issues listed above.
-%However, ARC-I was mainly designed for short texts and ...
 
 \subsubsection{Interaction-based Models}
 
@@ -151,16 +177,13 @@ DUET is composed of two separate deep neural networks, one to match the query an
 The former estimates document relevance based on exact matches of the query terms in the document by computing an interaction matrix from one-hot encodings.
 The latter instead performs semantic matching by computing the element-wise product between the query and document embeddings.
 Their approach was shown to significantly outperform traditional baselines for web search with lots of clickthrough logs.
-%Mitra et al. \cite{mitra2017neural} show that distributed representations indeed improve over 
 \myworries{Any other major models in the tutorial?}
 
-%other models available in MatchZoo, such as ARC-I [9], MV-LSTM [19], and aNMM [21] were mainly designed for short texts and not geared towards handling documents (which are much longer)
 %Note that some of the models discussed in this section address the web search task where a variety of other signals are available, such as large amounts of log data and the webgraph.
 %This stands in contrast to the ``ad hoc'' document retrieval task where available data is limited only to the document text, which is the main focus of this thesis.
 In fact, despite growing interest in neural models for document ranking, researchers have recently voiced concern as to whether or not they have truly contributed to progress~\cite{lin2019neural}, at least in the absence of large amounts of behavioral log data only available to search engine companies.
 This opinion piece echoes the general skepticism concerning the empirical rigor and contributions of machine learning applications in Lipton et al. \cite{lipton2018troubling} and Sculley at al. \cite{sculley2018winner}.
 %In particular, Lin et al.~\cite{lin2019neural} lament that comparisons to weak baselines sometimes inflate the merits of certain neural information retrieval methods.
-
 To rigorously test this claim, Yang et al. \cite{Yang_etal_SIGIR2019} recently conducted a thorough meta-analysis of over 100 papers that report results on the TREC Robust 2004 Track.
 Their findings are illustrated in Figure \ref{fig:neural_robust04} where the solid black line represents the best submitted run at 0.333, and the dotted black line the median TREC run at 0.258.
 The other line is a RM3 baseline run with default parameters from the Anserini open-source information retrieval toolkit~\cite{Yang:2018:ARR:3289400.3239571} at AP 0.3903.
@@ -212,30 +235,28 @@ BM25+RM3   & 0.3033      & 0.4514     \\
 
 \subsubsection{Contextualized Language Models}
 
-While the neural ranking models introduced in the previous section successfully leverage contextual information to improve retrieval effectiveness, they are limited by the size and variability of the available training data.
+While the neural ranking models introduced earlier in this section successfully leverage semantic information to improve retrieval effectiveness, they are limited by the size and variability of the available training data.
 Ideally, these models would be trained on a large number of semantically varied yet relevant query-document pairs; however, it is impractical to automatically gather a sufficient number of such training samples.
 Massively pretrained unsupervised language models hold promises for obtaining better representations for the query and document, and therefore, achieving unprecedented effectiveness at semantic matching without the need for more relevance information.
-Language models are pretrained on massive amounts of external data in an unsupervised fashion.
-\myworries{ELMo, GPT, BERT...}
+Some of the most popular examples of unsupervised language models have been discussed in Section \ref{lm}.
 
 Document retrieval requires an understanding of the relationship between two text sequences -- the query and the document.
-However, language modeling does not suffice to capture such a relationship.
+However, traditionally language modeling does not suffice to capture such a relationship.
 BERT facilitates such relevance classification by pre-training a binary next sentence prediction task based on its masking language model approach.
-This mechanism has been adopted for ``passage'' reranking by ...
 Notably, Nogueira et al. \cite{nogueira2019passage} proposed to re-rank MS MARCO passages based on a simple re-implementation of BERT, outperforming the previous state of the art by 27\% in MRR@10 and replacing the top entry in the leaderboard of the MS MARCO passage retrieval task at the time of publication.
 Our neural model is inspired by the BERT re-implementation described in this paper.
 \myworries{What about others? MS MARCO leaderboard?}
 
-To our knowledge, Yang et al. \cite{yang2019simple} were the first to successfully apply BERT to ``ad hoc'' document retrieval.
-They demonstrated that BERT can be fine-tuned to capture relevance matching by applying the above approach on the TREC Microblog Tracks where document length does not pose an issue.
+To our knowledge, Yang et al. \cite{yang2019simple} are the first to successfully apply BERT to ``ad hoc'' document retrieval.
+They demonstrate that BERT can be fine-tuned to capture relevance matching by applying the above approach on the TREC Microblog Tracks where document length does not pose an issue.
 They further proposed overcoming the challenge of long documents by applying inference on each individual sentence and combining the top scores to compute a final document score.
-Their approach was motivated by user studies? by Zhang et al. \cite{zhang2018effective} who suggested that the most relevant sentence or paragraph in a document provides a good proxy for overall document relevance.
+Their approach was motivated by user studies by Zhang et al. \cite{zhang2018effective} who suggested that the most relevant sentence or paragraph in a document provides a good proxy for overall document relevance.
 Their work paved the way for future work that culminated in this thesis.
 
 More recently, MacAvaney et al. \cite{macavaney2019cedr} shifted focus from incorporating BERT as a reranker to using its representation capabilities to improve existing neural architectures.
 By computing a relevance matrix between the query and each candidate document? at each layer of a contextualized language model -- ELMo or BERT --  they established state-of-the-art effectiveness on Robust04 and Webtrack 2012--2014 at the time of writing.
-\myworries{Not MAP...}
-They also proposed a joint model that combines the aforementioned classification mechanism of BERT into existing neural architectures.
+\myworries{Result values}
+They also propose a joint model that combines the aforementioned classification mechanism of BERT into existing neural architectures.
 They claim that this approach benefits from both deep semantic matching with BERT \textit{and} relevance batching with traditional ranking architectures.
 
 Qiao et al. \cite{Qiao:1904.07531:2019} study in an arXiv preprint the performance and behavior of BERT when used as a reranker for passage ranking on MS MARCO and for document ranking on the TREC Web Track.
@@ -253,15 +274,15 @@ They test four hypotheses regarding the behavior of semantic matching with BERT 
 \section{Evaluation Metrics}
 
 The standard approach to evaluation in information retrieval relies on the distinction between ``relevant'' and ``irrelevant'' documents with respect to an information need as expressed by a query.
-A number of automatic evaluation metrics has been formalized for ranking tasks such as document retrieval.
-These metrics rely on 
-The size of most document collections makes it infeasible for humans to manually judge the relevance of all documents.
-All relevant documents need to be labelled to prevent false negatives, i.e: treating documents which are in fact relevant as irrelevant.
+A number of automatic evaluation metrics has been formalized specifically for ranking tasks.
+%These metrics rely on 
+%The size of most document collections makes it infeasible for humans to manually judge the relevance of all documents.
+%All relevant documents need to be labelled to prevent false negatives, i.e: treating documents which are in fact relevant as irrelevant.
 
 \subsection{Mean Average Precision (MAP)}
 
 Precision specifies what fraction of a set of retrieved documents is in fact relevant for a given query $ q $.
-Precision can easily be extended to evaluate ranked retrieval results by ...
+%Precision can easily be extended to evaluate ranked retrieval results by ...
 Average precision (AP) expresses the average of the precision values obtained for the set of top $ k $ documents for a query.
 Support that $ D = \{d_1, ..., d_{m_j}\} $ is the set of all relevant documents for a query $ q_j $, then AP can be formulated as:
 
@@ -295,16 +316,14 @@ Moreover, precision at $ k $ does not average well because the total number of r
 
 \subsection{Normalized Discounted Cumulative Gain (NDCG@20)}
 
-Cumulative gain (CG) simply computes the sum of relevance labels for all the retrieved documents.
-It views the search results as an unordered set, and disregards the ordering of the documents.
-Since a highly relevant document is inherently more useful when it appears higher up in the search results, CG has been extended to discounted cumulative gain (DCG).
+Cumulative gain (CG) simply computes the sum of relevance labels for all the retrieved documents, treating the search results as an unordered set.
+However, since a highly relevant document is inherently more useful when it appears higher up in the search results, CG has been extended to discounted cumulative gain (DCG).
 Discounted cumulative gain (DCG) estimates the relevance of a document based on its rank among the retrieved documents.
 The relevance measure is accumulated from top to bottom, discounting the value of documents at lower ranks.
-NDCG measures DCG for the top $ k $ documents, normalizing by the highest possible value for a query.
+NDCG measures DCG for the top $ k $ documents, normalizing by the highest possible value for a query; therefore, a perfect ranking yields NDCG equals 1.
 
 NDCG is uniquely useful in applications with a non-binary notion of relevance, e.g: a spectrum of relevance. 
-For this reason, NDCG is a popular choice for systems with machine learning approaches?
-Like precision at k, it is evaluated as a weighted sum over the top k search results, and normalized so that a perfect ranking yields NDCG equals 1.
+%For this reason, NDCG is a popular choice for systems with machine learning approaches?
 This makes NDCG comparable across different queries:\
 The NDCG values for all queries can be averaged to reliably evaluate the effectiveness of a ranking algorithm for various information needs across a collection.
-However, the use of NDCG is dependent on the availability of ground truth relevance labels?
+\myworries{However, the use of NDCG is dependent on the availability of ground truth relevance labels?}

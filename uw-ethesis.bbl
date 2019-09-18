@@ -1,5 +1,11 @@
 \begin{thebibliography}{10}
 
+\bibitem{ando2005framework}
+Rie~Kubota Ando and Tong Zhang.
+\newblock A framework for learning predictive structures from multiple tasks
+  and unlabeled data.
+\newblock {\em Journal of Machine Learning Research}, 6(Nov):1817--1853, 2005.
+
 \bibitem{nguyen2016msmarco}
 Payal Bajaj, Daniel Campos, Nick Craswell, Li~Deng, Jianfeng Gao, Xiaodong Liu,
   Rangan Majumder, Andrew McNamara, Bhaskar Mitra, Tri Nguyen, Mir Rosenberg,
@@ -7,6 +13,24 @@ Payal Bajaj, Daniel Campos, Nick Craswell, Li~Deng, Jianfeng Gao, Xiaodong Liu,
 \newblock {MS} {MARCO}: {A} human generated {MAchine} {Reading} {COmprehension}
   dataset.
 \newblock {\em arXiv:1611.09268v3}, 2018.
+
+\bibitem{belinkov2017neural}
+Yonatan Belinkov, Nadir Durrani, Fahim Dalvi, Hassan Sajjad, and James Glass.
+\newblock What do neural machine translation models learn about morphology?
+\newblock {\em arXiv preprint arXiv:1704.03471}, 2017.
+
+\bibitem{blitzer2006domain}
+John Blitzer, Ryan McDonald, and Fernando Pereira.
+\newblock Domain adaptation with structural correspondence learning.
+\newblock In {\em Proceedings of the 2006 conference on empirical methods in
+  natural language processing}, pages 120--128. Association for Computational
+  Linguistics, 2006.
+
+\bibitem{bojanowski2017enriching}
+Piotr Bojanowski, Edouard Grave, Armand Joulin, and Tomas Mikolov.
+\newblock Enriching word vectors with subword information.
+\newblock {\em Transactions of the Association for Computational Linguistics},
+  5:135--146, 2017.
 
 \bibitem{Cormack:2009:RRF:1571941.1572114}
 Gordon~V. Cormack, Charles L~A Clarke, and Stefan Buettcher.
@@ -45,6 +69,12 @@ Laura Dietz, Manisha Verma, Filip Radlinski, and Nick Craswell.
 \newblock In {\em Proceedings of the Twenty-Sixth Text REtrieval Conference
   (TREC 2017)}, Gaithersburg, Maryland, 2017.
 
+\bibitem{DBLP:journals/corr/abs-1803-11138}
+Kristina Gulordava, Piotr Bojanowski, Edouard Grave, Tal Linzen, and Marco
+  Baroni.
+\newblock Colorless green recurrent networks dream hierarchically.
+\newblock {\em CoRR}, abs/1803.11138, 2018.
+
 \bibitem{guo2016deep}
 Jiafeng Guo, Yixing Fan, Qingyao Ai, and W~Bruce Croft.
 \newblock A deep relevance matching model for ad-hoc retrieval.
@@ -63,10 +93,28 @@ Po-Sen Huang, Xiaodong He, Jianfeng Gao, Li~Deng, Alex Acero, and Larry Heck.
 \newblock In {\em Proceedings of the 22nd ACM international conference on
   Information \& Knowledge Management}, pages 2333--2338. ACM, 2013.
 
+\bibitem{joachims2002optimizing}
+Thorsten Joachims.
+\newblock Optimizing search engines using clickthrough data.
+\newblock In {\em Proceedings of the eighth ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 133--142. ACM, 2002.
+
+\bibitem{jones2000probabilistic}
+K~Sparck Jones, Steve Walker, and Stephen~E. Robertson.
+\newblock A probabilistic model of information retrieval: development and
+  comparative experiments: Part 2.
+\newblock {\em Information processing \& management}, 36(6):809--840, 2000.
+
 \bibitem{lin2019neural}
 Jimmy Lin.
 \newblock The neural hype and comparisons against weak baselines.
 \newblock In {\em ACM SIGIR Forum}, volume~52, pages 40--51. ACM, 2019.
+
+\bibitem{DBLP:journals/corr/LinzenDG16}
+Tal Linzen, Emmanuel Dupoux, and Yoav Goldberg.
+\newblock Assessing the ability of lstms to learn syntax-sensitive
+  dependencies.
+\newblock {\em CoRR}, abs/1611.01368, 2016.
 
 \bibitem{lipton2018troubling}
 Zachary~C Lipton and Jacob Steinhardt.
@@ -82,6 +130,13 @@ Sean MacAvaney, Andrew Yates, Arman Cohan, and Nazli Goharian.
 Christopher Manning, Prabhakar Raghavan, and Hinrich Sch{\"u}tze.
 \newblock Introduction to information retrieval.
 \newblock {\em Natural Language Engineering}, 16(1):100--103, 2010.
+
+\bibitem{melamud2016context2vec}
+Oren Melamud, Jacob Goldberger, and Ido Dagan.
+\newblock context2vec: Learning generic context embedding with bidirectional
+  lstm.
+\newblock In {\em Proceedings of the 20th SIGNLL conference on computational
+  natural language learning}, pages 51--61, 2016.
 
 \bibitem{mikolov2013distributed}
 Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg~S Corrado, and Jeff Dean.
@@ -128,6 +183,10 @@ Matthew~E Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark,
 Yifan Qiao, Chenyan Xiong, Zhenghao Liu, and Zhiyuan Liu.
 \newblock Understanding the behaviors of {BERT} in ranking.
 \newblock {\em arXiv:1904.07531}, 2019.
+
+\bibitem{radford2018improving}
+Alec Radford, Karthik Narasimhan, Tim Salimans, and Ilya Sutskever.
+\newblock Improving language understanding by generative pre-training.
 
 \bibitem{radford2019language}
 Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, and Ilya
@@ -187,6 +246,13 @@ Alex Wang, Amanpreet Singh, Julian Michael, Felix Hill, Omer Levy, and Samuel~R
   language understanding.
 \newblock {\em arXiv preprint arXiv:1804.07461}, 2018.
 
+\bibitem{wu2016google}
+Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc~V Le, Mohammad Norouzi, Wolfgang
+  Macherey, Maxim Krikun, Yuan Cao, Qin Gao, Klaus Macherey, et~al.
+\newblock Google's neural machine translation system: Bridging the gap between
+  human and machine translation.
+\newblock {\em arXiv preprint arXiv:1609.08144}, 2016.
+
 \bibitem{xiong2017knrm}
 Chenyan Xiong, Zhuyun Dai, Jamie Callan, Zhiyuan Liu, and Russell Power.
 \newblock End-to-end neural ad-hoc ranking with kernel pooling.
@@ -237,5 +303,13 @@ Le~Zhao and Jamie Callan.
 \newblock Term necessity prediction.
 \newblock In {\em Proceedings of the 19th ACM international conference on
   Information and knowledge management}, pages 259--268. ACM, 2010.
+
+\bibitem{zhu2015aligning}
+Yukun Zhu, Ryan Kiros, Rich Zemel, Ruslan Salakhutdinov, Raquel Urtasun,
+  Antonio Torralba, and Sanja Fidler.
+\newblock Aligning books and movies: Towards story-like visual explanations by
+  watching movies and reading books.
+\newblock In {\em Proceedings of the IEEE international conference on computer
+  vision}, pages 19--27, 2015.
 
 \end{thebibliography}
