@@ -1,5 +1,5 @@
-\contentsline {chapter}{List of Tables}{iv}{section*.2}
-\contentsline {chapter}{List of Figures}{v}{section*.4}
+\contentsline {chapter}{List of Tables}{v}{section*.2}
+\contentsline {chapter}{List of Figures}{vi}{section*.4}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Contributions}{4}{section.1.1}
 \contentsline {section}{\numberline {1.2}Thesis Organization}{4}{section.1.2}
@@ -18,4 +18,27 @@
 \contentsline {subsection}{\numberline {2.3.1}Mean Average Precision (MAP)}{15}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}Precision at k (P@k)}{16}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}Normalized Discounted Cumulative Gain (NDCG@k)}{16}{subsection.2.3.3}
-\contentsline {chapter}{\textbf {References}}{17}{section*.11}
+\contentsline {chapter}{\numberline {3}Datasets}{17}{chapter.3}
+\contentsline {subsection}{\numberline {3.0.1}Fine-Tuning}{17}{subsection.3.0.1}
+\contentsline {subsubsection}{TREC Microblog (MB)}{17}{section*.11}
+\contentsline {subsubsection}{MicroSoft MAchine Reading Comprehension (MS MARCO)}{18}{section*.12}
+\contentsline {subsubsection}{TREC Complex Answer Retrieval (CAR)}{19}{section*.13}
+\contentsline {subsection}{\numberline {3.0.2}Evaluation}{19}{subsection.3.0.2}
+\contentsline {subsubsection}{Robust04}{20}{section*.14}
+\contentsline {subsubsection}{Core17 \& Core18}{20}{section*.15}
+\contentsline {chapter}{\numberline {4}Cross-Domain Relevance Transfer with BERT}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}Architecture}{21}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Anserini}{22}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Integration}{22}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Model}{23}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Input Representation}{23}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.3}Experimental Setup}{24}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Training and Inference with BERT}{24}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Evaluation}{24}{subsection.4.3.2}
+\contentsline {chapter}{\numberline {5}Experimental Results}{26}{chapter.5}
+\contentsline {section}{\numberline {5.1}Results}{26}{section.5.1}
+\contentsline {section}{\numberline {5.2}Effect of Nature of Training Data}{26}{section.5.2}
+\contentsline {section}{\numberline {5.3}Effect of Length}{30}{section.5.3}
+\contentsline {section}{\numberline {5.4}Comparison}{30}{section.5.4}
+\contentsline {chapter}{\numberline {6}Conclusion}{31}{chapter.6}
+\contentsline {chapter}{\textbf {References}}{32}{section*.16}

@@ -17,6 +17,12 @@ Rie~Kubota Ando and Tong Zhang.
   and unlabeled data.
 \newblock {\em Journal of Machine Learning Research}, 6(Nov):1817--1853, 2005.
 
+\bibitem{Asadi_Lin_SIGIR2013}
+N.~Asadi and J.~Lin.
+\newblock Effectiveness/efficiency tradeoffs for candidate generation in
+  multi-stage retrieval architectures.
+\newblock In {\em SIGIR}, pages 997--1000, 2013.
+
 \bibitem{nguyen2016msmarco}
 Payal Bajaj, Daniel Campos, Nick Craswell, Li~Deng, Jianfeng Gao, Xiaodong Liu,
   Rangan Majumder, Andrew McNamara, Bhaskar Mitra, Tri Nguyen, Mir Rosenberg,
@@ -133,6 +139,11 @@ K~Sparck Jones, Steve Walker, and Stephen~E. Robertson.
 \newblock A probabilistic model of information retrieval: development and
   comparative experiments: Part 2.
 \newblock {\em Information processing \& management}, 36(6):809--840, 2000.
+
+\bibitem{kingma2014adam}
+Diederik~P. Kingma and Jimmy Ba.
+\newblock Adam:\ {A} method for stochastic optimization.
+\newblock {\em arXiv:1412.6980}, 2014.
 
 \bibitem{lin2019neural}
 Jimmy Lin.

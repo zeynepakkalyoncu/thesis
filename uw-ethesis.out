@@ -15,4 +15,22 @@
 \BOOKMARK [2][-]{subsection.2.3.1}{Mean Average Precision \(MAP\)}{section.2.3}% 15
 \BOOKMARK [2][-]{subsection.2.3.2}{Precision at k \(P@k\)}{section.2.3}% 16
 \BOOKMARK [2][-]{subsection.2.3.3}{Normalized Discounted Cumulative Gain \(NDCG@k\)}{section.2.3}% 17
-\BOOKMARK [0][-]{section*.11}{References}{}% 18
+\BOOKMARK [0][-]{chapter.3}{Datasets}{}% 18
+\BOOKMARK [1][-]{subsection.3.0.1}{Fine-Tuning}{chapter.3}% 19
+\BOOKMARK [2][-]{subsection.3.0.2}{Evaluation}{subsection.3.0.1}% 20
+\BOOKMARK [0][-]{chapter.4}{Cross-Domain Relevance Transfer with BERT}{}% 21
+\BOOKMARK [1][-]{section.4.1}{Architecture}{chapter.4}% 22
+\BOOKMARK [2][-]{subsection.4.1.1}{Anserini}{section.4.1}% 23
+\BOOKMARK [2][-]{subsection.4.1.2}{Integration}{section.4.1}% 24
+\BOOKMARK [1][-]{section.4.2}{Model}{chapter.4}% 25
+\BOOKMARK [2][-]{subsection.4.2.1}{Input Representation}{section.4.2}% 26
+\BOOKMARK [1][-]{section.4.3}{Experimental Setup}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.3.1}{Training and Inference with BERT}{section.4.3}% 28
+\BOOKMARK [2][-]{subsection.4.3.2}{Evaluation}{section.4.3}% 29
+\BOOKMARK [0][-]{chapter.5}{Experimental Results}{}% 30
+\BOOKMARK [1][-]{section.5.1}{Results}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.2}{Effect of Nature of Training Data}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.3}{Effect of Length}{chapter.5}% 33
+\BOOKMARK [1][-]{section.5.4}{Comparison}{chapter.5}% 34
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 35
+\BOOKMARK [0][-]{section*.16}{References}{}% 36

@@ -11,45 +11,45 @@ Warning--empty year in radford2018improving
 Warning--empty journal in radford2019language
 Warning--empty year in radford2019language
 Warning--empty journal in sculley2018winner
-You've used 58 entries,
+You've used 60 entries,
             2118 wiz_defined-function locations,
-            799 strings with 16368 characters,
-and the built_in function-call counts, 24151 in all, are:
-= -- 2350
-> -- 1411
-< -- 24
-+ -- 559
-- -- 496
-* -- 1725
-:= -- 3930
-add.period$ -- 185
-call.type$ -- 58
-change.case$ -- 421
+            809 strings with 16644 characters,
+and the built_in function-call counts, 24851 in all, are:
+= -- 2421
+> -- 1437
+< -- 25
++ -- 569
+- -- 504
+* -- 1762
+:= -- 4037
+add.period$ -- 191
+call.type$ -- 60
+change.case$ -- 431
 chr.to.int$ -- 0
-cite$ -- 66
-duplicate$ -- 904
-empty$ -- 1657
-format.name$ -- 496
-if$ -- 5085
+cite$ -- 68
+duplicate$ -- 937
+empty$ -- 1716
+format.name$ -- 504
+if$ -- 5241
 int.to.chr$ -- 0
-int.to.str$ -- 58
-missing$ -- 58
-newline$ -- 290
-num.names$ -- 116
-pop$ -- 478
+int.to.str$ -- 60
+missing$ -- 60
+newline$ -- 300
+num.names$ -- 120
+pop$ -- 491
 preamble$ -- 1
-purify$ -- 363
+purify$ -- 371
 quote$ -- 0
-skip$ -- 691
+skip$ -- 720
 stack$ -- 0
-substring$ -- 1282
-swap$ -- 290
-text.length$ -- 24
+substring$ -- 1327
+swap$ -- 302
+text.length$ -- 25
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 232
+type$ -- 240
 warning$ -- 8
-while$ -- 201
-width$ -- 60
-write$ -- 632
+while$ -- 208
+width$ -- 62
+write$ -- 653
 (There were 8 warnings)

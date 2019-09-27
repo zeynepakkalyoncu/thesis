@@ -1,3 +1,203 @@
 %======================================================================
 \chapter{Experimental Results}
 %======================================================================
+
+\section{Results}
+
+\myworries{Think of nice visualizations... Also add the attention part?}
+
+\myworries{Split into 3 wrt dataset?}
+\myworries{Also divide into multiple chapters maybe?}
+
+\begin{table*}[t!]
+\centering\resizebox{\textwidth}{!}{
+\begin{tabular}{lll lll}
+\toprule
+ & \multicolumn{3}{c}{\textbf{Robust04}} \\
+\toprule
+BM25+RM3 & 0.2903 & 0.3821 & 0.4407 \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MB}) $ & 0.3318$^{\dagger}$ & 0.4185$^{\dagger}$ & 0.4751$^{\dagger}$ \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MB}) $ & 0.3328$^{\dagger}$ & 0.4193$^{\dagger}$ & 0.4765$^{\dagger}$ \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MB}) $ & 0.3328$^{\dagger}$ & 0.4193$^{\dagger}$ & 0.4765$^{\dagger}$ \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}) $ & 0.3030$^{\dagger}$ & 0.3980$^{\dagger}$ & 0.4520 \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}) $ & 0.3030$^{\dagger}$ & 0.3980$^{\dagger}$ & 0.4520 \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}) $ & 0.3014$^{\dagger}$ & 0.3964$^{\dagger}$ & 0.4502 \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}) $ & 0.3300$^{\dagger}$ & 0.4309$^{\dagger}$ & 0.4906$^{\dagger}$ \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}) $ & 0.3300$^{\dagger}$ & 0.4339$^{\dagger}$ & 0.4928$^{\dagger}$ \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}) $ & 0.3315$^{\dagger}$ & 0.4321$^{\dagger}$ & 0.4952$^{\dagger}$  \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.3406$^{\dagger}$ & 0.4333$^{\dagger}$ & 0.4945$^{\dagger}$ \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.3436$^{\dagger}$ & 0.4382$^{\dagger}$ & 0.5004$^{\dagger}$ \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.3437$^{\dagger}$ & 0.4390$^{\dagger}$ & 0.5016$^{\dagger}$ \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & 0.3532$^{\dagger}$ & 0.4462$^{\dagger}$ & 0.5066$^{\dagger}$ \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & 0.3609$^{\dagger}$ & \textbf{0.4624}$^{\dagger}$ & 0.5231$^{\dagger}$ \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & \textbf{0.3623}$^{\dagger}$ & 0.4612$^{\dagger}$ & \textbf{0.5267}$^{\dagger}$ \\
+\bottomrule
+\end{tabular}
+}
+\caption{Ranking effectiveness on Robust04}
+\label{tab:results-robust04}
+\end{table*}
+
+\begin{table*}[t!]
+\centering\resizebox{\textwidth}{!}{
+\begin{tabular}{lll lll}
+\toprule
+ & \multicolumn{3}{c}{\textbf{Core17}} \\
+\toprule
+BM25+RM3 & 0.2682 & 0.5330 & 0.4329 \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MB}) $ & 0.2827$^{\dagger}$ & 0.5440 & 0.4443 \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MB}) $ & 0.2838$^{\dagger}$ & 0.5520 & 0.4526 \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MB}) $ & 0.2841$^{\dagger}$ & 0.5450 & 0.4489 \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}) $ & 0.2679 & 0.5350 & 0.4338 \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}) $ & 0.2630$^{\dagger}$ & 0.5200$^{\dagger}$ & 0.4262 \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}) $ & 0.2607$^{\dagger}$ & 0.5190$^{\dagger}$ & 0.4243 \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}) $ & 0.3300$^{\dagger}$ & 0.4309$^{\dagger}$ & 0.4906$^{\dagger}$ \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}) $ & 0.3300$^{\dagger}$ & 0.4339$^{\dagger}$ & 0.4928$^{\dagger}$ \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}) $ & 0.3315$^{\dagger}$ & 0.4321$^{\dagger}$ & 0.4952$^{\dagger}$  \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}\rightarrow\textrm{MB}) $ &  0.2883$^{\dagger}$ & 0.5570 & 0.4559$^{\dagger}$ \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.2919$^{\dagger}$ & 0.5660$^{\dagger}$ & 0.4675$^{\dagger}$ \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.2926$^{\dagger}$ & 0.5660$^{\dagger}$ & 0.4685$^{\dagger}$ \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & 0.3091$^{\dagger}$ & 0.5710$^{\dagger}$ & 0.4770$^{\dagger}$ \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & 0.3175$^{\dagger}$ & \textbf{0.5920}$^{\dagger}$ & 0.4947$^{\dagger}$ \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ \textbf{0.3193}$^{\dagger}$ & 0.5900$^{\dagger}$ & \textbf{0.4998}$^{\dagger}$ \\
+\bottomrule
+\end{tabular}
+}
+\caption{Ranking effectiveness on Core17}
+\label{tab:results-core17}
+\end{table*}
+
+\begin{table*}[t!]
+\centering\resizebox{\textwidth}{!}{
+\begin{tabular}{lll lll}
+\toprule
+ & \multicolumn{3}{c}{\textbf{Core18}} \\
+\toprule
+BM25+RM3 & 0.3147 & 0.4720 & 0.4610 \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MB}) $ & 0.3288$^{\dagger}$ & 0.4780 & 0.4678 \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MB}) $ & 0.3314$^{\dagger}$ & 0.4810 & 0.472 \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MB}) $ & 0.3318$^{\dagger}$ & 0.4800 & 0.4710 \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}) $ & 0.3129 & 0.4670 & 0.4592 \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}) $ & 0.3128 & 0.4660 & 0.4592  \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}) $ & 0.3130 & 0.4680 & 0.4608 \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}) $ &  0.3322$^{\dagger}$ & 0.4890 & 0.4845$^{\dagger}$ \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}) $ & 0.3344$^{\dagger}$ & 0.4940 & 0.4876$^{\dagger}$ \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}) $ & 0.3368$^{\dagger}$ & 0.4950 & 0.4878$^{\dagger}$  \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.3413$^{\dagger}$ & 0.4860 & 0.4890$^{\dagger}$ \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.3469$^{\dagger}$ & 0.4860 & 0.4859$^{\dagger}$ \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.3472$^{\dagger}$ & 0.4870 & 0.4906$^{\dagger}$ \\
+\midrule
+1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & 0.3465$^{\dagger}$ & 0.4890 & \textbf{0.4949}$^{\dagger}$ \\
+2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & 0.3497$^{\dagger}$ & 0.4840 & 0.4883$^{\dagger}$ \\
+3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ \textbf{0.3511}$^{\dagger}$ & \textbf{0.4980} & 0.4939$^{\dagger}$ \\
+\bottomrule
+\end{tabular}
+}
+\caption{Ranking effectiveness on Core18}
+\label{tab:results-core18}
+\end{table*}
+
+%\begin{sidewaystable*}[htbp]
+%\centering
+%\caption{Ranking effectiveness on Robust04, Core17 and Core18}
+%\begin{center}
+%\resizebox{\columnwidth}{!}{
+%\begin{tabular}{lcc ccc ccc ccc}
+%\toprule
+% & \multicolumn{3}{c}{\textbf{Robust04}} & \multicolumn{3}{c}{\textbf{Core17}} & \multicolumn{3}{c}{\textbf{Core18}} \\
+% \cmidrule(lr){2-4}  \cmidrule(lr){5-7}  \cmidrule(lr){8-10}
+%{\bf Model} & {\bf MAP} & {\bf P@20} & {\bf NDCG@20}   & {\bf MAP}  & {\bf P@20} & {\bf NDCG@20} & {\bf MAP} & {\bf P@20} & {\bf NDCG@20}  \\
+%\toprule
+%BM25+RM3 & 0.2903 & 0.3821 & 0.4407 & 0.2682 & 0.5330 & 0.4329 & 0.3147 & 0.4720 & 0.4610 \\
+%\midrule
+%1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MB}) $ & 0.3318$^{\dagger}$ & 0.4185$^{\dagger}$ & 0.4751$^{\dagger}$ & 0.2827$^{\dagger}$ & 0.5440 & 0.4443 & 0.3288$^{\dagger}$ & 0.4780 & 0.4678 \\
+%2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MB}) $ & 0.3328$^{\dagger}$ & 0.4193$^{\dagger}$ & 0.4765$^{\dagger}$ & 0.2838$^{\dagger}$ & 0.5520 & 0.4526 & 0.3314$^{\dagger}$ & 0.4810 & 0.4723 \\
+%3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MB}) $ & 0.3328$^{\dagger}$ & 0.4193$^{\dagger}$ & 0.4765$^{\dagger}$ & 0.2841$^{\dagger}$ & 0.5450 & 0.4489 & 0.3318$^{\dagger}$ & 0.4800 & 0.4710 \\
+%\midrule
+%1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}) $ & 0.3030$^{\dagger}$ & 0.3980$^{\dagger}$ & 0.4520 & 0.2679 & 0.5350 & 0.4338 & 0.3129 & 0.4670 & 0.4592 \\
+%2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}) $ & 0.3030$^{\dagger}$ & 0.3980$^{\dagger}$ & 0.4520 & 0.2630$^{\dagger}$ & 0.5200$^{\dagger}$ & 0.4262 & 0.3128 & 0.4660 & 0.4592 \\
+%3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}) $ & 0.3014$^{\dagger}$ & 0.3964$^{\dagger}$ & 0.4502 & 0.2607$^{\dagger}$ & 0.5190$^{\dagger}$ & 0.4243 & 0.3130 & 0.4680 & 0.4608 \\
+%\midrule
+%1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}) $ & 0.3300$^{\dagger}$ & 0.4309$^{\dagger}$ & 0.4906$^{\dagger}$ & 0.2883$^{\dagger}$ & 0.5570 & 0.4559$^{\dagger}$ & 0.3322$^{\dagger}$ & 0.4890 & 0.4845$^{\dagger}$ \\
+%2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}) $ & 0.3300$^{\dagger}$ & 0.4339$^{\dagger}$ & 0.4928$^{\dagger}$ & 0.2912$^{\dagger}$ & 0.5680$^{\dagger}$ & 0.4612$^{\dagger}$ & 0.3344$^{\dagger}$ & 0.4940 & 0.4876$^{\dagger}$ \\
+%3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}) $ & 0.3315$^{\dagger}$ & 0.4321$^{\dagger}$ & 0.4952$^{\dagger}$ & 0.2918$^{\dagger}$ & 0.5750$^{\dagger}$ & 0.4706$^{\dagger}$ & 0.3368$^{\dagger}$ & 0.4950 & 0.4878$^{\dagger}$ \\
+%\midrule
+%1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.3406$^{\dagger}$ & 0.4333$^{\dagger}$ & 0.4945$^{\dagger}$ & 0.2872$^{\dagger}$ & 0.5590$^{\dagger}$ & 0.4534$^{\dagger}$ & 0.3413$^{\dagger}$ & 0.4860 & 0.4890$^{\dagger}$ \\
+%2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.3436$^{\dagger}$ & 0.4382$^{\dagger}$ & 0.5004$^{\dagger}$ & 0.2919$^{\dagger}$ & 0.5660$^{\dagger}$ & 0.4675$^{\dagger}$ & 0.3469$^{\dagger}$ & 0.4860 & 0.4859$^{\dagger}$ \\
+%3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.3437$^{\dagger}$ & 0.4390$^{\dagger}$ & 0.5016$^{\dagger}$ & 0.2926$^{\dagger}$ & 0.5660$^{\dagger}$ & 0.4685$^{\dagger}$ & 0.3472$^{\dagger}$ & 0.4870 & 0.4906$^{\dagger}$ \\
+%\midrule
+%1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & 0.3532$^{\dagger}$ & 0.4462$^{\dagger}$ & 0.5066$^{\dagger}$ & 0.3091$^{\dagger}$ & 0.5710$^{\dagger}$ & 0.4770$^{\dagger}$ & 0.3465$^{\dagger}$ & 0.4890 & \textbf{0.4949}$^{\dagger}$ \\
+%2S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & 0.3609$^{\dagger}$ & \textbf{0.4624}$^{\dagger}$ & 0.5231$^{\dagger}$ & 0.3175$^{\dagger}$ & \textbf{0.5920}$^{\dagger}$ & 0.4947$^{\dagger}$ & 0.3497$^{\dagger}$ & 0.4840 & 0.4883$^{\dagger}$ \\
+%3S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & \textbf{0.3623}$^{\dagger}$ & 0.4612$^{\dagger}$ & \textbf{0.5267}$^{\dagger}$ & \textbf{0.3193}$^{\dagger}$ & 0.5900$^{\dagger}$ & \textbf{0.4998}$^{\dagger}$ & \textbf{0.3511}$^{\dagger}$ & \textbf{0.4980} & 0.4939$^{\dagger}$ \\
+%\bottomrule
+%\end{tabular}
+%}
+%\label{tab:results}
+%\end{center}
+%\end{sidewaystable*}
+
+The ranking effectiveness for various models on Robust04, Core17 and Core18 are displayed in Table \ref{tab:results}.
+The top row represents the BM25+RM3 query expansion baseline using default Anserini parameters.\footnote{Not tuned for fairness because Core17/18...}
+The remaining blocks belong to the main experiments that we conducted.
+For instance, $\textrm{MSMARCO}\rightarrow\textrm{MB}$ refers to a $\textrm{BERT}_{\textrm{\scriptsize Large}}$ model first fine-tuned on MS MARCO and then on MB.
+The $n$S preceding the model name indicates that inference was performed using the top $n$ scoring sentences from each document.
+Table \ref{tab:results} also highlights statistically significant results based on paired $ t $-tests compared to the BM25+RM3 baseline with ${\dagger}$. 
+We report significance at the $p<0.01$ level, with appropriate Bonferroni corrections for multiple hypothesis testing.
+
+\section{Effect of Nature of Training Data}
+
+We find that $ \textrm{BERT} $ fine-tuned on MB alone significantly outperforms the BM25+RM3 baseline for all three metrics on Robust04.
+On Core17 and Core18, we observe significant increases in AP as well (and other metrics in some cases).
+In other words, relevance models learned from tweets successfully transfer over to news articles despite large differences in domain.
+This surprising result highlights the relevance matching power introduced by the deep semantic information learned by BERT.
+
+Fine-tuning on MS MARCO or CAR alone yields at most minor gains over the baselines across all collections, and in some cases actually hurts effectiveness.
+Furthermore, the number of sentences considered for final score aggregation does not seem to affect effectiveness.
+It also does not appear that the synthetic nature of CAR data helps much for relevance modeling on newswire collections.
+Interestingly, though, if we fine-tune on CAR and then MB ($\textrm{CAR}\rightarrow\textrm{MB}$), we obtain better results than fine-tuning on either MS MARCO or CAR alone.
+In some cases, we slightly improve over fine-tuning on MB alone.
+One possible explanation could be that CAR has an effect similar to language model pre-training; it alone cannot directly help the downstream document retrieval task, but it provides a better representation that can benefit from MB fine-tuning.
+
+However, we were surprised by the MS MARCO results:\
+since the dataset captures a search task and the web passages are ``closer'' to our newswire collections than MB in terms of domain, we would have expected relevance transfer to be more effective.
+Results show, however, that fine-tuning on MS MARCO alone is far less effective than fine-tuning on MB alone.
+
+Looking across all fine-tuning configurations, we see that the top-scoring sentence of each candidate document alone seems to be a good indicator of document relevance, corroborating the findings of \cite{}.
+Additionally considering the second ranking sentence yields at most a minor gain, and in some cases, adding a third actually causes effectiveness to drop.
+This is quite a surprising finding, since it suggests that the document ranking problem, at least as traditionally formulated by information retrieval researchers, can be distilled into relevance prediction primarily at the sentence level.
+
+In the final block of the table, we present our best model, with fine-tuning on MS MARCO and then on MB.
+We confirm that this approach is able to exploit {\it both} datasets, with a score that is higher than fine-tuning on each dataset alone.
+Let us provide some broader context for these scores:\
+For Robust04, we report the highest AP score that we are aware of (0.3697).
+Prior to our work, the meta-analysis by \cite{}, which analyzed over 100 papers up until early 2019,\footnote{\url{https://github.com/lintool/robust04-analysis}} put the best neural model at 0.3124~\cite{}.\footnote{Setting aside our own previous work~\cite{yang2019simple}.}
+Furthermore, our results exceed the previous highest known score of 0.3686, which is a non-neural method based on ensembles~\cite{Cormack:2009:RRF:1571941.1572114}.
+This high water mark has stood unchallenged for ten years.
+
+\myworries{More insight...}
+
+\section{Effect of Length}
+
+\section{Comparison}
+
+Recently, \cite{MacAvaney_etal_SIGIR2019} reported 0.5381 NDCG@20 on Robust04 by integrating contextualized word representations into existing neural ranking models; unfortunately, they did not report AP results.
+Our best NDCG@20 on \mbox{Robust04} (0.5325) approaches their results even though we optimize for AP.
+Finally, note that since we are only using Robust04 data for learning the document and sentence weights in Eq~(\ref{eq:1}), and not for fine-tuning BERT itself, it is less likely that we are overfitting.
+
+Our best model also achieves a higher AP on Core17 than the best TREC submission that does not make use of past labels or human intervention (\texttt{umass\_baselnrm}, 0.275 AP)~\cite{core2017trec}.
+Under similar conditions, we beat every TREC submission in Core18 as well (with the best run being \texttt{uwmrg}, 0.276 AP)~\cite{core2018trec}.
+Core17 and Core18 are relatively new and thus have yet to receive much attention from researchers, but to our knowledge, these figures represent the state of the art.

@@ -4,3 +4,11 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces The architecture combining BERT an additional output layer for the sentence pair classification task, where $ E $ represents the input embedding for each sentence and $ T_i $ the contextual representation of token $ i $. Adapted from Delvin et al.\nobreakspace {}\cite {devlin2018bert}.}}{7}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces The two types of deep matching architectures: representation-focused (a) and interaction-focused (b). Adapted from Guo et al.\nobreakspace {}\cite {guo2017drmm}.}}{9}{figure.2.2}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Visualization of best AP scores on Robust04 for 108 papers based on non-neural and neural approaches. Adapted from Yang et al.\nobreakspace {}\cite {Yang_etal_SIGIR2019}.}}{14}{figure.2.3}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces An example of... MB}}{18}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces An example of... MS MARCO}}{19}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces An example of... CAR}}{19}{figure.3.3}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces ...}}{21}{figure.4.1}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
