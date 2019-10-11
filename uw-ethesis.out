@@ -11,26 +11,32 @@
 \BOOKMARK [2][-]{subsection.2.2.1}{Non-neural Document Retrieval}{section.2.2}% 11
 \BOOKMARK [2][-]{subsection.2.2.2}{Neural Document Retrieval}{section.2.2}% 12
 \BOOKMARK [2][-]{subsection.2.2.3}{Comparison of Non-neural and Neural Methods}{section.2.2}% 13
-\BOOKMARK [1][-]{section.2.3}{Evaluation Metrics}{chapter.2}% 14
-\BOOKMARK [2][-]{subsection.2.3.1}{Mean Average Precision \(MAP\)}{section.2.3}% 15
-\BOOKMARK [2][-]{subsection.2.3.2}{Precision at k \(P@k\)}{section.2.3}% 16
-\BOOKMARK [2][-]{subsection.2.3.3}{Normalized Discounted Cumulative Gain \(NDCG@k\)}{section.2.3}% 17
-\BOOKMARK [0][-]{chapter.3}{Datasets}{}% 18
-\BOOKMARK [1][-]{subsection.3.0.1}{Fine-Tuning}{chapter.3}% 19
-\BOOKMARK [2][-]{subsection.3.0.2}{Evaluation}{subsection.3.0.1}% 20
-\BOOKMARK [0][-]{chapter.4}{Cross-Domain Relevance Transfer with BERT}{}% 21
-\BOOKMARK [1][-]{section.4.1}{Architecture}{chapter.4}% 22
-\BOOKMARK [2][-]{subsection.4.1.1}{Anserini}{section.4.1}% 23
-\BOOKMARK [2][-]{subsection.4.1.2}{Integration}{section.4.1}% 24
-\BOOKMARK [1][-]{section.4.2}{Model}{chapter.4}% 25
-\BOOKMARK [2][-]{subsection.4.2.1}{Input Representation}{section.4.2}% 26
-\BOOKMARK [1][-]{section.4.3}{Experimental Setup}{chapter.4}% 27
-\BOOKMARK [2][-]{subsection.4.3.1}{Training and Inference with BERT}{section.4.3}% 28
-\BOOKMARK [2][-]{subsection.4.3.2}{Evaluation}{section.4.3}% 29
-\BOOKMARK [0][-]{chapter.5}{Experimental Results}{}% 30
-\BOOKMARK [1][-]{section.5.1}{Results}{chapter.5}% 31
-\BOOKMARK [1][-]{section.5.2}{Effect of Nature of Training Data}{chapter.5}% 32
-\BOOKMARK [1][-]{section.5.3}{Effect of Length}{chapter.5}% 33
-\BOOKMARK [1][-]{section.5.4}{Comparison}{chapter.5}% 34
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 35
-\BOOKMARK [0][-]{section*.16}{References}{}% 36
+\BOOKMARK [0][-]{chapter.3}{Implementations}{}% 14
+\BOOKMARK [1][-]{section.3.1}{Datasets}{chapter.3}% 15
+\BOOKMARK [2][-]{subsection.3.1.1}{Fine-Tuning}{section.3.1}% 16
+\BOOKMARK [2][-]{subsection.3.1.2}{Evaluation}{section.3.1}% 17
+\BOOKMARK [1][-]{section.3.2}{Evaluation Metrics}{chapter.3}% 18
+\BOOKMARK [2][-]{subsection.3.2.1}{Mean Average Precision \(MAP\)}{section.3.2}% 19
+\BOOKMARK [2][-]{subsection.3.2.2}{Precision at k \(P@k\)}{section.3.2}% 20
+\BOOKMARK [2][-]{subsection.3.2.3}{Normalized Discounted Cumulative Gain \(NDCG@k\)}{section.3.2}% 21
+\BOOKMARK [0][-]{chapter.4}{Cross-Domain Relevance Transfer with BERT}{}% 22
+\BOOKMARK [1][-]{section.4.1}{Modeling Relevance with BERT}{chapter.4}% 23
+\BOOKMARK [2][-]{subsection.4.1.1}{Relevance Classifier}{section.4.1}% 24
+\BOOKMARK [2][-]{subsection.4.1.2}{Input Representation}{section.4.1}% 25
+\BOOKMARK [2][-]{subsection.4.1.3}{Fine-Tuning}{section.4.1}% 26
+\BOOKMARK [1][-]{section.4.2}{Reranking with BERT}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.3}{Experimental Setup}{chapter.4}% 28
+\BOOKMARK [2][-]{subsection.4.3.1}{Training and Inference with BERT}{section.4.3}% 29
+\BOOKMARK [2][-]{subsection.4.3.2}{Evaluation}{section.4.3}% 30
+\BOOKMARK [0][-]{chapter.5}{Experimental Results}{}% 31
+\BOOKMARK [1][-]{section.5.1}{Results}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.2}{Effect of Nature of Training Data}{chapter.5}% 33
+\BOOKMARK [1][-]{section.5.3}{Effect of Length}{chapter.5}% 34
+\BOOKMARK [1][-]{section.5.4}{Comparison}{chapter.5}% 35
+\BOOKMARK [0][-]{chapter.6}{Architecture}{}% 36
+\BOOKMARK [1][-]{section.6.1}{Anserini}{chapter.6}% 37
+\BOOKMARK [1][-]{section.6.2}{Python Module}{chapter.6}% 38
+\BOOKMARK [1][-]{section.6.3}{Integration}{chapter.6}% 39
+\BOOKMARK [1][-]{section.6.4}{Reproducibility}{chapter.6}% 40
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 41
+\BOOKMARK [0][-]{section*.16}{References}{}% 42

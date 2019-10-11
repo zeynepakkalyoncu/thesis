@@ -3,53 +3,59 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: uw-ethesis.aux
 The style file: plain.bst
 Database file #1: uw-ethesis.bib
+Warning--I didn't find a database entry for "Lin_SIGIRForum2018"
+Warning--I didn't find a database entry for "MacAvaney_etal_SIGIR2019"
+Warning--I didn't find a database entry for "core2017trec"
+Warning--I didn't find a database entry for "Yang_etal_arXiv2019"
 Warning--empty booktitle in allan2017trec
 Warning--empty year in allan2017trec
 Warning--can't use both volume and number fields in lin2019neural
+Warning--empty journal in ounisoverview
+Warning--empty year in ounisoverview
 Warning--empty journal in radford2018improving
 Warning--empty year in radford2018improving
 Warning--empty journal in radford2019language
 Warning--empty year in radford2019language
 Warning--empty journal in sculley2018winner
-You've used 60 entries,
+You've used 61 entries,
             2118 wiz_defined-function locations,
-            809 strings with 16644 characters,
-and the built_in function-call counts, 24851 in all, are:
-= -- 2421
-> -- 1437
+            819 strings with 16897 characters,
+and the built_in function-call counts, 25148 in all, are:
+= -- 2445
+> -- 1460
 < -- 25
-+ -- 569
-- -- 504
-* -- 1762
-:= -- 4037
-add.period$ -- 191
-call.type$ -- 60
-change.case$ -- 431
++ -- 578
+- -- 512
+* -- 1786
+:= -- 4091
+add.period$ -- 193
+call.type$ -- 61
+change.case$ -- 438
 chr.to.int$ -- 0
-cite$ -- 68
-duplicate$ -- 937
-empty$ -- 1716
-format.name$ -- 504
-if$ -- 5241
+cite$ -- 71
+duplicate$ -- 947
+empty$ -- 1733
+format.name$ -- 512
+if$ -- 5296
 int.to.chr$ -- 0
-int.to.str$ -- 60
-missing$ -- 60
-newline$ -- 300
-num.names$ -- 120
-pop$ -- 491
+int.to.str$ -- 61
+missing$ -- 61
+newline$ -- 304
+num.names$ -- 122
+pop$ -- 502
 preamble$ -- 1
-purify$ -- 371
+purify$ -- 377
 quote$ -- 0
-skip$ -- 720
+skip$ -- 726
 stack$ -- 0
-substring$ -- 1327
+substring$ -- 1332
 swap$ -- 302
 text.length$ -- 25
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 240
-warning$ -- 8
-while$ -- 208
-width$ -- 62
-write$ -- 653
-(There were 8 warnings)
+type$ -- 244
+warning$ -- 10
+while$ -- 210
+width$ -- 63
+write$ -- 660
+(There were 14 warnings)
