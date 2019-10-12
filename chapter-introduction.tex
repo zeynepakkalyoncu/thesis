@@ -78,7 +78,8 @@ With the proposed model, we establish state-of-the-art effectiveness on three st
 Our results on Robust04 exceed the previous highest known score of 0.3686 \cite{Cormack:2009:RRF:1571941.1572114} with a non-neural method based on ensembles, which has stood unchallenged for ten years.
 \item
 We explore through various error analysis experiments the effects of cross-domain relevance transfer with BERT as well as the contributions of BM25 and sentence scores to the final document ranking.
-\myworries{Elaborate}
+We investigate the effect of query and document length on the contribution of BM25 and BERT and the degree of bias towards certain terms.
+\myworries{Revisit after completing experimental results}
 \item
 We release an end-to-end pipeline, Birch\footnote{https://github.com/castorini/birch}, that applies BERT to document retrieval over large document collections via integration with the open-source Anserini information retrieval toolkit.
 An accompanying Docker image is also included to ensure that anyone can easily deploy and test our system.
@@ -87,10 +88,10 @@ We elaborate on the technical challenges in the integration of NLP and IR capabi
 
 \section{Thesis Organization}
 
-\myworries{Add link to actual chapters}
+\myworries{Upddate}
 The remainder of this thesis is organized in the following order:\
-Chapter 2 reviews related work in neural document retrieval and transfer learning, particularly applications of BERT to document retrieval.
-Chapter 3 motivates the approach with some background information on the task, and introduces the datasets used for both training and evaluation as well as metrics.
-Chapter 4 proposes an end-to-end pipeline for document retrieval with BERT by elaborating on the design decisions and challenges.
-Chapter 5 describes the experimental setup, and presents the results on three newswire collections -- Robust04, Core17 and Core18.
-Chapter 6 concludes the thesis by summarizing the contributions and discussing future work.
+Chapter \ref{ch:review} reviews related work in neural document retrieval and transfer learning, particularly applications of BERT to document retrieval.
+Chapter \ref{ch:model} motivates the approach with some background information on the task, and introduces the datasets used for both training and evaluation as well as metrics.
+Chapter \ref{ch:arch} proposes an end-to-end pipeline for document retrieval with BERT by elaborating on the design decisions and challenges.
+Chapter \ref{ch:exp} describes the experimental setup, and presents the results on three newswire collections -- Robust04, Core17 and Core18.
+Chapter \ref{ch:conclusion} concludes the thesis by summarizing the contributions and discussing future work.

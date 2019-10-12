@@ -54,6 +54,21 @@ Piotr Bojanowski, Edouard Grave, Armand Joulin, and Tomas Mikolov.
 \newblock {\em Transactions of the Association for Computational Linguistics},
   5:135--146, 2017.
 
+\bibitem{burges2010ranknet}
+Christopher~JC Burges.
+\newblock From ranknet to lambdarank to lambdamart: An overview.
+
+\bibitem{cao2007learning}
+Zhe Cao, Tao Qin, Tie-Yan Liu, Ming-Feng Tsai, and Hang Li.
+\newblock Learning to rank: from pairwise approach to listwise approach.
+\newblock In {\em Proceedings of the 24th international conference on Machine
+  learning}, pages 129--136. ACM, 2007.
+
+\bibitem{clark2019does}
+Kevin Clark, Urvashi Khandelwal, Omer Levy, and Christopher~D Manning.
+\newblock What does bert look at? an analysis of bert's attention.
+\newblock {\em arXiv preprint arXiv:1906.04341}, 2019.
+
 \bibitem{Cormack:2009:RRF:1571941.1572114}
 Gordon~V. Cormack, Charles L~A Clarke, and Stefan Buettcher.
 \newblock Reciprocal rank fusion outperforms condorcet and individual rank
@@ -128,6 +143,10 @@ Po-Sen Huang, Xiaodong He, Jianfeng Gao, Li~Deng, Alex Acero, and Larry Heck.
 \newblock In {\em Proceedings of the 22nd ACM international conference on
   Information \& Knowledge Management}, pages 2333--2338. ACM, 2013.
 
+\bibitem{jawahar2019does}
+Ganesh Jawahar, Beno{\^\i}t Sagot, Djam{\'e} Seddah, et~al.
+\newblock What does bert learn about the structure of language?
+
 \bibitem{joachims2002optimizing}
 Thorsten Joachims.
 \newblock Optimizing search engines using clickthrough data.
@@ -145,6 +164,13 @@ Diederik~P. Kingma and Jimmy Ba.
 \newblock Adam:\ {A} method for stochastic optimization.
 \newblock {\em arXiv:1412.6980}, 2014.
 
+\bibitem{li2008mcrank}
+Ping Li, Qiang Wu, and Christopher~J Burges.
+\newblock Mcrank: Learning to rank using multiple classification and gradient
+  boosting.
+\newblock In {\em Advances in neural information processing systems}, pages
+  897--904, 2008.
+
 \bibitem{lin2019neural}
 Jimmy Lin.
 \newblock The neural hype and comparisons against weak baselines.
@@ -160,6 +186,11 @@ Tal Linzen, Emmanuel Dupoux, and Yoav Goldberg.
 Zachary~C Lipton and Jacob Steinhardt.
 \newblock Troubling trends in machine learning scholarship.
 \newblock {\em arXiv preprint arXiv:1807.03341}, 2018.
+
+\bibitem{liu2011learning}
+Tie-Yan Liu.
+\newblock {\em Learning to rank for information retrieval}.
+\newblock Springer Science \& Business Media, 2011.
 
 \bibitem{macavaney2019cedr}
 Sean MacAvaney, Andrew Yates, Arman Cohan, and Nazli Goharian.

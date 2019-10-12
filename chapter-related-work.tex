@@ -1,6 +1,7 @@
 %======================================================================
 \chapter{Background and Related Work}
 %======================================================================
+\label{ch:review}
 
 %\section{Natural Language Processing?}
 
@@ -23,6 +24,31 @@
 %GloVe instead exploits the co-occurrence of words across the entire corpus rather than individual context windows to build 25 to 300-dimensional word embeddings.
 %fastText takes a slightly different approach with skip-gram models than word2vec by representing each word as a bag-of-characters n-grams.
 %These word embeddings enable semantic matching across multiple levels in neural networks, including the neural document retrieval methods introduced in Section \ref{neural-retrieval}
+
+\section{Document Retrieval}
+\label{non-neural-retrieval}
+
+\myworries{doc retrieval architectures - multi-stage retrieval, bag of words, rerankers}
+Traditional document retrieval techniques have evolved from the simple Boolean model to probabilistic models such as the Binary Independence Model over time to increase matching effectiveness.
+While these methods perform reasonably well for consistently short text like titles or abstracts, they have fallen short with the development of modern text collections with highly variable lengths.
+% like the TREC collections.
+To this end, Okapi BM25 (commonly dubbed BM25) was developed as a bag-of-words ranking function that is sensitive to both term frequency and document length without introducing too many additional parameters~\cite{jones2000probabilistic}.
+%BM25 implementations define two parameters for term frequency saturation and field-length normalization, respectively.
+Intuitively, BM25 pays more attention to the rarer terms in a query by increasing their term weight while dampening the matching signal for words that occur too frequently in a document with a term saturation mechanism.
+Term weights are also normalized with respect to the document length.
+
+In addition to a term weighting scheme, query expansion has also been found to improve retrieval effectiveness by increasing recall.
+Unlike manual relevance feedback, pseudo relevance feedback allows for automatic local analysis without extended interaction with the user.
+RM3 is one such pseudo-relevance feedback mechanism where the original query is expanded by adding the top terms that appear in the contents of top $ k $ most relevant BM25 documents.
+While this method still relies on exact matching of query terms, it partly relieves the problem of synonymy.
+%While this method partly relieves the problem of synonymy, it still relies on exact matching of query terms.
+For instance, a query that contains the term ``assistance'' may be augmented with another high-frequency term ``support'' in relevant documents, therefore extending the range of matching.
+One obvious danger, however, is that retrieval may be incorrectly biased towards certain terms that occur frequently in the most relevant documents, but are not directly relevant to the query.
+Despite their simplicity, well-tuned BM25+RM3 baselines achieve competitive effectiveness on TREC collections~\cite{lin2019neural}.
+%Robust04 specifically?
+
+%Table \ref{tab:} displays an overview of the submissions to TREC Robust Track from 2004 and Common Core Track from 2017 and 2018.
+%\myworries{Explain...}
 
 \section{Pretrained Language Models}
 \label{lm}
@@ -103,31 +129,22 @@ BERT has been applied to a broad range of NLP tasks from sentence classification
 %\myworries{Examples?}
 Most relevant to the task of document retrieval, applications of BERT include BERTserini by Yang et al.~\cite{yang2019end} which integrated BERT with Anserini for question answering over Wikipedia by fine-tuning BERT on SQuAD, and Nogueira et al.~\cite{nogueira2019passage} who adopted BERT for passage reranking over MS MARCO.
 
-\section{Document Retrieval}
+\section{Machine-Learned Ranking Models}
 
-\subsection{Non-neural Document Retrieval}
-\label{non-neural-retrieval}
+\myworries{Come up with a better title}
 
-Traditional document retrieval techniques have evolved from the simple Boolean model to probabilistic models such as the Binary Independence Model over time to increase matching effectiveness.
-While these methods perform reasonably well for consistently short text like titles or abstracts, they have fallen short with the development of modern text collections with highly variable lengths.
-% like the TREC collections.
-To this end, Okapi BM25 (commonly dubbed BM25) was developed as a bag-of-words ranking function that is sensitive to both term frequency and document length without introducing too many additional parameters~\cite{jones2000probabilistic}.
-%BM25 implementations define two parameters for term frequency saturation and field-length normalization, respectively.
-Intuitively, BM25 pays more attention to the rarer terms in a query by increasing their term weight while dampening the matching signal for words that occur too frequently in a document with a term saturation mechanism.
-Term weights are also normalized with respect to the document length.
+\subsection{Learning to Rank Methods}
 
-In addition to a term weighting scheme, query expansion has also been found to improve retrieval effectiveness by increasing recall.
-Unlike manual relevance feedback, pseudo relevance feedback allows for automatic local analysis without extended interaction with the user.
-RM3 is one such pseudo-relevance feedback mechanism where the original query is expanded by adding the top terms that appear in the contents of top $ k $ most relevant BM25 documents.
-While this method still relies on exact matching of query terms, it partly relieves the problem of synonymy.
-%While this method partly relieves the problem of synonymy, it still relies on exact matching of query terms.
-For instance, a query that contains the term ``assistance'' may be augmented with another high-frequency term ``support'' in relevant documents, therefore extending the range of matching.
-One obvious danger, however, is that retrieval may be incorrectly biased towards certain terms that occur frequently in the most relevant documents, but are not directly relevant to the query.
-Despite their simplicity, well-tuned BM25+RM3 baselines achieve competitive effectiveness on TREC collections~\cite{lin2019neural}.
-%Robust04 specifically?
+Learning to rank (LTR) methods have arisen in document retrieval to apply supervised machine learning techniques to automatically learn a ranking model.
+This trend has started in response to a growing number of relevance signals, particularly in web search, such as anchor texts.
+In this setup, training samples are extracted from large amounts of search log data in the form of a list of documents and their relevance labels for a number of queries.
+Unlike traditional ranking models, LTR models require a good deal of feature engineering, which can be time-consuming and difficult to generalize.
 
-%Table \ref{tab:} displays an overview of the submissions to TREC Robust Track from 2004 and Common Core Track from 2017 and 2018.
-%\myworries{Explain...}
+Existing algorithms for LTR can be categorized into three categories based on their input representation and loss function:\ pointwise, pairwise or listwise.~\cite{liu2011learning}
+Pointwise algorithms such as McRank~\cite{li2008mcrank} approximate the LTR problem as a regression problem where a relevance score is predicted for each query-document pair.
+On the other hand, LTR is framed as a classification problem by pairwise algorithms like RankSVM~\cite{joachims2002optimizing} and LambdaMART~\cite{burges2010ranknet} to choose the more relevant one given a pair of documents.
+Listwise algorithms such as ListNet~\cite{cao2007learning} instead optimize the relevance score over the entire list of documents for a query.
+\cite{liu2011learning} claim that listwise LTR approaches often produce better rankings in practice.
 
 \subsection{Neural Document Retrieval}
 \label{neural-retrieval}
@@ -163,7 +180,7 @@ C-DSSM~\cite{shen2014learning} was proposed as an extension to DSSM by replacing
 By performing a max pooling operation to extract local contextual information at the n-gram level, a global vector representation is formed from the local features.
 Shen et al.~\cite{shen2014learning} demonstrate that both local and global contextual features are necessary for semantic matching for Web search.
 While C-DSSM improves over DSSM by exploiting the context of each trigram, it still suffers from most of the same issues listed above.
-\vfill
+%\vfill
 
 \subsubsection{Interaction-based Models}
 
@@ -266,64 +283,3 @@ Excluding runs that make use of past labels or require human intervention, the T
 To our knowledge, Neural Vector Spaces for Unsupervised Information Retrieval by Van Gysel et al.~\cite{Gysel:2018:NVS:3211967.3196826} represents the only major neural model evaluated on Core17.
 While their approach has the advantage of not requiring supervised relevance judgements, their reported results are quite low.
 Otherwise, evaluation of neural retrieval methods on both Core17 and Core18 has been limited.
-
-\section{Evaluation Metrics}
-
-Evaluation in information retrieval relies on the distinction between ``relevant'' and ``irrelevant'' documents with respect to an information need as expressed by a query.
-A number of automatic evaluation metrics has been formalized specifically for ranking tasks, some of which are described below.
-
-%The size of most document collections makes it infeasible for humans to manually judge the relevance of all documents.
-%All relevant documents need to be labelled to prevent false negatives, i.e: treating documents which are in fact relevant as irrelevant.
-
-\subsection{Mean Average Precision (MAP)}
-
-Precision specifies what fraction of a set of retrieved documents is in fact relevant for a given query $ q $.
-By extension, average precision (AP) expresses the average of the precision values obtained for the set of top $ k $ documents for the query.
-Support that $ D = \{d_1, ..., d_{m_j}\} $ is the set of all relevant documents for a query $ q_j $, then AP can be formulated as:
-
-\begin{equation}
-AP = \frac{1}{m_j} \sum^{m_j} _{k = 1} P(R_{jk})
-\end{equation}
-
-where $ R_{jk} $ represents the set of top $ k $ ranked retrieval results.
-
-The respective AP for each query $ q_{j} \in Q $ can be aggregated to obtain mean average precision (MAP) for the overall retrieval effectiveness in the form of a single-figure measure of quality across various recall levels:
-
-\begin{equation}
-MAP = \frac{\sum^{|Q|} _{j = 1} AP}{Q} = \frac{1}{Q} \sum^{|Q|} _{j = 1} \frac{1}{m_j} \sum^{m_j} _{k = 1} P(R_{jk})
-\end{equation}
-
-%\myworries{Meaning of MAP: To recapitulate, if the AP is 0.5, the relevant
-%answer occurs at every second position. If the AP score is 0.3, the relevant answer occurs
-%at every 3rd position and an AP score of 0.1 would mean that every 10th answer is correct.}
-
-MAP is known to have especially good discrimination and stability compared to other evaluation metrics, which makes it the ideal choice for large text collections~\cite{manning2010introduction}.
-It is hence one of the standard metrics among the TREC community.
-
-\subsection{Precision at k (P@k)}
-
-While MAP factors in precision at all recall levels, certain applications may have a distinctly different notion for ranking quality.
-Particularly in the case of web search, the user often only cares about the results on the first page or two.
-This restriction essentially requires measuring precision at fixed low levels of retrieved results, i.e: top $ k $ documents -- hence the name for the metric ``precision at $ k $''.
-On the one hand, it eliminates the need for any estimate of the size of the set of relevant documents because it is only concerned with the top documents.
-However, it also produces the least stable results out of all evaluation metrics.
-Moreover, precision at $ k $ does not average well because it is too sensitive to the total number of relevant documents for a query.
-
-\subsection{Normalized Discounted Cumulative Gain (NDCG@k)}
-
-Cumulative gain (CG) simply computes the sum of relevance labels for all the retrieved documents, treating the search results as an unordered set.
-However, since a highly relevant document is inherently more useful when it appears higher up in the search results, CG has been extended to discounted cumulative gain (DCG).
-DCG estimates the relevance of a document based on its rank among the retrieved documents.
-The relevance measure is accumulated from top to bottom, discounting the value of documents at lower ranks.
-NDCG at $ k $ measures DCG for the top $ k $ documents, normalizing by the highest possible value for a query; therefore, a perfect ranking yields NDCG equals 1.
-
-NDCG is uniquely useful in applications with a non-binary notion of relevance, e.g: a spectrum of relevance.
-This makes NDCG comparable across different queries:\
-The NDCG values for all queries can be averaged to reliably evaluate the effectiveness of a ranking algorithm for various information needs across a collection.
-Given a set of queries $ q_j \in Q $ and relevance judgements $ R_{dj} $ for a document $ d $:\
-
-\begin{equation}
-NDCG(Q, k) = \frac{1}{|Q|} \sum ^{|Q|} _{j = 1} Z_{kj} \sum ^k _{m = 1} \frac{2^{R_{jm}} - 1}{log_2 (1 + m)'}
-\end{equation}
-
-where $ Z_{kj} $ is the normalization factor.

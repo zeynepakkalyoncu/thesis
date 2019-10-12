@@ -1,18 +1,18 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces An example of a query-text pair from the TREC Robust04 collection where a relevant piece of text does not contain direct query matches.}}{1}{figure.1.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces The architecture combining BERT an additional output layer for the sentence pair classification task, where $ E $ represents the input embedding for each sentence and $ T_i $ the contextual representation of token $ i $. Adapted from Delvin et al.\nobreakspace {}\cite {devlin2018bert}.}}{7}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces The two types of deep matching architectures: representation-focused (a) and interaction-focused (b). Adapted from Guo et al.\nobreakspace {}\cite {guo2017drmm}.}}{9}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Visualization of best AP scores on Robust04 for 108 papers based on non-neural and neural approaches. Adapted from Yang et al.\nobreakspace {}\cite {Yang_etal_SIGIR2019}.}}{14}{figure.2.3}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The architecture combining BERT an additional output layer for the sentence pair classification task, where $ E $ represents the input embedding for each sentence and $ T_i $ the contextual representation of token $ i $. Adapted from Delvin et al.\nobreakspace {}\cite {devlin2018bert}.}}{9}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces The two types of deep matching architectures: representation-focused (a) and interaction-focused (b). Adapted from Guo et al.\nobreakspace {}\cite {guo2017drmm}.}}{11}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Visualization of best AP scores on Robust04 for 108 papers based on non-neural and neural approaches. Adapted from Yang et al.\nobreakspace {}\cite {Yang_etal_SIGIR2019}.}}{15}{figure.2.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces An example of... MB}}{16}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces \leavevmode {\color {red}TODO} An example of... MS MARCO}}{18}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces An example of... CAR}}{20}{figure.3.3}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces An example of... MB}}{17}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces \leavevmode {\color {red}TODO} An example of... MS MARCO}}{19}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces An example of... CAR}}{21}{figure.3.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces \leavevmode {\color {red}Put tokenized BERT input example?}}}{24}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces \leavevmode {\color {red}Create customized diagram}}}{24}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces ...}}{26}{figure.4.3}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \leavevmode {\color {red}Put tokenized BERT input example?}}}{25}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \leavevmode {\color {red}Create customized diagram}}}{26}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces ...}}{28}{figure.4.3}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces ...}}{31}{figure.5.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces ...}}{35}{figure.6.1}
 \addvspace {10\p@ }

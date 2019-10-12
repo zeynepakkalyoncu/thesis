@@ -1,79 +1,129 @@
 %======================================================================
 \chapter{Cross-Domain Relevance Transfer with BERT}
 %======================================================================
+\label{ch:model}
 
-\myworries{Need some images to fill it up...}
+%\myworries{Need some images to fill it up...}
+%\myworries{How do we solve challenges? Innovations? Add a lot more here?}
+%\myworries{Go into details of BERT, then how we use it...}
+%\myworries{Maybe give example for how BERT for relevance modeling looks like? Input? May draw my own diagram}
+%\myworries{Can I add some math-y stuff to describe what BERT is doing?}
 
-\section{Architecture}
+Our proposed model is based on sentence-level relevance modeling and re-ranking with BERT.
+By training a BERT-based relevance classifier, we aim to extract helpful semantic matching signals which can be leveraged to rerank a list of candidate documents retrieved with BM25+RM3.
+We also propose cross-domain relevance transfer to exploit models of relevance learned on out-of-domain collections.
+This technique is crucial in handling documents that are too long to be processed by BERT.
+This chapter describes the details of our sentence-level relevance classifier and re-ranker.
+
+\section{Modeling Relevance with BERT}
+
+We propose modeling sentence-level and passage-level relevance with BERT to capture semantic signals.
+This approach is motivated by a specific application of transfer learning in NLP where a large transformer is trained for language modeling and can then be used for various downstream tasks.
+Specifically in our implementation, BERT is trained on copious amounts of unsupervised data from the Google BookCorpus and English Wikipedia with masked language modeling.
+Although the training procedure doesn't involve any explicit objective to extract linguistic features, it has been shown to implicitly recognize such features as subject-verb agreement and conference resolution~\cite{jawahar2019does, clark2019does}.
+\myworries{More on this?}
+This phenomenon allows a number of NLP tasks to greatly benefit from featured implicitly encoded in BERT weights.
+
+\subsection{Relevance Classifier}
+
+The core of our model is a BERT {\it sentence-level} relevance classifier.
+In other words, we aim to build a model on top of BERT to predict a relevance score $ s_i $ for a sentence or passage $ d_i $ given a query $ q $.
+Because the maximum input length that BERT can handle is 512 tokens, we limit our training data to sentence- and passage-level datasets as explained in Section \ref{datasets}.
+In other words, $ d_i $ are either tweets drawn from TREC Microblog or passages from MS MARCO or TREC CAR.
+Following Nogueira et al.~\cite{nogueira2019passage}, we frame relevance modeling as a binary classification task.
+Figure \myworries{X} illustrates how BERT can be used for relevance modeling.
+\myworries{Add diagram to explain the relevance modeling process}
+More specifically, we feed query-text pairs into the BERT model with their respective relevance judgements (i.e: 0 for non-relevant and 1 for relevant).
+Through this training process BERT learns to automatically judge whether a piece of unseen text is relevant for a given query or not.
+The details of the input representation to BERT is discussed at length in the next section.
+The specifics of fine-tuning BERT for relevance classification is also explained in Section \myworries{X}.
+
+\subsubsection{Input Representation}
+
+\begin{figure}[t!]
+	\begin{framed}
+		\centering
+    		\textbf{Raw:} international art crime \\
+    		\textbf{Tokenized:} The thieves demand a ransom of \$2.2 million for the works and return one of them.
+	\end{framed}
+\label{bert-tokenization-example}
+ \caption{\myworries{Put tokenized BERT input example?}}
+\end{figure}
 
 \begin{figure}[b!]
 \centering
-  \includegraphics[width=5in]{architecture.pdf}
-\caption{...}
-\label{fig:arch}
+  \includegraphics[width=6in]{bert_input.png}
+\caption{\myworries{Create customized diagram}}
+\label{fig:bert_input}
 \end{figure}
 
-\myworries{General description? before or after?}
-The architecture of our proposed system is shown in Figure \ref{fig:arch}, which is composed of a two-stage pipeline where Anserini is responsible for retrieval, the output of which is passed to a BERT-based reranker.
-Our deep learning framework of choice is PyTorch \myworries{backend?} in Python.
-\myworries{Nice transition...}
+We form the input to BERT by concatenating the query $ q $ and a sentence $ d $ into the sequence [\texttt{[CLS]}, $q$, \texttt{[SEP]}, $d$, \texttt{[SEP]}] .
+The \texttt{[SEP]} metatoken is used to distinguish between two non-consecutive token sequences in the input, i.e: query and text, and the \texttt{[CLS]} signifies a special symbol for classification output.
+Although BERT supports variable length token sequences, the final input length must be consistent across training.
+Therefore, we pad each sequence in a mini-batch to the maximum length in the batch.
 
-\subsection{Anserini}
+The complete input embeddings of BERT is comprised of token, segmentation and position embeddings.
+The first is constructed by tokenizing the above sequence with the proper metatokens in place with the BERT tokenizer.
+Since BERT was trained based on WordPiece tokenization, we use the same tokenizer to achieve optimal performance.
+WordPiece tokenization may break words into multiple subwords in order to more efficiently deal with out-of-vocabulary words and better represent complex words.
+During training, the subwords derived with WordPiece tokenization are reconstructed based on the training corpus.
+After tokenization, each token in the input sequence is converted into token IDs corresponding to the index in BERT's vocabulary.
+Tokens that do not exist in the vocabulary are represented with a special \texttt{[UNK]} token.
 
-\myworries{Anserini architecture, motivation...}
+The segment embeddings indicate the start and end of each sequence, whether it be a single sequence or a pair.
+For relevance classification where we have two texts in the input sequence, i.e: query and sentence, the segment embeddings corresponding to the tokens of the first sequence, i.e: the query, are all 0's, and those for the second sequence, i.e: the document, are all 1's.
+The position embeddings are learned for sequences up to 512 tokens, and help BERT recognize the relative position of each token in the sequence.
+An example BERT input for MB is shown in Figure \myworries{X}.
+\myworries{Example with complex words}
 
-\myworries{Rationale for integration choices, demo stuff...}
+\subsubsection{Fine-Tuning}
 
-\myworries{Reproducibility?}
+\myworries{Go more into detail about NN stuff?}
+Many relevant features such as synonyms and long-term dependencies are already encoded in pretrained BERT weights.
+It is thus possible to fine-tune BERT with less data and time by adding a fully connected layer on top of the network.
+Intuitively, the lower layers of the network have already been trained to capture features relevant to the task.
 
-\subsection{Integration}
+To fine-tune BERT for relevance modeling, we add a single layer neural network on top of BERT for classification.
+This layer consists of $ K \times H $ randomly initialized neurons where $ K $ is the number of classifier labels and $ H$ is the hidden state size.
+For relevance classification, we have two labels indicating whether the sentence is relevant or non-relevant for the given query ($ K = 2 $).
 
-\myworries{Smoother integration}
-We apply BERT to document retrieval via integration with an open-source Anserini information retrieval toolkit.
-Integration of NLP and IR capabilities with distinctly different \myworries{infrastructures} poses a number of technical challenges and requires certain design choices to be considered.
-Applications of neural networks to document ranking usually involve multi-stage architectures, beginning with a traditional term-matching technique (e.g., BM25) over a standard inverted index, followed by a reranker that rescores the candidate list of documents~\cite{Asadi_Lin_SIGIR2013}.
-\myworries{Anserini explanation here? Lucene indexes?}
-Lucene is implemented in Java, and hence runs on the Java Virtual Machine (JVM).
-However, most deep learning toolkits today, including TensorFlow and PyTorch, are written in Python with a C\texttt{++} backend.
-Bridging Python and the JVM presents a technical challenge that needs to be address for an effective integration.
+The final hidden state corresponding to the first token, i.e: \texttt{[CLS]}, provides a $ H $-dimensional aggregate representation of the input sequence that can be used for classification.
+We feed the final hidden state in the model to the single layer neural network.
+The probability that the sentence $d$ is relevant to the query $q$ is thus computed with standard softmax:
 
-At the outset, we ruled out ``loosely-coupled'' integration approaches:
-For example, passing intermediate text files is not a sustainable solution in the long term.
-It is not only inefficient, but interchange formats frequently change (whether intentionally or accidentally), breaking code between multiple components.
-We also ruled out integration via REST APIs for similar reasons:\ efficiency (overhead of HTTP calls) and stability (imperfect solutions for enforcing API contracts, particularly in a research environment).
+\begin{equation}
+\sigma (y_j) = \frac{e^{y_j}}{\sum_i e^{y_i}}
+\end{equation}
 
-There are a few options for the ``tightly-coupled'' integration we desired.
-In principle, we could adopt the Java Virtual Machine (JVM) as the primary code entry point, with integration to the Torch backend via JNI, but this was ruled out because it would create two separate code paths (JVM to C\texttt{++} for execution and Python to C\texttt{++} for model development), which presents maintainability issues.
-After some exploration, we decided on Python as the primary development environment, integrating Anserini using the Pyjnius Python library\footnote{\url{https://pyjnius.readthedocs.io/}} for accessing Java classes.
-The library was originally developed to facilitate Android development in Python, and allows Python code to directly manipulate Java classes and objects.
-Thus, Birch supports Python as the main development language (and code entry point, as shown in Figure~\ref{fig:arch}), connecting to the backend JVM to access retrieval capabilities.
+where $\sigma (y_j)$ maps the arbitrary real value $y_j$ into a probability distribution.
+Intuitively, $\sigma (y_j)$ represents the probability of the relevance of sentence $d$.
+The parameters of BERT and the additional softmax layer are optimized jointly to maximize the log-probability of the correct label with cross-entropy loss.
 
-\section{Model}
+\section{Reranking with BERT}
 
-\myworries{How do we solve challenges? Innovations? Add a lot more here?}
+\begin{figure}[b!]
+\centering
+  \includegraphics[width=4in]{bert_real.png}
+\caption{...}
+\label{fig:bert_real}
+\end{figure}
 
-\myworries{Go into details of BERT, then how we use it...}
+Fine-tuning BERT on relevance judgements of query-text pairs allows us to obtain a model of relevance so that we can compute sentence-level relevance scores easily on any collection.
+However, recall that we trained BERT on sentence- or passage-level text so as not to exceed the maximum input size of BERT.
+These training datasets come from very different distributions than newswire collections as discussed in Section \ref{datasets}.
+In order to predict relevance on much longer newswire documents, we explore cross-domain relevance transfer by using the same models.
+Our hypothesis is that if a neural network with a large capacity such as BERT can capture relevance in one domain, it might be able to transfer to other domains.
 
-\myworries{Maybe give example for how BERT for relevance modeling looks like? Input? May draw my own diagram}
+For this reason, we split each relevant document as retrieved with BM25+RM3 into its constituent sentences with the Stanford tokenizer.
+We then run inference over this new sentence-level collection with our fine-tuned models to compute a score for each sentence.
+We determine overall document scores by combining exact and semantic matching signals.
+Based on BM25+RM3 document scores we know a ranking of documents with respect to exact matches.
+Sentence-level scores obtained with BERT reveal other implicit semantic information not evident to term-matching techniques like BM25.
+By combining the two sets of relevance matching signals, we discover a more diverse notion of relevance, leading to a better ranking of documents.
+\myworries{Give example diagram of sentence score ranking? Maybe with BM25?}
 
-\myworries{Can I add some math-y stuff to describe what BERT is doing?}
-
-The core of our model is a BERT {\it sentence-level} relevance classifier.
-\myworries{What does that mean?}
-Following Nogueira et al.~\cite{nogueira2019passage}, this is framed as a binary classification task.
-\myworries{Details!}
-
-\subsection{Input Representation}
-
-We form the input to BERT by concatenating the query $Q$ and a sentence $S$ into the sequence [\texttt{[CLS]}, $Q$, \texttt{[SEP]}, $S$, \texttt{[SEP]}] and padding each sequence in a mini-batch to the maximum length in the batch.
-\myworries{What is Q and S for each dataset?}
-We feed the final hidden state corresponding to the \texttt{[CLS]} token in the model to a single layer neural network whose output represents the probability that sentence $S$ is relevant to the query $Q$.
-\myworries{Let's create a half page paragraph here}
-\myworries{What is the BERT output? What does it mean?}
-\myworries{Single layer neural network: MLP?}
-
-\myworries{Motivation? Want to combine relevance matching signals}
-To determine {\it document} relevance, we apply inference over each individual sentence in a candidate document, and then combine the top $ n $ scores with the original document score as follows:
+Using either set of scores to rank documents neglects crucial information from the other, so we interpolate the scores.
+To determine {\it document} relevance, we combine the top $ n $ scores with the original document score as follows:
 \begin{equation} \label{eq:1}
 S_f = a \cdot S_{doc}  + (1 - \alpha) \cdot \sum_{i = 1}^n w_i \cdot S_i
 \end{equation}
@@ -81,31 +131,38 @@ S_f = a \cdot S_{doc}  + (1 - \alpha) \cdot \sum_{i = 1}^n w_i \cdot S_i
 In other words, the relevance score of a document comes from the combination of a document-level term-matching score and evidence contributions from the top sentences in the document as determined by the BERT model.
 The parameters $ \alpha $ and the $ w_i $'s can be tuned via cross-validation.
 
-\myworries{Go over everything to see if anything needs clarification...}
-
 \section{Experimental Setup}
 
 \subsection{Training and Inference with BERT}
 
-We fine-tune $ \textrm{BERT}_{\textrm{\scriptsize Large}} $ \cite{devlin2018bert} on the datasets discussed in Section \ref{datasets}.
-In our implementation we adopt the respective model's \texttt{BertForNextSentencePrediction} interface from the Huggingface \texttt{pytorch-transformers} (previously known as \texttt{pytorch-pretrained-bert}) library\footnote{https://github.com/huggingface/pytorch-transformers} as our base model.
+We fine-tune $ \textrm{BERT}_{\textrm{\scriptsize Large}} $ \cite{devlin2018bert} on the datasets discussed in Section \ref{datasets}:\ TREC Microblog, MS MARCO AND TREC CAR.
+In our implementation we adopt the respective model's \texttt{BertForNextSentencePrediction} interface from the Huggingface \texttt{transformers} (previously known as \texttt{pytorch-pretrained-bert}) library\footnote{https://github.com/huggingface/transformers} as our base model.
 The maximum sequence length, i.e: 512 tokens, is used for BERT in all our experiments.
-We train all models using cross-entropy loss for 5 epochs with a batch size of 16.
-We use Adam \cite{kingma2014adam} with an initial learning rate of $ 1 \times 10^{-5}$, linear learning rate warmup at a rate of 0.1 and decay of 0.1.
+
+The fine-tuning procedure introduces few new hyperparameters to those already used in pre-training:\ batch size, learning rate, and number of training epochs.
+Due to the large amount of training data in MS MARCO and TREC CAR, BERT is initially trained on Google's TPU's with a batch size of 32 for 400k iterations, following ~\cite{nogueira2019passage}.
+We use Adam \cite{kingma2014adam} with an initial learning rate of $ 3 \times 10^{-6}$, $ \beta_1 = 0.9 $ and $ \beta_2 = 0.999 $ and L2 decay of 0.01.
+Learning rate warmup is applied over the first 10k steps with linear decay of learning rate.
+We apply a dropout probability of 0.1 across all layers.
+
+We train all other models using cross-entropy loss for 5 epochs with a batch size of 16.
 We conduct all our experiments on NVIDIA Tesla P40 GPUs with PyTorch v1.2.0.
+We use Adam \cite{kingma2014adam} with an initial learning rate of $ 1 \times 10^{-5}$, linear learning rate warmup at a rate of 0.1 and decay of 0.1.
+Applying diminishing learning rates is especially important in fine-tuning BERT in order to preserve the information encoded in the original BERT weights and speed up training.
 
 \subsection{Evaluation}
 
-\myworries{Elaborate?}
 We retrieve an initial ranking of 1000 documents for each query in Robust04, Core17 and Core18 using the open-source Anserini information retrieval toolkit (\myworries{commit id}) based on Lucene 8.
 To ensure fairness across all three collections, we use BM25 with RM3 query expansion with default parameters.
 Before running inference with BERT to obtain relevance scores, we preprocess the retrieved documents.
-First, we clean the documents by stripping any HTML/XML tags and split each document into its constituent sentences witih NLTK.
+First, we clean the documents by stripping any HTML/XML tags and split each document into its constituent sentences witih NLTK's Stanford Tokenizer.
 If the length of a sentence with the meta-tokens still exceeds the maximum input length of BERT, we further segment the spans into fixed sized chunks.
-\myworries{CV?}
 
-Based on preliminary exploration, we consider up to the top three sentences; any more does not appear to yield better results.
-For Robust04, we follow the five-fold cross-validation settings in Lin et al.~\cite{lin2019neural} and Yang et al.~\cite{Yang_etal_SIGIR2019}; for Core17 and Core18 we similarly apply five-fold cross validation.
-The parameters $\alpha$ and the $w_i$'s are learned via exhaustive grid search as follows:\ we fix $ w_1 = 1 $ and then vary $ a, w_2, w_3 \in [0, 1] $ with a step size 0.1, selecting the parameters that yield the highest average precision (AP).
-Retrieval results are reported in terms of AP, precision at rank 20 (P@20), and NDCG@20.
-We report retrieval effectiveness in terms of AP, P@20 and NDCG@20.
+Following the procedure in Section \myworries{X}, we obtain a relevance score for each sentence.
+We experiment with the number of top scoring sentences to consider while computing the overall score, and find that using only the top 3 sentences is often enough.
+In general, considering any more doesn't yield better results.
+To tune hyperparameters in Equation \myworries{X}, we apply five-fold cross-validation over TREC topics.
+For Robust04, we follow the five-fold cross-validation settings in~\cite{lin2019neural} over 250 topics.
+For Core17 and Core18 we similarly apply five-fold cross validation.
+We learn parameters $\alpha$ and the $w_i$ on four folds via exhaustive grid search with $ w_1 = 1 $ and varying $ a, w_2, w_3 \in [0, 1] $ with a step size 0.1, selecting the values that yield the highest AP on the remaining fold.
+We report retrieval effectiveness in terms of AP, P@20, and NDCG@20.
