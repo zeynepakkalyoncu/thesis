@@ -5,7 +5,6 @@ The style file: plain.bst
 Database file #1: uw-ethesis.bib
 Warning--I didn't find a database entry for "MacAvaney_etal_SIGIR2019"
 Warning--I didn't find a database entry for "core2017trec"
-Warning--I didn't find a database entry for "Yang_etal_arXiv2019"
 Warning--empty booktitle in allan2017trec
 Warning--empty year in allan2017trec
 Warning--empty journal in burges2010ranknet
@@ -20,45 +19,45 @@ Warning--empty year in radford2018improving
 Warning--empty journal in radford2019language
 Warning--empty year in radford2019language
 Warning--empty journal in sculley2018winner
-You've used 67 entries,
+You've used 69 entries,
             2118 wiz_defined-function locations,
-            843 strings with 17751 characters,
-and the built_in function-call counts, 27223 in all, are:
-= -- 2639
-> -- 1566
-< -- 27
-+ -- 620
-- -- 548
-* -- 1916
-:= -- 4425
-add.period$ -- 210
-call.type$ -- 67
-change.case$ -- 472
+            852 strings with 18018 characters,
+and the built_in function-call counts, 28121 in all, are:
+= -- 2729
+> -- 1602
+< -- 28
++ -- 634
+- -- 560
+* -- 1980
+:= -- 4558
+add.period$ -- 216
+call.type$ -- 69
+change.case$ -- 484
 chr.to.int$ -- 0
-cite$ -- 81
-duplicate$ -- 1038
-empty$ -- 1897
-format.name$ -- 548
-if$ -- 5739
+cite$ -- 83
+duplicate$ -- 1074
+empty$ -- 1971
+format.name$ -- 560
+if$ -- 5937
 int.to.chr$ -- 0
-int.to.str$ -- 67
-missing$ -- 68
-newline$ -- 332
-num.names$ -- 134
-pop$ -- 558
+int.to.str$ -- 69
+missing$ -- 70
+newline$ -- 342
+num.names$ -- 138
+pop$ -- 571
 preamble$ -- 1
-purify$ -- 406
+purify$ -- 416
 quote$ -- 0
-skip$ -- 790
+skip$ -- 820
 stack$ -- 0
-substring$ -- 1426
-swap$ -- 327
-text.length$ -- 27
+substring$ -- 1506
+swap$ -- 341
+text.length$ -- 28
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 266
+type$ -- 274
 warning$ -- 14
-while$ -- 228
-width$ -- 69
-write$ -- 717
-(There were 17 warnings)
+while$ -- 236
+width$ -- 71
+write$ -- 739
+(There were 16 warnings)

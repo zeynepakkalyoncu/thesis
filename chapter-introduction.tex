@@ -64,6 +64,67 @@ It is important to note that the representational power of neural networks come 
 For this reason, we dedicate a portion of this thesis to error analysis experiments in an attempt to qualify and better understand the cross-domain transfer effects.
 We also elaborate on our engineering efforts to ensure reproducibility and replicability, and the technical challenges involved in bridging the worlds of natural language processing and information retrieval from a software engineering perspective.
 
+\section{Evaluation Metrics}
+
+Evaluation in information retrieval relies on the distinction between ``relevant'' and ``irrelevant'' documents with respect to an information need as expressed by a query.
+A number of automatic evaluation metrics has been formalized specifically for ranking tasks, some of which are described below.
+
+%The size of most document collections makes it infeasible for humans to manually judge the relevance of all documents.
+%All relevant documents need to be labelled to prevent false negatives, i.e: treating documents which are in fact relevant as irrelevant.
+
+\subsection{Mean Average Precision (MAP)}
+
+Precision specifies what fraction of a set of retrieved documents is in fact relevant for a given query $ q $.
+By extension, average precision (AP) expresses the average of the precision values obtained for the set of top $ k $ documents for the query.
+Support that $ D = \{d_1, ..., d_{m_j}\} $ is the set of all relevant documents for a query $ q_j $, then AP can be formulated as:
+
+\begin{equation}
+AP = \frac{1}{m_j} \sum^{m_j} _{k = 1} P(R_{jk})
+\end{equation}
+
+where $ R_{jk} $ represents the set of top $ k $ ranked retrieval results.
+
+The respective AP for each query $ q_{j} \in Q $ can be aggregated to obtain mean average precision (MAP) for the overall retrieval effectiveness in the form of a single-figure measure of quality across various recall levels:
+
+\begin{equation}
+MAP = \frac{\sum^{|Q|} _{j = 1} AP}{Q} = \frac{1}{Q} \sum^{|Q|} _{j = 1} \frac{1}{m_j} \sum^{m_j} _{k = 1} P(R_{jk})
+\end{equation}
+
+%\myworries{Meaning of MAP: To recapitulate, if the AP is 0.5, the relevant
+%answer occurs at every second position. If the AP score is 0.3, the relevant answer occurs
+%at every 3rd position and an AP score of 0.1 would mean that every 10th answer is correct.}
+
+MAP is known to have especially good discrimination and stability compared to other evaluation metrics, which makes it the ideal choice for large text collections~\cite{manning2010introduction}.
+It is hence one of the standard metrics among the TREC community.
+
+\subsection{Precision at k (P@k)}
+
+While MAP factors in precision at all recall levels, certain applications may have a distinctly different notion for ranking quality.
+Particularly in the case of web search, the user often only cares about the results on the first page or two.
+This restriction essentially requires measuring precision at fixed low levels of retrieved results, i.e: top $ k $ documents -- hence the name for the metric ``precision at $ k $''.
+On the one hand, it eliminates the need for any estimate of the size of the set of relevant documents because it is only concerned with the top documents.
+However, it also produces the least stable results out of all evaluation metrics.
+Moreover, precision at $ k $ does not average well because it is too sensitive to the total number of relevant documents for a query.
+
+\subsection{Normalized Discounted Cumulative Gain (NDCG@k)}
+
+Cumulative gain (CG) simply computes the sum of relevance labels for all the retrieved documents, treating the search results as an unordered set.
+However, since a highly relevant document is inherently more useful when it appears higher up in the search results, CG has been extended to discounted cumulative gain (DCG).
+DCG estimates the relevance of a document based on its rank among the retrieved documents.
+The relevance measure is accumulated from top to bottom, discounting the value of documents at lower ranks.
+NDCG at $ k $ measures DCG for the top $ k $ documents, normalizing by the highest possible value for a query; therefore, a perfect ranking yields NDCG equals 1.
+
+NDCG is uniquely useful in applications with a non-binary notion of relevance, e.g: a spectrum of relevance.
+This makes NDCG comparable across different queries:\
+The NDCG values for all queries can be averaged to reliably evaluate the effectiveness of a ranking algorithm for various information needs across a collection.
+Given a set of queries $ q_j \in Q $ and relevance judgements $ R_{dj} $ for a document $ d $:\
+
+\begin{equation}
+NDCG(Q, k) = \frac{1}{|Q|} \sum ^{|Q|} _{j = 1} Z_{kj} \sum ^k _{m = 1} \frac{2^{R_{jm}} - 1}{log_2 (1 + m)'}
+\end{equation}
+
+where $ Z_{kj} $ is the normalization factor.
+
 \vfill
 
 \section{Contributions}
@@ -77,8 +138,8 @@ integrating sentence-level evidence to address the fact that BERT cannot process
 With the proposed model, we establish state-of-the-art effectiveness on three standard TREC newswire collections at the time of writing.
 Our results on Robust04 exceed the previous highest known score of 0.3686 \cite{Cormack:2009:RRF:1571941.1572114} with a non-neural method based on ensembles, which has stood unchallenged for ten years.
 \item
-We explore through various error analysis experiments the effects of cross-domain relevance transfer with BERT as well as the contributions of BM25 and sentence scores to the final document ranking.
-We investigate the effect of query and document length on the contribution of BM25 and BERT and the degree of bias towards certain terms.
+We explore through various analyses the effects of cross-domain relevance transfer with BERT as well as the contributions of BM25 and sentence scores to the final document ranking.
+We investigate the effect of query and document length on retrieval effectiveness with BM25 and BERT, and the reasons behind the substantial improvements introduced with BERT.
 \myworries{Revisit after completing experimental results}
 \item
 We release an end-to-end pipeline, Birch\footnote{https://github.com/castorini/birch}, that applies BERT to document retrieval over large document collections via integration with the open-source Anserini information retrieval toolkit.
@@ -88,9 +149,9 @@ We elaborate on the technical challenges in the integration of NLP and IR capabi
 
 \section{Thesis Organization}
 
-\myworries{Upddate}
+\myworries{Update}
 The remainder of this thesis is organized in the following order:\
-Chapter \ref{ch:review} reviews related work in neural document retrieval and transfer learning, particularly applications of BERT to document retrieval.
+Chapter \ref{ch:review} reviews related work in document retrieval, pretrained language models and document re-ranking models based on machine learning techniques.
 Chapter \ref{ch:model} motivates the approach with some background information on the task, and introduces the datasets used for both training and evaluation as well as metrics.
 Chapter \ref{ch:arch} proposes an end-to-end pipeline for document retrieval with BERT by elaborating on the design decisions and challenges.
 Chapter \ref{ch:exp} describes the experimental setup, and presents the results on three newswire collections -- Robust04, Core17 and Core18.

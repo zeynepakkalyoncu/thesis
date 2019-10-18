@@ -1,41 +1,42 @@
 \BOOKMARK [0][-]{section*.2}{List of Tables}{}% 1
 \BOOKMARK [0][-]{section*.4}{List of Figures}{}% 2
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 3
-\BOOKMARK [1][-]{section.1.1}{Contributions}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.2}{Thesis Organization}{chapter.1}% 5
-\BOOKMARK [0][-]{chapter.2}{Background and Related Work}{}% 6
-\BOOKMARK [1][-]{section.2.1}{Document Retrieval}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.2}{Pretrained Language Models}{chapter.2}% 8
-\BOOKMARK [2][-]{subsection.2.2.1}{Feature-based Approaches}{section.2.2}% 9
-\BOOKMARK [2][-]{subsection.2.2.2}{Fine-tuning Approaches}{section.2.2}% 10
-\BOOKMARK [1][-]{section.2.3}{Machine-Learned Ranking Models}{chapter.2}% 11
-\BOOKMARK [2][-]{subsection.2.3.1}{Learning to Rank Methods}{section.2.3}% 12
-\BOOKMARK [2][-]{subsection.2.3.2}{Neural Document Retrieval}{section.2.3}% 13
-\BOOKMARK [2][-]{subsection.2.3.3}{Comparison of Non-neural and Neural Methods}{section.2.3}% 14
-\BOOKMARK [0][-]{chapter.3}{Implementations}{}% 15
-\BOOKMARK [1][-]{section.3.1}{Datasets}{chapter.3}% 16
-\BOOKMARK [2][-]{subsection.3.1.1}{Fine-Tuning}{section.3.1}% 17
-\BOOKMARK [2][-]{subsection.3.1.2}{Evaluation}{section.3.1}% 18
-\BOOKMARK [1][-]{section.3.2}{Evaluation Metrics}{chapter.3}% 19
-\BOOKMARK [2][-]{subsection.3.2.1}{Mean Average Precision \(MAP\)}{section.3.2}% 20
-\BOOKMARK [2][-]{subsection.3.2.2}{Precision at k \(P@k\)}{section.3.2}% 21
-\BOOKMARK [2][-]{subsection.3.2.3}{Normalized Discounted Cumulative Gain \(NDCG@k\)}{section.3.2}% 22
-\BOOKMARK [0][-]{chapter.4}{Cross-Domain Relevance Transfer with BERT}{}% 23
-\BOOKMARK [1][-]{section.4.1}{Modeling Relevance with BERT}{chapter.4}% 24
-\BOOKMARK [2][-]{subsection.4.1.1}{Relevance Classifier}{section.4.1}% 25
-\BOOKMARK [1][-]{section.4.2}{Reranking with BERT}{chapter.4}% 26
-\BOOKMARK [1][-]{section.4.3}{Experimental Setup}{chapter.4}% 27
-\BOOKMARK [2][-]{subsection.4.3.1}{Training and Inference with BERT}{section.4.3}% 28
-\BOOKMARK [2][-]{subsection.4.3.2}{Evaluation}{section.4.3}% 29
-\BOOKMARK [0][-]{chapter.5}{Architecture}{}% 30
-\BOOKMARK [1][-]{section.5.1}{Anserini}{chapter.5}% 31
-\BOOKMARK [1][-]{section.5.2}{Python Module}{chapter.5}% 32
-\BOOKMARK [1][-]{section.5.3}{Integration}{chapter.5}% 33
-\BOOKMARK [1][-]{section.5.4}{Reproducibility}{chapter.5}% 34
-\BOOKMARK [0][-]{chapter.6}{Experimental Results}{}% 35
-\BOOKMARK [1][-]{section.6.1}{Results}{chapter.6}% 36
-\BOOKMARK [1][-]{section.6.2}{Effect of Nature of Training Data}{chapter.6}% 37
-\BOOKMARK [1][-]{section.6.3}{Effect of Length}{chapter.6}% 38
-\BOOKMARK [1][-]{section.6.4}{Comparison}{chapter.6}% 39
-\BOOKMARK [0][-]{chapter.7}{Conclusion and Future Work}{}% 40
-\BOOKMARK [0][-]{section*.18}{References}{}% 41
+\BOOKMARK [1][-]{section.1.1}{Evaluation Metrics}{chapter.1}% 4
+\BOOKMARK [2][-]{subsection.1.1.1}{Mean Average Precision \(MAP\)}{section.1.1}% 5
+\BOOKMARK [2][-]{subsection.1.1.2}{Precision at k \(P@k\)}{section.1.1}% 6
+\BOOKMARK [2][-]{subsection.1.1.3}{Normalized Discounted Cumulative Gain \(NDCG@k\)}{section.1.1}% 7
+\BOOKMARK [1][-]{section.1.2}{Contributions}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.3}{Thesis Organization}{chapter.1}% 9
+\BOOKMARK [0][-]{chapter.2}{Background and Related Work}{}% 10
+\BOOKMARK [1][-]{section.2.1}{Document Retrieval}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.2}{Pretrained Language Models}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.1}{Feature-based Approaches}{section.2.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.2}{Fine-tuning Approaches}{section.2.2}% 14
+\BOOKMARK [1][-]{section.2.3}{Machine-Learned Ranking Models}{chapter.2}% 15
+\BOOKMARK [2][-]{subsection.2.3.1}{Learning to Rank Methods}{section.2.3}% 16
+\BOOKMARK [2][-]{subsection.2.3.2}{Neural Document Retrieval}{section.2.3}% 17
+\BOOKMARK [2][-]{subsection.2.3.3}{Comparison of Non-neural and Neural Methods}{section.2.3}% 18
+\BOOKMARK [0][-]{chapter.3}{Cross-Domain Relevance Transfer with BERT}{}% 19
+\BOOKMARK [1][-]{section.3.1}{Datasets}{chapter.3}% 20
+\BOOKMARK [2][-]{subsection.3.1.1}{TREC Microblog \(MB\)}{section.3.1}% 21
+\BOOKMARK [1][-]{section.3.2}{Modeling Relevance with BERT}{chapter.3}% 22
+\BOOKMARK [2][-]{subsection.3.2.1}{Relevance Classifier}{section.3.2}% 23
+\BOOKMARK [1][-]{section.3.3}{Reranking with BERT}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.4}{Experimental Setup}{chapter.3}% 25
+\BOOKMARK [2][-]{subsection.3.4.1}{Training and Inference with BERT}{section.3.4}% 26
+\BOOKMARK [2][-]{subsection.3.4.2}{Evaluation}{section.3.4}% 27
+\BOOKMARK [0][-]{chapter.4}{Architecture}{}% 28
+\BOOKMARK [1][-]{section.4.1}{Anserini}{chapter.4}% 29
+\BOOKMARK [1][-]{section.4.2}{Python Module}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.3}{Integration}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.4}{Replicability and Reproducibility}{chapter.4}% 32
+\BOOKMARK [0][-]{chapter.5}{Experimental Results}{}% 33
+\BOOKMARK [1][-]{section.5.1}{Datasets}{chapter.5}% 34
+\BOOKMARK [1][-]{section.5.2}{Results and Analyses}{chapter.5}% 35
+\BOOKMARK [2][-]{subsection.5.2.1}{Effect of Training Data}{section.5.2}% 36
+\BOOKMARK [2][-]{subsection.5.2.2}{Comparison to Other Ranking Models}{section.5.2}% 37
+\BOOKMARK [2][-]{subsection.5.2.3}{Number of Sentences}{section.5.2}% 38
+\BOOKMARK [2][-]{subsection.5.2.4}{Effect of Length}{section.5.2}% 39
+\BOOKMARK [2][-]{subsection.5.2.5}{Matching Tendencies}{section.5.2}% 40
+\BOOKMARK [0][-]{chapter.6}{Conclusion and Future Work}{}% 41
+\BOOKMARK [0][-]{section*.22}{References}{}% 42

@@ -1,51 +1,56 @@
 \contentsline {chapter}{List of Tables}{vii}{section*.2}
 \contentsline {chapter}{List of Figures}{viii}{section*.4}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Contributions}{4}{section.1.1}
-\contentsline {section}{\numberline {1.2}Thesis Organization}{4}{section.1.2}
-\contentsline {chapter}{\numberline {2}Background and Related Work}{6}{chapter.2}
-\contentsline {section}{\numberline {2.1}Document Retrieval}{6}{section.2.1}
-\contentsline {section}{\numberline {2.2}Pretrained Language Models}{7}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Feature-based Approaches}{7}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Fine-tuning Approaches}{8}{subsection.2.2.2}
-\contentsline {section}{\numberline {2.3}Machine-Learned Ranking Models}{10}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Learning to Rank Methods}{10}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Neural Document Retrieval}{11}{subsection.2.3.2}
-\contentsline {subsubsection}{Representation-based Models}{11}{section*.8}
-\contentsline {subsubsection}{Interaction-based Models}{12}{section*.9}
-\contentsline {subsubsection}{Contextualized Language Models}{13}{section*.10}
-\contentsline {subsection}{\numberline {2.3.3}Comparison of Non-neural and Neural Methods}{15}{subsection.2.3.3}
-\contentsline {chapter}{\numberline {3}Implementations}{17}{chapter.3}
-\contentsline {section}{\numberline {3.1}Datasets}{17}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Fine-Tuning}{17}{subsection.3.1.1}
-\contentsline {subsubsection}{TREC Microblog (MB)}{18}{section*.11}
-\contentsline {subsubsection}{MicroSoft MAchine Reading Comprehension (MS MARCO)}{19}{section*.12}
-\contentsline {subsubsection}{TREC Complex Answer Retrieval (CAR)}{20}{section*.13}
-\contentsline {subsection}{\numberline {3.1.2}Evaluation}{20}{subsection.3.1.2}
-\contentsline {subsubsection}{Robust04}{21}{section*.14}
-\contentsline {subsubsection}{Core17 \& Core18}{21}{section*.15}
-\contentsline {section}{\numberline {3.2}Evaluation Metrics}{22}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Mean Average Precision (MAP)}{22}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Precision at k (P@k)}{22}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Normalized Discounted Cumulative Gain (NDCG@k)}{23}{subsection.3.2.3}
-\contentsline {chapter}{\numberline {4}Cross-Domain Relevance Transfer with BERT}{24}{chapter.4}
-\contentsline {section}{\numberline {4.1}Modeling Relevance with BERT}{24}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Relevance Classifier}{25}{subsection.4.1.1}
-\contentsline {subsubsection}{Input Representation}{25}{section*.16}
-\contentsline {subsubsection}{Fine-Tuning}{26}{section*.17}
-\contentsline {section}{\numberline {4.2}Reranking with BERT}{27}{section.4.2}
-\contentsline {section}{\numberline {4.3}Experimental Setup}{29}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Training and Inference with BERT}{29}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Evaluation}{29}{subsection.4.3.2}
-\contentsline {chapter}{\numberline {5}Architecture}{31}{chapter.5}
-\contentsline {section}{\numberline {5.1}Anserini}{32}{section.5.1}
-\contentsline {section}{\numberline {5.2}Python Module}{32}{section.5.2}
-\contentsline {section}{\numberline {5.3}Integration}{33}{section.5.3}
-\contentsline {section}{\numberline {5.4}Reproducibility}{34}{section.5.4}
-\contentsline {chapter}{\numberline {6}Experimental Results}{36}{chapter.6}
-\contentsline {section}{\numberline {6.1}Results}{36}{section.6.1}
-\contentsline {section}{\numberline {6.2}Effect of Nature of Training Data}{36}{section.6.2}
-\contentsline {section}{\numberline {6.3}Effect of Length}{40}{section.6.3}
-\contentsline {section}{\numberline {6.4}Comparison}{40}{section.6.4}
-\contentsline {chapter}{\numberline {7}Conclusion and Future Work}{41}{chapter.7}
-\contentsline {chapter}{\textbf {References}}{42}{section*.18}
+\contentsline {section}{\numberline {1.1}Evaluation Metrics}{3}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Mean Average Precision (MAP)}{4}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Precision at k (P@k)}{4}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Normalized Discounted Cumulative Gain (NDCG@k)}{5}{subsection.1.1.3}
+\contentsline {section}{\numberline {1.2}Contributions}{6}{section.1.2}
+\contentsline {section}{\numberline {1.3}Thesis Organization}{6}{section.1.3}
+\contentsline {chapter}{\numberline {2}Background and Related Work}{8}{chapter.2}
+\contentsline {section}{\numberline {2.1}Document Retrieval}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}Pretrained Language Models}{9}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Feature-based Approaches}{9}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Fine-tuning Approaches}{10}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Machine-Learned Ranking Models}{12}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Learning to Rank Methods}{12}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Neural Document Retrieval}{13}{subsection.2.3.2}
+\contentsline {subsubsection}{Representation-based Models}{13}{section*.8}
+\contentsline {subsubsection}{Interaction-based Models}{14}{section*.9}
+\contentsline {subsubsection}{Contextualized Language Models}{15}{section*.10}
+\contentsline {subsection}{\numberline {2.3.3}Comparison of Non-neural and Neural Methods}{17}{subsection.2.3.3}
+\contentsline {chapter}{\numberline {3}Cross-Domain Relevance Transfer with BERT}{19}{chapter.3}
+\contentsline {section}{\numberline {3.1}Datasets}{19}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}TREC Microblog (MB)}{20}{subsection.3.1.1}
+\contentsline {subsubsection}{MicroSoft MAchine Reading Comprehension (MS MARCO)}{21}{section*.11}
+\contentsline {subsubsection}{TREC Complex Answer Retrieval (CAR)}{22}{section*.12}
+\contentsline {section}{\numberline {3.2}Modeling Relevance with BERT}{23}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Relevance Classifier}{23}{subsection.3.2.1}
+\contentsline {subsubsection}{Input Representation}{24}{section*.13}
+\contentsline {subsubsection}{Fine-Tuning}{25}{section*.14}
+\contentsline {section}{\numberline {3.3}Reranking with BERT}{26}{section.3.3}
+\contentsline {section}{\numberline {3.4}Experimental Setup}{27}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Training and Inference with BERT}{27}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Evaluation}{28}{subsection.3.4.2}
+\contentsline {chapter}{\numberline {4}Architecture}{29}{chapter.4}
+\contentsline {section}{\numberline {4.1}Anserini}{30}{section.4.1}
+\contentsline {section}{\numberline {4.2}Python Module}{30}{section.4.2}
+\contentsline {section}{\numberline {4.3}Integration}{31}{section.4.3}
+\contentsline {section}{\numberline {4.4}Replicability and Reproducibility}{32}{section.4.4}
+\contentsline {chapter}{\numberline {5}Experimental Results}{34}{chapter.5}
+\contentsline {section}{\numberline {5.1}Datasets}{34}{section.5.1}
+\contentsline {subsubsection}{Robust04}{34}{section*.15}
+\contentsline {subsubsection}{Core17 \& Core18}{34}{section*.16}
+\contentsline {section}{\numberline {5.2}Results and Analyses}{36}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Effect of Training Data}{36}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Comparison to Other Ranking Models}{37}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Number of Sentences}{38}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Effect of Length}{38}{subsection.5.2.4}
+\contentsline {subsubsection}{Query Length}{38}{section*.17}
+\contentsline {subsubsection}{Document Length}{40}{section*.18}
+\contentsline {subsection}{\numberline {5.2.5}Matching Tendencies}{40}{subsection.5.2.5}
+\contentsline {subsubsection}{Semantic Matching}{40}{section*.19}
+\contentsline {subsubsection}{Query Terms}{41}{section*.20}
+\contentsline {subsubsection}{Novel Terms}{41}{section*.21}
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{43}{chapter.6}
+\contentsline {chapter}{\textbf {References}}{44}{section*.22}

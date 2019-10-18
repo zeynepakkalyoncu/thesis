@@ -346,6 +346,18 @@ Chenyan Xiong, Zhuyun Dai, Jamie Callan, Zhiyuan Liu, and Russell Power.
 \newblock End-to-end neural ad-hoc ranking with kernel pooling.
 \newblock {\em CoRR}, abs/1706.06613, 2017.
 
+\bibitem{Yang_etal_SIGIR2017}
+P.~Yang, H.~Fang, and J.~Lin.
+\newblock {Anserini}: Enabling the use of {Lucene} for information retrieval
+  research.
+\newblock In {\em SIGIR 2017}, pages 1253--1256, 2017.
+
+\bibitem{Yang_etal_JDIQ2018}
+P.~Yang, H.~Fang, and J.~Lin.
+\newblock {Anserini}: Reproducible ranking baselines using {Lucene}.
+\newblock {\em Journal of Data and Information Quality}, 10(4):Article 16,
+  2018.
+
 \bibitem{Yang:2018:ARR:3289400.3239571}
 Peilin Yang, Hui Fang, and Jimmy Lin.
 \newblock Anserini: Reproducible ranking baselines using lucene.

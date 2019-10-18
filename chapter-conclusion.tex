@@ -2,3 +2,17 @@
 \chapter{Conclusion and Future Work}
 %======================================================================
 \label{ch:conclusion}
+
+In this thesis, we propose two innovations to successfully apply BERT to document retrieval with significant improvements on three TREC newswire collections.
+To overcome the maximum input length restriction imposed by BERT, we focus on integrating sentence-level evidence to rank newswire documents.
+This approach requires sentence-level relevance labels to train BERT as a relevance classifier; however, relevance judgements in most test collections are provided only at the document level.
+We address this challenge by leveraging sentence- and passage-level relevance judgements fortuitously available in out-of-domain collections.
+More specifically, we fine-tune BERT with the goal of capturing cross-domain notions of relevance.
+
+We show that relevance models learned with BERT can indeed be transferred across domains in a straightforward manner.
+Combined with sentence-level relevance modeling, our simple model achieves \myworries{state-of-the-art} results across all three newswire collections.
+Furthermore, our results suggest that document ranking can be essentially distilled into relevance prediction at the sentence level.
+\myworries{X}
+
+A promising future direction based on our findings includes ...
+\myworries{X}
