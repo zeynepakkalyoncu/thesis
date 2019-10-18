@@ -75,7 +75,7 @@ Both queries and tweets are segmented into token sequences with the Stanford Tok
 We \myworries{sample} 25\% of the data for the validation set, and use the rest for fine-tuning BERT.
 We experiment with different splits as discussed in Section \myworries{Exp-results}, and find this split to be ideal.
 
-\subsubsection{MicroSoft MAchine Reading Comprehension (MS MARCO)}
+\subsection{MicroSoft MAchine Reading Comprehension (MS MARCO)}
 
 \begin{table}[b]
 \vspace{0.2cm}
@@ -125,8 +125,7 @@ The models in Section \myworries{X} were trained on less than 2\% of the total t
 According to Nogueira et al. \cite{nogueira2019passage}, training for up to 12.5\% of the total data does not improve MRR@10 on the validation set.
 \myworries{Maybe remove MRR, and better transition}
 
-\subsubsection{TREC Complex Answer Retrieval (CAR)}
-
+\subsection{TREC Complex Answer Retrieval (CAR)}
 
 TREC CAR \cite{dietz2017trec} uses paragraphs extracted from all paragraphs in the English Wikipedia, except the abstracts.
 \myworries{How many queries?}

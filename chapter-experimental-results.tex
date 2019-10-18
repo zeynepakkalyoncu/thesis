@@ -136,6 +136,82 @@ However, we find that adding a third in fact causes effectiveness to drop in som
 \myworries{Comment for all three metrics and datastes}
 \myworries{Conclusion?}
 
+\subsection{Per-Query Error Analysis}
+
+Our results in Table \ref{tab:results} give a good overview of the effect of training data on cross-domain relevance transfer.
+However, they do not reveal much concerning the particular strengths and weaknesses of each model compared to the baseline.
+To gain further insight into the characteristics of our models, we analyze the per-query retrieval effectiveness of each model compared to the baseline on Robust04, Core17 and Core18.
+Figure \myworries{X} plots $\Delta$ AP per query (i.e: $ \texttt{AP}_{\texttt{Model}} - \texttt{AP}_{\texttt{BM25+RM3}} $, sorted in descending order.
+
+\begin{figure}
+	\centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{perquery1.png} % first figure itself
+        \caption{first figure}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{perquery2.png} % second figure itself
+        \caption{second figure}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{perquery3.png} % second figure itself
+        \caption{second figure}
+    \end{minipage}
+\end{figure}
+
+\myworries{TODO}
+
+Figure \ref{fig:per_query1}, \ref{fig:per_query2} and \ref{fig:per_query3} show the per query MAP difference between our best model and the baseline.
+Our best BERT-based model performs better than the baseline for 83\% of the queries on Robust04, 88\% on Core17 and 84\% on Core18.
+This again confirms that BERT is able to capture relevance signals from MS MARCO and MB which directly help with retrieval on our test collecetions.
+The best performing queries on Robust04 are \texttt{stirling engine}, \texttt{human stampede} and \texttt{native american casino}, respectively.
+The worst performing queries are \texttt{flavr savr tomato}, \texttt{polygamy polyandry polygyny} and \texttt{adult immigrants English}.
+
+\begin{figure}
+	\centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{perquery4.png} % first figure itself
+        \caption{first figure}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{perquery5.png} % second figure itself
+        \caption{second figure}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{perquery6.png} % second figure itself
+        \caption{second figure}
+    \end{minipage}
+\end{figure}
+
+We repeat the same process for our worst model $ \textrm{BERT}(\textrm{CAR}) $ for which we present results in Figures \ref{fig:per_query5}, \ref{fig:per_query5} and \ref{fig:per_query6}.
+This model outperforms the baseline only for 57\% of the Robust04 and 34\% of Core18 queries.
+%80\% of Core17
+It performs especially bad for the query 316 \texttt{polygamy polyandry polygyny} on Robust04 and 802 \texttt{women driving in Saudi Arabia} on Core18.
+
+Overall the query 316 \texttt{polygamy polyandry polygyny} appears to be difficult for BERT based models to correctly judge.
+\myworries{Different one?}
+In order to compare the characteristics of the two models that cause them to either excel or fail, we look into the ranking of documents for the best and worst performing queries for both.
+Specifically, we sample sentences from relevant and non-relevant documents for the given query and compare how their rank these documents.
+\myworries{Details!}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{\textbf{Query}}                       & \multirow{2}{*}{\textbf{Document ID}} & \multirow{2}{*}{\textbf{Sentence}}                                                                                                                                                                                            & \multicolumn{3}{c|}{\textbf{Rank}}                                             \\ \cline{4-6} 
+                                                      &                                       &                                                                                                                                                                                                                               & \textbf{Baseline} & \textbf{MS MARCO + MB} & \multicolumn{1}{l|}{\textbf{CAR}} \\ \hline
+\multirow{2}{*}{\textbf{372: native american casino}} & LA061290-0112                         & The Sycuan Reservation, one of 18 American Indian reservations in Southern California, operates a gaming center offering high-stakes bingo and poker seven days a week, bringing in more than \$20 million in revenues a year & 223               & 9                      & 197                               \\ \cline{2-6} 
+                                                      & FT941-13912                           & Yet, gambling on its own is not enough as Atlantic City, on the east coast in New Jersey, has discovered - to its cost.                                                                                                       & 12                & 38                     & 9                                 \\ \hline
+\end{tabular}
+\end{table}
+
 \subsection{Effect of Length}
 
 \subsubsection{Query Length}
@@ -264,19 +340,19 @@ The overall effectiveness of this model on the original Robust04 dataset shown i
 \toprule
  & \multicolumn{5}{c}{\textbf{Fraction of Query Term}} \\
  \cmidrule(lr){2-6}
-{\bf Model} & {\bf [0.0, 0.01)} & {\bf [0.01, 0.02)} & {\bf [0.02, 0.03)}   & {\bf [0.03, 0.04)}  & {\bf [0.4, 0.05)} \\
+{\bf Model} & {\bf [0.0, 0.01)} & {\bf [0.01, 0.02)} & {\bf [0.02, 0.03)} \\
 \toprule
-BM25+RM3 & 0.2973 & 0.2863 & 0.2890 & 0.1961 & 0.1152 \\
+BM25+RM3 &  \\
 \midrule
-$ \textrm{BERT}(\textrm{MB}) $ & 0.3436 & 0.3628 & 0.3548 & 0.2793 & 0.1314 \\
+$ \textrm{BERT}(\textrm{MB}) $ &  \\
 \midrule
-$ \textrm{BERT}(\textrm{CAR}) $ & 0.3082 & 0.3094 & 0.3121 & 0.1902 & 0.1076 \\
+$ \textrm{BERT}(\textrm{CAR}) $ &  \\
 \midrule
-$ \textrm{BERT}(\textrm{MS MARCO}) $ & 0.3088 & 0.3095 & 0.3112 & 0.1883 & 0.1087 \\
+$ \textrm{BERT}(\textrm{MS MARCO}) $ &  \\
 \midrule
-$ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.X & 0.X & 0.X & 0.X & 0.X  \\
+$ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $ &   \\
 \midrule
-$ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & 0.3880 & 0.3809 & 0.3028 & 0.X & 0.X \\
+$ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ &  \\
 \bottomrule
 \end{tabular}
 }
@@ -284,7 +360,71 @@ $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & 0.3880 & 0.3809 & 0
 \label{tab:results-query-terms}
 \end{table*}
 
+BM25 favors documents with frequent occurrences of query terms which is not necessarily the case of our BERT-based models.
+\myworries{Hypothesis}
+Therefore, we calculate the fraction of query terms (FQT) in the top k documents for each query across all models, removing stopwords and punctuation.
+We average the FQT across all retrieved documents for each query:
+
+\begin{equation}
+FQT(q) = \frac{1}{k} \sum^k _{i=1} \frac{N(d_i, q)}{|d_i|}
+\end{equation}
+
+where $ N(d_i, q) $ denotes the number of occurrences fo query tokens $ q $ in document $ d_i $.
+\myworries{limit k to 10 to avoid noise?}
 \myworries{Divide into 3 buckets instead?}
+\myworries{FQT average for each model}
+\myworries{Comment}
 
-\subsubsection{Novel Terms}
+Because BM25 relies too much on query term frequency, it may rank documents that contain multiple repetitions of query words but do not actually convey any useful information too highly.
+Therefore, we expect the effectiveness of BM25 to drop more significantly with increasing FQT.
+To observe how retrieval effectiveness changes across different ranges of FQT, we split the values into \myworries{X} buckets and calculate the average MAP for each bucket.
+\myworries{Comment}
+\myworries{Give examples of useless high FQT}
 
+\subsection{Novel Terms}
+
+Pretrained on massive amounts of data for language modeling, BERT can capture various semantic relationships helpful for relevance prediction.
+Figures \myworries{X} one of the top scoring sentences for the query 322 \texttt{international art crime}.
+Note that the sentence does not contain any exact matches with the query terms and is nonetheless relevant to the query.
+
+\myworries{description}
+\myworries{This highlights the power of...}
+
+\myworries{MS MARCO MB}
+\begin{figure}
+	\centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{vis1.png} % first figure itself
+        \caption{first figure}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{vis2.png} % second figure itself
+        \caption{second figure}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{vis3.png} % second figure itself
+        \caption{second figure}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}
+	\centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{vis4.png} % first figure itself
+        \caption{first figure}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{vis5.png} % second figure itself
+        \caption{second figure}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{vis6.png} % second figure itself
+        \caption{second figure}
+    \end{minipage}
+\end{figure}
