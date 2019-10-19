@@ -1,5 +1,5 @@
-\contentsline {chapter}{List of Tables}{viii}{section*.2}
-\contentsline {chapter}{List of Figures}{ix}{section*.4}
+\contentsline {chapter}{List of Tables}{vii}{section*.2}
+\contentsline {chapter}{List of Figures}{viii}{section*.4}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Evaluation Metrics}{3}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Mean Average Precision (MAP)}{4}{subsection.1.1.1}
@@ -41,17 +41,16 @@
 \contentsline {section}{\numberline {5.1}Datasets}{34}{section.5.1}
 \contentsline {subsubsection}{Robust04}{34}{section*.13}
 \contentsline {subsubsection}{Core17 \& Core18}{34}{section*.14}
-\contentsline {section}{\numberline {5.2}Results and Analyses}{36}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Effect of Training Data}{36}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Comparison to Other Ranking Models}{37}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Number of Sentences}{38}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Per-Query Error Analysis}{38}{subsection.5.2.4}
-\contentsline {subsection}{\numberline {5.2.5}Effect of Length}{42}{subsection.5.2.5}
-\contentsline {subsubsection}{Query Length}{42}{section*.15}
+\contentsline {section}{\numberline {5.2}Results and Analyses}{35}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Effect of Training Data}{37}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Number of Sentences}{38}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Comparison to Other Ranking Models}{39}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Per-Query Analysis}{40}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}Effect of Length}{41}{subsection.5.2.5}
+\contentsline {subsubsection}{Query Length}{41}{section*.15}
 \contentsline {subsubsection}{Document Length}{42}{section*.16}
 \contentsline {subsection}{\numberline {5.2.6}Matching Tendencies}{43}{subsection.5.2.6}
 \contentsline {subsubsection}{Semantic Matching}{43}{section*.17}
-\contentsline {subsubsection}{Query Terms}{44}{section*.18}
-\contentsline {subsection}{\numberline {5.2.7}Novel Terms}{45}{subsection.5.2.7}
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{48}{chapter.6}
-\contentsline {chapter}{\textbf {References}}{49}{section*.19}
+\contentsline {subsubsection}{Exact Matching}{44}{section*.18}
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{47}{chapter.6}
+\contentsline {chapter}{\textbf {References}}{48}{section*.19}

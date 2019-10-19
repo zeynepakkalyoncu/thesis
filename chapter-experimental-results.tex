@@ -3,362 +3,523 @@
 %======================================================================
 \label{ch:exp}
 
-\begin{sidewaystable*}[htbp]
-\centering
-\caption{Ranking effectiveness on Robust04, Core17 and Core18}
-\begin{center}
-\resizebox{\columnwidth}{!}{
-\begin{tabular}{lcc ccc ccc ccc}
-\toprule
- & \multicolumn{3}{c}{\textbf{Robust04}} & \multicolumn{3}{c}{\textbf{Core17}} & \multicolumn{3}{c}{\textbf{Core18}} \\
- \cmidrule(lr){2-4}  \cmidrule(lr){5-7}  \cmidrule(lr){8-10}
-{\bf Model} & {\bf MAP} & {\bf P@20} & {\bf NDCG@20}   & {\bf MAP}  & {\bf P@20} & {\bf NDCG@20} & {\bf MAP} & {\bf P@20} & {\bf NDCG@20}  \\
-\toprule
-BM25+RM3 & 0.2903 & 0.3821 & 0.4407 & 0.2823 & 0.5500 & 0.4467 & 0.3135 & 0.4700 & 0.4604 \\
-\midrule
-1S: $ \textrm{BERT}(\textrm{MB}) $ & 0.3408$^{\dagger}$ & 0.4335$^{\dagger}$ & 0.4900$^{\dagger}$ & 0.3091$^{\dagger}$ & 0.5620 & 0.4628 & 0.3393$^{\dagger}$ & 0.4930 & 0.4848$^{\dagger}$  \\
-2S: $ \textrm{BERT}(\textrm{MB}) $ & 0.3435$^{\dagger}$ & 0.4386$^{\dagger}$ & 0.4964$^{\dagger}$ & 0.3137$^{\dagger}$ & 0.5770 & 0.4781 & 0.3421$^{\dagger}$ & 0.4910 & 0.4857$^{\dagger}$  \\
-3S: $ \textrm{BERT}(\textrm{MB}) $ & 0.3434$^{\dagger}$ & 0.4422$^{\dagger}$ & 0.4998$^{\dagger}$ & 0.3154$^{\dagger}$ & 0.5880 & 0.4852$^{\dagger}$ & 0.3419$^{\dagger}$ & 0.4950$^{\dagger}$ & 0.4878$^{\dagger}$ \\
-\midrule
-1S: $ \textrm{BERT}(\textrm{CAR}) $ & 0.3025$^{\dagger}$ & 0.3970$^{\dagger}$ & 0.4509 & 0.2814$^{\dagger}$ & 0.5500 & 0.4470 & 0.3120 & 0.4680 & 0.4586 \\
-2S: $ \textrm{BERT}(\textrm{CAR}) $ & 0.3025$^{\dagger}$ & 0.3970$^{\dagger}$ & 0.4509 & 0.2814$^{\dagger}$ & 0.5500 & 0.4470 & 0.3116 & 0.4670 & 0.4585 \\
-3S: $ \textrm{BERT}(\textrm{CAR}) $ & 0.3025$^{\dagger}$ & 0.3970$^{\dagger}$ & 0.4509 &  0.2814$^{\dagger}$ & 0.5500 & 0.4470 & 0.3113 & 0.4670 & 0.4584 \\
-\midrule
-1S: $ \textrm{BERT}(\textrm{MS MARCO}) $ & 0.3028$^{\dagger}$ & 0.3964$^{\dagger}$ & 0.4512 & 0.2817$^{\dagger}$ & 0.5500 & 0.4468 & 0.3121 & 0.4670 & 0.4594 \\
-2S: $ \textrm{BERT}(\textrm{MS MARCO}) $ & 0.3028$^{\dagger}$ & 0.3964$^{\dagger}$ & 0.4512 & 0.2817$^{\dagger}$ & 0.5500 & 0.4468 & 0.3121 & 0.4670 & 0.4594 \\
-3S: $ \textrm{BERT}(\textrm{MS MARCO}) $ & 0.3028$^{\dagger}$ & 0.3964$^{\dagger}$ & 0.4512 & 0.2817$^{\dagger}$ & 0.5500 & 0.4468 & 0.3121 & 0.4670 & 0.4594 \\
-\midrule
-1S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.3476$^{\dagger}$ & 0.4380$^{\dagger}$ & 0.4988$^{\dagger}$ & 0.3103$^{\dagger}$ & 0.5830 & 0.4758 & 0.3385$^{\dagger}$ & 0.4860 & 0.4785 \\
-2S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.3470$^{\dagger}$ & 0.4400$^{\dagger}$ & 0.5015$^{\dagger}$ & 0.3140$^{\dagger}$ & 0.5830 & 0.4817$^{\dagger}$ & 0.3386$^{\dagger}$ & 0.4810 & 0.4755 \\
-3S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.3466$^{\dagger}$ & 0.4398$^{\dagger}$ & 0.5014$^{\dagger}$ & 0.3143$^{\dagger}$ & 0.5830 & 0.4807 & 0.3382$^{\dagger}$ & 0.4830 & 0.4731 \\
-\midrule
-1S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & 0.3676$^{\dagger}$ & 0.4610$^{\dagger}$ & 0.5239$^{\dagger}$ & 0.3292$^{\dagger}$ & 0.6080$^{\dagger}$ & 0.5061$^{\dagger}$ & 0.3486$^{\dagger}$ & {\bf 0.4920} & {\bf 0.4953}$^{\dagger}$ \\
-2S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & {\bf 0.3697}$^{\dagger}$ & 0.4657$^{\dagger}$ & 0.5324$^{\dagger}$ & {\bf 0.3323}$^{\dagger}$ & 0.6170$^{\dagger}$ & {\bf 0.5092}$^{\dagger}$ & 0.3496$^{\dagger}$ & 0.4830 & 0.4899$^{\dagger}$ \\
-3S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & 0.3691$^{\dagger}$ & {\bf 0.4669}$^{\dagger}$ & {\bf 0.5325}$^{\dagger}$ & 0.3314$^{\dagger}$ & {\bf 0.6200}$^{\dagger}$ & 0.5070$^{\dagger}$ & {\bf 0.3522}$^{\dagger}$ & 0.4850 & 0.4899$^{\dagger}$ \\
-\bottomrule
-\end{tabular}
-}
-\label{tab:results}
-\end{center}
-\end{sidewaystable*}
+%\begin{sidewaystable*}[htbp]
+%\centering
+%\caption{Ranking effectiveness on Robust04, Core17 and Core18}
+%\begin{center}
+%\resizebox{\columnwidth}{!}{
+%\begin{tabular}{lcc ccc ccc ccc}
+%\toprule
+% & \multicolumn{3}{c}{\textbf{Robust04}} & \multicolumn{3}{c}{\textbf{Core17}} & \multicolumn{3}{c}{\textbf{Core18}} \\
+% \cmidrule(lr){2-4}  \cmidrule(lr){5-7}  \cmidrule(lr){8-10}
+%{\bf Model} & {\bf MAP} & {\bf P@20} & {\bf NDCG@20}   & {\bf MAP}  & {\bf P@20} & {\bf NDCG@20} & {\bf MAP} & {\bf P@20} & {\bf NDCG@20}  \\
+%
+%\toprule
+%
+%\textbf{BM25+RM3} & 0.2903 & 0.3821 & 0.4407 & 0.2823 & 0.5500 & 0.4467 & 0.3135 & 0.4700 & 0.4604 \\
+%
+%\midrule
+%
+%\textbf{1S: $ \textrm{BERT}(\textrm{MB}) $} & 0.3408$^{\dagger}$ & 0.4335$^{\dagger}$ & 0.4900$^{\dagger}$ & 0.3091$^{\dagger}$ & 0.5620 & 0.4628 & 0.3393$^{\dagger}$ & 0.4930 & 0.4848$^{\dagger}$  \\
+%\textbf{2S: $ \textrm{BERT}(\textrm{MB}) $} & 0.3435$^{\dagger}$ & 0.4386$^{\dagger}$ & 0.4964$^{\dagger}$ & 0.3137$^{\dagger}$ & 0.5770 & 0.4781 & 0.3421$^{\dagger}$ & 0.4910 & 0.4857$^{\dagger}$  \\
+%\textbf{3S: $ \textrm{BERT}(\textrm{MB}) $} & 0.3434$^{\dagger}$ & 0.4422$^{\dagger}$ & 0.4998$^{\dagger}$ & 0.3154$^{\dagger}$ & 0.5880 & 0.4852$^{\dagger}$ & 0.3419$^{\dagger}$ & 0.4950$^{\dagger}$ & 0.4878$^{\dagger}$ \\
+%
+%\midrule
+%
+%\textbf{1S: $ \textrm{BERT}(\textrm{CAR}) $} & 0.3025$^{\dagger}$ & 0.3970$^{\dagger}$ & 0.4509 & 0.2814$^{\dagger}$ & 0.5500 & 0.4470 & 0.3120 & 0.4680 & 0.4586 \\
+%\textbf{2S: $ \textrm{BERT}(\textrm{CAR}) $} & 0.3025$^{\dagger}$ & 0.3970$^{\dagger}$ & 0.4509 & 0.2814$^{\dagger}$ & 0.5500 & 0.4470 & 0.3116 & 0.4670 & 0.4585 \\
+%\textbf{3S: $ \textrm{BERT}(\textrm{CAR}) $} & 0.3025$^{\dagger}$ & 0.3970$^{\dagger}$ & 0.4509 &  0.2814$^{\dagger}$ & 0.5500 & 0.4470 & 0.3113 & 0.4670 & 0.4584 \\
+%
+%\midrule
+%
+%\textbf{1S: $ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.3028$^{\dagger}$ & 0.3964$^{\dagger}$ & 0.4512 & 0.2817$^{\dagger}$ & 0.5500 & 0.4468 & 0.3121 & 0.4670 & 0.4594 \\
+%\textbf{2S: $ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.3028$^{\dagger}$ & 0.3964$^{\dagger}$ & 0.4512 & 0.2817$^{\dagger}$ & 0.5500 & 0.4468 & 0.3121 & 0.4670 & 0.4594 \\
+%\textbf{3S: $ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.3028$^{\dagger}$ & 0.3964$^{\dagger}$ & 0.4512 & 0.2817$^{\dagger}$ & 0.5500 & 0.4468 & 0.3121 & 0.4670 & 0.4594 \\
+%
+%\midrule
+%
+%\textbf{1S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.3476$^{\dagger}$ & 0.4380$^{\dagger}$ & 0.4988$^{\dagger}$ & 0.3103$^{\dagger}$ & 0.5830 & 0.4758 & 0.3385$^{\dagger}$ & 0.4860 & 0.4785 \\
+%\textbf{2S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.3470$^{\dagger}$ & 0.4400$^{\dagger}$ & 0.5015$^{\dagger}$ & 0.3140$^{\dagger}$ & 0.5830 & 0.4817$^{\dagger}$ & 0.3386$^{\dagger}$ & 0.4810 & 0.4755 \\
+%\textbf{3S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.3466$^{\dagger}$ & 0.4398$^{\dagger}$ & 0.5014$^{\dagger}$ & 0.3143$^{\dagger}$ & 0.5830 & 0.4807 & 0.3382$^{\dagger}$ & 0.4830 & 0.4731 \\
+%
+%\midrule
+%
+%\textbf{1S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & 0.3676$^{\dagger}$ & 0.4610$^{\dagger}$ & 0.5239$^{\dagger}$ & 0.3292$^{\dagger}$ & 0.6080$^{\dagger}$ & 0.5061$^{\dagger}$ & 0.3486$^{\dagger}$ & {\bf 0.4920} & {\bf 0.4953}$^{\dagger}$ \\
+%\textbf{2S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & {\bf 0.3697}$^{\dagger}$ & 0.4657$^{\dagger}$ & 0.5324$^{\dagger}$ & {\bf 0.3323}$^{\dagger}$ & 0.6170$^{\dagger}$ & {\bf 0.5092}$^{\dagger}$ & 0.3496$^{\dagger}$ & 0.4830 & 0.4899$^{\dagger}$ \\
+%\textbf{3S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & 0.3691$^{\dagger}$ & {\bf 0.4669}$^{\dagger}$ & {\bf 0.5325}$^{\dagger}$ & 0.3314$^{\dagger}$ & {\bf 0.6200}$^{\dagger}$ & 0.5070$^{\dagger}$ & {\bf 0.3522}$^{\dagger}$ & 0.4850 & 0.4899$^{\dagger}$ \\
+%
+%\bottomrule
+%\end{tabular}
+%}
+%\label{tab:results}
+%\end{center}
+%\end{sidewaystable*}
 
 \section{Datasets}
 
-We conduct end-to-end document ranking experiments on three TREC newswire collections:\
-the Robust Track from 2004 (Robust04) and the Common Core Tracks from 2017 and 2018 (Core17 and Core18).
+We conduct end-to-end document ranking experiments on three TREC newswire collections:\ the Robust Track from 2004 (Robust04) and the Common Core Tracks from 2017 and 2018 (Core17 and Core18).
 
 \subsubsection{Robust04}
 
-Robust04 draws from the TREC Robust Track in 2004, which is the set of documents from TREC Disks 4 and 5, spanning news articles from Financial Times and LA Times, except the Congressional Record.
-The dataset comprises 250 topics, with relevance judgments on a collection of 500K documents.
-The goal of the Robust track is to improve the consistency and robustness of retrieval methods by focusing search on poorly performing topics .
-Specifically, this task involves searching across a fixed set of documents using previously unseen topics.
-Notably the lengths of documents in Robust04 are highly biased:\ \myworries{data}, which is difficult for neural text matching models to handle.
-\myworries{What does this mean for us?}
+Robust04 draws from the set of documents in TREC Disks 4 and 5, spanning news articles from Financial Times and LA Times, except the Congressional Record.
+The collection comprises 250 topics, with relevance judgments over 500K documents.
+The goal of the Robust track is to improve the consistency and robustness of retrieval methods by focusing ad hoc search on poorly performing topics~\cite{Voorhees_TREC2004_robust}.
+%The task involves searching across a fixed set of documents using previously unseen topics.
+Notably the distribution of document lengths in Robust04 is highly skewed, with the majority of documents having fewer than 200K tokens and a couple of documents having more than 1M tokens.
+Existing neural re-rankers such as DRMM~\cite{guo2016deep} and KNRM~\cite{xiong2017knrm} are known to struggle with documents in the tail of the distribution.
 
 \subsubsection{Core17 \& Core18}
 
-Core17 and Core18 are based on the TREC 2017 and 2018 Common Core Tracks respectively.
+Core17 and Core18 build on the TREC 2017 and 2018 Common Core Tracks respectively.
 The motivation behind these tracks is to build up-to-date test collections based on more recently created documents.
-\myworries{that avoids the pitfalls of depth-k pooling}
-Core17 uses 1.8M articles from the New York Times Annotated Corpus
-while Core18 uses around 600K articles from the TREC Washington Post Corpus.
+%\myworries{that avoids the pitfalls of depth-k pooling}
+Core17 contains 1.8M articles from the New York Times Annotated Corpus while Core18 has around 600K articles from the TREC Washington Post Corpus.
 Core17 and Core18 have only 50 topics each, which are drawn from the Robust Track topics.
+Given their relatively recent release, literature on these collections is still sparse.
+
+%%%%%
+
+\begin{table*}[b!]
+\centering\resizebox{0.7\columnwidth}{!}{
+\begin{tabular}{lcc ccc}
+\toprule
+% & \multicolumn{3}{c}{\textbf{Robust04}} \\
+% \cmidrule(lr){2-4}
+{\bf Model} & {\bf MAP} & {\bf P@20} & {\bf NDCG@20}  \\
+\toprule
+\textbf{BM25+RM3} & 0.2903 & 0.3821 & 0.4407 \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{MB}) $} & 0.3408$^{\dagger}$ & 0.4335$^{\dagger}$ & 0.4900$^{\dagger}$  \\
+\textbf{2S: $ \textrm{BERT}(\textrm{MB}) $} & 0.3435$^{\dagger}$ & 0.4386$^{\dagger}$ & 0.4964$^{\dagger}$  \\
+\textbf{3S: $ \textrm{BERT}(\textrm{MB}) $} & 0.3434$^{\dagger}$ & 0.4422$^{\dagger}$ & 0.4998$^{\dagger}$ \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{CAR}) $} & 0.3025$^{\dagger}$ & 0.3970$^{\dagger}$ & 0.4509 \\
+\textbf{2S: $ \textrm{BERT}(\textrm{CAR}) $} & 0.3025$^{\dagger}$ & 0.3970$^{\dagger}$ & 0.4509 \\
+\textbf{3S: $ \textrm{BERT}(\textrm{CAR}) $} & 0.3025$^{\dagger}$ & 0.3970$^{\dagger}$ & 0.4509  \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.3028$^{\dagger}$ & 0.3964$^{\dagger}$ & 0.4512 \\
+\textbf{2S: $ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.3028$^{\dagger}$ & 0.3964$^{\dagger}$ & 0.4512 \\
+\textbf{3S: $ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.3028$^{\dagger}$ & 0.3964$^{\dagger}$ & 0.4512 \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.3476$^{\dagger}$ & 0.4380$^{\dagger}$ & 0.4988$^{\dagger}$ \\
+\textbf{2S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.3470$^{\dagger}$ & 0.4400$^{\dagger}$ & 0.5015$^{\dagger}$ \\
+\textbf{3S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.3466$^{\dagger}$ & 0.4398$^{\dagger}$ & 0.5014$^{\dagger}$ \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & 0.3676$^{\dagger}$ & 0.4610$^{\dagger}$ & 0.5239$^{\dagger}$ \\
+\textbf{2S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & {\bf 0.3697}$^{\dagger}$ & 0.4657$^{\dagger}$ & 0.5324$^{\dagger}$ \\
+\textbf{3S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & 0.3691$^{\dagger}$ & {\bf 0.4669}$^{\dagger}$ & {\bf 0.5325}$^{\dagger}$ \\
+\bottomrule
+\end{tabular}
+}
+\caption{Ranking effectiveness on Robust04.}
+\label{tab:results-robust04}
+\end{table*}
+
+\begin{table*}
+\centering\resizebox{0.7\columnwidth}{!}{
+\begin{tabular}{lcc ccc}
+\toprule
+% & \multicolumn{3}{c}{\textbf{Robust04}} \\
+% \cmidrule(lr){2-4}
+{\bf Model} & {\bf MAP} & {\bf P@20} & {\bf NDCG@20}  \\
+\toprule
+\textbf{BM25+RM3} & 0.2823 & 0.5500 & 0.4467 \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{MB}) $} & 0.3091$^{\dagger}$ & 0.5620 & 0.4628  \\
+\textbf{2S: $ \textrm{BERT}(\textrm{MB}) $} & 0.3137$^{\dagger}$ & 0.5770 & 0.4781 \\
+\textbf{3S: $ \textrm{BERT}(\textrm{MB}) $} 0.3154$^{\dagger}$ & 0.5880 & 0.4852$^{\dagger}$ \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{CAR}) $} & 0.2814$^{\dagger}$ & 0.5500 & 0.4470 \\
+\textbf{2S: $ \textrm{BERT}(\textrm{CAR}) $} & 0.2814$^{\dagger}$ & 0.5500 & 0.4470 \\
+\textbf{3S: $ \textrm{BERT}(\textrm{CAR}) $} & 0.2814$^{\dagger}$ & 0.5500 & 0.4470 \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.2817$^{\dagger}$ & 0.5500 & 0.4468 \\
+\textbf{2S: $ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.2817$^{\dagger}$ & 0.5500 & 0.4468 \\
+\textbf{3S: $ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.2817$^{\dagger}$ & 0.5500 & 0.4468 \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.3103$^{\dagger}$ & 0.5830 & 0.4758  \\
+\textbf{2S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.3140$^{\dagger}$ & 0.5830 & 0.4817$^{\dagger}$ \\
+\textbf{3S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.3143$^{\dagger}$ & 0.5830 & 0.4807 \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & 0.3292$^{\dagger}$ & 0.6080$^{\dagger}$ & 0.5061$^{\dagger}$ \\
+\textbf{2S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & {\bf 0.3323}$^{\dagger}$ & 0.6170$^{\dagger}$ & {\bf 0.5092}$^{\dagger}$ \\
+\textbf{3S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & 0.3314$^{\dagger}$ & {\bf 0.6200}$^{\dagger}$ & 0.5070$^{\dagger}$ \\
+\bottomrule
+\end{tabular}
+}
+\caption{Ranking effectiveness on Core17.}
+\label{tab:results-core17}
+\end{table*}
+
+\begin{table*}
+\centering\resizebox{0.7\columnwidth}{!}{
+\begin{tabular}{lcc ccc}
+\toprule
+% & \multicolumn{3}{c}{\textbf{Robust04}} \\
+% \cmidrule(lr){2-4}
+{\bf Model} & {\bf MAP} & {\bf P@20} & {\bf NDCG@20}  \\
+\toprule
+\textbf{BM25+RM3} & 0.3135 & 0.4700 & 0.4604 \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{MB}) $} & 0.3393$^{\dagger}$ & 0.4930 & 0.4848$^{\dagger}$  \\
+\textbf{2S: $ \textrm{BERT}(\textrm{MB}) $} & 0.3421$^{\dagger}$ & 0.4910 & 0.4857$^{\dagger}$  \\
+\textbf{3S: $ \textrm{BERT}(\textrm{MB}) $}  & 0.3419$^{\dagger}$ & 0.4950$^{\dagger}$ & 0.4878$^{\dagger}$ \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{CAR}) $} & 0.3120 & 0.4680 & 0.4586 \\
+\textbf{2S: $ \textrm{BERT}(\textrm{CAR}) $} & 0.3116 & 0.4670 & 0.4585 \\
+\textbf{3S: $ \textrm{BERT}(\textrm{CAR}) $} & 0.3113 & 0.4670 & 0.4584 \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.3121 & 0.4670 & 0.4594 \\
+\textbf{2S: $ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.3121 & 0.4670 & 0.4594 \\
+\textbf{3S: $ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.3121 & 0.4670 & 0.4594 \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.3385$^{\dagger}$ & 0.4860 & 0.4785 \\
+\textbf{2S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.3386$^{\dagger}$ & 0.4810 & 0.4755 \\
+\textbf{3S: $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.3382$^{\dagger}$ & 0.4830 & 0.4731 \\
+\midrule
+\textbf{1S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & 0.3486$^{\dagger}$ & {\bf 0.4920} & {\bf 0.4953}$^{\dagger}$ \\
+\textbf{2S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & 0.3496$^{\dagger}$ & 0.4830 & 0.4899$^{\dagger}$ \\
+\textbf{3S: $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & {\bf 0.3522}$^{\dagger}$ & 0.4850 & 0.4899$^{\dagger}$ \\
+\bottomrule
+\end{tabular}
+}
+\caption{Ranking effectiveness on Core18.}
+\label{tab:results-core18}
+\end{table*}
 
 \section{Results and Analyses}
 
-Table \ref{tab:results} presents our main results on Robust04, Core17 and Core18.
-The top row, BM25+RM3, corresponds to the BM25 runs with RM3 query expansion using default Anserini parameters.
-Although higher scores can be obtained on Robust04 with tuned parameters, we present untuned runs for the sake of fairness as no careful tuning has been performed for Core17 or Core18.
-The remaining five blocks show the retrieval effectiveness of our models trained as described in Section \myworries{X}.
-The models are labeled to reflect the fine-tuning procedure where the datasets that a $ \textrm{BERT}_{\textrm{\scriptsize Large}} $ model was trained on are listed in order in parantheses.
-The $ n $S preceding the model name indicates that the top $ n$ sentences were interpolated to compute an overall document score.
-Table \ref{tab:results} also highlights statistically significant results based on paired $ t $-tests compared to the BM25+RM3 baseline with $ {\dagger} $.
-We report significance at the $ p<0.0 1$ level, with appropriate Bonferroni corrections for multiple hypothesis testing.
+Tables \ref{tab:results-robust04}, \ref{tab:results-core17} and \ref{tab:results-core18} displays our main results on Robust04, Core17 and Core18.
+The top row (BM25+RM3) corresponds to the BM25 runs with RM3 query expansion using default Anserini parameters.
+Although higher scores could be obtained on Robust04 with tuned parameters, we present untuned runs for the sake of fairness as no careful tuning has been performed for Core17 or Core18.
+The remaining five blocks show the retrieval effectiveness of our models trained as described in Chapter \ref{ch:model}.
+The models are labeled to reflect the fine-tuning procedure where the datasets that BERT was trained on are listed in order inside parentheses.
+The $ n $S preceding the model name indicates that the top $ n $ sentences in each document were interpolate to compute an overall document score.
+The main result tables also highlights statistically significant results based on paired $ t $-tests compared to the BM25+RM3 baseline with a $ {\dagger} $.
+We report significance at the $ p < 0.0 1 $ level, with appropriate Bonferroni corrections for multiple hypothesis testing.
 
 \subsection{Effect of Training Data}
 
 By fine-tuning BERT on three different datasets alone and in combination, we hope to study the effect of nature and amount of training data on the power of our learned relevance matching model.
-As Table \ref{tab:results} shows, the particular source of relevance labels that we train BERT on \myworries{dramatically} influences retrieval effectiveness across all three collections.
+As seen in Tables \ref{tab:results-robust04}, \ref{tab:results-core17} and \ref{tab:results-core18}, the particular source of relevance judgements that we train BERT on substantially influences retrieval effectiveness across all three test collections.
 
-First of all, we find that fine-tuning BERT on MB alone, i.e: $ \textrm{BERT}(\textrm{MB}) $, significantly outperforms the BM25+RM3 baseline for all metrics on Robust04.
-We observe significant increases in AP on Core17 and Core18 as well \myworries{and in P@20 and NDCG@20 in some cases}.
-These results confirm that relevance models learned from tweets can be successfully transferred to news articles in spite of the considerable differences in domain \myworries{and style}.
-This surprising finding may be attributed to the relevance matching power of BERT.
-\myworries{Reword}
-\myworries{MB portion?}
+First of all, we find that fine-tuning BERT on MB alone ($ \textrm{BERT}(\textrm{MB}) $) significantly outperforms the BM25+RM3 baseline for all metrics on Robust04.
+We also observe significant increases in AP on Core17 and Core18, as well as in P@20 and NDCG@20 in some cases.
+These results confirm that relevance models learned from tweets can be successfully transferred to news articles in spite of the considerable differences in domain.
+This surprising finding may be attributed to the relevance matching power enabled with deep semantic information learned by BERT.
 
-Unlike MB, fine-tuning on MS MARCO or CAR results in marginal gains over the baseline on Robust04.
-Reranking with these models in fact hurts effectiveness on Core17 and Core18 across all metrics.
+To see if BERT would be able to extract more useful information from a larger number of tweets, we experiment with different training-dev splits for MB.
+We first reserve 67\% of the entire dataset for training, which leads to AP 1-1.5 points lower than the reported results.
+While using 82\% and 90\% of the data as the training set produces better results, we find that effectiveness peaks when we use exactly 75\% of all data, showing that more data is not always better to learn an effective relevance model.
+We report performance of models trained on 75\% of all tweets and validated on the remaining 25\%.
+
+Contrary to the large gains brought by fine-tuning on MB, fine-tuning on CAR or MS MARCO alone results in marginal gains over the baseline on Robust04.
+Re-ranking with these models in fact hurts effectiveness on Core17 and Core18 for most metrics.
 The synthetic nature of CAR data especially does not appear to be useful for relevance modeling on newswire collections.
-For instance, $ \textrm{BERT}(\textrm{CAR}) $ leads to 0.3120 AP on Core18 compared to the 0.3135 AP of the baseline, which means that the model actually picks irrelevant documents as the most relevant to the query.
-As the results $ 2S $ and $ 3S $ for the same model show, the effectiveness on Core18 in fact progressively degrades the more sentences are considered in final score aggregation.
-Intuitively these results indicate that using these models disrupt the order imposed by the baseline.
-For the other experiments with these two models. the number of sentences considered does not seem to affect effectiveness at all.
+For instance, using $ \textrm{BERT}(\textrm{CAR}) $ gives 0.3120 AP on Core18 compared to the 0.3135 AP of the baseline, which means that the model actually fails to score relevant sentences highly.
+As the 2S and 3S results for the same model show, the effectiveness on Core18 in fact progressively degrades the more sentences are considered in final score aggregation.
+Intuitively, these results indicate that using these models incorrectly disrupts the better order imposed by the baseline.
+%For the other experiments with these two models. the number of sentences considered does not seem to affect effectiveness at all.
 
-Results with $ \textrm{BERT}(\textrm{MS MARCO}) $ are more surprising in that the MS MARCO dataset captures a search task, and web passages in the dataset are closer to the newswire test collections than MB in terms of domain.
-Given the proximity of domains, it would be reasonable to expect relevance transfer between MS MARCO and newswire collections to be more effective.
-However, our results indicate that this is not necessarily the case, and fine-tuning on MS MARCO alone rather than MB alone is far less effective for relevance transfer.
+Results for $ \textrm{BERT}(\textrm{MS MARCO}) $ are more surprising since the web passages in the MS MARCO dataset are ``closer'' to the news articles in the test collections than MB.
+Given the proximity of the domains, it would be reasonable to expect relevance transfer between MS MARCO and newswire collections to be more effective.
+However, our results reveal that this is not necessarily the case, and fine-tuning on MS MARCO alone is far less effective for relevance transfer than fine-tuning on MB alone.
 
-Although fine-tuning on CAR or MS MARCO alone does not yield large improvements, we actually obtain considerably higher results by fine-tuning these models further on MB.
+Although fine-tuning on only CAR or MS MARCO does not yield large improvements, we actually obtain considerably higher results by fine-tuning these models further on MB.
 With $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $ we achieve effectiveness that is slightly better than fine-tuning on MB alone in some cases.
 We hypothesize that CAR might have a similar effect to language pre-training in that it doesn't directly apply to the downstream document retrieval task, but provides a better representation that can benefit from fine-tuning on MB.
 More surprisingly, fine-tuning on MS MARCO first and then on MB represents our best model ($ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $) as shown in the final block of the table.
 This model is able to exploit data from both MS MARCO and MB, with a score that is higher than fine-tuning on each dataset alone.
 
+\subsection{Number of Sentences}
+
+We consider up to three top scoring sentences in each document to re-rank documents.
+Our main results suggest that the top scoring sentence by itself is often a good indicator of overall document relevance; in fact we achieve the best AP in about half of the experiments by only considering the most relevant sentence of the document.
+This finding is consistent with the results of \cite{zhang2018effective} who found through user studies that the most relevant sentence or paragraph in a document provides a reliable proxy for document relevance.
+
+Considering the next most relevant sentence in addition to the top sentence yields a noticeable increase in some of the experiments, such as $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ on Robust04 and Core18.
+However, we find that adding a third in fact causes effectiveness to drop in some cases.
+Preliminary experiments show that in general looking beyond the top three sentence doesn't help effectiveness.
+These results suggest that document ranking may be distilled into relevance prediction primarily at the sentence level, and pave the way for new directions in this task.
+
+%\myworries{This is especially true in the case of better performing models such as $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ which might be explained by their ability to effectively match multiple useful sentences.}
+
 \subsection{Comparison to Other Ranking Models}
 
-\myworries{Focus on ML-based models}
-In this section we try to put our results into perspective by considering them in the larger context of document retrieval research.
-For Robust04, we report the highest AP score that we are aware of, 0.3697, with our best model $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $.
-The most effective neural model on Robust04 was reported to be \myworries{X}~\cite{} at 0.3124 AP according to the meta-analysis of over 100 papers up until 2019 on this dataset by \cite{}\footnote{\url{https://github.com/lintool/robust04-analysis}}.
-Furthermore, our results with the same model on Robust04 exceed the previous highest known score of 0.3686, which is a non-neural method based on ensembles~\cite{Cormack:2009:RRF:1571941.1572114}.
-\myworries{This high water mark has stood unchallenged for ten years.}
+In this section we assess our results in the broader context of document re-ranking literature.
+The meta-analysis\footnote{\url{https://github.com/lintool/robust04-analysis}} of over 100 papers up until 2019 by \cite{Yang_etal_SIGIR2019} currently provides the most thorough overview of related work on Robust04.
+Following the same cross-validation settings as in this thesis to re-rank a strong BM25 baseline, they report the most effective neural model to be DRMM~\cite{guo2016deep} at 0.3152 AP and 0.4718 NDCG@20.
+In comparison, with our best model $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ we report the highest AP that we are aware of at 0.3697.
+Furthermore, our results also exceed the previous highest known score of 0.3686, which is a non-neural method based on ensembles~\cite{Cormack:2009:RRF:1571941.1572114}.
 
-More recently, \cite{MacAvaney_etal_SIGIR2019} reported 0.5381 NDCG@20 on Robust04 by integrating contextualized word representations into existing neural ranking models; unfortunately, they did not report AP results.
-Our best NDCG@20 on \mbox{Robust04} (0.5325) approaches their results even though we optimize for AP.
-Finally, note that since we are only using Robust04 data for learning the document and sentence weights in Eq~(\ref{eq:1}), and not for fine-tuning BERT itself, it is less likely that we are overfitting.
+More recently, \cite{MacAvaney_etal_SIGIR2019} reported 0.5381 NDCG@20 on Robust04 by integrating contextualized word embeddings into existing neural ranking models.
+Our best NDCG@20 on \mbox{Robust04} at 0.5325 approaches their results even though we optimize for AP instead of NDCG@20.
+Furthermore, since we are only using Robust04 data for hyperparameter tuning in Eq~(\ref{eq:1}), and not for fine-tuning BERT itself, it is less likely that we are overfitting.
 
-Our best model also achieves a higher AP on Core17 than the best TREC submission that does not make use of past labels or human intervention (\texttt{umass\_baselnrm}, 0.275 AP)~\cite{core2017trec}.
+Our best model also achieves a higher AP on Core17 than the best TREC submission that does not make use of past labels or human intervention (\texttt{umass\_baselnrm}, 0.275 AP)~\cite{allan2017trec}.
 Under similar conditions, we beat every TREC submission in Core18 as well (with the best run being \texttt{uwmrg}, 0.276 AP)~\cite{core2018trec}.
 Core17 and Core18 are relatively new and thus have yet to receive much attention from researchers, but to our knowledge, these figures represent the state of the art.
 
-\subsection{Number of Sentences}
+\subsection{Per-Query Analysis}
 
-In general, we consider up to three top scoring sentences in each document to compute an overall document score.
-Our results in Table \ref{tab:results} suggest that the top scoring sentence alone is often a good indicator of document relevance; in fact we achieve the best MAP in about half of the experiments by only considering the most relevant sentence.
-This finding is consistent with those of \cite{zhang2018effective} who verified through user studies that the most relevant sentence or paragraph in a document provides a reliable proxy for document relevance.
+\begin{figure}[t!]
+	\centering
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{perquery1.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{perquery2.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{perquery3.png}
+    \end{minipage}
+\caption{Per-query difference in AP between $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18.}
+\label{fig:perquery-msmarcomb}
+\end{figure}
 
-Considering the next most relevant sentence in addition to the top sentence yields a noticeable increase across all metrics in some of the experiments.
-\myworries{This is especially true in the case of better performing models such as $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ which might be explained by their ability to effectively match multiple useful sentences.}
-However, we find that adding a third in fact causes effectiveness to drop in some cases.
-\myworries{Try for more than 3 for a few and compare}
-\myworries{Comment for all three metrics and datastes}
-\myworries{Conclusion?}
+\begin{figure}[b!]
+	\centering
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{perquery4.png} % first figure itself
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{perquery5.png} % second figure itself
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{perquery6.png} % second figure itself
+    \end{minipage}
+\caption{Per-query difference in AP between $ \textrm{BERT}(\textrm{CAR}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18.}
+\label{fig:perquery-car}
+\end{figure}
 
-\subsection{Per-Query Error Analysis}
-
-Our results in Table \ref{tab:results} give a good overview of the effect of training data on cross-domain relevance transfer.
-However, they do not reveal much concerning the particular strengths and weaknesses of each model compared to the baseline.
+Our results in Table \ref{tab:results-robust04} serve as an overview of the effect of training data on cross-domain relevance transfer.
+However, they do not reveal much with respect to the particular strengths and weaknesses of each model compared to the baseline.
 To gain further insight into the characteristics of our models, we analyze the per-query retrieval effectiveness of each model compared to the baseline on Robust04, Core17 and Core18.
-Figure \myworries{X} plots $\Delta$ AP per query (i.e: $ \texttt{AP}_{\texttt{Model}} - \texttt{AP}_{\texttt{BM25+RM3}} $, sorted in descending order.
 
-\begin{figure}
-	\centering
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{perquery1.png} % first figure itself
-        \caption{first figure}
-    \end{minipage}\hfill
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{perquery2.png} % second figure itself
-        \caption{second figure}
-    \end{minipage}\hfill
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{perquery3.png} % second figure itself
-        \caption{second figure}
-    \end{minipage}
-\end{figure}
+Figure \ref{fig:perquery-msmarcomb} plot the $\Delta$ AP per query between our best model, $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $, and the baseline sorted in descending order.
+$ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ performs better than the baseline for 83\%, 88\% and 84\% of the queries on Robust04, Core17 and Core18 respectively, highlighting the usefulness of relevance signals learned from MS MARCO and MB with BERT.
+One of the best performing queries across all three collections is \texttt{human stampede} while one of the worst is \texttt{flavr savr tomato}.
+Manual inspection of top scoring sentences for \texttt{flavr savr tomato} show that our model matches terms semantically close to ``tomato'' but not relevant to the query phrase itself while the BM25+RM3 baseline looks for direct query matches, therefore ranking documents correctly.
 
-\myworries{TODO}
+Repeating the same analysis for our worst model $ \textrm{BERT}(\textrm{CAR}) $, we present the results in Figure \ref{fig:perquery-car}.
+This model outperforms the baseline in 57\%, 80\% and 34\% of the Robust04, Core17 and Core18 queries respectively.
+Not only does this model perform less accurately for much fewer queries, but it is also less stable than $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $.
+The queries \texttt{polygamy polyandry polygyny} and \texttt{women driving in Saudi Arabia} appear to be particularly difficult for BERT based models to correctly match.
 
-Figure \ref{fig:per_query1}, \ref{fig:per_query2} and \ref{fig:per_query3} show the per query MAP difference between our best model and the baseline.
-Our best BERT-based model performs better than the baseline for 83\% of the queries on Robust04, 88\% on Core17 and 84\% on Core18.
-This again confirms that BERT is able to capture relevance signals from MS MARCO and MB which directly help with retrieval on our test collecetions.
-The best performing queries on Robust04 are \texttt{stirling engine}, \texttt{human stampede} and \texttt{native american casino}, respectively.
-The worst performing queries are \texttt{flavr savr tomato}, \texttt{polygamy polyandry polygyny} and \texttt{adult immigrants English}.
+%\myworries{TODO}
+%In order to compare the characteristics of the two models that cause them to either excel or fail, we look into the ranking of documents for the best and worst performing queries for both.
+%Specifically, we sample sentences from relevant and non-relevant documents for the given query and compare how their rank these documents.
 
-\begin{figure}
-	\centering
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{perquery4.png} % first figure itself
-        \caption{first figure}
-    \end{minipage}\hfill
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{perquery5.png} % second figure itself
-        \caption{second figure}
-    \end{minipage}\hfill
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{perquery6.png} % second figure itself
-        \caption{second figure}
-    \end{minipage}
-\end{figure}
-
-We repeat the same process for our worst model $ \textrm{BERT}(\textrm{CAR}) $ for which we present results in Figures \ref{fig:per_query5}, \ref{fig:per_query5} and \ref{fig:per_query6}.
-This model outperforms the baseline only for 57\% of the Robust04 and 34\% of Core18 queries.
-%80\% of Core17
-It performs especially bad for the query 316 \texttt{polygamy polyandry polygyny} on Robust04 and 802 \texttt{women driving in Saudi Arabia} on Core18.
-
-Overall the query 316 \texttt{polygamy polyandry polygyny} appears to be difficult for BERT based models to correctly judge.
-\myworries{Different one?}
-In order to compare the characteristics of the two models that cause them to either excel or fail, we look into the ranking of documents for the best and worst performing queries for both.
-Specifically, we sample sentences from relevant and non-relevant documents for the given query and compare how their rank these documents.
-\myworries{Details!}
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-\begin{table}[]
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-\multirow{2}{*}{\textbf{Query}}                       & \multirow{2}{*}{\textbf{Document ID}} & \multirow{2}{*}{\textbf{Sentence}}                                                                                                                                                                                            & \multicolumn{3}{c|}{\textbf{Rank}}                                             \\ \cline{4-6} 
-                                                      &                                       &                                                                                                                                                                                                                               & \textbf{Baseline} & \textbf{MS MARCO + MB} & \multicolumn{1}{l|}{\textbf{CAR}} \\ \hline
-\multirow{2}{*}{\textbf{372: native american casino}} & LA061290-0112                         & The Sycuan Reservation, one of 18 American Indian reservations in Southern California, operates a gaming center offering high-stakes bingo and poker seven days a week, bringing in more than \$20 million in revenues a year & 223               & 9                      & 197                               \\ \cline{2-6} 
-                                                      & FT941-13912                           & Yet, gambling on its own is not enough as Atlantic City, on the east coast in New Jersey, has discovered - to its cost.                                                                                                       & 12                & 38                     & 9                                 \\ \hline
-\end{tabular}
-\end{table}
+%\begin{table}[]
+%\begin{tabular}{|c|c|c|c|c|c|}
+%\hline
+%\multirow{2}{*}{\textbf{Query}}                       & \multirow{2}{*}{\textbf{Document ID}} & \multirow{2}{*}{\textbf{Sentence}}                                                                                                                                                                                            & \multicolumn{3}{c|}{\textbf{Rank}}                                             \\ \cline{4-6} 
+%                                                      &                                       &                                                                                                                                                                                                                               & \textbf{Baseline} & \textbf{MS MARCO + MB} & \multicolumn{1}{l|}{\textbf{CAR}} \\ \hline
+%\multirow{2}{*}{\textbf{372: native american casino}} & LA061290-0112                         & The Sycuan Reservation, one of 18 American Indian reservations in Southern California, operates a gaming center offering high-stakes bingo and poker seven days a week, bringing in more than \$20 million in revenues a year & 223               & 9                      & 197                               \\ \cline{2-6} 
+%                                                      & FT941-13912                           & Yet, gambling on its own is not enough as Atlantic City, on the east coast in New Jersey, has discovered - to its cost.                                                                                                       & 12                & 38                     & 9                                 \\ \hline
+%\end{tabular}
+%\end{table}
 
 \subsection{Effect of Length}
 
 \subsubsection{Query Length}
 
 \begin{table*}[b!]
-\centering{
-%\begin{tabular}{lll lllll}
-\begin{tabular}{lll lllll}
+\centering\resizebox{0.7\columnwidth}{!}{
+\begin{tabular}{lcc ccccc}
 \toprule
  & \multicolumn{5}{c}{\textbf{Query Length}} \\
  \cmidrule(lr){2-6}
 {\bf Model} & {\bf 1} & {\bf 2} & {\bf 3}   & {\bf 4}  & {\bf 5} \\
 \toprule
-BM25+RM3 & 0.3889 & 0.2975 & 0.2760 & 0.3089 & 0.2972 \\
+\textbf{BM25+RM3} & 0.3889 & 0.2975 & 0.2760 & 0.3089 & 0.2972 \\
 \midrule
-$ \textrm{BERT}(\textrm{MB}) $ & 0.4145 & 0.3624 & 0.3229 & 0.3681 & 0.4165 \\
+\textbf{$ \textrm{BERT}(\textrm{MB}) $} & 0.4145 & 0.3624 & 0.3230 & 0.3681 & 0.4172 \\
 \midrule
-$ \textrm{BERT}(\textrm{CAR}) $ & 0.3978 & 0.3112 & 0.2871 & 0.3288 & 0.2844 \\
+\textbf{$ \textrm{BERT}(\textrm{CAR}) $} & 0.3978 & 0.3112 & 0.2871 & 0.3288 & 0.2844 \\
 \midrule
-$ \textrm{BERT}(\textrm{MS MARCO}) $ & 0.3997 & 0.3117 & 0.2872 & 0.3289 & 0.2871 \\
+\textbf{$ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.3997 & 0.3117 & 0.2872 & 0.3289 & 0.2871 \\
 \midrule
-$ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.4202 & 0.3599 & 0.3296 & 0.3757 & 0.4926  \\
+\textbf{$ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.4202 & 0.3603 & 0.3296 & 0.3757 & 0.4926  \\
 \midrule
-$ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & 0.4253 & 0.3880 & 0.3480 & 0.4077 & 0.5469 \\
+\textbf{$ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & 0.4253 & 0.3885 & 0.3480 & 0.4077 & 0.5627 \\
 \bottomrule
 \end{tabular}
 }
-\caption{\myworries{TODO}}
+\caption{Average AP with respect to query length on Robust04.}
 \label{tab:results-query-length}
 \end{table*}
 
-To investigate the ability of our BERT-based models to exploit context-aware representations of the queries, we study the MAP across increasing query lengths.
+To investigate the ability of BERT to exploit context-aware representations of the queries, we study the trend of effectiveness across increasing query lengths on Robust04.
 We conjecture that longer queries would give our models richer context to work with, therefore increasing retrieval effectiveness.
-To this end, we categorize the 250 queries from the Robust Track by the number of tokens, and evaluate average MAP per each query length, i.e: from 1 to 5.
-This approach is somewhat limited by the narrow range of query lengths, but still gives insight into the effect of query length on each model's \myworries{performance}.
+To this end, we categorize the 250 queries from the Robust Track by the number of tokens, and calculate the average AP per query length, i.e: from 1 to 5.
+The majority of the queries (56\%) are composed of three tokens, and only a small fraction (5\%) have either only a single token or five tokens.
+This approach is somewhat limited by the narrow range of query lengths, but still gives insight into the effect of query length on each model's effectiveness.
 
-The results for this experiment are shown in Table \ref{tab:results-query-length}.
-As expected, the AP for the BM25+RM3 baseline drops by 24\% from a single token query to a query with five tokens.
-Other than that, the models produce improvements over the baseline to similar degrees as when they are evaluated over all queries with $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ as the best model across all query lengths.
+The average AP per query length for each model is shown in Table \ref{tab:results-query-length}.
+We only report the best results for each model considering any number of top sentences.
+The average AP for the BM25+RM3 baseline drops by 24\% from a single token query to a query with five tokens, indicating that exact term-matching is more effective for fewer number of terms.
+Furthermore, the improvements introduced by our models follow a similar pattern to when they are evaluated over all queries as shown in Table \ref{tab:results}, with $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ being the best model across all query lengths.
 Similar to the baseline, $ \textrm{BERT}(\textrm{CAR}) $ and $ \textrm{BERT}(\textrm{MS MARCO}) $ experience a gradual decline in AP as the query length increases from 1 to 5, leading to an overall 29\% and 28\% decrease respectively.
 Note, however, that the decrease in AP is not continuous at each step but reaches a minimum at query length 3 and a maximum at query length 4.
-It might be helpful to manually inspect rankings for each query length or to use a different averaging technique less sensitive to sample size in order to better reason about this observation; \myworries{however, we leave this for future work...}
-More interestingly, while increasing query length results in a decrease in AP across all the other models, $ \textrm{BERT}(\textrm{MB}) $, $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $ and $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ in fact perform much better at query length 5 than at 1.
-Moreover, the performance of the best model  $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ degrades much less where the minimum usually occurs, i.e: query length 3, compared to the baseline, $ \textrm{BERT}(\textrm{CAR}) $ and $ \textrm{BERT}(\textrm{MS MARCO}) $.
-\myworries{What else?}
+
+More interestingly, while increasing query length results in a decrease in AP across all the other models, $ \textrm{BERT}(\textrm{MB}) $, $ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $ and $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ in fact perform better at query length 5 than at 1.
+However, due to the fairly small sample size for query length 5 it is not possible to draw generalizable conclusions from this observation.
+Nevertheless, the effectiveness of the best model  $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ degrades much less where the minimum usually occurs, i.e: query length 3, compared to the baseline, $ \textrm{BERT}(\textrm{CAR}) $ and $ \textrm{BERT}(\textrm{MS MARCO}) $, showing that they are indeed able to use contextualized query representations most effectively.
+%It might be helpful to manually inspect rankings for each query length or to use a different averaging technique less sensitive to sample size in order to better reason about this observation; however, we leave this for future work.
 
 \subsubsection{Document Length}
 
 \begin{table*}[t!]
-\centering{
-\begin{tabular}{lll lll}
+\centering\resizebox{0.7\columnwidth}{!}{
+\begin{tabular}{lcc ccc}
 \toprule
  & \multicolumn{3}{c}{\textbf{Robust04}} \\
+ \cmidrule(lr){2-4}
+{\bf Model} & {\bf AP} & {\bf P@20} & {\bf NDCG@20}  \\
 \toprule
-BM25+RM3 & 0.2903 & 0.3821 & 0.4407 \\
+\textbf{$ \textrm{BERT}(\textrm{CAR}^{\star}) $} & 0.3030 & 0.3980 & 0.4520 \\
 \midrule
-1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{CAR'}) $ & 0.3030$^{\dagger}$ & 0.3980$^{\dagger}$ & 0.4520 \\
-\midrule
-1S: $ \textrm{BERT}_{\textrm{\scriptsize Large}}(\textrm{MS MARCO'}) $ & 0.3300$^{\dagger}$ & 0.4309$^{\dagger}$ & 0.4906$^{\dagger}$ \\
+\textbf{$ \textrm{BERT}(\textrm{MS MARCO}^{\star}) $} & 0.3300 & 0.4309 & 0.4906 \\
 \bottomrule
 \end{tabular}
 }
-\caption{Ranking effectiveness on chopped MS MARCO and CAR}
+\caption{Ranking effectiveness on shortened MS MARCO and CAR evaluated on Robust04.}
 \label{tab:results-chopped}
 \end{table*}
 
-It is interesting to note that fine-tuning on MS MARCO or CAR alone results in marginal improvements over the baseline.
-Considering any number of top scoring sentences, $ \textrm{BERT}(\textrm{CAR}) $ and $ \textrm{BERT}(\textrm{MS MARCO}) $ both have around 1.2 AP higher than BM25+RM3 on Robust04 with similar gains in P@20 and NDCG@20.
+%Add also for Core*!
+It is interesting to note that fine-tuning on MS MARCO or CAR alone results in marginal improvements over the baseline, if any, as shown in the second and third blocks of Table \ref{tab:results}.
+Considering any number of top scoring sentences, $ \textrm{BERT}(\textrm{CAR}) $ and $ \textrm{BERT}(\textrm{MS MARCO}) $ both outperform the BM25+RM3 baseline by 1.2 AP on Robust04 with similar gains in P@20 and NDCG@20.
 Although still statistically significant, these improvements are much lower than those gained with fine-tuning on MB (5 AP).
+Moreover, both models in fact perform worse than the baseline on both Core17 and Core18.
 
-We attribute this phenomenon to the length mismatch between the training and evaluation text lengths.
-After dividing into chunks that fit the input span that BERT can handle, the average sentence length in Robust04, Core17 and Core18 sentences is 19 tokens long, which is similar to the average number of tokens in MB training at 15.
-However, both MS MARCO and CAR \myworries{give statistics}
+We attribute this observation to the length mismatch between the training and evaluation text lengths.
+After splitting documents into chunks that fit the maximum input that BERT can handle, the average number of tokens in Robust04, Core17 and Core17 sentences is 19, which is fairly close to the the average number of tokens in tweets (15).
+However, MS MARCO and CAR passages are much longer.
+It is possible that the difference in document length may be causing issues with relevance transfer across domains.
 
-To validate this hypothesis, we try dividing MS MARCO and CAR passages into chunks the same size as Robust04 sentences.
-We find that retrieval effectiveness slightly improves upon fine-tuning on the shortened datasets although much less so than expected.
-From this finding we infer that while comparable document length is an important consideration for cross-domain relevance transfer, there may be other factors at play in terms of \myworries{X}.
-\myworries{Future work...}
+To validate this hypothesis, we divide MS MARCO and CAR passages into chunks the same size as Robust04 sentences, and train BERT for relevance prediction.
+The ranking effectiveness of $ \textrm{BERT}(\textrm{CAR}^{\star}) $ and $ \textrm{BERT}(\textrm{MS MARCO}^{\star}) $ trained on the shortened data is shown in Table \ref{tab:results-chopped}.
+For $ \textrm{BERT}(\textrm{CAR}^{\star}) $, AP only increases by 0.5 upon fine-tuning on the shortened data, and is still not comparable to $ \textrm{BERT}(\textrm{MB}) $.
+However, the change in document length results in an increase of almost 3 AP for $ \textrm{BERT}(\textrm{MS MARCO}^{\star}) $, thus approaching $ \textrm{BERT}(\textrm{MB}) $ in all metrics.
+From this finding we infer that while comparable document length is an important consideration for cross-domain relevance transfer, there may be other factors at play that need to be investigated.
+%\myworries{Future work...}
 
 \subsection{Matching Tendencies}
 
 \subsubsection{Semantic Matching}
 
-\begin{table*}[b!]
-\centering{
-\begin{tabular}{lll lll}
+\begin{table*}[t!]
+\centering\resizebox{0.7\columnwidth}{!}{
+\begin{tabular}{lcc ccc}
 \toprule
  & \multicolumn{3}{c}{\textbf{Pruned Robust04}} \\
  \cmidrule(lr){2-4}
 {\bf Model} & {\bf AP} & {\bf P@20} & {\bf NDCG@20}  \\
 \toprule
-BM25+RM3 & 0.2903 & 0.3821 & 0.4407 \\
+\textbf{BM25+RM3} & 0.2903 & 0.3821 & 0.4407 \\
 \midrule
-$ \textrm{BERT} (\textrm{MB}) $ & 0.3031 & 0.4014 & 0.4580 \\
+\textbf{$ \textrm{BERT} (\textrm{MB}) $} & 0.3031 & 0.4014 & 0.4580 \\
 \midrule
-$ \textrm{BERT} (\textrm{CAR}) $ & 0.2959 & 0.3936 & 0.4480 \\
+\textbf{$ \textrm{BERT} (\textrm{CAR}) $} & 0.2959 & 0.3936 & 0.4480 \\
 \midrule
-$ \textrm{BERT} (\textrm{MS MARCO}) $ & 0.2962 & 0.3936 & 0.4483 \\
+\textbf{$ \textrm{BERT} (\textrm{MS MARCO}) $} & 0.2962 & 0.3936 & 0.4483 \\
 \midrule
-$ \textrm{BERT} (\textrm{CAR}\rightarrow\textrm{MB}) $ & 0.3037 & 0.3998 & 0.4527 \\
+\textbf{$ \textrm{BERT} (\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.3037 & 0.3998 & 0.4527 \\
 \midrule
-$ \textrm{BERT} (\textrm{MS MARCO}\rightarrow\textrm{MB}) $ & 0.3101 & 0.4102 & 0.4639 \\
+\textbf{$ \textrm{BERT} (\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & 0.3101 & 0.4102 & 0.4639 \\
 \bottomrule
 \end{tabular}
 }
-\caption{\myworries{TODO}}
+\caption{Retrieval effectiveness on pruned Robust04.}
 \label{tab:results-pruned}
 \end{table*}
 
 To isolate the contribution of BERT, we filter sentences in Robust04 that don't contain any of the query terms.
-This essentially eliminates the impact of exact matching on the sentence relevance scores, allowing us to verify whether our BERT-based models successfully leverage semantic matching.
-Table \ref{tab:results-pruned} displays the retrieval effectiveness of all models on the ``pruned'' Robust04.
-Filtering Robust04 sentences leads to a decrease in all metrics across all models, which indicates that exact matching signals are still valuable in relevance predictions.
-However, notice that the \myworries{performance} of all models still beats the baseline, which implies that they indeed perform semantic matching with notable gains.
-The improvements over the baseline follow the same trend as the results in Table \ref{tab:results}.
-While $ \textrm{BERT} (\textrm{CAR}) $ and $ \textrm{BERT} (\textrm{MS MARCO}) $ yield minor improvements over the baseline, the best performing model $ \textrm{BERT} (\textrm{MS MARCO}\rightarrow\textrm{MB}) $ is \myworries{significantly} higher.
-\myworries{Significance testing}
-Interestingly, the drop in AP caused by filtering sentences is also the highest for the best performing model, indicating that this model is able to exploit both exact and semantic matching signals.
-The overall effectiveness of this model on the original Robust04 dataset shown in Table \ref{tab:results} may be owing to the joint matching power demonstrated in this experiment.
+This essentially eliminates the impact of exact matching on the sentence relevance scores, allowing us to verify whether BERT successfully leverages semantic cues in the documents.
+Table \ref{tab:results-pruned} displays the retrieval effectiveness of all models on the ``pruned'' Robust04 dataset.
+Similar to Table \ref{tab:results-query-length} we only report the best results for each model.
 
-\subsubsection{Query Terms}
+As expected, filtering Robust04 sentences leads to a decrease in all metrics across all models, which indicates that exact matching signals are still valuable in relevance predictions over long documents.
+However, notice that the all models still perform better than the baseline; in other words, that they indeed successfully perform semantic matching with notable gains.
+The improvements over the baseline follow the same trend as the results in Table \ref{tab:results} for all models.
+While $ \textrm{BERT} (\textrm{CAR}) $ and $ \textrm{BERT} (\textrm{MS MARCO}) $ yield minor improvements over the baseline when sentences that contain exact query matches are removed, the best performing model $ \textrm{BERT} (\textrm{MS MARCO}\rightarrow\textrm{MB}) $ still significantly outperforms the baseline.
+Furthermore, the drop in AP caused by filtering sentences is also the highest for the best performing model, indicating that this model is able to exploit both exact and semantic matching signals.
+The overall effectiveness of this model on the original Robust04 dataset shown in Table \ref{tab:results} may be owing to the joint relevance matching power demonstrated in this experiment.
 
-\begin{table*}[t!]
-\centering{
-\begin{tabular}{lll lllll}
-\toprule
- & \multicolumn{5}{c}{\textbf{Fraction of Query Term}} \\
- \cmidrule(lr){2-6}
-{\bf Model} & {\bf [0.0, 0.01)} & {\bf [0.01, 0.02)} & {\bf [0.02, 0.03)} \\
-\toprule
-BM25+RM3 &  \\
-\midrule
-$ \textrm{BERT}(\textrm{MB}) $ &  \\
-\midrule
-$ \textrm{BERT}(\textrm{CAR}) $ &  \\
-\midrule
-$ \textrm{BERT}(\textrm{MS MARCO}) $ &  \\
-\midrule
-$ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $ &   \\
-\midrule
-$ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ &  \\
-\bottomrule
-\end{tabular}
-}
-\caption{\myworries{TODO}}
-\label{tab:results-query-terms}
-\end{table*}
+\begin{figure}
+	\centering
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{vis1.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{vis2.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{vis3.png}
+    \end{minipage}
+     \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{vis4.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{vis5.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{vis6.png}
+    \end{minipage}
+\caption{Attention visualizations of $ \textrm{BERT} (\textrm{MS MARCO}\rightarrow\textrm{MB}) $ for a sentence with a high BERT score for the query \texttt{international art crime}.}
+\label{fig:attention}
+\end{figure}
+
+To further investigate the semantic matching power of BERT, we visualize the attention of our models at different layers.
+Having been pretrained on massive amounts of data for language modeling, we expect BERT to capture various semantic relationships helpful for relevance prediction.
+Figure \ref{fig:attention} visualizes the attention of our best model $ \textrm{BERT} (\textrm{MS MARCO}\rightarrow\textrm{MB}) $ for one of the top scoring sentences for the query 322 \texttt{international art crime}.
+Note that the sentence does not contain any exact matches with the query terms and is nonetheless relevant to the query.
+The top three images illustrate the attention for the query term ``art'' at increasingly deeper layers (0, 6 and 9) and the bottom three for the query term ``crime''.
+We see that the model attends to related terms such as ``renaissance'' and ``paintings'' for the term ``art'', and ``robbers'' for crime, therefore giving this particular sentence a high relevance score.
+On the other hand, these terms are not recognized by term-matching techniques like BM25 as relevant.
+This highlights how the semantic knowledge captured by BERT directly help with relevance modeling on newswire articles.
+
+\subsubsection{Exact Matching}
+
+%\begin{table*}[b!]
+%\centering\resizebox{0.7\columnwidth}{!}{
+%\begin{tabular}{lll lllll}
+%\toprule
+% & \multicolumn{5}{c}{\textbf{Fraction of Query Term}} \\
+% \cmidrule(lr){2-6}
+%{\bf Model} & {\bf [0.0, 0.01)} & {\bf [0.01, 0.02)} & {\bf [0.02, 0.03)} \\
+%\toprule
+%BM25+RM3 &  \\
+%\midrule
+%$ \textrm{BERT}(\textrm{MB}) $ &  \\
+%\midrule
+%$ \textrm{BERT}(\textrm{CAR}) $ &  \\
+%\midrule
+%$ \textrm{BERT}(\textrm{MS MARCO}) $ &  \\
+%\midrule
+%$ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $ &   \\
+%\midrule
+%$ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ &  \\
+%\bottomrule
+%\end{tabular}
+%}
+%\caption{\myworries{TODO}}
+%\label{tab:results-query-terms}
+%\end{table*}
 
 BM25 favors documents with frequent occurrences of query terms which is not necessarily the case of our BERT-based models.
 \myworries{Hypothesis}
@@ -380,51 +541,3 @@ Therefore, we expect the effectiveness of BM25 to drop more significantly with i
 To observe how retrieval effectiveness changes across different ranges of FQT, we split the values into \myworries{X} buckets and calculate the average MAP for each bucket.
 \myworries{Comment}
 \myworries{Give examples of useless high FQT}
-
-\subsection{Novel Terms}
-
-Pretrained on massive amounts of data for language modeling, BERT can capture various semantic relationships helpful for relevance prediction.
-Figures \myworries{X} one of the top scoring sentences for the query 322 \texttt{international art crime}.
-Note that the sentence does not contain any exact matches with the query terms and is nonetheless relevant to the query.
-
-\myworries{description}
-\myworries{This highlights the power of...}
-
-\myworries{MS MARCO MB}
-\begin{figure}
-	\centering
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{vis1.png} % first figure itself
-        \caption{first figure}
-    \end{minipage}\hfill
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{vis2.png} % second figure itself
-        \caption{second figure}
-    \end{minipage}\hfill
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{vis3.png} % second figure itself
-        \caption{second figure}
-    \end{minipage}
-\end{figure}
-
-\begin{figure}
-	\centering
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{vis4.png} % first figure itself
-        \caption{first figure}
-    \end{minipage}\hfill
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{vis5.png} % second figure itself
-        \caption{second figure}
-    \end{minipage}\hfill
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{vis6.png} % second figure itself
-        \caption{second figure}
-    \end{minipage}
-\end{figure}

@@ -4,7 +4,6 @@ The top-level auxiliary file: uw-ethesis.aux
 The style file: plain.bst
 Database file #1: uw-ethesis.bib
 Warning--I didn't find a database entry for "MacAvaney_etal_SIGIR2019"
-Warning--I didn't find a database entry for "core2017trec"
 Warning--empty booktitle in allan2017trec
 Warning--empty year in allan2017trec
 Warning--empty journal in burges2010ranknet
@@ -21,7 +20,7 @@ Warning--empty year in radford2019language
 Warning--empty journal in sculley2018winner
 You've used 69 entries,
             2118 wiz_defined-function locations,
-            852 strings with 18018 characters,
+            851 strings with 18006 characters,
 and the built_in function-call counts, 28121 in all, are:
 = -- 2729
 > -- 1602
@@ -60,4 +59,4 @@ warning$ -- 14
 while$ -- 236
 width$ -- 71
 write$ -- 739
-(There were 16 warnings)
+(There were 15 warnings)

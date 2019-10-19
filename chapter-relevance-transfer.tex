@@ -8,14 +8,12 @@
 %\myworries{Can I add some math-y stuff to describe what BERT is doing?}
 
 Our proposed model is based on sentence-level relevance modeling and document re-ranking with BERT.
-By training a BERT-based relevance classifier, we aim to extract valuable semantic matching signals which can be leveraged to re-rank a list of candidate documents retrieved with BM25 + RM3.
-We also explore applying cross-domain relevance transfer to exploit models of relevance learned on out-of-domain collections.
-This approach is crucial in re-ranking documents that are too long for BERT to handle.
+By training BERT as a relevance classifier, we aim to extract valuable semantic matching signals which can be leveraged to re-rank a list of candidate documents retrieved with a term-matching technique such as BM25.
+We also explore applying cross-domain relevance transfer to exploit models of relevance learned on out-of-domain collections, which is crucial in re-ranking documents that are too long for BERT to directly process.
 This chapter describes the details of our BERT-based sentence-level relevance classifier and document re-ranker.
 
 \section{Datasets}
 
-\myworries{Move this elsewhere?}
 \myworries{Add length distribution?}
 
 In order to model sentence-level relevance with BERT, we need training pairs of short text and relevance judgements.
