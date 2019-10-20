@@ -1,7 +1,7 @@
 %======================================================================
 \chapter{Experimental Results}
 %======================================================================
-\label{ch:exp}
+\label{ch:results}
 
 %\begin{sidewaystable*}[htbp]
 %\centering
@@ -412,9 +412,9 @@ However, the change in document length results in an increase of almost 3 AP for
 From this finding we infer that while comparable document length is an important consideration for cross-domain relevance transfer, there may be other factors at play that need to be investigated.
 %\myworries{Future work...}
 
-\subsection{Matching Tendencies}
+%\subsection{Matching Tendencies}
 
-\subsubsection{Semantic Matching}
+\subsection{Semantic Matching}
 
 \begin{table*}[t!]
 \centering\resizebox{0.7\columnwidth}{!}{
@@ -441,18 +441,6 @@ From this finding we infer that while comparable document length is an important
 \caption{Retrieval effectiveness on pruned Robust04.}
 \label{tab:results-pruned}
 \end{table*}
-
-To isolate the contribution of BERT, we filter sentences in Robust04 that don't contain any of the query terms.
-This essentially eliminates the impact of exact matching on the sentence relevance scores, allowing us to verify whether BERT successfully leverages semantic cues in the documents.
-Table \ref{tab:results-pruned} displays the retrieval effectiveness of all models on the ``pruned'' Robust04 dataset.
-Similar to Table \ref{tab:results-query-length} we only report the best results for each model.
-
-As expected, filtering Robust04 sentences leads to a decrease in all metrics across all models, which indicates that exact matching signals are still valuable in relevance predictions over long documents.
-However, notice that the all models still perform better than the baseline; in other words, that they indeed successfully perform semantic matching with notable gains.
-The improvements over the baseline follow the same trend as the results in Table \ref{tab:results} for all models.
-While $ \textrm{BERT} (\textrm{CAR}) $ and $ \textrm{BERT} (\textrm{MS MARCO}) $ yield minor improvements over the baseline when sentences that contain exact query matches are removed, the best performing model $ \textrm{BERT} (\textrm{MS MARCO}\rightarrow\textrm{MB}) $ still significantly outperforms the baseline.
-Furthermore, the drop in AP caused by filtering sentences is also the highest for the best performing model, indicating that this model is able to exploit both exact and semantic matching signals.
-The overall effectiveness of this model on the original Robust04 dataset shown in Table \ref{tab:results} may be owing to the joint relevance matching power demonstrated in this experiment.
 
 \begin{figure}
 	\centering
@@ -484,6 +472,18 @@ The overall effectiveness of this model on the original Robust04 dataset shown i
 \label{fig:attention}
 \end{figure}
 
+To isolate the contribution of BERT, we filter sentences in Robust04 that don't contain any of the query terms.
+This essentially eliminates the impact of exact matching on the sentence relevance scores, allowing us to verify whether BERT successfully leverages semantic cues in the documents.
+Table \ref{tab:results-pruned} displays the retrieval effectiveness of all models on the ``pruned'' Robust04 dataset.
+Similar to Table \ref{tab:results-query-length} we only report the best results for each model.
+
+As expected, filtering Robust04 sentences leads to a decrease in all metrics across all models, which indicates that exact matching signals are still valuable in relevance predictions over long documents.
+However, notice that the all models still perform better than the baseline; in other words, that they indeed successfully perform semantic matching with notable gains.
+The improvements over the baseline follow the same trend as the results in Table \ref{tab:results} for all models.
+While $ \textrm{BERT} (\textrm{CAR}) $ and $ \textrm{BERT} (\textrm{MS MARCO}) $ yield minor improvements over the baseline when sentences that contain exact query matches are removed, the best performing model $ \textrm{BERT} (\textrm{MS MARCO}\rightarrow\textrm{MB}) $ still significantly outperforms the baseline.
+Furthermore, the drop in AP caused by filtering sentences is also the highest for the best performing model, indicating that this model is able to exploit both exact and semantic matching signals.
+The overall effectiveness of this model on the original Robust04 dataset may be owing to the joint relevance matching power demonstrated in this experiment.
+
 To further investigate the semantic matching power of BERT, we visualize the attention of our models at different layers.
 Having been pretrained on massive amounts of data for language modeling, we expect BERT to capture various semantic relationships helpful for relevance prediction.
 Figure \ref{fig:attention} visualizes the attention of our best model $ \textrm{BERT} (\textrm{MS MARCO}\rightarrow\textrm{MB}) $ for one of the top scoring sentences for the query 322 \texttt{international art crime}.
@@ -493,7 +493,7 @@ We see that the model attends to related terms such as ``renaissance'' and ``pai
 On the other hand, these terms are not recognized by term-matching techniques like BM25 as relevant.
 This highlights how the semantic knowledge captured by BERT directly help with relevance modeling on newswire articles.
 
-\subsubsection{Exact Matching}
+%\subsubsection{Exact Matching}
 
 %\begin{table*}[b!]
 %\centering\resizebox{0.7\columnwidth}{!}{
@@ -521,23 +521,23 @@ This highlights how the semantic knowledge captured by BERT directly help with r
 %\label{tab:results-query-terms}
 %\end{table*}
 
-BM25 favors documents with frequent occurrences of query terms which is not necessarily the case of our BERT-based models.
-\myworries{Hypothesis}
-Therefore, we calculate the fraction of query terms (FQT) in the top k documents for each query across all models, removing stopwords and punctuation.
-We average the FQT across all retrieved documents for each query:
-
-\begin{equation}
-FQT(q) = \frac{1}{k} \sum^k _{i=1} \frac{N(d_i, q)}{|d_i|}
-\end{equation}
-
-where $ N(d_i, q) $ denotes the number of occurrences fo query tokens $ q $ in document $ d_i $.
-\myworries{limit k to 10 to avoid noise?}
-\myworries{Divide into 3 buckets instead?}
-\myworries{FQT average for each model}
-\myworries{Comment}
-
-Because BM25 relies too much on query term frequency, it may rank documents that contain multiple repetitions of query words but do not actually convey any useful information too highly.
-Therefore, we expect the effectiveness of BM25 to drop more significantly with increasing FQT.
-To observe how retrieval effectiveness changes across different ranges of FQT, we split the values into \myworries{X} buckets and calculate the average MAP for each bucket.
-\myworries{Comment}
-\myworries{Give examples of useless high FQT}
+%BM25 favors documents with frequent occurrences of query terms which is not necessarily the case of our BERT-based models.
+%\myworries{Hypothesis}
+%Therefore, we calculate the fraction of query terms (FQT) in the top k documents for each query across all models, removing stopwords and punctuation.
+%We average the FQT across all retrieved documents for each query:
+%
+%\begin{equation}
+%FQT(q) = \frac{1}{k} \sum^k _{i=1} \frac{N(d_i, q)}{|d_i|}
+%\end{equation}
+%
+%where $ N(d_i, q) $ denotes the number of occurrences fo query tokens $ q $ in document $ d_i $.
+%\myworries{limit k to 10 to avoid noise?}
+%\myworries{Divide into 3 buckets instead?}
+%\myworries{FQT average for each model}
+%\myworries{Comment}
+%
+%Because BM25 relies too much on query term frequency, it may rank documents that contain multiple repetitions of query words but do not actually convey any useful information too highly.
+%Therefore, we expect the effectiveness of BM25 to drop more significantly with increasing FQT.
+%To observe how retrieval effectiveness changes across different ranges of FQT, we split the values into \myworries{X} buckets and calculate the average MAP for each bucket.
+%\myworries{Comment}
+%\myworries{Give examples of useless high FQT}

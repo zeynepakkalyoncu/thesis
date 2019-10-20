@@ -1,24 +1,24 @@
-\contentsline {chapter}{List of Tables}{vii}{section*.2}
-\contentsline {chapter}{List of Figures}{viii}{section*.4}
+\contentsline {chapter}{List of Tables}{v}{section*.2}
+\contentsline {chapter}{List of Figures}{vi}{section*.4}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Evaluation Metrics}{3}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Mean Average Precision (MAP)}{4}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}Precision at k (P@k)}{4}{subsection.1.1.2}
-\contentsline {subsection}{\numberline {1.1.3}Normalized Discounted Cumulative Gain (NDCG@k)}{5}{subsection.1.1.3}
-\contentsline {section}{\numberline {1.2}Contributions}{6}{section.1.2}
-\contentsline {section}{\numberline {1.3}Thesis Organization}{6}{section.1.3}
-\contentsline {chapter}{\numberline {2}Background and Related Work}{8}{chapter.2}
-\contentsline {section}{\numberline {2.1}Document Retrieval}{8}{section.2.1}
-\contentsline {section}{\numberline {2.2}Pretrained Language Models}{9}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Feature-based Approaches}{9}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Fine-tuning Approaches}{10}{subsection.2.2.2}
-\contentsline {section}{\numberline {2.3}Machine-Learned Ranking Models}{12}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Learning to Rank Methods}{12}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Neural Document Retrieval}{13}{subsection.2.3.2}
-\contentsline {subsubsection}{Representation-based Models}{13}{section*.8}
-\contentsline {subsubsection}{Interaction-based Models}{14}{section*.9}
-\contentsline {subsubsection}{Contextualized Language Models}{15}{section*.10}
-\contentsline {subsection}{\numberline {2.3.3}Comparison of Non-neural and Neural Methods}{17}{subsection.2.3.3}
+\contentsline {section}{\numberline {1.1}Contributions}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}Thesis Organization}{4}{section.1.2}
+\contentsline {chapter}{\numberline {2}Background and Related Work}{6}{chapter.2}
+\contentsline {section}{\numberline {2.1}Document Retrieval}{6}{section.2.1}
+\contentsline {section}{\numberline {2.2}Pretrained Language Models}{7}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Feature-based Approaches}{7}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Fine-tuning Approaches}{8}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Machine-Learned Ranking Models}{10}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Learning to Rank Methods}{10}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Neural Document Retrieval}{11}{subsection.2.3.2}
+\contentsline {subsubsection}{Representation-based Models}{11}{section*.8}
+\contentsline {subsubsection}{Interaction-based Models}{12}{section*.9}
+\contentsline {subsubsection}{Contextualized Language Models}{13}{section*.10}
+\contentsline {subsection}{\numberline {2.3.3}Comparison of Non-neural and Neural Methods}{15}{subsection.2.3.3}
+\contentsline {section}{\numberline {2.4}Evaluation Metrics}{16}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Mean Average Precision (MAP)}{16}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Precision at k (P@k)}{17}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Normalized Discounted Cumulative Gain (NDCG@k)}{17}{subsection.2.4.3}
 \contentsline {chapter}{\numberline {3}Cross-Domain Relevance Transfer with BERT}{19}{chapter.3}
 \contentsline {section}{\numberline {3.1}Datasets}{19}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}TREC Microblog (MB)}{20}{subsection.3.1.1}
@@ -26,31 +26,29 @@
 \contentsline {subsection}{\numberline {3.1.3}TREC Complex Answer Retrieval (CAR)}{22}{subsection.3.1.3}
 \contentsline {section}{\numberline {3.2}Modeling Relevance with BERT}{23}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Relevance Classifier}{23}{subsection.3.2.1}
-\contentsline {subsubsection}{Input Representation}{24}{section*.11}
+\contentsline {subsubsection}{Input Representation}{23}{section*.11}
 \contentsline {subsubsection}{Fine-Tuning}{25}{section*.12}
-\contentsline {section}{\numberline {3.3}Reranking with BERT}{26}{section.3.3}
-\contentsline {section}{\numberline {3.4}Experimental Setup}{27}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Training and Inference with BERT}{27}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Evaluation}{28}{subsection.3.4.2}
-\contentsline {chapter}{\numberline {4}Architecture}{29}{chapter.4}
-\contentsline {section}{\numberline {4.1}Anserini}{30}{section.4.1}
-\contentsline {section}{\numberline {4.2}Python Module}{30}{section.4.2}
-\contentsline {section}{\numberline {4.3}Integration}{31}{section.4.3}
-\contentsline {section}{\numberline {4.4}Replicability and Reproducibility}{32}{section.4.4}
-\contentsline {chapter}{\numberline {5}Experimental Results}{34}{chapter.5}
-\contentsline {section}{\numberline {5.1}Datasets}{34}{section.5.1}
-\contentsline {subsubsection}{Robust04}{34}{section*.13}
-\contentsline {subsubsection}{Core17 \& Core18}{34}{section*.14}
-\contentsline {section}{\numberline {5.2}Results and Analyses}{35}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Effect of Training Data}{37}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Number of Sentences}{38}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Comparison to Other Ranking Models}{39}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Per-Query Analysis}{40}{subsection.5.2.4}
-\contentsline {subsection}{\numberline {5.2.5}Effect of Length}{41}{subsection.5.2.5}
-\contentsline {subsubsection}{Query Length}{41}{section*.15}
-\contentsline {subsubsection}{Document Length}{42}{section*.16}
-\contentsline {subsection}{\numberline {5.2.6}Matching Tendencies}{43}{subsection.5.2.6}
-\contentsline {subsubsection}{Semantic Matching}{43}{section*.17}
-\contentsline {subsubsection}{Exact Matching}{44}{section*.18}
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{47}{chapter.6}
-\contentsline {chapter}{\textbf {References}}{48}{section*.19}
+\contentsline {section}{\numberline {3.3}Reranking with BERT}{25}{section.3.3}
+\contentsline {section}{\numberline {3.4}Experimental Setup}{26}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Training and Inference with BERT}{26}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Evaluation}{27}{subsection.3.4.2}
+\contentsline {chapter}{\numberline {4}Architecture}{28}{chapter.4}
+\contentsline {section}{\numberline {4.1}Anserini}{29}{section.4.1}
+\contentsline {section}{\numberline {4.2}Main Module}{30}{section.4.2}
+\contentsline {section}{\numberline {4.3}Integration}{30}{section.4.3}
+\contentsline {section}{\numberline {4.4}Replicability and Reproducibility}{31}{section.4.4}
+\contentsline {chapter}{\numberline {5}Experimental Results}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}Datasets}{33}{section.5.1}
+\contentsline {subsubsection}{Robust04}{33}{section*.13}
+\contentsline {subsubsection}{Core17 \& Core18}{33}{section*.14}
+\contentsline {section}{\numberline {5.2}Results and Analyses}{34}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Effect of Training Data}{36}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Number of Sentences}{37}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Comparison to Other Ranking Models}{38}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Per-Query Analysis}{39}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}Effect of Length}{40}{subsection.5.2.5}
+\contentsline {subsubsection}{Query Length}{40}{section*.15}
+\contentsline {subsubsection}{Document Length}{41}{section*.16}
+\contentsline {subsection}{\numberline {5.2.6}Semantic Matching}{42}{subsection.5.2.6}
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{45}{chapter.6}
+\contentsline {chapter}{\textbf {References}}{46}{section*.17}

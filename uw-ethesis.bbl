@@ -31,6 +31,11 @@ Payal Bajaj, Daniel Campos, Nick Craswell, Li~Deng, Jianfeng Gao, Xiaodong Liu,
   dataset.
 \newblock {\em arXiv:1611.09268v3}, 2018.
 
+\bibitem{balinski2005re}
+Jaroslaw Bali{\'n}ski and Czeslaw Dani{\l}owicz.
+\newblock Re-ranking method based on inter-document distances.
+\newblock {\em Information processing \& management}, 41(4):759--775, 2005.
+
 \bibitem{belinkov2017neural}
 Yonatan Belinkov, Nadir Durrani, Fahim Dalvi, Hassan Sajjad, and James Glass.
 \newblock What do neural machine translation models learn about morphology?
@@ -90,6 +95,13 @@ Scott Deerwester, Susan~T Dumais, George~W Furnas, Thomas~K Landauer, and
 \newblock Indexing by latent semantic analysis.
 \newblock {\em Journal of the American society for information science},
   41(6):391--407, 1990.
+
+\bibitem{dehghani2017neural}
+Mostafa Dehghani, Hamed Zamani, Aliaksei Severyn, Jaap Kamps, and W~Bruce
+  Croft.
+\newblock Neural ranking models with weak supervision.
+\newblock In {\em Proceedings of the 40th International ACM SIGIR Conference on
+  Research and Development in Information Retrieval}, pages 65--74. ACM, 2017.
 
 \bibitem{devlin2018bert}
 Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
@@ -164,6 +176,11 @@ Diederik~P. Kingma and Jimmy Ba.
 \newblock Adam:\ {A} method for stochastic optimization.
 \newblock {\em arXiv:1412.6980}, 2014.
 
+\bibitem{lee2001re}
+Kyung-Soon Lee, Young-Chan Park, and Key-Sun Choi.
+\newblock Re-ranking model based on document clusters.
+\newblock {\em Information processing \& management}, 37(1):1--14, 2001.
+
 \bibitem{li2008mcrank}
 Ping Li, Qiang Wu, and Christopher~J Burges.
 \newblock Mcrank: Learning to rank using multiple classification and gradient
@@ -175,6 +192,14 @@ Ping Li, Qiang Wu, and Christopher~J Burges.
 Jimmy Lin.
 \newblock The neural hype and comparisons against weak baselines.
 \newblock In {\em ACM SIGIR Forum}, volume~52, pages 40--51. ACM, 2019.
+
+\bibitem{lingpeng2004document}
+Yang Lingpeng, Ji~Donghong, and Tang Li.
+\newblock Document re-ranking based on automatically acquired key terms in
+  chinese information retrieval.
+\newblock In {\em Proceedings of the 20th international conference on
+  Computational Linguistics}, page 480. Association for Computational
+  Linguistics, 2004.
 
 \bibitem{DBLP:journals/corr/LinzenDG16}
 Tal Linzen, Emmanuel Dupoux, and Yoav Goldberg.

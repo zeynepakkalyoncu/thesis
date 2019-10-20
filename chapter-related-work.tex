@@ -28,7 +28,6 @@
 \section{Document Retrieval}
 \label{non-neural-retrieval}
 
-\myworries{doc retrieval architectures - multi-stage retrieval, bag of words, rerankers}
 Traditional document retrieval techniques have evolved from the simple Boolean model to probabilistic models such as the Binary Independence Model over time to increase matching effectiveness.
 While these methods perform reasonably well for consistently short text like titles or abstracts, they have fallen short with the development of modern text collections with highly variable lengths.
 % like the TREC collections.
@@ -49,6 +48,11 @@ Despite their simplicity, well-tuned BM25+RM3 baselines achieve competitive effe
 
 %Table \ref{tab:} displays an overview of the submissions to TREC Robust Track from 2004 and Common Core Track from 2017 and 2018.
 %\myworries{Explain...}
+
+The most prominent approach to document retrieval today is to employ these techniques as the first step in a multi-stage architecture where an initial list of candidate documents is retrieved with a standard term-matching technique.
+A more computationally intensive model is then deployed as a re-ranker over the candidate documents to produce a final ranking.
+These re-rankers facilitate the architecture to detect and incorporate more complex relevance signals in the retrieved documents.
+A panoply of models have been proposed as re-rankers, including neural models~\cite{dehghani2017neural} and statistical models based on term occurrence~\cite{lingpeng2004document} and document similarity~\cite{lee2001re, balinski2005re}.
 
 \section{Pretrained Language Models}
 \label{lm}
@@ -90,7 +94,7 @@ The large capacity of the transformer is exploited by pretraining it on Google B
 \begin{figure}[b!]
 \centering
   \includegraphics[width=3in]{bert.png}
-\caption{The architecture combining BERT an additional output layer for the sentence pair classification task, where $ E $ represents the input embedding for each sentence and $ T_i $ the contextual representation of token $ i $. Adapted from Delvin et al.~\cite{devlin2018bert}.}
+\caption{The architecture combining BERT an additional output layer for the sentence pair classification task, where $ E $ represents the input embedding for each sentence and $ T_i $ the contextual representation of token $ i $. Adapted from Devlin et al.~\cite{devlin2018bert}.}
 \label{fig:bert}
 \end{figure}
 
@@ -127,11 +131,11 @@ Figure \ref{fig:bert} visualizes the model for fine-tuning BERT for the ``senten
 
 BERT has been applied to a broad range of NLP tasks from sentence classification to sequence labeling with impressive results.
 %\myworries{Examples?}
-Most relevant to the task of document retrieval, applications of BERT include BERTserini by Yang et al.~\cite{yang2019end} which integrated BERT with Anserini for question answering over Wikipedia by fine-tuning BERT on SQuAD, and Nogueira et al.~\cite{nogueira2019passage} who adopted BERT for passage reranking over MS MARCO.
+Most relevant to the task of document retrieval, applications of BERT include BERTserini by Yang et al.~\cite{yang2019end} which integrated BERT with Anserini for question answering over Wikipedia by fine-tuning BERT on SQuAD, and Nogueira et al.~\cite{nogueira2019passage} who adopted BERT for passage re-ranking over MS MARCO.
 
 \section{Machine-Learned Ranking Models}
 
-\myworries{Come up with a better title}
+%\myworries{Come up with a better title}
 
 \subsection{Learning to Rank Methods}
 
@@ -200,7 +204,7 @@ Unlike DRMM and KNRM, the goal of DUET~\cite{mitra2017learning} is to employ bot
 DUET is composed of two separate deep neural networks, one to match the query and the document using a one-hot representation, and another using learned distributed representations, which are trained jointly.
 The former estimates document relevance based on exact matches of the query terms in the document by computing an interaction matrix from one-hot encodings.
 The latter instead performs semantic matching by computing the element-wise product between the query and document embeddings.
-Their approach significantly outperform traditional baselines for web search with lots of clickthrough logs.
+Their approach significantly outperform traditional baselines for web search with lots of click-through logs.
 
 \subsubsection{Contextualized Language Models}
 
@@ -220,7 +224,7 @@ passage re-ranking instead of document re-ranking.
 Notably, Nogueira et al.~\cite{nogueira2019passage} proposed to re-rank MS MARCO passages based on a simple re-implementation of BERT to learn a model of relevance, outperforming the previous state of the art by 27\% in MRR@10 and replacing the previous top entry in the leaderboard of the MS MARCO passage retrieval task.
 Our neural model is inspired by the BERT re-implementation described in their paper.
 Padigela et al.~\cite{Padigela:1905.01758:2019} prioritize studying the reasons behind the gains that come with re-ranking MS MARCO passages with BERT.
-To put re-ranking with BERT into perspective, they compare their BERT-based reranker to feature based learning to rank models such as RankSVM~\cite{joachims2002optimizing} and a number of neural kernel matching models such as KNRM~\cite{xiong2017knrm} and Conv-KNRM~\cite{dai2018convolutional}, and conclude that  fine-tuning BERT is substantially more effective than either neural model.
+To put re-ranking with BERT into perspective, they compare their BERT-based re-ranker to feature based learning to rank models such as RankSVM~\cite{joachims2002optimizing} and a number of neural kernel matching models such as KNRM~\cite{xiong2017knrm} and Conv-KNRM~\cite{dai2018convolutional}, and conclude that  fine-tuning BERT is substantially more effective than either neural model.
 They also test four hypotheses regarding the behavior of matching with BERT compared to BM25; specifically, with respect to term frequency and document length.
 
 To our knowledge, Yang et al.~\cite{yang2019simple} are the first to successfully apply BERT to ``ad hoc'' document retrieval.
@@ -229,14 +233,14 @@ They further propose overcoming the challenge of long documents by applying infe
 Their approach is motivated by user studies by Zhang et al.~\cite{zhang2018effective} which suggest that the most relevant sentence or paragraph in a document provides a good proxy for overall document relevance.
 The work of Yang et al.~\cite{yang2019simple} pave the way for future work that culminated in this thesis.
 
-More recently, MacAvaney et al.~\cite{macavaney2019cedr} shifted focus from incorporating BERT as a reranker to using its representation capabilities to improve existing neural architectures.
+More recently, MacAvaney et al.~\cite{macavaney2019cedr} shifted focus from incorporating BERT as a re-ranker to using its representation capabilities to improve existing neural architectures.
 By computing a relevance matrix between the query and each candidate document at each layer of a contextualized language model -- in particular, ELMo or BERT --  they report a high score of NDCG@20 0.5381 on Robust04 by combining CEDR (Contextualized Embeddings for Document Ranking)~\cite{macavaney2019cedr} with KNRM~\cite{xiong2017knrm}.
 They also propose a joint model that combines the classification mechanism of BERT into existing neural architectures to help benefit from both deep semantic matching with BERT \textit{and} relevance matching with traditional ranking architectures.
 
-A recent arXiv preprint by Qiao et al.~\cite{Qiao:1904.07531:2019} also examines the performance and behavior of BERT when used as a reranker for passage ranking on MS MARCO and for document ranking on the TREC Web Track.
-Their findings are consistent with those of Nogueira et al.~\cite{nogueira2019passage} in that BERT outperforms previous neural models on the passage reranking task on MS MARCO.
+A recent arXiv preprint by Qiao et al.~\cite{Qiao:1904.07531:2019} also examines the performance and behavior of BERT when used as a re-ranker for passage ranking on MS MARCO and for document ranking on the TREC Web Track.
+Their findings are consistent with those of Nogueira et al.~\cite{nogueira2019passage} in that BERT outperforms previous neural models on the passage re-ranking task on MS MARCO.
 For ad hoc document ranking, they explore using BERT both as representation-based and interaction-based rankers and in combination with KNRM~\cite{xiong2017knrm} and Conv-KNRM~\cite{dai2018convolutional}.
-However, they find that their reranking TREC Web Track documents with BERT performs worse than Conv-KNRM and feature-based learning-to-rank models trained on user clicks in Bing's search log.
+However, they find that their re-ranking TREC Web Track documents with BERT performs worse than Conv-KNRM and feature-based learning-to-rank models trained on user clicks in Bing's search log.
 %"In comparison, TREC ad hoc tasks require different signals other than surrounding context: pre-training on user clicks is more effective than on surrounding context based signals."
 
 \subsection{Comparison of Non-neural and Neural Methods}
@@ -262,7 +266,7 @@ The untuned RM3 baseline is more effective than ~60\% of all studied papers, and
 More surprisingly, only six of the papers report AP scores higher than the TREC best, with the highest being by Cormack et al.~\cite{Cormack:2009:RRF:1571941.1572114} in 2009 at AP 0.3686.
 Their approach is based on building an ensemble of multiple TREC runs with reciprocal rank fusion.
 Among the neural models, the highest encountered score is by Zamani et al.~\cite{zamani2018neural} in 2018 at AP 0.2971.
-Deviating from the dominant approach of deploying neural models as rerankers, Zamani et al.~\cite{zamani2018neural} propose a standalone neural ranking model to learn a latent representation for each query and document, which is sparse enough to construct an inverted index for the entire collection.
+Deviating from the dominant approach of deploying neural models as re-rankers, Zamani et al.~\cite{zamani2018neural} propose a standalone neural ranking model to learn a latent representation for each query and document, which is sparse enough to construct an inverted index for the entire collection.
 However, their reported result is still much lower than the TREC best and far below the best reported result of Cormack et al.~\cite{Cormack:2009:RRF:1571941.1572114}.
 Moreover, about half of the neural papers compare their results to a baseline \textit{below} the TREC median, which is consistent with the claims of Lin et al.~\cite{lin2019neural}.
 Overall, Figure \ref{fig:neural_robust04} exhibits no clear upward trend in terms of AP on Robust04 from 2005 to 2018.
@@ -283,3 +287,64 @@ Excluding runs that make use of past labels or require human intervention, the T
 To our knowledge, Neural Vector Spaces for Unsupervised Information Retrieval by Van Gysel et al.~\cite{Gysel:2018:NVS:3211967.3196826} represents the only major neural model evaluated on Core17.
 While their approach has the advantage of not requiring supervised relevance judgements, their reported results are quite low.
 Otherwise, evaluation of neural retrieval methods on both Core17 and Core18 has been limited.
+
+\section{Evaluation Metrics}
+
+Evaluation in information retrieval relies on the distinction between ``relevant'' and ``irrelevant'' documents with respect to an information need as expressed by a query.
+A number of automatic evaluation metrics has been formalized specifically for ranking tasks, some of which are described below.
+
+%The size of most document collections makes it infeasible for humans to manually judge the relevance of all documents.
+%All relevant documents need to be labelled to prevent false negatives, i.e: treating documents which are in fact relevant as irrelevant.
+
+\subsection{Mean Average Precision (MAP)}
+
+Precision specifies what fraction of a set of retrieved documents is in fact relevant for a given query $ q $.
+By extension, average precision (AP) expresses the average of the precision values obtained for the set of top $ k $ documents for the query.
+Support that $ D = \{d_1, ..., d_{m_j}\} $ is the set of all relevant documents for a query $ q_j $, then AP can be formulated as:
+
+\begin{equation}
+AP = \frac{1}{m_j} \sum^{m_j} _{k = 1} P(R_{jk})
+\end{equation}
+
+where $ R_{jk} $ represents the set of top $ k $ ranked retrieval results.
+
+The respective AP for each query $ q_{j} \in Q $ can be aggregated to obtain mean average precision (MAP) for the overall retrieval effectiveness in the form of a single-figure measure of quality across various recall levels:
+
+\begin{equation}
+MAP = \frac{\sum^{|Q|} _{j = 1} AP}{Q} = \frac{1}{Q} \sum^{|Q|} _{j = 1} \frac{1}{m_j} \sum^{m_j} _{k = 1} P(R_{jk})
+\end{equation}
+
+%\myworries{Meaning of MAP: To recapitulate, if the AP is 0.5, the relevant
+%answer occurs at every second position. If the AP score is 0.3, the relevant answer occurs
+%at every 3rd position and an AP score of 0.1 would mean that every 10th answer is correct.}
+
+MAP is known to have especially good discrimination and stability compared to other evaluation metrics, which makes it the ideal choice for large text collections~\cite{manning2010introduction}.
+It is hence one of the standard metrics among the TREC community.
+
+\subsection{Precision at k (P@k)}
+
+While MAP factors in precision at all recall levels, certain applications may have a distinctly different notion for ranking quality.
+Particularly in the case of web search, the user often only cares about the results on the first page or two.
+This restriction essentially requires measuring precision at fixed low levels of retrieved results, i.e: top $ k $ documents -- hence the name for the metric ``precision at $ k $''.
+On the one hand, it eliminates the need for any estimate of the size of the set of relevant documents because it is only concerned with the top documents.
+However, it also produces the least stable results out of all evaluation metrics.
+Moreover, precision at $ k $ does not average well because it is too sensitive to the total number of relevant documents for a query.
+
+\subsection{Normalized Discounted Cumulative Gain (NDCG@k)}
+
+Cumulative gain (CG) simply computes the sum of relevance labels for all the retrieved documents, treating the search results as an unordered set.
+However, since a highly relevant document is inherently more useful when it appears higher up in the search results, CG has been extended to discounted cumulative gain (DCG).
+DCG estimates the relevance of a document based on its rank among the retrieved documents.
+The relevance measure is accumulated from top to bottom, discounting the value of documents at lower ranks.
+NDCG at $ k $ measures DCG for the top $ k $ documents, normalizing by the highest possible value for a query; therefore, a perfect ranking yields NDCG equals 1.
+
+NDCG is uniquely useful in applications with a non-binary notion of relevance, e.g: a spectrum of relevance.
+This makes NDCG comparable across different queries:\
+The NDCG values for all queries can be averaged to reliably evaluate the effectiveness of a ranking algorithm for various information needs across a collection.
+Given a set of queries $ q_j \in Q $ and relevance judgements $ R_{dj} $ for a document $ d $:\
+
+\begin{equation}
+NDCG(Q, k) = \frac{1}{|Q|} \sum ^{|Q|} _{j = 1} Z_{kj} \sum ^k _{m = 1} \frac{2^{R_{jm}} - 1}{log_2 (1 + m)'}
+\end{equation}
+
+where $ Z_{kj} $ is the normalization factor.
