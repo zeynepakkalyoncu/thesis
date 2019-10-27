@@ -1,5 +1,5 @@
-\contentsline {chapter}{List of Tables}{v}{section*.2}
-\contentsline {chapter}{List of Figures}{vi}{section*.4}
+\contentsline {chapter}{List of Tables}{vi}{section*.2}
+\contentsline {chapter}{List of Figures}{vii}{section*.4}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Contributions}{4}{section.1.1}
 \contentsline {section}{\numberline {1.2}Thesis Organization}{4}{section.1.2}
@@ -19,36 +19,37 @@
 \contentsline {subsection}{\numberline {2.4.1}Mean Average Precision (MAP)}{16}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}Precision at k (P@k)}{17}{subsection.2.4.2}
 \contentsline {subsection}{\numberline {2.4.3}Normalized Discounted Cumulative Gain (NDCG@k)}{17}{subsection.2.4.3}
-\contentsline {chapter}{\numberline {3}Cross-Domain Relevance Transfer with BERT}{19}{chapter.3}
-\contentsline {section}{\numberline {3.1}Datasets}{19}{section.3.1}
+\contentsline {chapter}{\numberline {3}Datasets}{19}{chapter.3}
+\contentsline {section}{\numberline {3.1}Datasets 1}{19}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}TREC Microblog (MB)}{20}{subsection.3.1.1}
 \contentsline {subsection}{\numberline {3.1.2}MicroSoft MAchine Reading Comprehension (MS MARCO)}{21}{subsection.3.1.2}
 \contentsline {subsection}{\numberline {3.1.3}TREC Complex Answer Retrieval (CAR)}{22}{subsection.3.1.3}
-\contentsline {section}{\numberline {3.2}Modeling Relevance with BERT}{23}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Relevance Classifier}{23}{subsection.3.2.1}
-\contentsline {subsubsection}{Input Representation}{23}{section*.11}
-\contentsline {subsubsection}{Fine-Tuning}{25}{section*.12}
-\contentsline {section}{\numberline {3.3}Reranking with BERT}{25}{section.3.3}
-\contentsline {section}{\numberline {3.4}Experimental Setup}{26}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Training and Inference with BERT}{26}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Evaluation}{27}{subsection.3.4.2}
-\contentsline {chapter}{\numberline {4}Architecture}{28}{chapter.4}
-\contentsline {section}{\numberline {4.1}Anserini}{29}{section.4.1}
-\contentsline {section}{\numberline {4.2}Main Module}{30}{section.4.2}
-\contentsline {section}{\numberline {4.3}Integration}{30}{section.4.3}
-\contentsline {section}{\numberline {4.4}Replicability and Reproducibility}{31}{section.4.4}
-\contentsline {chapter}{\numberline {5}Experimental Results}{33}{chapter.5}
-\contentsline {section}{\numberline {5.1}Datasets}{33}{section.5.1}
-\contentsline {subsubsection}{Robust04}{33}{section*.13}
-\contentsline {subsubsection}{Core17 \& Core18}{33}{section*.14}
-\contentsline {section}{\numberline {5.2}Results and Analyses}{34}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Effect of Training Data}{36}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Number of Sentences}{37}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Comparison to Other Ranking Models}{38}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Per-Query Analysis}{39}{subsection.5.2.4}
-\contentsline {subsection}{\numberline {5.2.5}Effect of Length}{40}{subsection.5.2.5}
-\contentsline {subsubsection}{Query Length}{40}{section*.15}
-\contentsline {subsubsection}{Document Length}{41}{section*.16}
-\contentsline {subsection}{\numberline {5.2.6}Semantic Matching}{42}{subsection.5.2.6}
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{45}{chapter.6}
-\contentsline {chapter}{\textbf {References}}{46}{section*.17}
+\contentsline {section}{\numberline {3.2}Datasets 2}{23}{section.3.2}
+\contentsline {subsubsection}{Robust04}{23}{section*.11}
+\contentsline {subsubsection}{Core17 \& Core18}{23}{section*.12}
+\contentsline {chapter}{\numberline {4}Cross-Domain Relevance Transfer with BERT}{24}{chapter.4}
+\contentsline {section}{\numberline {4.1}Modeling Relevance with BERT}{24}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Relevance Classifier}{25}{subsection.4.1.1}
+\contentsline {subsubsection}{Input Representation}{25}{section*.13}
+\contentsline {subsubsection}{Fine-Tuning}{26}{section*.14}
+\contentsline {section}{\numberline {4.2}Reranking with BERT}{27}{section.4.2}
+\contentsline {section}{\numberline {4.3}Experimental Setup}{28}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Training and Inference with BERT}{28}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Evaluation}{28}{subsection.4.3.2}
+\contentsline {chapter}{\numberline {5}Architecture}{30}{chapter.5}
+\contentsline {section}{\numberline {5.1}Anserini}{31}{section.5.1}
+\contentsline {section}{\numberline {5.2}Main Module}{32}{section.5.2}
+\contentsline {section}{\numberline {5.3}Integration}{32}{section.5.3}
+\contentsline {section}{\numberline {5.4}Replicability and Reproducibility}{33}{section.5.4}
+\contentsline {chapter}{\numberline {6}Experimental Results}{35}{chapter.6}
+\contentsline {section}{\numberline {6.1}Results and Analyses}{35}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Effect of Training Data}{37}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Number of Sentences}{38}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Comparison to Other Ranking Models}{39}{subsection.6.1.3}
+\contentsline {subsection}{\numberline {6.1.4}Per-Query Analysis}{39}{subsection.6.1.4}
+\contentsline {subsection}{\numberline {6.1.5}Effect of Length}{41}{subsection.6.1.5}
+\contentsline {subsubsection}{Query Length}{41}{section*.15}
+\contentsline {subsubsection}{Document Length}{42}{section*.16}
+\contentsline {subsection}{\numberline {6.1.6}Semantic Matching}{43}{subsection.6.1.6}
+\contentsline {chapter}{\numberline {7}Conclusion and Future Work}{46}{chapter.7}
+\contentsline {chapter}{\textbf {References}}{47}{section*.17}

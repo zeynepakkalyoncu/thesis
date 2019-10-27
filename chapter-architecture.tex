@@ -10,8 +10,8 @@
 \label{fig:arch}
 \end{figure}
 
-We apply BERT to document retrieval via integration with the open-source information retrieval toolkit Anserini\footnote{\url{http://anserini.io/}}.
-The proposed architecture of our system follows a two-stage pipeline as shown in Figure \ref{fig:arch}:\
+We apply BERT to document retrieval via integration with the open-source information retrieval toolkit Anserini.\footnote{\url{http://anserini.io/}}
+The architecture of our system follows a two-stage pipeline as shown in Figure \ref{fig:arch}:\
 Anserini is used to retrieve documents from indexed collections with BM25, forming an initial candidate list.
 Our model introduced earlier in Section \ref{ch:model} is deployed as a re-ranker over the candidate documents to produce a final ranking of documents based on sentence-level relevance.
 In this section we review each component of the architecture and discuss the design choices behind their integration.
@@ -21,7 +21,7 @@ We also touch upon the issue of reproducibility in information retrieval and our
 \section{Anserini}
 
 Technology transfer between the academic and industrial information retrieval communities is at times impeded due to a lack of universal set of tools and infrastructure.
-Most industry practitioners have adopted Lucene\footnote{https://lucene.apache.org/}, Solr\footnote{https://lucene.apache.org/solr/} or Elasticsearch\footnote{https://www.elastic.co/} as the de facto platform in the development of search applications with the primary objective of scalability.
+Most industry practitioners have adopted Lucene,\footnote{https://lucene.apache.org/} Solr\footnote{https://lucene.apache.org/solr/} or Elasticsearch\footnote{https://www.elastic.co/} as the de facto platform in the development of search applications with the primary objective of scalability.
 However, academic systems such as Indri\footnote{\url{https://www.lemurproject.org/}} and Terrier\footnote{\url{http://terrier.org/}} are far more prevalent among researchers, which prioritize better rankings above all else with little consideration for operational characteristics.
 
 Anserini~\cite{Yang_etal_SIGIR2017, Yang_etal_JDIQ2018} was developed in response to this disconnect to provide a research-focused information retrieval toolkit on top of the open-source Lucene search library.

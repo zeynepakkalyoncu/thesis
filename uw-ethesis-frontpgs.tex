@@ -123,16 +123,16 @@
 
 \begin{center}\textbf{Abstract}\end{center}
 Standard bag-of-words term-matching techniques in document retrieval fail to exploit rich semantic information embedded in the document texts.
-One promising recent trend in facilitating context-aware semantic matching has been the development of massively pretrained language models, culminating in BERT as its most popular example today.
-In this work, we propose adapting BERT as a neural reranker for document retrieval with large improvements on news articles.
+One promising recent trend in facilitating context-aware semantic matching has been the development of massively pretrained language models, culminating in BERT as their most popular example today.
+In this work, we propose adapting BERT as a neural re-ranker for document retrieval to achieve large improvements on news articles.
 Two fundamental issues arise in applying BERT to ``ad hoc'' document retrieval on newswire collections:\
 relevance judgements in existing test collections are provided only at the document level, and documents often exceed the length that BERT was designed to handle.
-To overcome these challenges, we compute and aggregate sentence-level relevance scores to rank documents.
-We solve the problem of lack of appropriate relevance judgements by leveraging sentence-level and passage-level relevance judgements available in collections from other domains to capture cross-domain notions of relevance.
-We demonstrate that models of relevance can be transferred across domains.
+To overcome these challenges, we compute and aggregate sentence-level evidence to rank documents.
+The lack of appropriate relevance judgements in test collections is addressed by leveraging sentence-level and passage-level relevance judgements fortuitously available in collections from other domains to capture cross-domain notions of relevance.
+Our experiments demonstrate that models of relevance can be transferred across domains.
 By leveraging semantic cues learned across various domains, we propose a model that achieves state-of-the-art results across three standard TREC newswire collections.
 We explore the effects of cross-domain relevance transfer, and trade-offs between using document and sentence scores for document ranking.
-We also present an end-to-end document retrieval system that incorporates the open-source Anserini information retrieval toolkit, discussing the related technical challenges and design decisions.
+We also present an end-to-end document retrieval system that integrates the open-source Anserini information retrieval toolkit, discussing the related technical challenges and design decisions.
 
 \cleardoublepage
 

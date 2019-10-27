@@ -1,45 +1,9 @@
-\BOOKMARK [0][-]{section*.2}{List of Tables}{}% 1
-\BOOKMARK [0][-]{section*.4}{List of Figures}{}% 2
-\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 3
-\BOOKMARK [1][-]{section.1.1}{Contributions}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.2}{Thesis Organization}{chapter.1}% 5
-\BOOKMARK [0][-]{chapter.2}{Background and Related Work}{}% 6
-\BOOKMARK [1][-]{section.2.1}{Document Retrieval}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.2}{Pretrained Language Models}{chapter.2}% 8
-\BOOKMARK [2][-]{subsection.2.2.1}{Feature-based Approaches}{section.2.2}% 9
-\BOOKMARK [2][-]{subsection.2.2.2}{Fine-tuning Approaches}{section.2.2}% 10
-\BOOKMARK [1][-]{section.2.3}{Machine-Learned Ranking Models}{chapter.2}% 11
-\BOOKMARK [2][-]{subsection.2.3.1}{Learning to Rank Methods}{section.2.3}% 12
-\BOOKMARK [2][-]{subsection.2.3.2}{Neural Document Retrieval}{section.2.3}% 13
-\BOOKMARK [2][-]{subsection.2.3.3}{Comparison of Non-neural and Neural Methods}{section.2.3}% 14
-\BOOKMARK [1][-]{section.2.4}{Evaluation Metrics}{chapter.2}% 15
-\BOOKMARK [2][-]{subsection.2.4.1}{Mean Average Precision \(MAP\)}{section.2.4}% 16
-\BOOKMARK [2][-]{subsection.2.4.2}{Precision at k \(P@k\)}{section.2.4}% 17
-\BOOKMARK [2][-]{subsection.2.4.3}{Normalized Discounted Cumulative Gain \(NDCG@k\)}{section.2.4}% 18
-\BOOKMARK [0][-]{chapter.3}{Cross-Domain Relevance Transfer with BERT}{}% 19
-\BOOKMARK [1][-]{section.3.1}{Datasets}{chapter.3}% 20
-\BOOKMARK [2][-]{subsection.3.1.1}{TREC Microblog \(MB\)}{section.3.1}% 21
-\BOOKMARK [2][-]{subsection.3.1.2}{MicroSoft MAchine Reading Comprehension \(MS MARCO\)}{section.3.1}% 22
-\BOOKMARK [2][-]{subsection.3.1.3}{TREC Complex Answer Retrieval \(CAR\)}{section.3.1}% 23
-\BOOKMARK [1][-]{section.3.2}{Modeling Relevance with BERT}{chapter.3}% 24
-\BOOKMARK [2][-]{subsection.3.2.1}{Relevance Classifier}{section.3.2}% 25
-\BOOKMARK [1][-]{section.3.3}{Reranking with BERT}{chapter.3}% 26
-\BOOKMARK [1][-]{section.3.4}{Experimental Setup}{chapter.3}% 27
-\BOOKMARK [2][-]{subsection.3.4.1}{Training and Inference with BERT}{section.3.4}% 28
-\BOOKMARK [2][-]{subsection.3.4.2}{Evaluation}{section.3.4}% 29
-\BOOKMARK [0][-]{chapter.4}{Architecture}{}% 30
-\BOOKMARK [1][-]{section.4.1}{Anserini}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.2}{Main Module}{chapter.4}% 32
-\BOOKMARK [1][-]{section.4.3}{Integration}{chapter.4}% 33
-\BOOKMARK [1][-]{section.4.4}{Replicability and Reproducibility}{chapter.4}% 34
-\BOOKMARK [0][-]{chapter.5}{Experimental Results}{}% 35
-\BOOKMARK [1][-]{section.5.1}{Datasets}{chapter.5}% 36
-\BOOKMARK [1][-]{section.5.2}{Results and Analyses}{chapter.5}% 37
-\BOOKMARK [2][-]{subsection.5.2.1}{Effect of Training Data}{section.5.2}% 38
-\BOOKMARK [2][-]{subsection.5.2.2}{Number of Sentences}{section.5.2}% 39
-\BOOKMARK [2][-]{subsection.5.2.3}{Comparison to Other Ranking Models}{section.5.2}% 40
-\BOOKMARK [2][-]{subsection.5.2.4}{Per-Query Analysis}{section.5.2}% 41
-\BOOKMARK [2][-]{subsection.5.2.5}{Effect of Length}{section.5.2}% 42
-\BOOKMARK [2][-]{subsection.5.2.6}{Semantic Matching}{section.5.2}% 43
-\BOOKMARK [0][-]{chapter.6}{Conclusion and Future Work}{}% 44
-\BOOKMARK [0][-]{section*.17}{References}{}% 45
+\BOOKMARK [0][-]{chapter.1}{Experimental Results}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Effect of Training Data}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Number of Sentences}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Comparison to Other Ranking Models}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Per-Query Analysis}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.5}{Effect of Length}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.5.1}{Query Length}{section.1.5}% 7
+\BOOKMARK [2][-]{subsection.1.5.2}{Document Length}{section.1.5}% 8
+\BOOKMARK [1][-]{section.1.6}{Semantic Matching}{chapter.1}% 9

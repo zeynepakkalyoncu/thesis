@@ -6,17 +6,17 @@
 Document retrieval refers to the task of generating a ranking of documents from a large corpus $ D $ in response to a query $ Q $.
 In a typical document retrieval pipeline, an inverted index is constructed in advance from the collection, which often comprises unstructured text documents, for fast access during retrieval.
 When the user issues a query, the query representation is matched against the index, computing a similarity score for each document.
-The top most relevant documents based on their closeness to the query are returned to the user in order of relevance.
+The top $ k $ most relevant documents based on their similarity score are returned to the user.
 This procedure may be followed by a subsequent re-ranking stage where the candidate documents outputted by the previous step are further re-ranked in a way that maximizes some retrieval metric such as average precision (AP).
 
 \begin{figure}[b!]
 	\begin{framed}
-		\centering
+%		\centering
     		\textbf{Query:} international art crime \\
     		\textbf{Text:} The thieves demand a ransom of \$2.2 million for the works and return one of them.
 	\end{framed}
 \label{query-sent-example}
- \caption{An example of a query-text pair from the TREC Robust04 collection where a relevant piece of text does not contain direct query matches.}
+ \caption{An example of a query-text pair from the TREC Robust04 collection where a relevant piece of text does not contain exact query matches.}
 \end{figure}
 
 Document retrieval systems traditionally rely on term-matching techniques, such as BM25, to judge the relevance of documents in a corpus.
@@ -27,11 +27,11 @@ Figure \ref{query-sent-example} displays one such query-text pair where words se
 This ``vocabulary mismatch'' problem represents a long-standing challenge in information retrieval.
 To put its significance into context, Zhao et al. \cite{zhao2010term} show in their paper on term necessity prediction that, statistically, the average query terms do not appear in as many as 30\% of relevant documents in TREC 3 to 8 ``ad hoc'' retrieval datasets.
 
-Clearly, the classic exact matching approach to document retrieval neglects to exploit rich semantic information embedded in the document texts.
-To overcome this shortcoming, a number of models such as Latent Semantic Analysis \cite{deerwester1990indexing}, which map both queries and documents into high-dimensional vectors, and measure closeness between the two based on vector similarity, has been proposed.
+Clearly, the bag-of-words exact matching approach to document retrieval neglects to exploit rich semantic information embedded in the document texts.
+To overcome this shortcoming, a number of models such as Latent Semantic Analysis \cite{deerwester1990indexing}, which map both queries and documents into multi-dimensional vectors, and measure closeness between the two based on vector similarity, has been proposed.
 This innovation has enabled semantic matching to improve document retrieval by extracting useful semantic signals.
-With the advent of neural networks, it has become possible to learn better distributed representations of words that capture more fine-grained semantic and syntatic information \cite{mikolov2013distributed}, \cite{pennington2014glove}.
-More recently, massively unsupervised language models that learn context-specific semantic information from copious amounts of data have changed the tide in NLP research (e.g: ELMo \cite{peters2018deep}, GPT-2 \cite{radford2019language}).
+With the advent of neural networks, it has become possible to learn better distributed representations of words that capture more fine-grained semantic and syntactic information \cite{mikolov2013distributed, pennington2014glove}.
+More recently, massively unsupervised language models that learn context-specific semantic information from copious amounts of data have changed the tide in NLP research (e.g., ELMo \cite{peters2018deep}, GPT-2 \cite{radford2019language}).
 These models can be applied to various downstream tasks with minimal task-specific fine-tuning, highlighting the power of transfer learning from large pre-trained models.
 Arguably the most popular example of these deep language representation models is the Bidirectional Encoder Representations from Transformers (BERT) \cite{devlin2018bert}.
 BERT has achieved state-of-the-art results across a broad range of NLP tasks from question answering to machine translation.
@@ -45,18 +45,38 @@ For this reason, we employ both document scores based on term-matching and seman
 In this thesis, we extend the work of Yang et al. \cite{yang2019simple} by presenting a novel way to apply BERT to ``ad hoc'' document retrieval on long documents -- particularly, newswire articles -- with significant improvements.
 Following Nogueira et al. \cite{nogueira2019passage}, we adapt BERT for binary relevance classification over text to capture notions of relevance.
 We then deploy the BERT-based re-ranker as part of a multi-stage architecture where an initial list of candidate documents is retrieved with a standard bag-of-words term matching technique.
-The BERT model is used to compute a relevance score for each constituent sentence, and the candidate documents are re-ranked by combining sentence scores with the original document score.
+The BERT model is used to compute a relevance score for each constituent sentence, and the candidate documents are re-ranked by combining sentence scores with the original document scores.
 
 We emphasize that applying BERT to document retrieval on newswire documents is not trivial due to two main challenges:\
-Firist of all, BERT has a maximum input length of 512 tokens, which is insufficient to accommodate the overall length of most news articles.
-To put this into perspective, a typical TREC Robust04 document has a median length of 679 tokens, and in fact, 66\% of all documents are longer than 512 tokens.
-Secondly, most collections provide relevance judgements only at the document level.
-Therefore, we only know what documents are relevant for a given query, but not the specific spans within the document.
-To further aggravate this issue, a document is considered relevant as long as some part of it is relevant, and most of the document often has nothing to do with the query.
+
+\begin{itemize}
+	\item
+	BERT has a maximum input length of 512 tokens, which is insufficient to accommodate the overall length of many news articles.
+	To put this into perspective, a typical TREC Robust04 document has a median length of 679 tokens, and in fact, 66\% of all documents are longer than 512 tokens.
+	\item
+	Most collections provide relevance judgements only at the document level.
+	Therefore, we only know what documents are relevant for a given query, but not the specific spans within the document.
+	To further aggravate this issue, a document is considered relevant as long as some part of it is relevant, and most of the document often has nothing to do with the query.
+\end{itemize}
+
+%First of all, BERT has a maximum input length of 512 tokens, which is insufficient to accommodate the overall length of many news articles.
+%To put this into perspective, a typical TREC Robust04 document has a median length of 679 tokens, and in fact, 66\% of all documents are longer than 512 tokens.
+%Secondly, most collections provide relevance judgements only at the document level.
+%Therefore, we only know what documents are relevant for a given query, but not the specific spans within the document.
+%To further aggravate this issue, a document is considered relevant as long as some part of it is relevant, and most of the document often has nothing to do with the query.
 
 We address the abovementioned challenges by proposing two effective innovations:\
-First, instead of relying solely on document-level relevance judgements, we aggregate sentence-level evidence to rank documents.
-As mentioned before, since standard newswire collections lack sentence level judgements to facilitate this approach, we instead explore leveraging sentence-level or passage-level judgements already available in collections in other domains, such as tweets and reading comprehension.
+
+\begin{itemize}
+	\item
+	Instead of relying solely on document-level relevance judgements, we aggregate sentence-level evidence to rank documents.
+	\item
+	Since standard newswire collections lack sentence level judgements to facilitate this approach, we instead explore leveraging sentence-level or passage-level judgements already available in collections in other domains, such as tweets and reading comprehension.
+\end{itemize}
+
+%First, instead of relying solely on document-level relevance judgements, we aggregate sentence-level evidence to rank documents.
+%As mentioned before, since standard newswire collections lack sentence level judgements to facilitate this approach, we instead explore leveraging sentence-level or passage-level judgements already available in collections in other domains, such as tweets and reading comprehension.
+
 To this end, we fine-tune BERT models on these out-of-domain collections to learn models of relevance.
 Surprisingly, we demonstrate that models of relevance can indeed be successfully transferred across domains.
 %We are able to use BERT models trained on out-of-domain collections on newswire documents to compute a relevance score for each constituent sentence.
@@ -71,19 +91,24 @@ We also elaborate on our engineering efforts to ensure reproducibility and repli
 The main contributions of this thesis can be summarized as follows:\\
 
 \begin{itemize}
-\item
-We present two innovations to successfully apply BERT to \textit{ad hoc} document retrieval with large improvements:\
-integrating sentence-level evidence to address the fact that BERT cannot process long spans posed by newswire documents, and exploiting cross-domain models of relevance for collections without sentence- or passage-level annotations.
-With the proposed model, we establish state-of-the-art effectiveness on three standard TREC newswire collections at the time of writing.
-Our results on Robust04 exceed the previous highest known score of 0.3686 \cite{Cormack:2009:RRF:1571941.1572114} with a non-neural method based on ensembles, which has stood unchallenged for ten years.
-\item
-We explore through various analyses the effects of cross-domain relevance transfer with BERT as well as the contributions of BM25 and sentence scores to the final document ranking.
-We investigate the effect of query and document length on retrieval effectiveness with BM25 and BERT, and the reasons behind the substantial improvements introduced with BERT.
+	\item
+	We present two innovations to successfully apply BERT to ``ad hoc'' document retrieval 	with large improvements:\
+	\begin{itemize}
+		\item Integrating sentence-level evidence to address the fact that BERT cannot process long spans posed by newswire documents
+		\item Exploiting cross-domain models of relevance for collections without sentence- or passage-level annotations
+	\end{itemize}
+	With the proposed model, we establish state-of-the-art effectiveness on three standard TREC newswire collections at the time of writing.
+	Our results on Robust04 exceed the previous highest known score of 0.3686 \cite{Cormack:2009:RRF:1571941.1572114} with a non-neural method based on ensembles, which has stood unchallenged for ten years.
+
+	\item
+	We explore through various analyses the effects of cross-domain relevance transfer with BERT as well as the contributions of BM25 and sentence scores to the final document ranking.
+	We investigate the effect of query and document length on retrieval effectiveness with BM25 and BERT, and the reasons behind the substantial improvements introduced with BERT.
 %\myworries{Revisit after completing experimental results}
-\item
-We release an end-to-end pipeline, Birch\footnote{https://github.com/castorini/birch}, that applies BERT to document retrieval over large document collections via integration with the open-source Anserini information retrieval toolkit.
-An accompanying Docker image is also included to ensure that anyone can easily deploy and test our system.
-We elaborate on the technical challenges in the integration of NLP and IR capabilities, and the rationale behind design decisions.
+
+	\item
+	We release an end-to-end pipeline, Birch\footnote{https://github.com/castorini/birch}, that applies BERT to document retrieval over large document collections via integration with the open-source Anserini information retrieval toolkit.
+	An accompanying Docker image is also included to ensure that anyone can easily deploy and test our system.
+	We elaborate on the technical challenges in the integration of NLP and IR capabilities, and the rationale behind design decisions.
 \end{itemize}
 
 \section{Thesis Organization}

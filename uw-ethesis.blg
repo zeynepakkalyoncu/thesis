@@ -3,8 +3,8 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: uw-ethesis.aux
 The style file: plain.bst
 Database file #1: uw-ethesis.bib
+Warning--I didn't find a database entry for "Yang_etal_JDIQ2018"
 Warning--I didn't find a database entry for "Yang_etal_arXiv2019"
-Warning--I didn't find a database entry for "MacAvaney_etal_SIGIR2019"
 Warning--empty booktitle in allan2017trec
 Warning--empty year in allan2017trec
 Warning--empty journal in burges2010ranknet
@@ -21,43 +21,43 @@ Warning--empty year in radford2019language
 Warning--empty journal in sculley2018winner
 You've used 73 entries,
             2118 wiz_defined-function locations,
-            873 strings with 18791 characters,
-and the built_in function-call counts, 29708 in all, are:
-= -- 2891
-> -- 1679
-< -- 30
-+ -- 664
-- -- 586
-* -- 2092
-:= -- 4810
-add.period$ -- 230
+            875 strings with 18910 characters,
+and the built_in function-call counts, 30072 in all, are:
+= -- 2939
+> -- 1684
+< -- 32
++ -- 666
+- -- 588
+* -- 2109
+:= -- 4842
+add.period$ -- 231
 call.type$ -- 73
-change.case$ -- 509
+change.case$ -- 510
 chr.to.int$ -- 0
 cite$ -- 87
-duplicate$ -- 1138
-empty$ -- 2092
-format.name$ -- 586
-if$ -- 6281
+duplicate$ -- 1163
+empty$ -- 2123
+format.name$ -- 588
+if$ -- 6383
 int.to.chr$ -- 0
 int.to.str$ -- 73
 missing$ -- 74
 newline$ -- 362
 num.names$ -- 146
-pop$ -- 599
+pop$ -- 607
 preamble$ -- 1
-purify$ -- 437
+purify$ -- 438
 quote$ -- 0
-skip$ -- 864
+skip$ -- 886
 stack$ -- 0
-substring$ -- 1597
-swap$ -- 361
-text.length$ -- 30
+substring$ -- 1631
+swap$ -- 379
+text.length$ -- 32
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 290
 warning$ -- 14
-while$ -- 252
+while$ -- 257
 width$ -- 75
-write$ -- 785
+write$ -- 789
 (There were 16 warnings)
