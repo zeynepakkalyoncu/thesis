@@ -11,6 +11,7 @@ Warning--empty journal in burges2010ranknet
 Warning--empty year in burges2010ranknet
 Warning--empty booktitle in jawahar2019does
 Warning--empty year in jawahar2019does
+Warning--can't use both volume and number fields in lavrenko2017relevance
 Warning--can't use both volume and number fields in lin2019neural
 Warning--empty journal in ounisoverview
 Warning--empty year in ounisoverview
@@ -19,45 +20,45 @@ Warning--empty year in radford2018improving
 Warning--empty journal in radford2019language
 Warning--empty year in radford2019language
 Warning--empty journal in sculley2018winner
-You've used 73 entries,
+You've used 74 entries,
             2118 wiz_defined-function locations,
-            875 strings with 18910 characters,
-and the built_in function-call counts, 30072 in all, are:
-= -- 2939
-> -- 1684
-< -- 32
-+ -- 666
-- -- 588
-* -- 2109
-:= -- 4842
-add.period$ -- 231
-call.type$ -- 73
-change.case$ -- 510
+            880 strings with 19007 characters,
+and the built_in function-call counts, 30553 in all, are:
+= -- 2992
+> -- 1697
+< -- 34
++ -- 671
+- -- 592
+* -- 2140
+:= -- 4907
+add.period$ -- 235
+call.type$ -- 74
+change.case$ -- 515
 chr.to.int$ -- 0
-cite$ -- 87
-duplicate$ -- 1163
-empty$ -- 2123
-format.name$ -- 588
-if$ -- 6383
+cite$ -- 89
+duplicate$ -- 1186
+empty$ -- 2164
+format.name$ -- 592
+if$ -- 6496
 int.to.chr$ -- 0
-int.to.str$ -- 73
-missing$ -- 74
-newline$ -- 362
-num.names$ -- 146
-pop$ -- 607
+int.to.str$ -- 74
+missing$ -- 75
+newline$ -- 367
+num.names$ -- 148
+pop$ -- 613
 preamble$ -- 1
-purify$ -- 438
+purify$ -- 442
 quote$ -- 0
-skip$ -- 886
+skip$ -- 906
 stack$ -- 0
-substring$ -- 1631
-swap$ -- 379
-text.length$ -- 32
+substring$ -- 1668
+swap$ -- 392
+text.length$ -- 34
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 290
-warning$ -- 14
-while$ -- 257
-width$ -- 75
-write$ -- 789
-(There were 16 warnings)
+type$ -- 294
+warning$ -- 15
+while$ -- 262
+width$ -- 76
+write$ -- 802
+(There were 17 warnings)

@@ -11,6 +11,6 @@
 \contentsline {table}{\numberline {6.2}{\ignorespaces Ranking effectiveness on Core17.}}{36}{table.6.2}
 \contentsline {table}{\numberline {6.3}{\ignorespaces Ranking effectiveness on Core18.}}{36}{table.6.3}
 \contentsline {table}{\numberline {6.4}{\ignorespaces Average AP with respect to query length on Robust04.}}{41}{table.6.4}
-\contentsline {table}{\numberline {6.5}{\ignorespaces Ranking effectiveness on shortened MS MARCO and CAR evaluated on Robust04.}}{42}{table.6.5}
+\contentsline {table}{\numberline {6.5}{\ignorespaces Ranking effectiveness on shortened MS MARCO and CAR evaluated on Robust04. \leavevmode {\color {red}repeating other results for comparison}}}{42}{table.6.5}
 \contentsline {table}{\numberline {6.6}{\ignorespaces Retrieval effectiveness on pruned Robust04.}}{43}{table.6.6}
 \addvspace {10\p@ }

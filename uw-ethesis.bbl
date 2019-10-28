@@ -176,6 +176,11 @@ Diederik~P. Kingma and Jimmy Ba.
 \newblock Adam:\ {A} method for stochastic optimization.
 \newblock {\em arXiv:1412.6980}, 2014.
 
+\bibitem{lavrenko2017relevance}
+Victor Lavrenko and W~Bruce Croft.
+\newblock Relevance-based language models.
+\newblock In {\em ACM SIGIR Forum}, volume~51, pages 260--267. ACM, 2017.
+
 \bibitem{lee2001re}
 Kyung-Soon Lee, Young-Chan Park, and Key-Sun Choi.
 \newblock Re-ranking model based on document clusters.

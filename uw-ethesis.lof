@@ -12,7 +12,8 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Architecture of our system featuring tight integration between Python and the JVM.}}{30}{figure.5.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Per-query difference in AP between $ \textrm {BERT}(\textrm {MS MARCO}\rightarrow \textrm {MB}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18.}}{40}{figure.6.1}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Per-query difference in AP between $ \textrm {BERT}(\textrm {CAR}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18.}}{40}{figure.6.2}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Attention visualizations of $ \textrm {BERT} (\textrm {MS MARCO}\rightarrow \textrm {MB}) $ for a sentence with a high BERT score for the query \texttt {international art crime}.}}{44}{figure.6.3}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Per-query difference in AP between $ \textrm {BERT}(\textrm {MB}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18.}}{40}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Per-query difference in AP between $ \textrm {BERT}(\textrm {MS MARCO}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18.}}{40}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Per-query difference in AP between $ \textrm {BERT}(\textrm {MS MARCO}\rightarrow \textrm {MB}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18.}}{40}{figure.6.3}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Attention visualizations of $ \textrm {BERT} (\textrm {MS MARCO}\rightarrow \textrm {MB}) $ for a sentence with a high BERT score for the query \texttt {international art crime}.}}{44}{figure.6.4}
 \addvspace {10\p@ }

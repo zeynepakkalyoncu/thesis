@@ -234,6 +234,44 @@ Core17 and Core18 are relatively new and thus have yet to receive much attention
 
 \section{Per-Query Analysis}
 
+\myworries{Add more manual analysis; compare to MB and MS MARCO}
+
+\begin{figure}[t!]
+	\centering
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{perquery7.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{perquery8.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{perquery9.png}
+    \end{minipage}
+\caption{Per-query difference in AP between $ \textrm{BERT}(\textrm{MB}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18.}
+\label{fig:perquery-mb} 
+\end{figure}
+
+\begin{figure}[t!]
+	\centering
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{perquery10.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{perquery11.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{perquery12.png}
+    \end{minipage}
+\caption{Per-query difference in AP between $ \textrm{BERT}(\textrm{MS MARCO}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18.}
+\label{fig:perquery-msmarco} 
+\end{figure}
+
 \begin{figure}[t!]
 	\centering
     \begin{minipage}{0.3\textwidth}
@@ -302,25 +340,55 @@ Manual inspection of top scoring sentences for \texttt{flavr savr tomato} show t
 
 \subsection{Query Length}
 
+\myworries{Changed table; rewrite this section}
+
+\myworries{Talk about BERT being good for even one word queries and sigtest in general}
+
+%\begin{table*}[b!]
+%\centering\resizebox{0.7\columnwidth}{!}{
+%\begin{tabular}{lcc ccccc}
+%\toprule
+% & \multicolumn{5}{c}{\textbf{Query Length}} \\
+% \cmidrule(lr){2-6}
+%{\bf Model} & {\bf 1} & {\bf 2} & {\bf 3}   & {\bf 4}  & {\bf 5} \\
+%\toprule
+%\textbf{BM25+RM3} & 0.3889 & 0.2975 & 0.2760 & 0.3089 & 0.2972 \\
+%\midrule
+%\textbf{$ \textrm{BERT}(\textrm{MB}) $} & 0.4145 & 0.3624 & 0.3230 & 0.3681 & 0.4172 \\
+%\midrule
+%\textbf{$ \textrm{BERT}(\textrm{CAR}) $} & 0.3978 & 0.3112 & 0.2871 & 0.3288 & 0.2844 \\
+%\midrule
+%\textbf{$ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.3997 & 0.3117 & 0.2872 & 0.3289 & 0.2871 \\
+%\midrule
+%\textbf{$ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.4202 & 0.3603 & 0.3296 & 0.3757 & 0.4926  \\
+%\midrule
+%\textbf{$ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & 0.4253 & 0.3885 & 0.3480 & 0.4077 & 0.5627 \\
+%\bottomrule
+%\end{tabular}
+%}
+%\caption{Average AP with respect to query length on Robust04.}
+%\label{tab:results-query-length}
+%\end{table*}
+
 \begin{table*}[b!]
 \centering\resizebox{0.7\columnwidth}{!}{
-\begin{tabular}{lcc ccccc}
+\begin{tabular}{lcc cccc}
 \toprule
- & \multicolumn{5}{c}{\textbf{Query Length}} \\
- \cmidrule(lr){2-6}
-{\bf Model} & {\bf 1} & {\bf 2} & {\bf 3}   & {\bf 4}  & {\bf 5} \\
+ & \multicolumn{4}{c}{\textbf{Query Length}} \\
+ \cmidrule(lr){2-5}
+{\bf Model} & {\bf 1} (11) & {\bf 2} (90) & {\bf 3} (135)  & {\bf 4} (14) \\
 \toprule
-\textbf{BM25+RM3} & 0.3889 & 0.2975 & 0.2760 & 0.3089 & 0.2972 \\
+\textbf{BM25+RM3} & 0.3889 & 0.2977 & 0.2789 & 0.2750 \\
 \midrule
-\textbf{$ \textrm{BERT}(\textrm{MB}) $} & 0.4145 & 0.3624 & 0.3230 & 0.3681 & 0.4172 \\
+\textbf{$ \textrm{BERT}(\textrm{MB}) $} & 0.4145$^{\dagger}$ & 0.3589$^{\dagger}$ & 0.3269$^{\dagger}$ & 0.3470$^{\dagger}$ \\
 \midrule
-\textbf{$ \textrm{BERT}(\textrm{CAR}) $} & 0.3978 & 0.3112 & 0.2871 & 0.3288 & 0.2844 \\
+\textbf{$ \textrm{BERT}(\textrm{CAR}) $} & 0.3978 & 0.3107$^{\dagger}$ & 0.2912$^{\dagger}$ & 0.2836 \\
 \midrule
-\textbf{$ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.3997 & 0.3117 & 0.2872 & 0.3289 & 0.2871 \\
+\textbf{$ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.3997 & 0.3111$^{\dagger}$ & 0.2913$^{\dagger}$ & 0.2837 \\
 \midrule
-\textbf{$ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.4202 & 0.3603 & 0.3296 & 0.3757 & 0.4926  \\
+\textbf{$ \textrm{BERT}(\textrm{CAR}\rightarrow\textrm{MB}) $} & 0.4125 & 0.3600$^{\dagger}$ & 0.3323$^{\dagger}$ & 0.3630$^{\dagger}$ \\
 \midrule
-\textbf{$ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & 0.4253 & 0.3885 & 0.3480 & 0.4077 & 0.5627 \\
+\textbf{$ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $} & 0.4250 & 0.3865$^{\dagger}$ & 0.3505$^{\dagger}$ & 0.4035$^{\dagger}$ \\
 \bottomrule
 \end{tabular}
 }
@@ -330,11 +398,11 @@ Manual inspection of top scoring sentences for \texttt{flavr savr tomato} show t
 
 To investigate the ability of BERT to exploit context-aware representations of the queries, we study the trend of effectiveness across increasing query lengths on Robust04.
 We conjecture that longer queries would give our models richer context to work with, therefore increasing retrieval effectiveness.
-To this end, we categorize the 250 queries from the Robust Track by the number of tokens, and calculate the average AP per query length, i.e: from 1 to 5.
+To this end, we categorize the 250 titles from the Robust Track by the number of tokens (excluding stopwords), and calculate the average AP per query length, i.e: from 1 to 5.
 The majority of the queries (56\%) are composed of three tokens, and only a small fraction (5\%) have either only a single token or five tokens.
 This approach is somewhat limited by the narrow range of query lengths, but still gives insight into the effect of query length on each model's effectiveness.
 
-The average AP per query length for each model is shown in Table \ref{tab:results-query-length}.
+The average AP per query length for each model and the number of titles in each category is shown in Table \ref{tab:results-query-length}.
 We only report the best results for each model considering any number of top sentences.
 The average AP for the BM25+RM3 baseline drops by 24\% from a single token query to a query with five tokens, indicating that exact term-matching is more effective for fewer number of terms.
 Furthermore, the improvements introduced by our models follow a similar pattern to when they are evaluated over all queries as shown in Table \ref{tab:results}, with $ \textrm{BERT}(\textrm{MS MARCO}\rightarrow\textrm{MB}) $ being the best model across all query lengths.
@@ -356,28 +424,37 @@ Nevertheless, the effectiveness of the best model  $ \textrm{BERT}(\textrm{MS MA
  \cmidrule(lr){2-4}
 {\bf Model} & {\bf AP} & {\bf P@20} & {\bf NDCG@20}  \\
 \toprule
-\textbf{$ \textrm{BERT}(\textrm{CAR}^{\star}) $} & 0.3030 & 0.3980 & 0.4520 \\
+\textbf{$ \textrm{BERT}(\textrm{MB}) $} & 0.3435$^{\dagger}$ & 0.4386$^{\dagger}$ & 0.4964$^{\dagger}$ \\
 \midrule
-\textbf{$ \textrm{BERT}(\textrm{MS MARCO}^{\star}) $} & 0.3300 & 0.4309 & 0.4906 \\
+\textbf{$ \textrm{BERT}(\textrm{CAR}) $} & 0.3025$^{\dagger}$ & 0.3970$^{\dagger}$ & 0.4509 \\
+\midrule
+\textbf{$ \textrm{BERT}(\textrm{CAR}^{\star}) $} & 0.3030$^{\dagger}$ & 0.3980$^{\dagger}$ & 0.4520 \\
+\midrule
+\textbf{$ \textrm{BERT}(\textrm{MS MARCO}) $} & 0.3028$^{\dagger}$ & 0.3964$^{\dagger}$ & 0.4512 \\
+\midrule
+\textbf{$ \textrm{BERT}(\textrm{MS MARCO}^{\star}) $} & 0.3300$^{\dagger}$ & 0.4309$^{\dagger}$ & 0.4906$^{\dagger}$ \\
 \bottomrule
 \end{tabular}
 }
-\caption{Ranking effectiveness on shortened MS MARCO and CAR evaluated on Robust04.}
+\caption{Ranking effectiveness on shortened MS MARCO and CAR evaluated on Robust04. \myworries{repeating other results for comparison}}
 \label{tab:results-chopped}
 \end{table*}
 
+\myworries{Updated table}
+
 %Add also for Core*!
-It is interesting to note that fine-tuning on MS MARCO or CAR alone results in marginal improvements over the baseline, if any, as shown in the second and third blocks of Table \ref{tab:results}.
+It is interesting to note that fine-tuning on MS MARCO or CAR alone results in marginal improvements over the baseline, if any, as shown in the second and third blocks of Table \ref{tab:results-robust04}.
 Considering any number of top scoring sentences, $ \textrm{BERT}(\textrm{CAR}) $ and $ \textrm{BERT}(\textrm{MS MARCO}) $ both outperform the BM25+RM3 baseline by 1.2 AP on Robust04 with similar gains in P@20 and NDCG@20.
 Although still statistically significant, these improvements are much lower than those gained with fine-tuning on MB (5 AP).
 Moreover, both models in fact perform worse than the baseline on both Core17 and Core18.
 
-We attribute this observation to the length mismatch between the training and evaluation text lengths.
+We conjecture that this observation may be due to the length mismatch between the training and evaluation text lengths.
 After splitting documents into chunks that fit the maximum input that BERT can handle, the average number of tokens in Robust04, Core17 and Core17 sentences is 19, which is fairly close to the the average number of tokens in tweets (15).
-However, MS MARCO and CAR passages are much longer.
+However, MS MARCO (56 tokens) and CAR (\myworries{X} tokens) passages are much longer.
 It is possible that the difference in document length may be causing issues with relevance transfer across domains.
 
 To validate this hypothesis, we divide MS MARCO and CAR passages into chunks the same size as Robust04 sentences, and train BERT for relevance prediction.
+\myworries{We re-tune the weights in Equation~\ref{eq1} to maximize AP}
 The ranking effectiveness of $ \textrm{BERT}(\textrm{CAR}^{\star}) $ and $ \textrm{BERT}(\textrm{MS MARCO}^{\star}) $ trained on the shortened data is shown in Table \ref{tab:results-chopped}.
 For $ \textrm{BERT}(\textrm{CAR}^{\star}) $, AP only increases by 0.5 upon fine-tuning on the shortened data, and is still not comparable to $ \textrm{BERT}(\textrm{MB}) $.
 However, the change in document length results in an increase of almost 3 AP for $ \textrm{BERT}(\textrm{MS MARCO}^{\star}) $, thus approaching $ \textrm{BERT}(\textrm{MB}) $ in all metrics.
@@ -443,6 +520,8 @@ From this finding we infer that while comparable document length is an important
 \caption{Attention visualizations of $ \textrm{BERT} (\textrm{MS MARCO}\rightarrow\textrm{MB}) $ for a sentence with a high BERT score for the query \texttt{international art crime}.}
 \label{fig:attention}
 \end{figure}
+
+\myworries{We re-tune the weights in Equation~\ref{eq1} to maximize AP}
 
 To isolate the contribution of BERT, we filter sentences in Robust04 that don't contain any of the query terms.
 This essentially eliminates the impact of exact matching on the sentence relevance scores, allowing us to verify whether BERT successfully leverages semantic cues in the documents.

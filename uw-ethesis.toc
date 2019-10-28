@@ -6,19 +6,16 @@
 \contentsline {chapter}{\numberline {2}Background and Related Work}{6}{chapter.2}
 \contentsline {section}{\numberline {2.1}Document Retrieval}{6}{section.2.1}
 \contentsline {section}{\numberline {2.2}Pretrained Language Models}{7}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Feature-based Approaches}{7}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Fine-tuning Approaches}{8}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Feature-Based Approaches}{7}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Fine-Tuning Approaches}{8}{subsection.2.2.2}
 \contentsline {section}{\numberline {2.3}Machine-Learned Ranking Models}{10}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Learning to Rank Methods}{10}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}Neural Document Retrieval}{11}{subsection.2.3.2}
-\contentsline {subsubsection}{Representation-based Models}{11}{section*.8}
-\contentsline {subsubsection}{Interaction-based Models}{12}{section*.9}
+\contentsline {subsubsection}{Representation-Based Models}{11}{section*.8}
+\contentsline {subsubsection}{Interaction-Based Models}{12}{section*.9}
 \contentsline {subsubsection}{Contextualized Language Models}{13}{section*.10}
 \contentsline {subsection}{\numberline {2.3.3}Comparison of Non-neural and Neural Methods}{15}{subsection.2.3.3}
 \contentsline {section}{\numberline {2.4}Evaluation Metrics}{16}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Mean Average Precision (MAP)}{16}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Precision at k (P@k)}{17}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}Normalized Discounted Cumulative Gain (NDCG@k)}{17}{subsection.2.4.3}
 \contentsline {chapter}{\numberline {3}Datasets}{19}{chapter.3}
 \contentsline {section}{\numberline {3.1}Datasets 1}{19}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}TREC Microblog (MB)}{20}{subsection.3.1.1}
@@ -42,14 +39,13 @@
 \contentsline {section}{\numberline {5.3}Integration}{32}{section.5.3}
 \contentsline {section}{\numberline {5.4}Replicability and Reproducibility}{33}{section.5.4}
 \contentsline {chapter}{\numberline {6}Experimental Results}{35}{chapter.6}
-\contentsline {section}{\numberline {6.1}Results and Analyses}{35}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Effect of Training Data}{37}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Number of Sentences}{38}{subsection.6.1.2}
-\contentsline {subsection}{\numberline {6.1.3}Comparison to Other Ranking Models}{39}{subsection.6.1.3}
-\contentsline {subsection}{\numberline {6.1.4}Per-Query Analysis}{39}{subsection.6.1.4}
-\contentsline {subsection}{\numberline {6.1.5}Effect of Length}{41}{subsection.6.1.5}
-\contentsline {subsubsection}{Query Length}{41}{section*.15}
-\contentsline {subsubsection}{Document Length}{42}{section*.16}
-\contentsline {subsection}{\numberline {6.1.6}Semantic Matching}{43}{subsection.6.1.6}
+\contentsline {section}{\numberline {6.1}Effect of Training Data}{37}{section.6.1}
+\contentsline {section}{\numberline {6.2}Number of Sentences}{38}{section.6.2}
+\contentsline {section}{\numberline {6.3}Comparison to Other Ranking Models}{39}{section.6.3}
+\contentsline {section}{\numberline {6.4}Per-Query Analysis}{39}{section.6.4}
+\contentsline {section}{\numberline {6.5}Effect of Length}{41}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Query Length}{41}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Document Length}{42}{subsection.6.5.2}
+\contentsline {section}{\numberline {6.6}Semantic Matching}{43}{section.6.6}
 \contentsline {chapter}{\numberline {7}Conclusion and Future Work}{46}{chapter.7}
-\contentsline {chapter}{\textbf {References}}{47}{section*.17}
+\contentsline {chapter}{\textbf {References}}{47}{section*.15}
