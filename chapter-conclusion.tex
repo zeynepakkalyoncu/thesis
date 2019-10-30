@@ -4,15 +4,22 @@
 \label{ch:conclusion}
 
 In this thesis, we propose two innovations to successfully apply BERT to document retrieval with significant improvements on three TREC newswire collections:\ Robust04, Core17 and Core18.
-First, to overcome the maximum input length restriction imposed by BERT, we focus on integrating sentence-level evidence to re-rank newswire documents.
-This approach requires sentence-level relevance labels to train BERT for relevance prediction; however, relevance judgements in most test collections are provided only at the document level.
-We address this challenge by leveraging sentence-level and passage-level relevance judgements fortuitously available in out-of-domain collections.
+To overcome the maximum input length restriction imposed by BERT, we focus on integrating sentence-level evidence to re-rank newswire documents.
+This approach requires sentence-level relevance labels to train BERT for relevance prediction; however, relevance judgments in most test collections are provided only at the document level.
+We address this challenge by leveraging sentence-level and passage-level relevance judgments fortuitously available in out-of-domain collections.
 We fine-tune BERT with the goal of capturing cross-domain notions of relevance, which can be used to re-rank the longer documents in the newswire collections.
 
 We show that relevance models learned with BERT can indeed be transferred across domains in a straightforward manner.
 Combined with sentence-level relevance modeling, our simple model achieves state-of-the-art results across all three test collections.
 Furthermore, our results suggest that judging only a small number of most relevant sentences in a document may be sufficient for effective document re-ranking.
 Through our analyses we investigate the successes and failures of BERT in document re-ranking with respect to training data, query and document length, and semantic matching.
+
 Our findings illustrate the relevance matching power of deep semantic information learned by BERT.
 However, the analyses conducted in this thesis do not come close to fully understanding the effect of BERT in relevance matching.
-A promising future direction based on our findings includes extended analyses of cross-domain transfer transfer and comparison of exact and semantic matching signals involved in re-ranking documents.
+In future work, we aim to delve into a deeper study of BERT attention by visualizing multiple attention heads across multiple layers for all query terms.
+By examining the entropy of attention distribution for different models, we hope to gain a better understanding of the matching tendencies of BERT.
+Moreover, our experiments suggest that both exact and semantic matching signals are indispensable for effective document ranking; ignoring either component leads to a notable decrease in effectiveness.
+%We believe cross-domain relevance transfer works 
+To further investigate the contribution of semantic matching with BERT, we intend to repeat our ranking experiments by relying solely on sentence scores in the future.
+Finally, we find that, in order to successfully transfer notions of relevance across domains, the sequence length of fine-tuning and evaluation data must be similar.
+A promising future direction based on our findings includes extending our efforts to other domains for a more thorough study of factors that influence cross-domain relevance transfer.

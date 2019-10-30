@@ -6,11 +6,10 @@
 \contentsline {table}{\numberline {3.3}{\ignorespaces Statistics about the CAR dataset.}}{22}{table.3.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Ranking effectiveness on Robust04.}}{35}{table.6.1}
-\contentsline {table}{\numberline {6.2}{\ignorespaces Ranking effectiveness on Core17.}}{36}{table.6.2}
-\contentsline {table}{\numberline {6.3}{\ignorespaces Ranking effectiveness on Core18.}}{36}{table.6.3}
-\contentsline {table}{\numberline {6.4}{\ignorespaces Average AP with respect to query length on Robust04.}}{41}{table.6.4}
-\contentsline {table}{\numberline {6.5}{\ignorespaces Ranking effectiveness on shortened MS MARCO and CAR evaluated on Robust04. \leavevmode {\color {red}repeating other results for comparison}}}{42}{table.6.5}
-\contentsline {table}{\numberline {6.6}{\ignorespaces Retrieval effectiveness on pruned Robust04.}}{43}{table.6.6}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Ranking effectiveness on Robust04.}}{34}{table.5.1}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Ranking effectiveness on Core17.}}{35}{table.5.2}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Ranking effectiveness on Core18.}}{35}{table.5.3}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Average AP with respect to query length on Robust04.}}{40}{table.5.4}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Ranking effectiveness on Robust04 with the shortened MS MARCO and CAR models indicated with $\star $.}}{41}{table.5.5}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Retrieval effectiveness on pruned Robust04.}}{44}{table.5.6}
 \addvspace {10\p@ }

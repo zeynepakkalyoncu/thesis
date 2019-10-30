@@ -17,6 +17,13 @@ Rie~Kubota Ando and Tong Zhang.
   and unlabeled data.
 \newblock {\em Journal of Machine Learning Research}, 6(Nov):1817--1853, 2005.
 
+\bibitem{Armstrong_etal_CIKM2009}
+Timothy~G. Armstrong, Alistair Moffat, William Webber, and Justin Zobel.
+\newblock Improvements that don't add up:\ ad-hoc retrieval results since 1998.
+\newblock In {\em Proceedings of the 18th International Conference on
+  Information and Knowledge Management (CIKM 2009)}, pages 601--610, Hong Kong,
+  China, 2009.
+
 \bibitem{Asadi_Lin_SIGIR2013}
 N.~Asadi and J.~Lin.
 \newblock Effectiveness/efficiency tradeoffs for candidate generation in
@@ -176,6 +183,11 @@ Diederik~P. Kingma and Jimmy Ba.
 \newblock Adam:\ {A} method for stochastic optimization.
 \newblock {\em arXiv:1412.6980}, 2014.
 
+\bibitem{DBLP:journals/corr/abs-1901-07291}
+Guillaume Lample and Alexis Conneau.
+\newblock Cross-lingual language model pretraining.
+\newblock {\em CoRR}, abs/1901.07291, 2019.
+
 \bibitem{lavrenko2017relevance}
 Victor Lavrenko and W~Bruce Croft.
 \newblock Relevance-based language models.
@@ -222,6 +234,12 @@ Tie-Yan Liu.
 \newblock {\em Learning to rank for information retrieval}.
 \newblock Springer Science \& Business Media, 2011.
 
+\bibitem{DBLP:journals/corr/abs-1907-11692}
+Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer
+  Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov.
+\newblock Roberta: {A} robustly optimized {BERT} pretraining approach.
+\newblock {\em CoRR}, abs/1907.11692, 2019.
+
 \bibitem{macavaney2019cedr}
 Sean MacAvaney, Andrew Yates, Arman Cohan, and Nazli Goharian.
 \newblock {CEDR:} contextualized embeddings for document ranking.
@@ -238,6 +256,11 @@ Sean MacAvaney, Andrew Yates, Arman Cohan, and Nazli Goharian.
 Christopher Manning, Prabhakar Raghavan, and Hinrich Sch{\"u}tze.
 \newblock Introduction to information retrieval.
 \newblock {\em Natural Language Engineering}, 16(1):100--103, 2010.
+
+\bibitem{Manning:2008:IIR:1394399}
+Christopher~D. Manning, Prabhakar Raghavan, and Hinrich Sch\"{u}tze.
+\newblock {\em Introduction to Information Retrieval}.
+\newblock Cambridge University Press, New York, NY, USA, 2008.
 
 \bibitem{melamud2016context2vec}
 Oren Melamud, Jacob Goldberger, and Ido Dagan.
@@ -416,6 +439,18 @@ Wei Yang, Yuqing Xie, Aileen Lin, Xingyu Li, Luchen Tan, Kun Xiong, Ming Li,
 Wei Yang, Haotian Zhang, and Jimmy Lin.
 \newblock Simple applications of bert for ad hoc document retrieval.
 \newblock {\em arXiv preprint arXiv:1903.10972}, 2019.
+
+\bibitem{yilmaz2019applying}
+Zeynep~Akkalyoncu Yilmaz, Shengjin Wang, Wei Yang, Haotian Zhang, and Jimmy
+  Lin.
+\newblock Applying bert to document retrieval with birch.
+\newblock In {\em Proceedings of the 2019 Conference on Empirical Methods in
+  Natural Language Processing: System Demonstrations}, 2019.
+
+\bibitem{yilmaz2019cross}
+Zeynep~Akkalyoncu Yilmaz, Wei Yang, Haotian Zhang, and Jimmy Lin.
+\newblock Cross-domain modeling of sentence-level evidence for document
+  retrieval.
 
 \bibitem{DBLP:journals/corr/ZamaniC17}
 Hamed Zamani and W.~Bruce Croft.

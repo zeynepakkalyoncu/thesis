@@ -28,11 +28,11 @@
 \section{Document Retrieval}
 \label{non-neural-retrieval}
 
-Traditional document retrieval techniques have evolved from the simple Boolean model to probabilistic models such as the Binary Independence Model over time to increase matching effectiveness.
-While these methods perform reasonably well for consistently short text like titles or abstracts, they have fallen short with the development of modern text collections with highly variable lengths.
-% like the TREC collections.
-To this end, Okapi BM25 (commonly dubbed BM25) was developed as a bag-of-words ranking function that is sensitive to both term frequency and document length without introducing too many additional parameters~\cite{jones2000probabilistic}.
+Traditional document retrieval techniques have evolved from the simple Boolean model to probabilistic models such as the Binary Independence Model (BIM) over time to increase matching effectiveness.
+While the BIM performs reasonably well for consistently short text like titles or abstracts, the development of modern text collections with highly variable lengths raised the necessity for a model sensitive to both term frequency and document length~\cite{Manning:2008:IIR:1394399}.
+Building on the BIM, Okapi BM25 (commonly dubbed BM25) weighting was introduced to address the need for such a probabilistic model without introducing too many additional parameters~\cite{jones2000probabilistic}.
 %BM25 implementations define two parameters for term frequency saturation and field-length normalization, respectively.
+BM25 combines inverse document frequency, term frequency, document length and query term frequency to estimate relevance.
 Intuitively, BM25 pays more attention to the rarer terms in a query by increasing their term weight while dampening the matching signal for words that occur too frequently in a document with a term saturation mechanism.
 Term weights are also normalized with respect to the document length.
 
@@ -60,16 +60,19 @@ A panoply of models have been proposed as re-rankers, including neural models~\c
 Natural language processing tasks have traditionally been addressed with supervised learning on task-specific datasets.
 Due to the relatively small size of these datasets, training deep neural networks in this manner introduces the risk of overfitting on the training data, and the lack of generalization across different datasets.
 With the increasing availability of large corpora, pretrained deep language models have been rapidly gaining traction among NLP researchers.
-Language model pretraining has proven extremely effective on many natural language processing tasks ranging from machine translation to reading comprehension.
+Language model pretraining has proven extremely effective on many natural language processing tasks ranging from machine translation~\cite{vaswani2017attention, DBLP:journals/corr/abs-1901-07291} to reading comprehension~\cite{DBLP:journals/corr/abs-1907-11692}.
 %\myworries{Conditional probabilities for LM, equation?}
 The underlying assumption in applying pretrained language models to downstream NLP tasks is that language modeling inherently captures many facets of language such as resolving long-term dependencies~\cite{DBLP:journals/corr/LinzenDG16} and hierarchical patterns~\cite{DBLP:journals/corr/abs-1803-11138}.
 %In general, these models work by LSTM-based or transformer-based language models on large corpora
-In general, pretrained language models can be applied to downstream tasks in one of two ways: feature-based and fine-tuning.
+In general, pretrained language models can be applied to downstream tasks in one of two ways: feature extraction and fine-tuning.
 
-\subsection{Feature-Based Approaches}
+\subsection{Feature Extraction}
 
-The feature-based approach, such as ELMo~\cite{peters2018deep}, employs deep pretrained representations learned with language modeling as additional features in task-specific architectures.
-This approach has the advantage of being easily incorporated into existing models with significant improvements in performance.
+To extract features from a pretrained language model, the output layer is removed, and used directly as a feature vector as part of a separate architecture.
+Models based on this approach employ deep pretrained representations learned with language modeling as additional features in task-specific architectures.
+This feature-based approach has the advantage of being easily incorporated into existing models with significant improvements in performance.
+
+Pretrained word embeddings such as word2vec \cite{mikolov2013distributed}, GloVe \cite{pennington2014glove}, and fastText \cite{bojanowski2017enriching} represent the most popular application of widely applicable learned representations in NLP.
 ELMo~\cite{peters2018deep} extends traditional word embeddings to learn context-sensitive features with a deep language model.
 Therefore, instead of taking the final layer of a deep LSTM (Long Short-Term Memory) as a word embedding, ELMo embeddings are learned as a function of \textit{all} the internal states of a bidirectional deep LSTM language model.
 %\myworries{Describe BiLSTM?}
@@ -80,10 +83,10 @@ Peters at al.~\cite{peters2018deep} show that integrating deep contextualized em
 
 \subsection{Fine-Tuning Approaches}
 
-The fine-tuning approach is inspired by the growing trend in transfer learning.
-These models are first pretrained with respect to a language modeling objective, and then applied to downstream NLP tasks by ``freezing'' their last layer, and ``fine-tuning'' on external data for the specific task with minimal task-specific parameters.
+The fine-tuning approach is inspired by the growing trend of transfer learning from language models~\cite{devlin2018bert}.
+In this approach, a model architecture is first pretrained with respect to a language modeling objective, and then applied to downstream NLP tasks by fine-tuning on external data for the specific task with minimal task-specific parameters.
+Unlike feature extraction, the weights of the original model are also tuned while fine-tuning for the given task.
 This approach has been shown to greatly boosts the performance of many NLP tasks.
-%~\cite{}.
 
 Radford et al.~\cite{radford2019language} claim that this phenomenon occurs because language models inherently capture many NLP tasks without explicit supervision.
 %\myworries{GPT to GPT2}
@@ -167,9 +170,8 @@ The high-level differences between these architectures can be observed in Figure
 
 \subsubsection{Representation-Based Models}
 
-Representation-based approaches first construct a representation from the input vectors for the query and document with a deep neural network, and then perform matching between these representations (see  Figure \ref{fig:deep_matching}).
-One set of such models loans the concept of word embeddings from natural language processing to represent query and documents.
-This paradigm represents words as low-dimensional continuous feature vectors that embody hidden semantic or syntactic dependencies.
+Representation-based approaches first construct a representation from the input vectors for the query and document with a deep neural network, and then perform matching between these representations (see  Figure \ref{fig:deep_matching}, left).
+Some representation-based retrieval models represent words as low-dimensional continuous feature vectors that embody hidden semantic or syntactic dependencies with word embeddings.
 Some of the most popular pretrained English word embeddings include word2vec~\cite{mikolov2013distributed} trained on  Google News, GloVe~\cite{pennington2014glove} on Common Crawl, Wikipedia and Twitter, and fastText~\cite{bojanowski2017enriching} on English webcrawl and Wikipedia.
 These word embeddings can be learned from scratch for a specific corpus or pretrained over large corpora and reused with significant improvements over the former option~\cite{turian2010word}.
 There has also been some effort in learning word embeddings to directly capture relevance matching~\cite{DBLP:journals/corr/ZamaniC17, ganguly2015word} rather than linguistic features as in word2vec~\cite{mikolov2013distributed} or GloVe~\cite{pennington2014glove}.
@@ -244,7 +246,7 @@ For ad hoc document ranking, they explore using BERT both as representation-base
 However, they find that their re-ranking TREC Web Track documents with BERT performs worse than Conv-KNRM and feature-based learning-to-rank models trained on user clicks in Bing's search log.
 %"In comparison, TREC ad hoc tasks require different signals other than surrounding context: pre-training on user clicks is more effective than on surrounding context based signals."
 
-\subsection{Comparison of Non-neural and Neural Methods}
+\subsection{Comparison of Non-Neural and Neural Methods}
 
 Despite growing interest in neural models for document ranking, researchers have recently voiced concern as to whether or not they have truly contributed to progress~\cite{lin2019neural}, at least in the absence of large amounts of behavioral log data only available to search engine companies.
 Some of the models discussed in this section are designed for the web search task where a variety of other signals are available, such as large amounts of log data and the webgraph.
@@ -286,12 +288,16 @@ Excluding runs that make use of past labels or require human intervention, the T
 %\myworries{describe...}
 %\myworries{Others?}
 To our knowledge, Neural Vector Spaces for Unsupervised Information Retrieval by Van Gysel et al.~\cite{Gysel:2018:NVS:3211967.3196826} represents the only major neural model evaluated on Core17.
-While their approach has the advantage of not requiring supervised relevance judgements, their reported results are quite low.
+While their approach has the advantage of not requiring supervised relevance judgments, their reported results are quite low.
 Otherwise, evaluation of neural retrieval methods on both Core17 and Core18 has been limited.
 
 \section{Evaluation Metrics}
 
-Evaluation in information retrieval relies on the distinction between ``relevant'' and ``irrelevant'' documents with respect to an information need as expressed by a query.
+Comparisons to weak baselines have pervaded the information retrieval literature for a long time.~\cite{Armstrong_etal_CIKM2009, lin2019neural}
+In this thesis, we make it a priority to systematically compare with competitive baselines to demonstrate the true merits of our approach.
+For this reason, we introduce the metrics that we evaluate our baseline and models with in this section.
+
+Evaluation in information retrieval relies on the distinction between ``relevant'' and ``non-relevant'' documents with respect to an information need as expressed by a query.
 A number of automatic evaluation metrics has been formalized specifically for ranking tasks, some of which are described below.
 
 %The size of most document collections makes it infeasible for humans to manually judge the relevance of all documents.
@@ -342,7 +348,7 @@ NDCG at $ k $ measures DCG for the top $ k $ documents, normalizing by the highe
 NDCG is uniquely useful in applications with a non-binary notion of relevance, e.g: a spectrum of relevance.
 This makes NDCG comparable across different queries:\
 The NDCG values for all queries can be averaged to reliably evaluate the effectiveness of a ranking algorithm for various information needs across a collection.
-Given a set of queries $ q_j \in Q $ and relevance judgements $ R_{dj} $ for a document $ d $:\
+Given a set of queries $ q_j \in Q $ and relevance judgments $ R_{dj} $ for a document $ d $:\
 
 \begin{equation}
 NDCG(Q, k) = \frac{1}{|Q|} \sum ^{|Q|} _{j = 1} Z_{kj} \sum ^k _{m = 1} \frac{2^{R_{jm}} - 1}{log_2 (1 + m)'}

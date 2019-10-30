@@ -26,12 +26,12 @@
 \providecommand\@istfilename[1]{}
 \@istfilename{uw-ethesis.ist}
 \@glsorder{word}
-\@writefile{toc}{\contentsline {chapter}{List of Tables}{vi}{section*.2}}
+\@writefile{toc}{\contentsline {chapter}{List of Tables}{viii}{section*.2}}
 \citation{devlin2018bert}
 \citation{guo2017drmm}
 \citation{Yang_etal_SIGIR2019}
 \citation{devlin2018bert}
-\@writefile{toc}{\contentsline {chapter}{List of Figures}{vii}{section*.4}}
+\@writefile{toc}{\contentsline {chapter}{List of Figures}{ix}{section*.4}}
 \citation{zhao2010term}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}}
 \@writefile{lof}{\addvspace {10\p@ }}
@@ -46,11 +46,13 @@
 \citation{radford2019language}
 \citation{devlin2018bert}
 \citation{guo2016deep}
-\citation{yang2019simple}
+\citation{yilmaz2019cross}
+\citation{yilmaz2019applying}
 \citation{nogueira2019passage}
 \citation{Cormack:2009:RRF:1571941.1572114}
 \@writefile{toc}{\contentsline {section}{\numberline {1.1}Contributions}{4}{section.1.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Thesis Organization}{4}{section.1.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Thesis Organization}{5}{section.1.2}}
+\citation{Manning:2008:IIR:1394399}
 \citation{jones2000probabilistic}
 \citation{lavrenko2017relevance}
 \citation{lin2019neural}
@@ -64,9 +66,17 @@
 \citation{lingpeng2004document}
 \citation{lee2001re}
 \citation{balinski2005re}
+\citation{vaswani2017attention}
+\citation{DBLP:journals/corr/abs-1901-07291}
+\citation{DBLP:journals/corr/abs-1907-11692}
 \citation{DBLP:journals/corr/LinzenDG16}
 \citation{DBLP:journals/corr/abs-1803-11138}
-\citation{peters2018deep}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Pretrained Language Models}{7}{section.2.2}}
+\newlabel{lm}{{2.2}{7}{Pretrained Language Models}{section.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Feature Extraction}{7}{subsection.2.2.1}}
+\citation{mikolov2013distributed}
+\citation{pennington2014glove}
+\citation{bojanowski2017enriching}
 \citation{peters2018deep}
 \citation{melamud2016context2vec}
 \citation{belinkov2017neural}
@@ -74,9 +84,7 @@
 \citation{peters2018deep}
 \citation{rajpurkar2016squad}
 \citation{socher2013recursive}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Pretrained Language Models}{7}{section.2.2}}
-\newlabel{lm}{{2.2}{7}{Pretrained Language Models}{section.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Feature-Based Approaches}{7}{subsection.2.2.1}}
+\citation{devlin2018bert}
 \citation{radford2019language}
 \citation{wang2018glue}
 \citation{vaswani2017attention}
@@ -117,17 +125,17 @@
 \newlabel{fig:deep_matching}{{2.2}{11}{The two types of deep matching architectures: representation-focused (a) and interaction-focused (b). Adapted from Guo et al.~\cite {guo2017drmm}}{figure.2.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Neural Document Retrieval}{11}{subsection.2.3.2}}
 \newlabel{neural-retrieval}{{2.3.2}{11}{Neural Document Retrieval}{subsection.2.3.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Representation-Based Models}{11}{section*.8}}
 \citation{huang2013learning}
 \citation{shen2014learning}
 \citation{shen2014learning}
 \citation{guo2017drmm}
 \citation{xiong2017knrm}
 \citation{mitra2017learning}
+\@writefile{toc}{\contentsline {subsubsection}{Representation-Based Models}{12}{section*.8}}
+\@writefile{toc}{\contentsline {subsubsection}{Interaction-Based Models}{12}{section*.9}}
 \citation{guo2017drmm}
 \citation{xiong2017knrm}
 \citation{mitra2017learning}
-\@writefile{toc}{\contentsline {subsubsection}{Interaction-Based Models}{12}{section*.9}}
 \@writefile{toc}{\contentsline {subsubsection}{Contextualized Language Models}{13}{section*.10}}
 \citation{nogueira2019passage}
 \citation{Padigela:1905.01758:2019}
@@ -158,204 +166,206 @@
 \citation{zamani2018neural}
 \citation{Cormack:2009:RRF:1571941.1572114}
 \citation{lin2019neural}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Comparison of Non-neural and Neural Methods}{15}{subsection.2.3.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Visualization of best AP scores on Robust04 for 108 papers based on non-neural and neural approaches. Adapted from Yang et al.\nobreakspace  {}\cite  {Yang_etal_SIGIR2019}.}}{15}{figure.2.3}}
-\newlabel{fig:neural_robust04}{{2.3}{15}{Visualization of best AP scores on Robust04 for 108 papers based on non-neural and neural approaches. Adapted from Yang et al.~\cite {Yang_etal_SIGIR2019}}{figure.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Comparison of Non-Neural and Neural Methods}{15}{subsection.2.3.3}}
 \citation{allan2017trec}
 \citation{core2018trec}
 \citation{Gysel:2018:NVS:3211967.3196826}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Evaluation Metrics}{16}{section.2.4}}
+\citation{Armstrong_etal_CIKM2009}
+\citation{lin2019neural}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Visualization of best AP scores on Robust04 for 108 papers based on non-neural and neural approaches. Adapted from Yang et al.\nobreakspace  {}\cite  {Yang_etal_SIGIR2019}.}}{16}{figure.2.3}}
+\newlabel{fig:neural_robust04}{{2.3}{16}{Visualization of best AP scores on Robust04 for 108 papers based on non-neural and neural approaches. Adapted from Yang et al.~\cite {Yang_etal_SIGIR2019}}{figure.2.3}{}}
 \citation{manning2010introduction}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Evaluation Metrics}{17}{section.2.4}}
 \citation{ounisoverview}
 \citation{nguyen2016msmarco}
 \citation{dietz2017trec}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Datasets}{19}{chapter.3}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Cross-Domain Relevance Transfer with BERT}{19}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Datasets 1}{19}{section.3.1}}
-\newlabel{mb-example}{{3.1.1}{19}{TREC Microblog (MB)}{subsection.3.1.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces A sample relevant query and tweet pair from the MB dataset.}}{19}{figure.3.1}}
+\newlabel{ch:model}{{3}{19}{Cross-Domain Relevance Transfer with BERT}{chapter.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Datasets}{19}{section.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Fine-Tuning}{19}{subsection.3.1.1}}
 \citation{rao2019tweet}
 \citation{ounisoverview}
-\citation{nguyen2016msmarco}
 \@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Statistics about the MB dataset.}}{20}{table.3.1}}
 \newlabel{tab:mb-stats}{{3.1}{20}{Statistics about the MB dataset}{table.3.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}TREC Microblog (MB)}{20}{subsection.3.1.1}}
-\citation{nogueira2019passage}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}MicroSoft MAchine Reading Comprehension (MS MARCO)}{21}{subsection.3.1.2}}
+\@writefile{toc}{\contentsline {subsubsection}{TREC Microblog (MB)}{20}{section*.11}}
+\newlabel{mb-example}{{3.1.1}{20}{TREC Microblog (MB)}{section*.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces A sample relevant query and tweet pair from the MB dataset.}}{20}{figure.3.1}}
+\citation{nguyen2016msmarco}
+\@writefile{toc}{\contentsline {subsubsection}{MicroSoft MAchine Reading Comprehension (MS MARCO)}{21}{section*.12}}
 \@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Statistics about the MS MARCO dataset.}}{21}{table.3.2}}
 \newlabel{tab:marco-stats}{{3.2}{21}{Statistics about the MS MARCO dataset}{table.3.2}{}}
-\newlabel{marco-example}{{3.1.2}{21}{MicroSoft MAchine Reading Comprehension (MS MARCO)}{table.3.2}{}}
+\newlabel{marco-example}{{3.1.1}{21}{MicroSoft MAchine Reading Comprehension (MS MARCO)}{table.3.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces A sample relevant and non-relevant passage pair for a query from the MB dataset}}{21}{figure.3.2}}
+\citation{nogueira2019passage}
 \citation{dietz2017trec}
 \citation{nogueira2019passage}
+\@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces Statistics about the CAR dataset.}}{22}{table.3.3}}
+\newlabel{tab:car-stats}{{3.3}{22}{Statistics about the CAR dataset}{table.3.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{TREC Complex Answer Retrieval (CAR)}{22}{section*.13}}
 \citation{Voorhees_TREC2004_robust}
 \citation{allan2017trec}
 \citation{core2018trec}
-\@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces Statistics about the CAR dataset.}}{22}{table.3.3}}
-\newlabel{tab:car-stats}{{3.3}{22}{Statistics about the CAR dataset}{table.3.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}TREC Complex Answer Retrieval (CAR)}{22}{subsection.3.1.3}}
 \citation{Voorhees_TREC2004_robust}
-\citation{guo2016deep}
-\citation{xiong2017knrm}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Datasets 2}{23}{section.3.2}}
-\@writefile{toc}{\contentsline {subsubsection}{Robust04}{23}{section*.11}}
-\@writefile{toc}{\contentsline {subsubsection}{Core17 \& Core18}{23}{section*.12}}
 \citation{jawahar2019does}
 \citation{clark2019does}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Evaluation}{23}{subsection.3.1.2}}
+\@writefile{toc}{\contentsline {subsubsection}{Robust04}{23}{section*.14}}
+\@writefile{toc}{\contentsline {subsubsection}{Core17 \& Core18}{23}{section*.15}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Modeling Relevance with BERT}{23}{section.3.2}}
 \citation{nogueira2019passage}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Cross-Domain Relevance Transfer with BERT}{24}{chapter.4}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:model}{{4}{24}{Cross-Domain Relevance Transfer with BERT}{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Modeling Relevance with BERT}{24}{section.4.1}}
 \citation{devlin2018bert}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Relevance Classifier}{25}{subsection.4.1.1}}
-\@writefile{toc}{\contentsline {subsubsection}{Input Representation}{25}{section*.13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Illustration of BERT input representation adapted from Devlin et al.\nobreakspace  {}\cite  {devlin2018bert}.}}{25}{figure.4.1}}
-\newlabel{fig:bert_input}{{4.1}{25}{Illustration of BERT input representation adapted from Devlin et al.~\cite {devlin2018bert}}{figure.4.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Fine-Tuning}{26}{section*.14}}
-\citation{devlin2018bert}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Reranking with BERT}{27}{section.4.2}}
-\newlabel{eq:1}{{4.2}{27}{Reranking with BERT}{equation.4.2.2}{}}
-\citation{kingma2014adam}
-\citation{kingma2014adam}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Relevance Classifier}{24}{subsection.3.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Input Representation}{24}{subsection.3.2.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Fine-Tuning}{25}{subsection.3.2.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Illustration of BERT input representation adapted from Devlin et al.\nobreakspace  {}\cite  {devlin2018bert}.}}{25}{figure.3.3}}
+\newlabel{fig:bert_input}{{3.3}{25}{Illustration of BERT input representation adapted from Devlin et al.~\cite {devlin2018bert}}{figure.3.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Re-ranking with BERT}{26}{section.3.3}}
 \citation{lin2019neural}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Experimental Setup}{28}{section.4.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Training and Inference with BERT}{28}{subsection.4.3.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Evaluation}{28}{subsection.4.3.2}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Architecture}{30}{chapter.5}}
+\citation{devlin2018bert}
+\citation{kingma2014adam}
+\newlabel{eq:1}{{3.2}{27}{Re-ranking with BERT}{equation.3.3.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Experimental Setup}{27}{section.3.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Training and Inference with BERT}{27}{subsection.3.4.1}}
+\citation{kingma2014adam}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}End-to-End Document Retrieval}{28}{subsection.3.4.2}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Architecture}{29}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:arch}{{5}{30}{Architecture}{chapter.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Architecture of our system featuring tight integration between Python and the JVM.}}{30}{figure.5.1}}
-\newlabel{fig:arch}{{5.1}{30}{Architecture of our system featuring tight integration between Python and the JVM}{figure.5.1}{}}
+\newlabel{ch:arch}{{4}{29}{Architecture}{chapter.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Architecture of our system featuring tight integration between Python and the JVM.}}{29}{figure.4.1}}
+\newlabel{fig:arch}{{4.1}{29}{Architecture of our system featuring tight integration between Python and the JVM}{figure.4.1}{}}
 \citation{Yang_etal_SIGIR2017}
 \citation{Yang_etal_JDIQ2018}
 \citation{nogueira2019passage}
 \citation{Yang_etal_arXiv2019}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Anserini}{31}{section.5.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Main Module}{32}{section.5.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Integration}{32}{section.5.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Replicability and Reproducibility}{33}{section.5.4}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Experimental Results}{35}{chapter.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Anserini}{30}{section.4.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Main Module}{31}{section.4.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Integration}{31}{section.4.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Replicability and Reproducibility}{32}{section.4.4}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Experimental Results}{34}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:results}{{6}{35}{Experimental Results}{chapter.6}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Ranking effectiveness on Robust04.}}{35}{table.6.1}}
-\newlabel{tab:results-robust04}{{6.1}{35}{Ranking effectiveness on Robust04}{table.6.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Ranking effectiveness on Core17.}}{36}{table.6.2}}
-\newlabel{tab:results-core17}{{6.2}{36}{Ranking effectiveness on Core17}{table.6.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.3}{\ignorespaces Ranking effectiveness on Core18.}}{36}{table.6.3}}
-\newlabel{tab:results-core18}{{6.3}{36}{Ranking effectiveness on Core18}{table.6.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Effect of Training Data}{37}{section.6.1}}
+\newlabel{ch:results}{{5}{34}{Experimental Results}{chapter.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Ranking effectiveness on Robust04.}}{34}{table.5.1}}
+\newlabel{tab:results-robust04}{{5.1}{34}{Ranking effectiveness on Robust04}{table.5.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Ranking effectiveness on Core17.}}{35}{table.5.2}}
+\newlabel{tab:results-core17}{{5.2}{35}{Ranking effectiveness on Core17}{table.5.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Ranking effectiveness on Core18.}}{35}{table.5.3}}
+\newlabel{tab:results-core18}{{5.3}{35}{Ranking effectiveness on Core18}{table.5.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Effect of Training Data}{36}{section.5.1}}
 \citation{zhang2018effective}
 \citation{Yang_etal_SIGIR2019}
 \citation{guo2016deep}
 \citation{Cormack:2009:RRF:1571941.1572114}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Number of Sentences}{38}{section.6.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Number of Sentences}{37}{section.5.2}}
 \citation{MacAvaney_etal_SIGIR2019}
 \citation{allan2017trec}
 \citation{core2018trec}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Comparison to Other Ranking Models}{39}{section.6.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Per-Query Analysis}{39}{section.6.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Per-query difference in AP between $ \textrm  {BERT}(\textrm  {MB}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18.}}{40}{figure.6.1}}
-\newlabel{fig:perquery-mb}{{6.1}{40}{Per-query difference in AP between $ \textrm {BERT}(\textrm {MB}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18}{figure.6.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Per-query difference in AP between $ \textrm  {BERT}(\textrm  {MS MARCO}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18.}}{40}{figure.6.2}}
-\newlabel{fig:perquery-msmarco}{{6.2}{40}{Per-query difference in AP between $ \textrm {BERT}(\textrm {MS MARCO}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18}{figure.6.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Per-query difference in AP between $ \textrm  {BERT}(\textrm  {MS MARCO}\rightarrow \textrm  {MB}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18.}}{40}{figure.6.3}}
-\newlabel{fig:perquery-msmarcomb}{{6.3}{40}{Per-query difference in AP between $ \textrm {BERT}(\textrm {MS MARCO}\rightarrow \textrm {MB}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18}{figure.6.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.5}Effect of Length}{41}{section.6.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.1}Query Length}{41}{subsection.6.5.1}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.4}{\ignorespaces Average AP with respect to query length on Robust04.}}{41}{table.6.4}}
-\newlabel{tab:results-query-length}{{6.4}{41}{Average AP with respect to query length on Robust04}{table.6.4}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.5}{\ignorespaces Ranking effectiveness on shortened MS MARCO and CAR evaluated on Robust04. \leavevmode {\color  {red}repeating other results for comparison}}}{42}{table.6.5}}
-\newlabel{tab:results-chopped}{{6.5}{42}{Ranking effectiveness on shortened MS MARCO and CAR evaluated on Robust04. \myworries {repeating other results for comparison}}{table.6.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.2}Document Length}{42}{subsection.6.5.2}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.6}{\ignorespaces Retrieval effectiveness on pruned Robust04.}}{43}{table.6.6}}
-\newlabel{tab:results-pruned}{{6.6}{43}{Retrieval effectiveness on pruned Robust04}{table.6.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.6}Semantic Matching}{43}{section.6.6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces Attention visualizations of $ \textrm  {BERT} (\textrm  {MS MARCO}\rightarrow \textrm  {MB}) $ for a sentence with a high BERT score for the query \texttt  {international art crime}.}}{44}{figure.6.4}}
-\newlabel{fig:attention}{{6.4}{44}{Attention visualizations of $ \textrm {BERT} (\textrm {MS MARCO}\rightarrow \textrm {MB}) $ for a sentence with a high BERT score for the query \texttt {international art crime}}{figure.6.4}{}}
-\bibstyle{plain}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusion and Future Work}{46}{chapter.7}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Comparison to Other Ranking Models}{38}{section.5.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Per-Query Analysis}{38}{section.5.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Per-query difference in AP between $ \textrm  {BERT}(\textrm  {MS MARCO}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18.}}{39}{figure.5.1}}
+\newlabel{fig:perquery-msmarco}{{5.1}{39}{Per-query difference in AP between $ \textrm {BERT}(\textrm {MS MARCO}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18}{figure.5.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Per-query difference in AP between $ \textrm  {BERT}(\textrm  {MS MARCO}\rightarrow \textrm  {MB}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18.}}{39}{figure.5.2}}
+\newlabel{fig:perquery-msmarcomb}{{5.2}{39}{Per-query difference in AP between $ \textrm {BERT}(\textrm {MS MARCO}\rightarrow \textrm {MB}) $ and the BM25+RM3 baseline on Robust04, Core17 and Core18}{figure.5.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Effect of Length}{40}{section.5.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Query Length}{40}{subsection.5.5.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Average AP with respect to query length on Robust04.}}{40}{table.5.4}}
+\newlabel{tab:results-query-length}{{5.4}{40}{Average AP with respect to query length on Robust04}{table.5.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Ranking effectiveness on Robust04 with the shortened MS MARCO and CAR models indicated with $\star $.}}{41}{table.5.5}}
+\newlabel{tab:results-chopped}{{5.5}{41}{Ranking effectiveness on Robust04 with the shortened MS MARCO and CAR models indicated with $\star $}{table.5.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Document Length}{41}{subsection.5.5.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Semantic Matching}{42}{section.5.6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Attention visualizations of $ \textrm  {BERT} (\textrm  {MS MARCO}\rightarrow \textrm  {MB}) $ for a sentence with a high BERT score for the query \texttt  {international art crime}.}}{43}{figure.5.3}}
+\newlabel{fig:attention}{{5.3}{43}{Attention visualizations of $ \textrm {BERT} (\textrm {MS MARCO}\rightarrow \textrm {MB}) $ for a sentence with a high BERT score for the query \texttt {international art crime}}{figure.5.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces Retrieval effectiveness on pruned Robust04.}}{44}{table.5.6}}
+\newlabel{tab:results-pruned}{{5.6}{44}{Retrieval effectiveness on pruned Robust04}{table.5.6}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{45}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:conclusion}{{7}{46}{Conclusion and Future Work}{chapter.7}{}}
+\newlabel{ch:conclusion}{{6}{45}{Conclusion and Future Work}{chapter.6}{}}
+\bibstyle{plain}
 \bibdata{uw-ethesis}
 \bibcite{allan2017trec}{1}
 \bibcite{core2018trec}{2}
 \bibcite{ando2005framework}{3}
-\bibcite{Asadi_Lin_SIGIR2013}{4}
-\bibcite{nguyen2016msmarco}{5}
-\bibcite{balinski2005re}{6}
-\bibcite{belinkov2017neural}{7}
-\bibcite{blei2003latent}{8}
-\bibcite{blitzer2006domain}{9}
-\@writefile{toc}{\contentsline {chapter}{\textbf  {References}}{47}{section*.15}}
-\bibcite{bojanowski2017enriching}{10}
-\bibcite{burges2010ranknet}{11}
-\bibcite{cao2007learning}{12}
-\bibcite{clark2019does}{13}
-\bibcite{Cormack:2009:RRF:1571941.1572114}{14}
-\bibcite{dai2018convolutional}{15}
-\bibcite{deerwester1990indexing}{16}
-\bibcite{dehghani2017neural}{17}
-\bibcite{devlin2018bert}{18}
-\bibcite{dietz2017trec}{19}
-\bibcite{ganguly2015word}{20}
-\bibcite{DBLP:journals/corr/abs-1803-11138}{21}
-\bibcite{guo2016deep}{22}
-\bibcite{guo2017drmm}{23}
-\bibcite{Gysel:2018:NVS:3211967.3196826}{24}
-\bibcite{huang2013learning}{25}
-\bibcite{jawahar2019does}{26}
-\bibcite{joachims2002optimizing}{27}
-\bibcite{jones2000probabilistic}{28}
-\bibcite{kingma2014adam}{29}
-\bibcite{lavrenko2017relevance}{30}
-\bibcite{lee2001re}{31}
-\bibcite{li2008mcrank}{32}
-\bibcite{lin2019neural}{33}
-\bibcite{lingpeng2004document}{34}
-\bibcite{DBLP:journals/corr/LinzenDG16}{35}
-\bibcite{lipton2018troubling}{36}
-\bibcite{liu2011learning}{37}
-\bibcite{macavaney2019cedr}{38}
-\bibcite{MacAvaney_etal_SIGIR2019}{39}
-\bibcite{manning2010introduction}{40}
-\bibcite{melamud2016context2vec}{41}
-\bibcite{mikolov2013distributed}{42}
-\bibcite{mitra2017neural}{43}
-\bibcite{mitra2017learning}{44}
-\bibcite{nogueira2019passage}{45}
-\bibcite{ounisoverview}{46}
-\bibcite{Padigela:1905.01758:2019}{47}
-\bibcite{padigela2019bert}{48}
-\bibcite{pennington2014glove}{49}
-\bibcite{peters2018deep}{50}
-\bibcite{Qiao:1904.07531:2019}{51}
-\bibcite{radford2018improving}{52}
-\bibcite{radford2019language}{53}
-\bibcite{rajpurkar2016squad}{54}
-\bibcite{rao2019tweet}{55}
-\bibcite{sculley2018winner}{56}
-\bibcite{shen2014learning}{57}
-\bibcite{socher2013recursive}{58}
-\bibcite{turian2010word}{59}
-\bibcite{vaswani2017attention}{60}
-\bibcite{Voorhees_TREC2004_robust}{61}
-\bibcite{wang2018glue}{62}
-\bibcite{wu2016google}{63}
-\bibcite{xiong2017knrm}{64}
-\bibcite{Yang_etal_SIGIR2017}{65}
-\bibcite{Yang:2018:ARR:3289400.3239571}{66}
-\bibcite{Yang_etal_SIGIR2019}{67}
-\bibcite{yang2019end}{68}
-\bibcite{yang2019simple}{69}
-\bibcite{DBLP:journals/corr/ZamaniC17}{70}
-\bibcite{zamani2018neural}{71}
-\bibcite{zhang2018effective}{72}
-\bibcite{zhao2010term}{73}
-\bibcite{zhu2015aligning}{74}
+\bibcite{Armstrong_etal_CIKM2009}{4}
+\bibcite{Asadi_Lin_SIGIR2013}{5}
+\bibcite{nguyen2016msmarco}{6}
+\bibcite{balinski2005re}{7}
+\bibcite{belinkov2017neural}{8}
+\bibcite{blei2003latent}{9}
+\@writefile{toc}{\contentsline {chapter}{\textbf  {References}}{47}{section*.16}}
+\bibcite{blitzer2006domain}{10}
+\bibcite{bojanowski2017enriching}{11}
+\bibcite{burges2010ranknet}{12}
+\bibcite{cao2007learning}{13}
+\bibcite{clark2019does}{14}
+\bibcite{Cormack:2009:RRF:1571941.1572114}{15}
+\bibcite{dai2018convolutional}{16}
+\bibcite{deerwester1990indexing}{17}
+\bibcite{dehghani2017neural}{18}
+\bibcite{devlin2018bert}{19}
+\bibcite{dietz2017trec}{20}
+\bibcite{ganguly2015word}{21}
+\bibcite{DBLP:journals/corr/abs-1803-11138}{22}
+\bibcite{guo2016deep}{23}
+\bibcite{guo2017drmm}{24}
+\bibcite{Gysel:2018:NVS:3211967.3196826}{25}
+\bibcite{huang2013learning}{26}
+\bibcite{jawahar2019does}{27}
+\bibcite{joachims2002optimizing}{28}
+\bibcite{jones2000probabilistic}{29}
+\bibcite{kingma2014adam}{30}
+\bibcite{DBLP:journals/corr/abs-1901-07291}{31}
+\bibcite{lavrenko2017relevance}{32}
+\bibcite{lee2001re}{33}
+\bibcite{li2008mcrank}{34}
+\bibcite{lin2019neural}{35}
+\bibcite{lingpeng2004document}{36}
+\bibcite{DBLP:journals/corr/LinzenDG16}{37}
+\bibcite{lipton2018troubling}{38}
+\bibcite{liu2011learning}{39}
+\bibcite{DBLP:journals/corr/abs-1907-11692}{40}
+\bibcite{macavaney2019cedr}{41}
+\bibcite{MacAvaney_etal_SIGIR2019}{42}
+\bibcite{manning2010introduction}{43}
+\bibcite{Manning:2008:IIR:1394399}{44}
+\bibcite{melamud2016context2vec}{45}
+\bibcite{mikolov2013distributed}{46}
+\bibcite{mitra2017neural}{47}
+\bibcite{mitra2017learning}{48}
+\bibcite{nogueira2019passage}{49}
+\bibcite{ounisoverview}{50}
+\bibcite{Padigela:1905.01758:2019}{51}
+\bibcite{padigela2019bert}{52}
+\bibcite{pennington2014glove}{53}
+\bibcite{peters2018deep}{54}
+\bibcite{Qiao:1904.07531:2019}{55}
+\bibcite{radford2018improving}{56}
+\bibcite{radford2019language}{57}
+\bibcite{rajpurkar2016squad}{58}
+\bibcite{rao2019tweet}{59}
+\bibcite{sculley2018winner}{60}
+\bibcite{shen2014learning}{61}
+\bibcite{socher2013recursive}{62}
+\bibcite{turian2010word}{63}
+\bibcite{vaswani2017attention}{64}
+\bibcite{Voorhees_TREC2004_robust}{65}
+\bibcite{wang2018glue}{66}
+\bibcite{wu2016google}{67}
+\bibcite{xiong2017knrm}{68}
+\bibcite{Yang_etal_SIGIR2017}{69}
+\bibcite{Yang:2018:ARR:3289400.3239571}{70}
+\bibcite{Yang_etal_SIGIR2019}{71}
+\bibcite{yang2019end}{72}
+\bibcite{yang2019simple}{73}
+\bibcite{yilmaz2019applying}{74}
+\bibcite{yilmaz2019cross}{75}
+\bibcite{DBLP:journals/corr/ZamaniC17}{76}
+\bibcite{zamani2018neural}{77}
+\bibcite{zhang2018effective}{78}
+\bibcite{zhao2010term}{79}
+\bibcite{zhu2015aligning}{80}
 \citation{*}
