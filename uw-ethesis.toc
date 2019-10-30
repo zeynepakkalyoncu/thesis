@@ -41,7 +41,7 @@
 \contentsline {chapter}{\numberline {5}Experimental Results}{34}{chapter.5}
 \contentsline {section}{\numberline {5.1}Effect of Training Data}{36}{section.5.1}
 \contentsline {section}{\numberline {5.2}Number of Sentences}{37}{section.5.2}
-\contentsline {section}{\numberline {5.3}Comparison to Other Ranking Models}{38}{section.5.3}
+\contentsline {section}{\numberline {5.3}Comparison to Other Ranking Models}{37}{section.5.3}
 \contentsline {section}{\numberline {5.4}Per-Query Analysis}{38}{section.5.4}
 \contentsline {section}{\numberline {5.5}Effect of Length}{40}{section.5.5}
 \contentsline {subsection}{\numberline {5.5.1}Query Length}{40}{subsection.5.5.1}

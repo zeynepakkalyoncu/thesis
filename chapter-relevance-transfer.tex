@@ -10,22 +10,22 @@
 Our model is based on sentence-level relevance modeling and document re-ranking with BERT.
 By training BERT as a relevance classifier, we aim to extract valuable semantic matching signals which can be leveraged to re-rank a list of candidate documents retrieved with a term-matching technique such as BM25.
 We also explore applying cross-domain relevance transfer to exploit models of relevance learned on out-of-domain collections, which is crucial in re-ranking documents that are too long for BERT to directly process.
-This chapter introduces the datasets that we use to fine-tune our relevance model and to evaluate end-to-end document retrieval, and describes the details of our BERT-based sentence-level relevance classifier and document re-ranker.
+This chapter introduces the datasets that we use to fine-tune our relevance model and to evaluate them on end-to-end document retrieval, and describes the details of our BERT-based sentence-level relevance classifier and document re-ranker.
 
 \section{Datasets}
 
 \subsection{Fine-Tuning}
 
 In order to model sentence-level relevance with BERT, we need training pairs of queries and short text, annotated with relevance labels.
-Fortunately, a number of collections fortuitously contain such relevance judgments at the sentence and passage level, which makes them the ideal choice for training our model.
-We fine-tune BERT on three such sentence- and passage-level datasets individually and in combination:\ TREC Microblog~\cite{ounisoverview}, MicroSoft MAchine Reading Comprehension~\cite{nguyen2016msmarco} and TREC Complex Answer Retrieval~\cite{dietz2017trec} datasets.
+Fortunately, a number of collections fortuitously contain such relevance judgments at the sentence and passage level, which makes them the ideal choice for training our models.
+We fine-tune BERT on three such sentence- and passage-level datasets individually and in combination:\ TREC Microblog~\cite{ounisoverview}, MicroSoft MAchine Reading Comprehension~\cite{nguyen2016msmarco} and TREC Complex Answer Retrieval~\cite{dietz2017trec}.
 The details of each dataset are provided below.
 
 \subsubsection{TREC Microblog (MB)}
 
 \begin{figure}[b!]
 	\begin{framed}
-		\centering
+%		\centering
     		\textbf{Query:} bbc world service staff cuts \\
     		\textbf{Text:} irish times : bbc world service confirms cuts : the bbc world service will shed around 650 jobs or more \\
     		\textbf{Relevance:} 1 (``relevant'')
@@ -66,12 +66,12 @@ Tweets may characteristically contain various abbreviations (partly due to the a
 Such informal language may result in term mismatches in the case of exact matching.
 It may therefore be helpful to catch other semantic signals with a deep neural network.
 
-We use the MB data prepared by Rao et al.~\cite{rao2019tweet}.~\footnote{https://github.com/jinfengr/neural-tweet-search}
+We use the MB data prepared by Rao et al.~\cite{rao2019tweet}.~\footnote{\url{https://github.com/jinfengr/neural-tweet-search}}
 We extract the queries, tweets and relevance judgments from the dataset, excluding metadata such as query time and URLs of the tweets.
-Relevance judgments in MB are reported on a three-point scale where (``non-relevant'', ``relevant'' and ``highly relevant''); however, for the purposes of this work we treat both higher degrees of relevance as equal~\cite{ounisoverview}.
 Both queries and tweets are segmented into token sequences.
+Relevance judgments in MB are reported on a three-point scale, i.e., (``non-relevant'', ``relevant'' and ``highly relevant''), however, for the purposes of this work we treat both higher degrees of relevance as equal~\cite{ounisoverview}.
 We sample 25\% of the data for the validation set, and use the rest for fine-tuning BERT.
-We experiment with different splits as discussed in Chapter \ref{ch:results}, and find this split to be ideal.
+%We experiment with different splits, and find this split to be ideal.
 
 \subsubsection{MicroSoft MAchine Reading Comprehension (MS MARCO)}
 
@@ -105,9 +105,9 @@ Number  of passages & 12.M & 6.9M \\
 
 MS MARCO is a large-scale machine reading comprehension and question answering dataset that is extensively used in the NLP community.
 MS MARCO~\cite{nguyen2016msmarco} features user queries sampled from Bing’s search logs and passages extracted from web documents.
-The dataset is composed of tuples of a query with relevant and non-relevant passages.
+The dataset is composed of tuples of a query associated with a relevant and non-relevant passage.
 On average, each query has one relevant passage.
-However, some may have no relevant passage at all as the dataset is constructed from the top-10 passages manually annotated by human judges.
+However, some may have no relevant passage at all as the dataset is constructed from the top 10 passages manually annotated by human judges.
 Therefore, some relevant passages might not have been retrieved with BM25.
 %\myworries{Rephrase this}
 MS MARCO can be distinguished from similar datasets by its size and real-world nature.
@@ -116,8 +116,8 @@ Similar to MB, MS MARCO is representative of a natural, and noisy, distribution 
 
 Here we focus on the passage-ranking dataset of MS MARCO.
 Following the settings in Nogueira et al.~\cite{nogueira2019passage}, we train BERT on approximately 12.8M training samples.
-The development set is composed of approximately 6.9k queries, each paired with the top 1000 most relevant passages in the MS MARCO dataset as retrieved with BM25.
-Similarly, the evaluation set contains approximately 6.8 queries and their top 1000 passages, but without the relevance annotations.
+The development set is composed of approximately 6.9K queries, each paired with the top 1000 most relevant passages in the MS MARCO dataset as retrieved with BM25.
+Similarly, the evaluation set contains approximately 6.8K queries and their top 1000 passages, but without the relevance annotations.
 %The models in Section \myworries{X} were trained on less than 2\% of the total training set (~12.8M) due to the size of the dataset and time required to train on it even on TPUs.
 %According to Nogueira et al. \cite{nogueira2019passage}, training for up to 12.5\% of the total data does not improve MRR@10 on the validation set.
 %\myworries{Maybe remove MRR, and better transition}
@@ -151,12 +151,12 @@ Number of passages & 30M & 7M \\
 % \caption{\myworries{TODO}}
 %\end{figure}
 
-TREC CAR \cite{dietz2017trec} uses paragraphs extracted from all paragraphs in the English Wikipedia, except the abstracts.
+TREC CAR \cite{dietz2017trec} uses paragraphs extracted from all of the English Wikipedia, except the abstracts.
 Each query is formed by concatenating an article title and a section heading, with all passages under that section considered relevant.
 The goal of this TREC track is to automatically collect and condense information for a complex query into a single coherent summary.
 Rather than focusing on document retrieval, the priority is aggregating synthesized information in the form of references, facts, and opinions.
 However, CAR is a synthetic dataset in the sense that queries and documents do not reflect real-world distributions or information needs.
-The organizers of TREC CAR 2017 only provide manual annotations for the top-5 passages retrieved, meaning some relevant passages may not be annotated if they rank lower.
+The organizers of TREC CAR 2017 only provide manual annotations for the top 5 passages retrieved, meaning some relevant passages may not be annotated if they rank lower.
 For this reason, we opt to use automatic annotations that provide relevance judgments for all possible query-passage pairs.
 %\myworries{More?}
 
@@ -211,7 +211,7 @@ Following Nogueira et al.~\cite{nogueira2019passage}, we frame relevance modelin
 %Figure \myworries{X} illustrates how BERT can be used for to predict the relevance of a given sentence.
 %\myworries{Add diagram to explain the relevance modeling process}
 More specifically, we feed query-text pairs into the BERT model with their respective relevance judgments (i.e., 0 for non-relevant and 1 for relevant).
-Through this training process BERT learns to assign a relevance score to unseen text for a given query.
+Through this training process BERT learns to estimate the relevance of an unseen text for a given query.
 The details of the input representation to BERT and specifics of fine-tuning BERT for relevance prediction are discussed at length in the remainder of this chapter.
 
 \subsection{Input Representation}
@@ -225,9 +225,9 @@ The details of the input representation to BERT and specifics of fine-tuning BER
 % \caption{\myworries{Put tokenized BERT input example?}}
 %\end{figure}
 
-\begin{figure}[b!]
+\begin{figure}[t!]
 \centering
-  \includegraphics[width=6.5in]{bert_input.png}
+  \includegraphics[width=6.5in]{figures/input.pdf}
 \caption{Illustration of BERT input representation adapted from Devlin et al.~\cite{devlin2018bert}.}
 \label{fig:bert_input}
 \end{figure}
@@ -260,7 +260,7 @@ A variety of useful deep semantic features are already encoded in pretrained BER
 It is thus possible to fine-tune BERT for a specific downstream task with less data and time by adding a fully-connected layer on top of the network.
 Intuitively, the lower layers of the network have already been trained to capture latent features relevant to the task.
 
-To fine-tune BERT for relevance modeling, we add a single layer neural network on top of BERT for classification.
+To fine-tune BERT for relevance modeling, we append a single layer neural network to BERT for classification.
 This layer consists of $ K \times H $ randomly initialized neurons where $ K $ is the number of classifier labels and $ H$ is the hidden state size.
 For relevance classification, we have two labels indicating whether the sentence is relevant or non-relevant for the given query ($ K = 2 $).
 
@@ -303,7 +303,7 @@ By combining the two sets of relevance matching signals, we establish a more div
 %Using either set of scores to rank documents neglects crucial information from the other, so we interpolate the scores 
 Therefore, to determine overall document relevance, we combine the top $ n $ scores with the original document score as follows:
 \begin{equation} \label{eq:1}
-s_f = a \cdot s_{doc}  + (1 - \alpha) \cdot \sum_{i = 1}^n w_i \cdot s_i
+s_f = \alpha \cdot s_{doc}  + (1 - \alpha) \cdot \sum_{i = 1}^n w_i \cdot s_i
 \end{equation}
 
 \noindent where $ s_{doc} $ is the original document score and $ s_i $ is the $ i $-th top scoring sentence according to BERT.
@@ -314,14 +314,14 @@ In general, considering any more doesn't yield better results.
 To tune hyperparameters $ \alpha $ and the $ w_i $'s  in Equation~\ref{eq:1}, we apply five-fold cross-validation over TREC topics.
 For Robust04, we follow the five-fold cross-validation settings in Lin~\cite{lin2019neural} over 250 topics.
 For Core17 and Core18 we similarly apply five-fold cross validation.
-We learn parameters $\alpha$ and the $w_i$ on four folds via exhaustive grid search with $ w_1 = 1 $ and varying $ a, w_2, w_3 \in [0, 1] $ with a step size 0.1, selecting the values that yield the highest AP on the remaining fold.
+We learn parameters $\alpha$ and the $w_i$ on four folds via exhaustive grid search with $ w_1 = 1 $ and varying $ \alpha, w_2, w_3 \in [0, 1] $ with a step size 0.1, selecting the values that yield the highest AP on the remaining fold.
 
 \section{Experimental Setup}
 
 \subsection{Training and Inference with BERT}
 
 We fine-tune $ \textrm{BERT}_{\textrm{\scriptsize Large}} $~\cite{devlin2018bert} on the datasets introduced earlier in this section:\ TREC Microblog, MS MARCO, and TREC CAR.
-In our implementation we adopt the interface \texttt{BertForNextSentencePrediction} corresponding to $ \textrm{BERT}_{\textrm{\scriptsize Large}} $ from the Huggingface \texttt{transformers} (previously known as \texttt{pytorch-pretrained-bert}) library\footnote{https://github.com/huggingface/transformers} as our base model.
+In our implementation we adopt the interface \texttt{BertForNextSentencePrediction} corresponding to $ \textrm{BERT}_{\textrm{\scriptsize Large}} $ from the Huggingface \texttt{transformers} (previously known as \texttt{pytorch-pretrained-bert}) library\footnote{\url{https://github.com/huggingface/transformers}} as our base model.
 The maximum sequence length, i.e., 512 tokens, is used for BERT in all our experiments.
 
 The fine-tuning procedure introduces few new hyperparameters in addition to those already used in pre-training:\ batch size, learning rate, and number of training epochs.
@@ -342,7 +342,7 @@ We find that applying diminishing learning rates is especially important in fine
 We retrieve an initial ranking of 1000 documents for each query in Robust04, Core17 and Core18 using the open-source Anserini information retrieval toolkit based on Lucene 8.
 To ensure fairness across all three collections, we use BM25 with RM3 query expansion with default parameters.
 Before running inference with BERT to obtain relevance scores, we preprocess the retrieved documents:\
-First, we clean the documents by stripping any HTML/XML tags and split each document into its constituent sentences with NLTK's Stanford Tokenizer.\footnote{https://nlp.stanford.edu/software/tokenizer.shtml}
+First, we clean the documents by stripping any HTML/XML tags and split each document into its constituent sentences with NLTK's Stanford Tokenizer.\footnote{\url{https://nlp.stanford.edu/software/tokenizer.shtml}}
 If the length of a sentence with the meta-tokens still exceeds the maximum input length of BERT, we further segment the spans into fixed sized chunks.
 %Candidate documents are re-ranked based on the combination of BM25 and sentence scores computed with BERT according to Equation~\ref{eq:1} with the hyperparameters optimized on
 In order to make our results comparable to the baselines and consistent with the literature, we report retrieval effectiveness in terms of AP, P@20, and NDCG@20.

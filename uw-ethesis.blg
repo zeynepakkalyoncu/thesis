@@ -3,14 +3,11 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: uw-ethesis.aux
 The style file: plain.bst
 Database file #1: uw-ethesis.bib
-Warning--I didn't find a database entry for "Yang_etal_JDIQ2018"
-Warning--I didn't find a database entry for "Yang_etal_arXiv2019"
+Warning--I didn't find a database entry for "macavaney2019cedr"
 Warning--empty booktitle in allan2017trec
 Warning--empty year in allan2017trec
 Warning--empty journal in burges2010ranknet
 Warning--empty year in burges2010ranknet
-Warning--empty booktitle in jawahar2019does
-Warning--empty year in jawahar2019does
 Warning--can't use both volume and number fields in lavrenko2017relevance
 Warning--can't use both volume and number fields in lin2019neural
 Warning--empty journal in ounisoverview
@@ -22,45 +19,45 @@ Warning--empty year in radford2019language
 Warning--empty journal in sculley2018winner
 Warning--empty booktitle in yilmaz2019cross
 Warning--empty year in yilmaz2019cross
-You've used 80 entries,
+You've used 79 entries,
             2118 wiz_defined-function locations,
-            909 strings with 20379 characters,
-and the built_in function-call counts, 32778 in all, are:
-= -- 3188
-> -- 1855
+            902 strings with 20301 characters,
+and the built_in function-call counts, 32404 in all, are:
+= -- 3158
+> -- 1821
 < -- 35
-+ -- 733
-- -- 648
-* -- 2301
-:= -- 5290
-add.period$ -- 252
-call.type$ -- 80
-change.case$ -- 560
++ -- 721
+- -- 636
+* -- 2267
+:= -- 5223
+add.period$ -- 250
+call.type$ -- 79
+change.case$ -- 552
 chr.to.int$ -- 0
-cite$ -- 97
-duplicate$ -- 1268
-empty$ -- 2313
-format.name$ -- 648
-if$ -- 6948
+cite$ -- 94
+duplicate$ -- 1257
+empty$ -- 2293
+format.name$ -- 636
+if$ -- 6876
 int.to.chr$ -- 0
-int.to.str$ -- 80
-missing$ -- 82
-newline$ -- 396
-num.names$ -- 160
-pop$ -- 672
+int.to.str$ -- 79
+missing$ -- 80
+newline$ -- 392
+num.names$ -- 158
+pop$ -- 659
 preamble$ -- 1
-purify$ -- 482
+purify$ -- 474
 quote$ -- 0
-skip$ -- 960
+skip$ -- 954
 stack$ -- 0
-substring$ -- 1730
+substring$ -- 1726
 swap$ -- 408
 text.length$ -- 35
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 316
-warning$ -- 17
-while$ -- 277
-width$ -- 82
-write$ -- 864
-(There were 19 warnings)
+type$ -- 314
+warning$ -- 15
+while$ -- 275
+width$ -- 81
+write$ -- 855
+(There were 16 warnings)

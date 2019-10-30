@@ -13,7 +13,7 @@ This procedure may be followed by a subsequent re-ranking stage where the candid
 	\begin{framed}
 %		\centering
     		\textbf{Query:} international art crime \\
-    		\textbf{Text:} The thieves demand a ransom of \$2.2 million for the works and return one of them.
+    		\textbf{Text:} The thieves demand a ransom of \$2.2M for the works and return one of them.
 	\end{framed}
 \label{query-sent-example}
  \caption{An example of a query-text pair from the TREC Robust04 collection where a relevant piece of text does not contain exact query matches.}
@@ -23,7 +23,7 @@ Document retrieval systems traditionally rely on bag-of-words term-matching tech
 More specifically, the more common terms a document shares with the query, the more relevant it is deemed to be.
 As a result, these techniques may fail to detect documents that do not contain exact query terms, but are nonetheless relevant.
 For example, consider a document that expresses relevant information in a way that cannot be resolved without external semantic analysis.
-Figure \ref{query-sent-example} displays one such query-text pair where words semantically close to the query need to be identified to establish relevance.
+Figure \ref{query-sent-example} displays one such query-text pair where terms semantically close to the query need to be identified to establish relevance.
 This ``vocabulary mismatch'' problem represents a long-standing challenge in information retrieval.
 To put its significance into context, Zhao et al.~\cite{zhao2010term} show in their paper on term necessity prediction that, statistically, the average query terms do not appear in as many as 30\% of relevant documents in TREC 3 to 8 ``ad hoc'' retrieval datasets.
 
@@ -36,15 +36,15 @@ These models can be applied to various downstream tasks with minimal task-specif
 Arguably the most popular example of these deep language representation models is the Bidirectional Encoder Representations from Transformers (BERT) \cite{devlin2018bert}.
 BERT has achieved state-of-the-art results across a broad range of NLP tasks from question answering to machine translation.
 
-While BERT has enjoyed widespread adoption across the NLP community, its application in information retrieval research has been slower in comparison.
+While BERT has enjoyed widespread adoption within the NLP community, its application in information retrieval research has been slower in comparison.
 Guo et al. \cite{guo2016deep} suggest that the lackluster success of earlier deep neural networks in information retrieval may be owing to the fact that they often do not properly address crucial characteristics of the ``ad hoc'' document retrieval task.
 Specifically, the relevance matching problem in information retrieval and semantic matching problem in natural language processing are fundamentally different in that the former depends heavily on exact matching signals, query term importance and diverse matching requirements.
 Moving towards transformers that make heavy use of pretraining, it is still crucial to strike a good balance between exact and semantic matching in document retrieval.
-For this reason, we employ both document scores based on term-matching and semantic relevance scores to determine the relevance of documents.
+For this reason, we employ both document scores based on exact matching and semantic relevance scores to determine the relevance of documents.
 
-In this thesis, we extend our own work~\cite{yilmaz2019cross, yilmaz2019applying} by presenting a novel way to apply BERT to ``ad hoc'' document retrieval on long documents -- particularly, newswire articles -- with significant improvements.
+In this thesis, we extend our own work~\cite{yilmaz2019cross, yilmaz2019applying}, presenting a novel way to apply BERT to ``ad hoc'' document retrieval on long documents -- particularly, newswire articles -- with significant improvements.
 Following Nogueira et al. \cite{nogueira2019passage}, we adapt BERT for binary relevance classification over text to capture notions of relevance.
-We then deploy the BERT-based re-ranker as part of a multi-stage architecture where an initial list of candidate documents is retrieved with a standard bag-of-words term matching technique.
+We then deploy the BERT-based re-ranker as part of a multi-stage architecture where an initial list of candidate documents is retrieved with a standard bag-of-words term-matching technique.
 The BERT model is used to compute a relevance score for each constituent sentence, and the candidate documents are re-ranked by combining sentence scores with the original document scores.
 
 We emphasize that applying BERT to document retrieval on newswire documents is not trivial due to two main challenges:\
@@ -71,7 +71,7 @@ We address the abovementioned challenges by proposing two effective innovations:
 	\item
 	Instead of relying solely on document-level relevance judgments, we aggregate sentence-level evidence to rank documents.
 	\item
-	Since standard newswire collections lack sentence-level judgments to facilitate this approach, we instead explore leveraging sentence-level or passage-level judgments already available in collections in other domains, such as tweets and reading comprehension.
+	Since standard newswire collections lack sentence-level judgments to facilitate this approach, we instead explore leveraging sentence-level or passage-level judgments already available in collections in other domains, such as microblog and reading comprehension.
 \end{itemize}
 
 %First, instead of relying solely on document-level relevance judgements, we aggregate sentence-level evidence to rank documents.
@@ -108,7 +108,7 @@ The main contributions of this thesis can be summarized as follows:\\
 	\item
 	We release an end-to-end pipeline, Birch,\footnote{https://github.com/castorini/birch} that applies BERT to document retrieval over large document collections via integration with the open-source Anserini information retrieval toolkit.~\footnote{https://github.com/castorini/anserini}
 	An accompanying Docker image is also included to ensure that anyone can easily deploy and test our system.
-	We elaborate on the technical challenges in the integration of NLP and IR capabilities, and the rationale behind design decisions.
+	We elaborate on the technical challenges in the integration of NLP and IR capabilities, and the rationale behind our design decisions.
 \end{itemize}
 
 \newpage
@@ -117,7 +117,7 @@ The main contributions of this thesis can be summarized as follows:\\
 
 The remainder of this thesis is organized in the following order:\
 Chapter \ref{ch:review} reviews related work in document retrieval, pretrained language models and document re-ranking models based on machine learning techniques as well as the metrics used in evaluation.
-Chapter \ref{ch:model} introduces the datasets used for fine-tuning BERT, motivates our approach with detailed information regarding the proposed model, and describes the experimental setup.
+Chapter \ref{ch:model} introduces the datasets used for fine-tuning BERT and for evaluating our models, motivates our approach with detailed information regarding the proposed model, and describes the experimental setup.
 Chapter \ref{ch:arch} outlines an end-to-end pipeline for document retrieval with BERT by elaborating on the design decisions and challenges.
-Chapter \ref{ch:results} presents our results on three newswire collections -- Robust04, Core17 and Core18, and provides a number of further analyses to help interpret the inner workings of BERT.
+Chapter \ref{ch:results} presents our results on three newswire collections -- Robust04, Core17 and Core18 -- and provides a number of further analyses to help interpret the inner workings of BERT.
 Chapter \ref{ch:conclusion} concludes the thesis by summarizing the main contributions and discussing future work.

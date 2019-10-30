@@ -3,11 +3,11 @@
 \bibitem{allan2017trec}
 James Allan, Donna Harman, Evangelos Kanoulas, Dan Li, and Christophe
   Van~Gysel.
-\newblock Trec 2017 common core track overview.
+\newblock {TREC} 2017 {Common} {Core} {Track} {Overview}.
 
 \bibitem{core2018trec}
 James Allan, Donna Harman, Evangelos Kanoulas, and Ellen Voorhees.
-\newblock {TREC} 2018 {Common} {Core} {Track} overview.
+\newblock {TREC} 2018 {Common} {Core} {Track} {Overview}.
 \newblock In {\em Proceedings of the 27th Text REtrieval Conference},
   Gaithersburg, Maryland, 2018.
 
@@ -51,7 +51,7 @@ Yonatan Belinkov, Nadir Durrani, Fahim Dalvi, Hassan Sajjad, and James Glass.
 \bibitem{blei2003latent}
 David~M Blei, Andrew~Y Ng, and Michael~I Jordan.
 \newblock Latent dirichlet allocation.
-\newblock {\em Journal of machine Learning research}, 3(Jan):993--1022, 2003.
+\newblock {\em Journal of Machine Learning Research}, 3(Jan):993--1022, 2003.
 
 \bibitem{blitzer2006domain}
 John Blitzer, Ryan McDonald, and Fernando Pereira.
@@ -68,21 +68,21 @@ Piotr Bojanowski, Edouard Grave, Armand Joulin, and Tomas Mikolov.
 
 \bibitem{burges2010ranknet}
 Christopher~JC Burges.
-\newblock From ranknet to lambdarank to lambdamart: An overview.
+\newblock From {RankNet} to {LambdaRank} to {LambdaMART}: {An} {Overview}.
 
 \bibitem{cao2007learning}
 Zhe Cao, Tao Qin, Tie-Yan Liu, Ming-Feng Tsai, and Hang Li.
 \newblock Learning to rank: from pairwise approach to listwise approach.
-\newblock In {\em Proceedings of the 24th international conference on Machine
+\newblock In {\em Proceedings of the 24th International Conference on Machine
   learning}, pages 129--136. ACM, 2007.
 
 \bibitem{clark2019does}
 Kevin Clark, Urvashi Khandelwal, Omer Levy, and Christopher~D Manning.
-\newblock What does bert look at? an analysis of bert's attention.
+\newblock What does {BERT} look at? an analysis of {BERT}'s attention.
 \newblock {\em arXiv preprint arXiv:1906.04341}, 2019.
 
 \bibitem{Cormack:2009:RRF:1571941.1572114}
-Gordon~V. Cormack, Charles L~A Clarke, and Stefan Buettcher.
+Gordon~V Cormack, Charles L~A Clarke, and Stefan Buettcher.
 \newblock Reciprocal rank fusion outperforms condorcet and individual rank
   learning methods.
 \newblock In {\em Proceedings of the 32nd International ACM SIGIR Conference on
@@ -93,7 +93,7 @@ Gordon~V. Cormack, Charles L~A Clarke, and Stefan Buettcher.
 Zhuyun Dai, Chenyan Xiong, Jamie Callan, and Zhiyuan Liu.
 \newblock Convolutional neural networks for soft-matching n-grams in ad-hoc
   search.
-\newblock In {\em Proceedings of the 11th ACM international conference on web
+\newblock In {\em Proceedings of the 11th ACM International Conference on web
   search and data mining}, pages 126--134. ACM, 2018.
 
 \bibitem{deerwester1990indexing}
@@ -121,7 +121,7 @@ Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
 
 \bibitem{dietz2017trec}
 Laura Dietz, Manisha Verma, Filip Radlinski, and Nick Craswell.
-\newblock {TREC} {Complex} {Answer} {Retrieval} overview.
+\newblock {TREC} {Complex} {Answer} {Retrieval} {Overview}.
 \newblock In {\em Proceedings of the 26th Text REtrieval Conference (TREC
   2017)}, Gaithersburg, Maryland, 2017.
 
@@ -159,12 +159,14 @@ Christophe~Van Gysel, Maarten de~Rijke, and Evangelos Kanoulas.
 Po-Sen Huang, Xiaodong He, Jianfeng Gao, Li~Deng, Alex Acero, and Larry Heck.
 \newblock Learning deep structured semantic models for web search using
   clickthrough data.
-\newblock In {\em Proceedings of the 22nd ACM international conference on
+\newblock In {\em Proceedings of the 22nd ACM International Conference on
   Information \& Knowledge Management}, pages 2333--2338. ACM, 2013.
 
 \bibitem{jawahar2019does}
 Ganesh Jawahar, Beno{\^\i}t Sagot, Djam{\'e} Seddah, et~al.
-\newblock What does bert learn about the structure of language?
+\newblock What does {BERT} learn about the structure of language?
+\newblock In {\em Proceedings of the 57th Annual Meeting of the Association for
+  Computational Linguistics (ACL)}, 2019.
 
 \bibitem{joachims2002optimizing}
 Thorsten Joachims.
@@ -200,8 +202,8 @@ Kyung-Soon Lee, Young-Chan Park, and Key-Sun Choi.
 
 \bibitem{li2008mcrank}
 Ping Li, Qiang Wu, and Christopher~J Burges.
-\newblock Mcrank: Learning to rank using multiple classification and gradient
-  boosting.
+\newblock {McRank}:\ {L}earning to rank using multiple classification and
+  gradient boosting.
 \newblock In {\em Advances in neural information processing systems}, pages
   897--904, 2008.
 
@@ -220,7 +222,7 @@ Yang Lingpeng, Ji~Donghong, and Tang Li.
 
 \bibitem{DBLP:journals/corr/LinzenDG16}
 Tal Linzen, Emmanuel Dupoux, and Yoav Goldberg.
-\newblock Assessing the ability of lstms to learn syntax-sensitive
+\newblock Assessing the ability of {LSTMs} to learn syntax-sensitive
   dependencies.
 \newblock {\em CoRR}, abs/1611.01368, 2016.
 
@@ -237,13 +239,8 @@ Tie-Yan Liu.
 \bibitem{DBLP:journals/corr/abs-1907-11692}
 Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer
   Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov.
-\newblock Roberta: {A} robustly optimized {BERT} pretraining approach.
+\newblock {RoBERTa}:\ {A} robustly optimized {BERT} pretraining approach.
 \newblock {\em CoRR}, abs/1907.11692, 2019.
-
-\bibitem{macavaney2019cedr}
-Sean MacAvaney, Andrew Yates, Arman Cohan, and Nazli Goharian.
-\newblock {CEDR:} contextualized embeddings for document ranking.
-\newblock {\em CoRR}, abs/1904.07094, 2019.
 
 \bibitem{MacAvaney_etal_SIGIR2019}
 Sean MacAvaney, Andrew Yates, Arman Cohan, and Nazli Goharian.
@@ -256,11 +253,6 @@ Sean MacAvaney, Andrew Yates, Arman Cohan, and Nazli Goharian.
 Christopher Manning, Prabhakar Raghavan, and Hinrich Sch{\"u}tze.
 \newblock Introduction to information retrieval.
 \newblock {\em Natural Language Engineering}, 16(1):100--103, 2010.
-
-\bibitem{Manning:2008:IIR:1394399}
-Christopher~D. Manning, Prabhakar Raghavan, and Hinrich Sch\"{u}tze.
-\newblock {\em Introduction to Information Retrieval}.
-\newblock Cambridge University Press, New York, NY, USA, 2008.
 
 \bibitem{melamud2016context2vec}
 Oren Melamud, Jacob Goldberger, and Ido Dagan.
@@ -296,7 +288,7 @@ Rodrigo Nogueira and Kyunghyun Cho.
 
 \bibitem{ounisoverview}
 Iadh Ounis, Craig Macdonald, Jimmy Lin, and Ian Soboroff.
-\newblock Overview of the trec 2011 microblog track.
+\newblock Overview of the {TREC} 2011 {Microblog} {Track}.
 
 \bibitem{Padigela:1905.01758:2019}
 Harshith Padigela, Hamed Zamani, and W.~Bruce Croft.
@@ -312,7 +304,7 @@ Harshith Padigela, Hamed Zamani, and W.~Bruce Croft.
 
 \bibitem{pennington2014glove}
 Jeffrey Pennington, Richard Socher, and Christopher Manning.
-\newblock Glove: Global vectors for word representation.
+\newblock {GloVe}:\ {Global} vectors for word representation.
 \newblock In {\em Proceedings of the 2014 Conference on Empirical Methods in
   Natural Language Processing}, pages 1532--1543, 2014.
 
@@ -338,13 +330,13 @@ Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, and Ilya
 
 \bibitem{rajpurkar2016squad}
 Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, and Percy Liang.
-\newblock Squad: 100,000+ questions for machine comprehension of text.
+\newblock {SQuAD}: 100,000+ questions for machine comprehension of text.
 \newblock {\em arXiv preprint arXiv:1606.05250}, 2016.
 
 \bibitem{rao2019tweet}
 Jinfeng Rao, Wei Yang, Yuhao Zhang, Ferhan T{\"{u}}re, and Jimmy Lin.
-\newblock Multi-perspective relevance matching with hierarchical convnets for
-  social media search.
+\newblock Multi-perspective relevance matching with {Hierarchical} {ConvNets}
+  for social media search.
 \newblock {\em CoRR}, abs/1805.08159, 2018.
 
 \bibitem{sculley2018winner}
@@ -382,6 +374,11 @@ Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
 \newblock In {\em Advances in neural information processing systems}, pages
   5998--6008, 2017.
 
+\bibitem{vig2019multiscale}
+Jesse Vig.
+\newblock A multiscale visualization of attention in the transformer model.
+\newblock {\em arXiv preprint arXiv:1906.05714}, 2019.
+
 \bibitem{Voorhees_TREC2004_robust}
 Ellen~M. Voorhees.
 \newblock Overview of the {TREC} 2004 {Robust} {Track}.
@@ -390,7 +387,7 @@ Ellen~M. Voorhees.
 \bibitem{wang2018glue}
 Alex Wang, Amanpreet Singh, Julian Michael, Felix Hill, Omer Levy, and Samuel~R
   Bowman.
-\newblock Glue: A multi-task benchmark and analysis platform for natural
+\newblock {GLUE}:\ {A} multi-task benchmark and analysis platform for natural
   language understanding.
 \newblock {\em arXiv preprint arXiv:1804.07461}, 2018.
 
@@ -414,7 +411,7 @@ P.~Yang, H.~Fang, and J.~Lin.
 
 \bibitem{Yang:2018:ARR:3289400.3239571}
 Peilin Yang, Hui Fang, and Jimmy Lin.
-\newblock Anserini: Reproducible ranking baselines using lucene.
+\newblock Anserini: Reproducible ranking baselines using {Lucene}.
 \newblock {\em Journal of Data and Information Quality}, 10(4):16:1--16:20,
   October 2018.
 
@@ -437,13 +434,13 @@ Wei Yang, Yuqing Xie, Aileen Lin, Xingyu Li, Luchen Tan, Kun Xiong, Ming Li,
 
 \bibitem{yang2019simple}
 Wei Yang, Haotian Zhang, and Jimmy Lin.
-\newblock Simple applications of bert for ad hoc document retrieval.
+\newblock Simple applications of {BERT} for ad hoc document retrieval.
 \newblock {\em arXiv preprint arXiv:1903.10972}, 2019.
 
 \bibitem{yilmaz2019applying}
 Zeynep~Akkalyoncu Yilmaz, Shengjin Wang, Wei Yang, Haotian Zhang, and Jimmy
   Lin.
-\newblock Applying bert to document retrieval with birch.
+\newblock Applying {BERT} to document retrieval with {Birch}.
 \newblock In {\em Proceedings of the 2019 Conference on Empirical Methods in
   Natural Language Processing: System Demonstrations}, 2019.
 
