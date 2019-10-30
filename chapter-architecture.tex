@@ -22,8 +22,8 @@ Our BERT-based model is deployed as a re-ranker over the candidate documents to 
 \section{Anserini}
 
 Technology transfer between the academic and industrial information retrieval communities is at times impeded due to a lack of universal set of tools and infrastructure.
-Most industry practitioners have adopted Lucene,\footnote{\url{https://lucene.apache.org}} Solr\footnote{\url{https://lucene.apache.org/solr}} or Elasticsearch\footnote{\url{https://www.elastic.co}}s as the de facto platform in the development of search applications with the primary objective of scalability.
-However, academic systems such as Indri\footnote{\url{https://www.lemurproject.org}} and Terrier\footnote{\url{http://terrier.org}} are far more prevalent among researchers, which prioritize better rankings above all else with little consideration for operational characteristics.
+Most industry practitioners have adopted Lucene,\footnote{\url{https://lucene.apache.org}} Solr\footnote{\url{https://lucene.apache.org/solr}} or Elasticsearch\footnote{\url{https://www.elastic.co}} as the de facto platform in the development of search applications with the primary objective of scalability.
+However, academic systems such as Indri\footnote{\url{https://www.lemurproject.org}} and Terrier\footnote{\url{http://terrier.org}}, which prioritize better rankings above all else with little consideration for operational characteristics, are far more prevalent among researchers.
 
 Anserini~\cite{Yang_etal_SIGIR2017} was developed in response to this disconnect to provide a research-focused information retrieval toolkit on top of the open-source Lucene search library.
 Anserini facilitates efficient full text indexing and search capabilities over large-scale text collections by providing wrappers and intuitive APIs on top of core Lucene libraries.
@@ -32,7 +32,7 @@ More importantly, Anserini makes it possible for researchers and industry practi
 Related to our work, Anserini can be seamlessly integrated into multi-stage ranking architectures with large improvements in retrieval effectiveness and low latency as demonstrated by Nogueira et al.~\cite{nogueira2019passage} and Yang et al.~\cite{yang2019end}.
 Similar to their work, we initially use Anserini to index our test collections in a multi-threaded manner with Lucene 8.0 (post commit id \texttt{75e36f9}).
 % \myworries{which has greatly improved query evaluation latency over the previous Lucene 7.6}).
-For each test collection, we retrieve an initial ranked list of documents 1000 for each query with BM25 with RM3 queru expansion using default Anserini parameters.
+For each test collection, we retrieve an initial ranked list of documents 1000 for each query with BM25 with RM3 query expansion using default Anserini parameters.
 
 %\myworries{Is this part necessary? How can it be modified?}
 %Anserini has already been successfully adopted in multiple projects:\

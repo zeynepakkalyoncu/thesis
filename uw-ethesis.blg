@@ -4,60 +4,54 @@ The top-level auxiliary file: uw-ethesis.aux
 The style file: plain.bst
 Database file #1: uw-ethesis.bib
 Warning--I didn't find a database entry for "macavaney2019cedr"
-Warning--empty booktitle in allan2017trec
-Warning--empty year in allan2017trec
 Warning--empty journal in burges2010ranknet
 Warning--empty year in burges2010ranknet
 Warning--can't use both volume and number fields in lavrenko2017relevance
 Warning--can't use both volume and number fields in lin2019neural
 Warning--empty journal in ounisoverview
-Warning--empty year in ounisoverview
 Warning--empty journal in radford2018improving
 Warning--empty year in radford2018improving
 Warning--empty journal in radford2019language
 Warning--empty year in radford2019language
-Warning--empty journal in sculley2018winner
-Warning--empty booktitle in yilmaz2019cross
-Warning--empty year in yilmaz2019cross
 You've used 79 entries,
             2118 wiz_defined-function locations,
-            902 strings with 20301 characters,
-and the built_in function-call counts, 32404 in all, are:
-= -- 3158
+            899 strings with 20635 characters,
+and the built_in function-call counts, 33315 in all, are:
+= -- 3258
 > -- 1821
-< -- 35
+< -- 40
 + -- 721
 - -- 636
-* -- 2267
-:= -- 5223
-add.period$ -- 250
+* -- 2309
+:= -- 5292
+add.period$ -- 255
 call.type$ -- 79
 change.case$ -- 552
 chr.to.int$ -- 0
-cite$ -- 94
-duplicate$ -- 1257
-empty$ -- 2293
+cite$ -- 88
+duplicate$ -- 1312
+empty$ -- 2413
 format.name$ -- 636
-if$ -- 6876
+if$ -- 7131
 int.to.chr$ -- 0
 int.to.str$ -- 79
 missing$ -- 80
-newline$ -- 392
+newline$ -- 395
 num.names$ -- 158
-pop$ -- 659
+pop$ -- 680
 preamble$ -- 1
 purify$ -- 474
 quote$ -- 0
-skip$ -- 954
+skip$ -- 997
 stack$ -- 0
-substring$ -- 1726
-swap$ -- 408
-text.length$ -- 35
+substring$ -- 1863
+swap$ -- 452
+text.length$ -- 40
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 314
-warning$ -- 15
-while$ -- 275
+warning$ -- 9
+while$ -- 289
 width$ -- 81
-write$ -- 855
-(There were 16 warnings)
+write$ -- 860
+(There were 10 warnings)
