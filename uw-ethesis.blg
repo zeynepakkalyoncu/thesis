@@ -4,54 +4,51 @@ The top-level auxiliary file: uw-ethesis.aux
 The style file: plain.bst
 Database file #1: uw-ethesis.bib
 Warning--I didn't find a database entry for "macavaney2019cedr"
-Warning--empty journal in burges2010ranknet
-Warning--empty year in burges2010ranknet
 Warning--can't use both volume and number fields in lavrenko2017relevance
 Warning--can't use both volume and number fields in lin2019neural
-Warning--empty journal in ounisoverview
 Warning--empty journal in radford2018improving
 Warning--empty year in radford2018improving
 Warning--empty journal in radford2019language
 Warning--empty year in radford2019language
-You've used 79 entries,
+You've used 77 entries,
             2118 wiz_defined-function locations,
-            899 strings with 20635 characters,
-and the built_in function-call counts, 33315 in all, are:
-= -- 3258
-> -- 1821
-< -- 40
-+ -- 721
-- -- 636
-* -- 2309
-:= -- 5292
-add.period$ -- 255
-call.type$ -- 79
-change.case$ -- 552
+            897 strings with 20544 characters,
+and the built_in function-call counts, 32784 in all, are:
+= -- 3207
+> -- 1780
+< -- 41
++ -- 704
+- -- 622
+* -- 2272
+:= -- 5187
+add.period$ -- 249
+call.type$ -- 77
+change.case$ -- 539
 chr.to.int$ -- 0
-cite$ -- 88
-duplicate$ -- 1312
-empty$ -- 2413
-format.name$ -- 636
-if$ -- 7131
+cite$ -- 83
+duplicate$ -- 1296
+empty$ -- 2391
+format.name$ -- 622
+if$ -- 7034
 int.to.chr$ -- 0
-int.to.str$ -- 79
-missing$ -- 80
-newline$ -- 395
-num.names$ -- 158
-pop$ -- 680
+int.to.str$ -- 77
+missing$ -- 78
+newline$ -- 386
+num.names$ -- 154
+pop$ -- 664
 preamble$ -- 1
-purify$ -- 474
+purify$ -- 463
 quote$ -- 0
-skip$ -- 997
+skip$ -- 987
 stack$ -- 0
-substring$ -- 1863
-swap$ -- 452
-text.length$ -- 40
+substring$ -- 1855
+swap$ -- 454
+text.length$ -- 41
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 314
-warning$ -- 9
-while$ -- 289
-width$ -- 81
-write$ -- 860
-(There were 10 warnings)
+type$ -- 306
+warning$ -- 6
+while$ -- 285
+width$ -- 79
+write$ -- 844
+(There were 7 warnings)

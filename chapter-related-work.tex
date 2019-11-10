@@ -159,7 +159,7 @@ Liu~\cite{liu2011learning} claims that listwise LTR approaches often produce bet
 \begin{figure}[t!]
 \centering
   \includegraphics[width=5in]{figures/deep_matching.pdf}
-\caption{The two types of deep matching architectures: representation-focused (a) and interaction-focused (b). Adapted from Guo et al.~\cite{guo2017drmm}.}
+\caption{The two types of deep matching architectures: representation-focused (a) and interaction-focused (b). Adapted from Guo et al.~\cite{guo2016deep}.}
 \label{fig:deep_matching}
 \end{figure}
 
@@ -192,10 +192,10 @@ While C-DSSM improves over DSSM by exploiting the context of each trigram, it st
 
 Interaction-based approaches capture local matching signals, and directly compute word-word similarity between query and document representations (see Figure \ref{fig:deep_matching}, right).
 In contrast to more shallow representation-based approaches, this setup allows the deep neural network to learn more complex hierarchical matching patterns across multiple layers.
-Some notable examples of these architectures include DRMM~\cite{guo2017drmm}, KNRM~\cite{xiong2017knrm} and DUET~\cite{mitra2017learning}.
+Some notable examples of these architectures include DRMM~\cite{guo2016deep}, KNRM~\cite{xiong2017knrm} and DUET~\cite{mitra2017learning}.
 %\myworries{Explicit benefit of each method?}
 
-DRMM~\cite{guo2017drmm}, which stands for Deep Relevance Matching Model, maps variable-length local interactions of query and document into a fixed-length matching histogram.
+DRMM~\cite{guo2016deep}, which stands for Deep Relevance Matching Model, maps variable-length local interactions of query and document into a fixed-length matching histogram.
 A feed forward matching network is used to learn hierarchical matching patterns from the histogram representation, and a matching score is computed for each term.
 An overall matching score is obtained by aggregating the scores from each query term with a term gating network.
 KNRM~\cite{xiong2017knrm} similarly calculates the word-word similarities between query and document embeddings, but converts word-level interactions into ranking features with a novel kernel pooling technique.
@@ -226,7 +226,7 @@ passage re-ranking instead of document re-ranking.
 
 Notably, Nogueira et al.~\cite{nogueira2019passage} proposed to re-rank MS MARCO passages based on a simple adaptation of BERT to learn a model of relevance, outperforming the previous state of the art by 27\% in MRR@10 and replacing the previous top entry in the leaderboard of the MS MARCO passage retrieval task.
 Our neural model is inspired by the BERT re-implementation described in their paper.
-Padigela et al.~\cite{Padigela:1905.01758:2019} prioritize studying the reasons behind the gains that come with re-ranking MS MARCO passages with BERT.
+Padigela et al.~\cite{padigela2019bert} prioritize studying the reasons behind the gains that come with re-ranking MS MARCO passages with BERT.
 To investigate re-ranking with BERT, they compare their BERT-based re-ranker to feature based learning to rank models such as RankSVM~\cite{joachims2002optimizing} and a number of neural kernel matching models such as KNRM~\cite{xiong2017knrm} and Conv-KNRM~\cite{dai2018convolutional}, and conclude that  fine-tuning BERT is substantially more effective than either neural model.
 They also test four hypotheses regarding the behavior of matching with BERT compared to BM25; specifically, with respect to term frequency and document length.
 
@@ -237,7 +237,7 @@ Their approach is motivated by user studies by Zhang et al.~\cite{zhang2018effec
 The work of Yang et al.~\cite{yang2019simple} paved the way for future work that culminated in this thesis.
 
 More recently, MacAvaney et al.~\cite{MacAvaney_etal_SIGIR2019} shifted focus from incorporating BERT as a re-ranker to using its representation capabilities to improve existing neural architectures.
-By computing a relevance matrix between the query and each candidate document at each layer of a contextualized language model -- in particular, ELMo or BERT --  they report a high score of NDCG@20 0.5381 on Robust04 by combining CEDR (Contextualized Embeddings for Document Ranking)~\cite{macavaney2019cedr} with KNRM~\cite{xiong2017knrm}.
+By computing a relevance matrix between the query and each candidate document at each layer of a contextualized language model -- in particular, ELMo or BERT --  they report a high score of NDCG@20 0.5381 on Robust04 by combining CEDR (Contextualized Embeddings for Document Ranking)~\cite{MacAvaney_etal_SIGIR2019} with KNRM~\cite{xiong2017knrm}.
 They also propose a joint model that combines the classification mechanism of BERT into existing neural architectures to help benefit from both deep semantic matching with BERT \textit{and} relevance matching with traditional ranking architectures.
 
 A recent arXiv preprint by Qiao et al.~\cite{Qiao:1904.07531:2019} also examines the performance and behavior of BERT when used as a re-ranker for passage ranking on MS MARCO and for document ranking on the TREC Web Track.

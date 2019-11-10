@@ -68,6 +68,7 @@ Piotr Bojanowski, Edouard Grave, Armand Joulin, and Tomas Mikolov.
 \bibitem{burges2010ranknet}
 Christopher~J Burges.
 \newblock From {RankNet} to {LambdaRank} to {LambdaMART}: {An} {Overview}.
+\newblock In {\em Learning}, volume~11, pages 23--581, 2010.
 
 \bibitem{cao2007learning}
 Zhe Cao, Tao Qin, Tie-Yan Liu, Ming-Feng Tsai, and Hang Li.
@@ -137,12 +138,6 @@ Kristina Gulordava, Piotr Bojanowski, Edouard Grave, Tal Linzen, and Marco
   Baroni.
 \newblock Colorless green recurrent networks dream hierarchically.
 \newblock {\em arXiv preprint arXiv:1803.11138}, 2018.
-
-\bibitem{guo2017drmm}
-Jiafeng Guo, Yixing Fan, Qingyao Ai, and W~Bruce Croft.
-\newblock A deep relevance matching model for ad-hoc retrieval.
-\newblock In {\em Proceedings of the 25th ACM International on Conference on
-  Information and Knowledge Management}, pages 55--64. ACM, 2016.
 
 \bibitem{guo2016deep}
 Jiafeng Guo, Yixing Fan, Qingyao Ai, and W~Bruce Croft.
@@ -240,7 +235,7 @@ Tie-Yan Liu.
 \bibitem{DBLP:journals/corr/abs-1907-11692}
 Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer
   Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov.
-\newblock Roberta: A robustly optimized bert pretraining approach.
+\newblock {RoBERTa}:\ {A} robustly optimized bert pretraining approach.
 \newblock {\em arXiv preprint arXiv:1907.11692}, 2019.
 
 \bibitem{MacAvaney_etal_SIGIR2019}
@@ -290,13 +285,7 @@ Rodrigo Nogueira and Kyunghyun Cho.
 \bibitem{ounisoverview}
 Iadh Ounis, Craig Macdonald, Jimmy Lin, and Ian Soboroff.
 \newblock Overview of the {TREC} 2011 {Microblog} {Track}.
-\newblock 2011.
-
-\bibitem{Padigela:1905.01758:2019}
-Harshith Padigela, Hamed Zamani, and W~Bruce Croft.
-\newblock Investigating the successes and failures of {BERT} for passage
-  re-ranking.
-\newblock {\em arXiv preprint arXiv:1905.01758}, 2019.
+\newblock In {\em Proceedings of the 20th Text REtrieval Conference}, 2011.
 
 \bibitem{padigela2019bert}
 Harshith Padigela, Hamed Zamani, and W~Bruce Croft.
@@ -345,7 +334,8 @@ Jinfeng Rao, Wei Yang, Yuhao Zhang, Ferhan Ture, and Jimmy Lin.
 \bibitem{sculley2018winner}
 D.~Sculley, Jasper Snoek, Alexander~B Wiltschko, and Ali Rahimi.
 \newblock {W}inner's {C}urse? {O}n pace, progress, and empirical rigor.
-\newblock In {\em ICLR}, 2018.
+\newblock In {\em Proceedings of the 6th International Conference on Learning
+  Representations}, 2018.
 
 \bibitem{shen2014learning}
 Yelong Shen, Xiaodong He, Jianfeng Gao, Li~Deng, and Gr{\'e}goire Mesnil.

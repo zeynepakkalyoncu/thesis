@@ -2,7 +2,7 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces An example of a query-text pair from the TREC Robust04 collection where a relevant piece of text does not contain exact query matches.}}{1}{figure.1.1}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces The architecture combining BERT with an additional output layer for the sentence pair classification task, where $ E $ represents the input embedding for each sentence and $ T_i $ the contextual representation of token $ i $. Adapted from Devlin et al.\nobreakspace {}\cite {devlin2018bert}.}}{9}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces The two types of deep matching architectures: representation-focused (a) and interaction-focused (b). Adapted from Guo et al.\nobreakspace {}\cite {guo2017drmm}.}}{11}{figure.2.2}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces The two types of deep matching architectures: representation-focused (a) and interaction-focused (b). Adapted from Guo et al.\nobreakspace {}\cite {guo2016deep}.}}{11}{figure.2.2}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Visualization of best AP scores on Robust04 for 108 papers based on non-neural and neural approaches. Adapted from Yang et al.\nobreakspace {}\cite {Yang_etal_SIGIR2019}.}}{16}{figure.2.3}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces A sample relevant query and tweet pair from the MB dataset.}}{20}{figure.3.1}
