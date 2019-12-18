@@ -1,5 +1,5 @@
 %======================================================================
-\chapter{Cross-Domain Relevance Transfer with BERT}
+\chapter{Cross-Domain Sentence Modeling for Relevance Transfer}
 %======================================================================
 \label{ch:model}
 
@@ -23,7 +23,7 @@ The details of each dataset are provided below.
 
 \subsubsection{TREC Microblog (MB)}
 
-\begin{figure}[b!]
+\begin{figure}[t!]
 	\begin{framed}
 %		\centering
     		\textbf{Query:} bbc world service staff cuts \\
@@ -31,7 +31,7 @@ The details of each dataset are provided below.
     		\textbf{Relevance:} 1 (``relevant'')
 	\end{framed}
 \label{mb-example}
- \caption{A sample relevant query and tweet pair from the MB dataset.}
+ \caption{A sample query and relevant tweet pair from the MB dataset.}
 \end{figure}
 
 \begin{table}[t]
@@ -55,18 +55,17 @@ Number  of tweets & 133K & 44K  \\
 The TREC Microblog dataset draws from the Microblog Tracks at TREC from 2011 to 2014, with topics and relevance judgments over tweets.
 Topics associated with tweets are treated as queries, and each of the four datasets contains approximately 50 queries.
 The nature of this collection differs from newswire documents that we evaluate our models on in distinct ways:\
-First of all, tweets have much fewer tokens than newswire documents.
+first of all, tweets have much fewer tokens than newswire documents.
 By definition, tweets are limited to 280 characters.
 %The length distribution of tweets in MB is displayed in \Figure X}.
 Furthermore, because queries and tweets in this dataset are comparable in length, exact matches of query terms occur less frequently in the tweets than they might in longer documents such as news articles.
 Therefore, semantic matching signals may take precedence in improving retrieval effectiveness on MB.
 %\myworries{How is this relevant to our training? It's valuable because...}
 Related to this point, tweets are expressed in a much less formal language than news articles.
-Tweets may characteristically contain various abbreviations (partly due to the aforementioned length constraint), informal conventions such as hashtags or typos.
-Such informal language may result in term mismatches in the case of exact matching.
+Tweets may characteristically contain various abbreviations (partly due to the aforementioned length constraint), informal conventions such as hashtags or typos; such informal language may result in term mismatches in the case of exact matching.
 It may therefore be helpful to catch other semantic signals with a deep neural network.
 
-We use the MB data prepared by Rao et al.~\cite{rao2019tweet}.~\footnote{\url{https://github.com/jinfengr/neural-tweet-search}}
+We use the MB data\footnote{\url{https://github.com/jinfengr/neural-tweet-search}} prepared by Rao et al.~\cite{rao2019tweet}.
 We extract the queries, tweets and relevance judgments from the dataset, excluding metadata such as query time and URLs of the tweets.
 Both queries and tweets are segmented into token sequences.
 Relevance judgments in MB are reported on a three-point scale, i.e., (``non-relevant'', ``relevant'' and ``highly relevant''), however, for the purposes of this work we treat both higher degrees of relevance as equal~\cite{ounisoverview}.
@@ -124,10 +123,10 @@ Similarly, the evaluation set contains approximately 6.8K queries and their top 
 
 \subsubsection{TREC Complex Answer Retrieval (CAR)}
 
-\begin{table}[t!]
+\begin{table}[b!]
 \vspace{0.2cm}
 \centering
-\begin{tabular}{llll}
+\begin{tabular}{lccc}
 \toprule
 \textbf{Type} \mbox{\hspace{0.5cm}} & \textbf{Training Set} \mbox{\hspace{1.0cm}} & \textbf{Validation Set} \mbox{\hspace{1.0cm}} \\
 \toprule
@@ -153,19 +152,18 @@ Number of passages & 30M & 7M \\
 
 TREC CAR \cite{dietz2017trec} uses paragraphs extracted from all of the English Wikipedia, except the abstracts.
 Each query is formed by concatenating an article title and a section heading, with all passages under that section considered relevant.
-The goal of this TREC track is to automatically collect and condense information for a complex query into a single coherent summary.
-Rather than focusing on document retrieval, the priority is aggregating synthesized information in the form of references, facts, and opinions.
+The goal of this track is to automatically collect and condense information for a complex query into a single coherent summary; the priority is aggregating synthesized information in the form of references, facts, and opinions.
 However, CAR is a synthetic dataset in the sense that queries and documents do not reflect real-world distributions or information needs.
-The organizers of TREC CAR 2017 only provide manual annotations for the top 5 passages retrieved, meaning some relevant passages may not be annotated if they rank lower.
+Manual annotations for only the top 5 passages retrieved are provided, meaning some relevant passages may not be annotated if they rank lower.
 For this reason, we opt to use automatic annotations that provide relevance judgments for all possible query-passage pairs.
 %\myworries{More?}
 
 The dataset has five predefined folds over the queries.
 Paragraphs corresponding to the first four folds are used to construct the training set consisting of approximately 3M queries, and the rest the validation set of around 700K queries.
-The original test set used to evaluate submissions to TREC CAR is used for testing purposes.
+The training pairs are generated by retrieving the top 10 passages with BM25.
+%The original test set used to evaluate submissions to TREC CAR is used for testing purposes.
 A subtle detail to note is that the official BERT models are pre-trained on the entire Wikipedia dump; therefore, they have also been trained on documents in the TREC CAR test collection albeit in an unsupervised fashion.
 In order to avoid the leak of test data into training, we use the BERT model pre-trained only on the half of Wikipedia present in CAR training samples~\cite{nogueira2019passage}.
-The training pairs for CAR are generated by retrieving the top 10 passages from the entire CAR corpus with BM25.
 %30M fine-tuning query-passage pairs were generated by retrieving the top 10 passages from the entire CAR corpus with BM25.
 %Similar to MS MARCO, training on more than 40\% of the training set did not lead to any improvements on the validation set
 
@@ -184,7 +182,7 @@ Notably the distribution of document lengths in Robust04 is highly skewed, with 
 
 \subsubsection{Core17 \& Core18}
 
-Core17 and Core18 build on the TREC 2017 and 2018 Common Core Tracks respectively.
+Core17 and Core18 build on the TREC 2017 and 2018 Common Core Tracks, respectively.
 The motivation behind these tracks is to build up-to-date test collections based on more recently created documents.
 %\myworries{that avoids the pitfalls of depth-k pooling}
 Core17 contains 1.8M articles from the New York Times Annotated Corpus while Core18 has around 600K articles from the TREC Washington Post Corpus.
@@ -199,7 +197,7 @@ This approach is motivated by the application of fine-tuning in NLP where a larg
 In our implementation, we choose BERT as our base mode.
 BERT is trained on copious amounts of unsupervised data from the Google BookCorpus and English Wikipedia with masked language modeling.
 %\myworries{Talk about relevance prediction too}
-Although the training procedure doesn't involve any explicit objective to extract linguistic features, it has been shown to implicitly recognize such features as subject-verb agreement and conference resolution~\cite{jawahar2019does, clark2019does}, which allows a number of NLP tasks to greatly benefit from features implicitly encoded in BERT weights.
+Although the training procedure does not involve any explicit objective to extract linguistic features, it has been shown to implicitly recognize such features as subject-verb agreement and conference resolution~\cite{jawahar2019does, clark2019does}, which allows a number of NLP tasks to greatly benefit from features implicitly encoded in BERT weights.
 
 \subsection{Relevance Classifier}
 
@@ -237,7 +235,7 @@ The \texttt{[SEP]} metatoken is used to distinguish between two non-consecutive 
 Although BERT supports variable length token sequences, the final input length must be consistent across each batch.
 Therefore, we pad each sequence in a mini-batch to the maximum length in the batch.
 
-The complete input embeddings of BERT is comprised of token, segmentation, and position embeddings.
+The complete input embeddings of BERT are comprised of token, segmentation, and position embeddings.
 The first is constructed by tokenizing the above sequence with the proper metatokens in place with the BERT tokenizer.
 Since BERT was trained based on WordPiece tokenization, we use the same tokenizer to achieve optimal performance.
 WordPiece tokenization may break words into multiple subwords in order to more efficiently deal with out-of-vocabulary words and better represent complex words.
@@ -310,7 +308,7 @@ s_f = \alpha \cdot s_{doc}  + (1 - \alpha) \cdot \sum_{i = 1}^n w_i \cdot s_i
 In other words, the relevance score of a document comes from the combination of a document-level term-matching score and relevance evidence contributions from the top sentences in the document as determined by BERT.
 
 We experiment with the number of top scoring sentences to consider while computing the overall score, and find that using only the top 3 sentences is often enough.
-In general, considering any more doesn't yield better results.
+In general, considering any more does not yield better results.
 To tune hyperparameters $ \alpha $ and the $ w_i $'s  in Equation~\ref{eq:1}, we apply five-fold cross-validation over TREC topics.
 For Robust04, we follow the five-fold cross-validation settings in Lin~\cite{lin2019neural} over 250 topics.
 For Core17 and Core18 we similarly apply five-fold cross validation.
@@ -328,21 +326,21 @@ The fine-tuning procedure introduces few new hyperparameters in addition to thos
 Due to the large amount of training data in MS MARCO and TREC CAR, BERT is initially trained on Google's TPU's with a batch size of 32 for 400k iterations.
 % following ~\cite{nogueira2019passage}.
 We use Adam \cite{kingma2014adam} with an initial learning rate of $ 3 \times 10^{-6}$, $ \beta_1 = 0.9 $ and $ \beta_2 = 0.999 $ and L2 decay of 0.01.
-Learning rate warmup is applied over the first 10k steps with linear decay of learning rate.
+Learning rate warmup is applied over the first 10K steps with linear decay of learning rate.
 We apply dropout with probability of 0.1 across all layers.
 
 We train all other models using cross-entropy loss for 5 epochs with a batch size of 16.
 We conduct all our experiments on NVIDIA Tesla P40 GPUs with PyTorch v1.2.0.
-We use Adam \cite{kingma2014adam} with an initial learning rate of $ 1 \times 10^{-5}$, linear learning rate warmup at a rate of 0.1 and decay of 0.1.
+We use the Adam optimizer \cite{kingma2014adam} with an initial learning rate of $ 1 \times 10^{-5}$, linear learning rate warmup at a rate of 0.1 and decay of 0.1.
 We find that applying diminishing learning rates is especially important in fine-tuning BERT in order to preserve the information encoded in the original BERT weights and speed up training.
 
 %\subsection{Evaluation}
 \subsection{End-to-End Document Retrieval}
 
-We retrieve an initial ranking of 1000 documents for each query in Robust04, Core17 and Core18 using the open-source Anserini information retrieval toolkit based on Lucene 8.
+We retrieve an initial ranking of 1000 documents for each query in Robust04, Core17, and Core18 using the open-source Anserini information retrieval toolkit based on Lucene 8.
 To ensure fairness across all three collections, we use BM25 with RM3 query expansion with default parameters.
 Before running inference with BERT to obtain relevance scores, we preprocess the retrieved documents:\
-First, we clean the documents by stripping any HTML/XML tags and split each document into its constituent sentences with NLTK's Stanford Tokenizer.\footnote{\url{https://nlp.stanford.edu/software/tokenizer.shtml}}
+first, we clean the documents by stripping any HTML/XML tags and split each document into its constituent sentences with NLTK's Stanford Tokenizer.\footnote{\url{https://nlp.stanford.edu/software/tokenizer.shtml}}
 If the length of a sentence with the meta-tokens still exceeds the maximum input length of BERT, we further segment the spans into fixed sized chunks.
 %Candidate documents are re-ranked based on the combination of BM25 and sentence scores computed with BERT according to Equation~\ref{eq:1} with the hyperparameters optimized on
 In order to make our results comparable to the baselines and consistent with the literature, we report retrieval effectiveness in terms of AP, P@20, and NDCG@20.

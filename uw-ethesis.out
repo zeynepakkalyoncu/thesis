@@ -1,5 +1,5 @@
-\BOOKMARK [0][-]{section*.2}{List of Tables}{}% 1
-\BOOKMARK [0][-]{section*.4}{List of Figures}{}% 2
+\BOOKMARK [0][-]{section*.2}{List of Figures}{}% 1
+\BOOKMARK [0][-]{section*.4}{List of Tables}{}% 2
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 3
 \BOOKMARK [1][-]{section.1.1}{Contributions}{chapter.1}% 4
 \BOOKMARK [1][-]{section.1.2}{Thesis Organization}{chapter.1}% 5
@@ -13,7 +13,7 @@
 \BOOKMARK [2][-]{subsection.2.3.2}{Neural Document Retrieval}{section.2.3}% 13
 \BOOKMARK [2][-]{subsection.2.3.3}{Comparison of Non-Neural and Neural Methods}{section.2.3}% 14
 \BOOKMARK [1][-]{section.2.4}{Evaluation Metrics}{chapter.2}% 15
-\BOOKMARK [0][-]{chapter.3}{Cross-Domain Relevance Transfer with BERT}{}% 16
+\BOOKMARK [0][-]{chapter.3}{Cross-Domain Sentence Modeling for Relevance Transfer}{}% 16
 \BOOKMARK [1][-]{section.3.1}{Datasets}{chapter.3}% 17
 \BOOKMARK [2][-]{subsection.3.1.1}{Fine-Tuning}{section.3.1}% 18
 \BOOKMARK [2][-]{subsection.3.1.2}{Evaluation}{section.3.1}% 19

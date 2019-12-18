@@ -3,7 +3,7 @@
 %======================================================================
 \label{intro}
 
-Document retrieval refers to the task of generating a ranking of documents from a large corpus $ D $ in response to a query $ Q $.
+Document retrieval refers to the task of generating a ranking of documents from a large corpus $ D $ in response to a query $ q $.
 In a typical document retrieval pipeline, an inverted index is constructed in advance from the collection, which often comprises unstructured text documents, for fast access during retrieval.
 When the user issues a query, the query representation is matched against the index, computing a similarity score for each document.
 The top $ k $ most relevant documents based on their similarity score are returned to the user.
@@ -71,7 +71,7 @@ We address the abovementioned challenges by proposing two effective innovations:
 	\item
 	Instead of relying solely on document-level relevance judgments, we aggregate sentence-level evidence to rank documents.
 	\item
-	Since standard newswire collections lack sentence-level judgments to facilitate this approach, we instead explore leveraging sentence-level or passage-level judgments already available in collections in other domains, such as microblog and reading comprehension.
+	Since standard newswire collections lack sentence-level judgments to facilitate this approach, we instead explore leveraging sentence-level or passage-level judgments that are already available in collections in other domains, such as microblog and reading comprehension.
 \end{itemize}
 
 %First, instead of relying solely on document-level relevance judgements, we aggregate sentence-level evidence to rank documents.
@@ -82,7 +82,7 @@ Surprisingly, we demonstrate that these models of relevance can indeed be succes
 %We are able to use BERT models trained on out-of-domain collections on newswire documents to compute a relevance score for each constituent sentence.
 It is important to note that the representational power of neural networks comes at the cost of challenges in interpretability.
 For this reason, we dedicate a portion of this thesis to error analysis experiments in an attempt to qualify and better understand the cross-domain transfer effects.
-We also elaborate on our engineering efforts to ensure reproducibility and replicability, and the technical challenges involved in bridging the worlds of natural language processing and information retrieval from a software engineering perspective.
+We also elaborate on our engineering efforts to ensure reproducibility and replicability in addition to the technical challenges involved in bridging the worlds of natural language processing and information retrieval from a software engineering perspective.
 
 \newpage
 
@@ -106,7 +106,7 @@ The main contributions of this thesis can be summarized as follows:\\
 %\myworries{Revisit after completing experimental results}
 
 	\item
-	We release an end-to-end pipeline, Birch,\footnote{\url{https://github.com/castorini/birch}} that applies BERT to document retrieval over large document collections via integration with the open-source Anserini information retrieval toolkit.~\footnote{\url{https://github.com/castorini/anserini}}
+	We release an end-to-end pipeline, Birch,\footnote{\url{https://github.com/castorini/birch}} that applies BERT to document retrieval over large document collections via integration with the open-source Anserini information retrieval toolkit.\footnote{\url{https://github.com/castorini/anserini}}
 	An accompanying Docker image is also included to ensure that anyone can easily deploy and test our system.
 	We elaborate on the technical challenges in the integration of NLP and IR capabilities, and the rationale behind our design decisions.
 \end{itemize}
@@ -116,8 +116,8 @@ The main contributions of this thesis can be summarized as follows:\\
 \section{Thesis Organization}
 
 The remainder of this thesis is organized in the following order:\
-Chapter \ref{ch:review} reviews related work in document retrieval, pretrained language models and document re-ranking models based on machine learning techniques as well as the metrics used in evaluation.
+Chapter \ref{ch:review} reviews related work and evaluation metrics in document retrieval, pretrained language models and document re-ranking models based on machine learning techniques.
 Chapter \ref{ch:model} introduces the datasets used for fine-tuning BERT and for evaluating our models, motivates our approach with detailed information regarding the proposed model, and describes the experimental setup.
 Chapter \ref{ch:arch} outlines an end-to-end pipeline for document retrieval with BERT by elaborating on the design decisions and challenges.
-Chapter \ref{ch:results} presents our results on three newswire collections -- Robust04, Core17 and Core18 -- and provides a number of further analyses to help interpret the inner workings of BERT.
+Chapter \ref{ch:results} presents our results on three newswire collections---Robust04, Core17 and Core18---and provides further analysis to help interpret the inner workings of BERT.
 Chapter \ref{ch:conclusion} concludes the thesis by summarizing the main contributions and discussing future work.

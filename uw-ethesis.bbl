@@ -170,13 +170,13 @@ Thorsten Joachims.
   Knowledge Discovery and Data Mining}, pages 133--142. ACM, 2002.
 
 \bibitem{jones2000probabilistic}
-K~Sparck Jones, Steve Walker, and Stephen~E. Robertson.
+K~Sparck Jones, Steve Walker, and Stephen~E Robertson.
 \newblock A probabilistic model of information retrieval: development and
   comparative experiments: Part 2.
 \newblock {\em Information Processing \& Management}, 36(6):809--840, 2000.
 
 \bibitem{kingma2014adam}
-Diederik~P. Kingma and Jimmy Ba.
+Diederik~P Kingma and Jimmy Ba.
 \newblock Adam:\ {A} method for stochastic optimization.
 \newblock {\em arXiv:1412.6980}, 2014.
 
@@ -332,7 +332,7 @@ Jinfeng Rao, Wei Yang, Yuhao Zhang, Ferhan Ture, and Jimmy Lin.
   Intelligence}, volume~33, pages 232--240, 2019.
 
 \bibitem{sculley2018winner}
-D.~Sculley, Jasper Snoek, Alexander~B Wiltschko, and Ali Rahimi.
+D~Sculley, Jasper Snoek, Alexander~B Wiltschko, and Ali Rahimi.
 \newblock {W}inner's {C}urse? {O}n pace, progress, and empirical rigor.
 \newblock In {\em Proceedings of the 6th International Conference on Learning
   Representations}, 2018.
@@ -432,6 +432,13 @@ Wei Yang, Yuqing Xie, Aileen Lin, Xingyu Li, Luchen Tan, Kun Xiong, Ming Li,
 Wei Yang, Haotian Zhang, and Jimmy Lin.
 \newblock Simple applications of {BERT} for ad hoc document retrieval.
 \newblock {\em arXiv preprint arXiv:1903.10972}, 2019.
+
+\bibitem{DBLP:journals/corr/abs-1906-08237}
+Zhilin Yang, Zihang Dai, Yiming Yang, Jaime~G Carbonell, Ruslan Salakhutdinov,
+  and Quoc~V Le.
+\newblock {XLNet}: Generalized autoregressive pretraining for language
+  understanding.
+\newblock volume abs/1906.08237, 2019.
 
 \bibitem{yilmaz2019applying}
 Zeynep~Akkalyoncu Yilmaz, Shengjin Wang, Wei Yang, Haotian Zhang, and Jimmy

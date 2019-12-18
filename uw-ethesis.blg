@@ -3,52 +3,52 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: uw-ethesis.aux
 The style file: plain.bst
 Database file #1: uw-ethesis.bib
-Warning--I didn't find a database entry for "macavaney2019cedr"
 Warning--can't use both volume and number fields in lavrenko2017relevance
 Warning--can't use both volume and number fields in lin2019neural
 Warning--empty journal in radford2018improving
 Warning--empty year in radford2018improving
 Warning--empty journal in radford2019language
 Warning--empty year in radford2019language
-You've used 77 entries,
+Warning--empty booktitle in DBLP:journals/corr/abs-1906-08237
+You've used 78 entries,
             2118 wiz_defined-function locations,
-            897 strings with 20544 characters,
-and the built_in function-call counts, 32784 in all, are:
-= -- 3207
-> -- 1780
-< -- 41
-+ -- 704
-- -- 622
-* -- 2272
-:= -- 5187
-add.period$ -- 249
-call.type$ -- 77
-change.case$ -- 539
+            902 strings with 20785 characters,
+and the built_in function-call counts, 33183 in all, are:
+= -- 3238
+> -- 1813
+< -- 42
++ -- 717
+- -- 634
+* -- 2304
+:= -- 5256
+add.period$ -- 252
+call.type$ -- 78
+change.case$ -- 548
 chr.to.int$ -- 0
-cite$ -- 83
-duplicate$ -- 1296
-empty$ -- 2391
-format.name$ -- 622
-if$ -- 7034
+cite$ -- 85
+duplicate$ -- 1309
+empty$ -- 2417
+format.name$ -- 634
+if$ -- 7112
 int.to.chr$ -- 0
-int.to.str$ -- 77
-missing$ -- 78
-newline$ -- 386
-num.names$ -- 154
-pop$ -- 664
+int.to.str$ -- 78
+missing$ -- 79
+newline$ -- 391
+num.names$ -- 156
+pop$ -- 677
 preamble$ -- 1
-purify$ -- 463
+purify$ -- 471
 quote$ -- 0
-skip$ -- 987
+skip$ -- 995
 stack$ -- 0
-substring$ -- 1855
-swap$ -- 454
-text.length$ -- 41
+substring$ -- 1860
+swap$ -- 456
+text.length$ -- 42
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 306
-warning$ -- 6
-while$ -- 285
-width$ -- 79
-write$ -- 844
+type$ -- 310
+warning$ -- 7
+while$ -- 287
+width$ -- 80
+write$ -- 854
 (There were 7 warnings)

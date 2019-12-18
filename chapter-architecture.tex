@@ -10,7 +10,7 @@
 \label{fig:arch}
 \end{figure}
 
-In this chapter, we detail the architecture that allows us to employ the model introduced in Chapter~\ref{ch:model} in practice, review each component of the architecture and discuss the design choices behind their integration.
+In this chapter, we detail the architecture that allows us to employ the model introduced in Chapter~\ref{ch:model}, review each component of the architecture and discuss the design choices behind their integration.
 We also touch upon the issue of reproducibility in information retrieval and our efforts to make our work more reproducible as well as their current limitations.
 
 We apply BERT to document retrieval via integration with the open-source information retrieval toolkit Anserini.\footnote{\url{http://anserini.io}}
@@ -22,8 +22,8 @@ Our BERT-based model is deployed as a re-ranker over the candidate documents to 
 \section{Anserini}
 
 Technology transfer between the academic and industrial information retrieval communities is at times impeded due to a lack of universal set of tools and infrastructure.
-Most industry practitioners have adopted Lucene,\footnote{\url{https://lucene.apache.org}} Solr\footnote{\url{https://lucene.apache.org/solr}} or Elasticsearch\footnote{\url{https://www.elastic.co}} as the de facto platform in the development of search applications with the primary objective of scalability.
-However, academic systems such as Indri\footnote{\url{https://www.lemurproject.org}} and Terrier\footnote{\url{http://terrier.org}}, which prioritize better rankings above all else with little consideration for operational characteristics, are far more prevalent among researchers.
+Most industry practitioners have adopted Lucene,\footnote{\url{https://lucene.apache.org}} Solr,\footnote{\url{https://lucene.apache.org/solr}} or Elasticsearch\footnote{\url{https://www.elastic.co}} as the de facto platform in the development of search applications with the primary objective of scalability.
+However, academic systems such as Indri\footnote{\url{https://www.lemurproject.org}} and Terrier,\footnote{\url{http://terrier.org}} which prioritize better rankings above all else with little consideration for operational characteristics, are far more prevalent among researchers.
 
 Anserini~\cite{Yang_etal_SIGIR2017} was developed in response to this disconnect to provide a research-focused information retrieval toolkit on top of the open-source Lucene search library.
 Anserini facilitates efficient full text indexing and search capabilities over large-scale text collections by providing wrappers and intuitive APIs on top of core Lucene libraries.
@@ -43,7 +43,7 @@ For each test collection, we retrieve an initial ranked list of documents 1000 f
 
 %\myworries{Need a better name that doesn't include Python...}
 The main Python module lies at the core of our system, encompassing the preprocessing, training / inference and evaluation components.
-All the functionalities of our proposed model discussed in Chapter \ref{ch:model} are implemented in this module in Python using the deep learning framework PyTorch\footnote{\url{https://pytorch.org}}.
+All the functionalities of our proposed model discussed in Chapter \ref{ch:model} are implemented in this module in Python using the deep learning framework PyTorch.\footnote{\url{https://pytorch.org}}
 
 The preprocessing component of this module consumes the documents retrieved with Anserini, and converts them into a format that can be used by the main component that enables training and inference with BERT.
 On the one hand, the main component can be used to train BERT as a relevance classifier.
@@ -65,7 +65,7 @@ However, our deep learning framework of choice PyTorch, similar to alternatives 
 There exist two immediate solutions to connecting Python and the JVM.
 ``Loosely-coupled'' integration approaches involve using an intermediary medium between Python and the JVM.
 For example, we may pass text files between the two in order to facilitate communication without direct interaction.
-However, this is not an efficient solution as it requires writing / reading potentially large files to / from disk, not to mention the memory requirements.
+However, this is not an efficient solution as it requires writing/reading potentially large files to/from disk, not to mention the memory requirements.
 Furthermore, this approach requires diligent monitoring to ensure that changing file formats and APIs do not break code.
 Integration via REST APIs is plagued with similar issues as passing intermediate text files.
 Specifically, it may require frequent HTTP calls, thus introducing significant overhead.
@@ -84,11 +84,13 @@ Thus, our system supports Python as the main development language (and code entr
 
 Over the last decade, it has become increasingly challenging to verify reported results and compare various performance metrics due to growing number of information retrieval systems both in academia and the industry.
 Unlike some fields of computer science where it is practical to manually corroborate findings or visually inspect results, the amount and type of data involved in document retrieval deems this approach infeasible.
-This challenge has prompted one of the largest IR conferences in the world, SIGIR, to issue a task force to determine guidelines to establish repeatability, replicability and reproducibility principles in IR projects.\footnote{\url{http://sigir.org/wp-content/uploads/2018/07/p004.pdf}}
+This challenge has prompted one of the largest IR conferences in the world, SIGIR, to issue a task force to determine guidelines to establish repeatability, replicability, and reproducibility principles in IR projects.\footnote{\url{http://sigir.org/wp-content/uploads/2018/07/p004.pdf}}
+
+\newpage
 
 The first dimension of this movement, repeatability, emphasises a researcher's ability to reliably repeat her own runs.
 The path to this goal is through rigorous logging, good data management practices and consistent use of virtual environments.
-We don't delve further into the details of repeatability as the practices we follow are universal to all research endeavors.
+We do not delve further into the details of repeatability as the practices we follow are universal to all research endeavors.
 
 The second dimension, replicability, highlights the ability of an independent group to obtain the same results using the researcher's original artifacts.
 We strive to make our work replicable by building a Docker image to accompany our system that allows anyone to deploy and test our system on any operating system easily.
@@ -96,10 +98,10 @@ By adhering to the requirements defined in the SIGIR Open-Source IR Replicabilit
 %\myworries{The image is available on Docker hub with the tag \texttt{tag}.}
 The OSIRRC jig\footnote{\url{https://github.com/osirrc/jig}} needs to be set up first to run the commands on Docker hub.
 The OSIRRC Docker container contract includes three ``hooks'' for interacting with the system:\
-The \texttt{init} hook has to be called first, whose purpose is to run any preparatory steps for the retrieval run including downloading and compiling the source code, downloading pre-built artifacts such as JAR files and other external resources such as pretrained models.
+the \texttt{init} hook has to be called first, whose purpose is to run any preparatory steps for the retrieval run including downloading and compiling the source code, downloading pre-built artifacts such as JAR files and other external resources such as pretrained models.
 In our case, we pull the source code, data and pretrained models from Google Cloud Storage buckets; build Anserini with Maven, and the $\texttt{trec\_eval}$ tool.
 Next the \texttt{index} hook is called to, as the name indicates, build the necessary indexes.
-Finally, the \texttt{search} hook helps perform multiple ad-hoc retrieval runs in a row.
+Finally, the \texttt{search} hook performs multiple ad-hoc retrieval runs in a row.
 Since the GPU hooks necessary for inference with BERT have not been implemented yet, \texttt{search} relies on pre-computed sentence scores instead of obtaining them from scratch.
 Each of the hook scripts accepts a JSON file that defines the various arguments for the respective script such as path to the relevance judgments file.
 
@@ -109,7 +111,7 @@ Unfortunately, we found this to be true with some aspects of our work with BERT 
 For example, the fine-tuning and inference processes described in Chapter~\ref{ch:model} produces slightly different sentence scores (i.e., third decimal) unless they are performed on the same GPU.
 To further aggravate this issue, these small differences add up over floating point operations, leading to as much as a 0.5 point difference in AP.
 We try to relieve this issue by releasing our tuned hyperparameters which help reproduce the same results despite minor differences in sentence scores, and by reporting results for runs on the same GPU.
-We intend to study this issue further and come up with a systematic solution, if possible, in future work.
+We intend to study this issue further and come up with a systematic solution in future work.
 
 %\myworries{Score ties, hyperparameters?}
 
